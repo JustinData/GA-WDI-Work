@@ -15,7 +15,6 @@
     - Your README.md file should include your name and GitHub username and the final returned value of  `familiarity_hw.rb`
 - Create a file called `FOOD.md`
     - Your `FOOD.md` file should include your favorite food
-- OPTIONAL: If you want to brush up on Git, work through [Try Git](try.github.io) again to review the common commands.
 
 ### Example README.md file
     - Name: Peter Lai
