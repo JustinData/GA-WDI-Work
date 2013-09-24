@@ -6,6 +6,7 @@ def menu
 	puts "What would you like to do?"
 	puts "(b)asic"
 	puts "(a)dvanced"
+	puts "(q)uit"
 
 	return gets.chomp.downcase
 end
