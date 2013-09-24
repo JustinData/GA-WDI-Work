@@ -15,6 +15,14 @@ end
 
 until answer == secret
   puts "Thats Not It!"
+<<<<<<< HEAD
+=======
+    if answer > secret 
+    puts "higher"
+  else
+    puts "lower"
+end
+>>>>>>> master
  answer = gets.chomp.to_i
 end
 
