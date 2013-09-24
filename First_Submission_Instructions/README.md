@@ -33,6 +33,7 @@ git branch
 ######Move to your __OWN PERSONAL DIRECTORY__ and do the work
 - Do NOT edit any files that are not in your personal directory
 - Remember to save all your files
+- Instructions for the assignment are [in the w01/d01 directory](https://github.com/ga-students/WDI_NYC_Array_Work/tree/master/w01/d01)
 
 ![image](./screenshots/own_directory.png)
 ![image](./screenshots/do_work.png)
