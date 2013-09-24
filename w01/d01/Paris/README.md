@@ -1,1 +1,3 @@
-Paris Hyun
+- Name: Paris Lia Hyun
+- GitHub: parisliahyun
+- The final returned value of familiarity_hw.rb
