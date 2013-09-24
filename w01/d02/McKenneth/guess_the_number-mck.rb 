@@ -10,7 +10,15 @@ puts secret.to_s
 # Use a while loop to let the user guess again until he/she gets the answer right.
 while answer != secret
   puts "Sorry! Guess again"
-  answer = gets.chomp.to_i
+  
+  if answer > secret
+    puts "Try a lower number"
+    answer = gets.chomp.to_i
+  else
+    puts "Try a higher number"
+    answer = gets.chomp.to_i
+  end
+
 end
 
 # Display a congratulatory response
