@@ -3,8 +3,7 @@
 ## WDI-Folder Structure
 - Your local folder structure should be:
 
-    - ga_wdi
-        - projects
+    - wdi
         - WDI_NYC_Array
         - WDI_NYC_Array_Work
 
