@@ -5,7 +5,7 @@ puts "I am thinking of an integer between 0 and 10... what number am I thinking 
 answer = gets.chomp.to_i
 
 # Generate a random number between 0 and 10
-secret = rand(10)
+secret = rand(9) + 1
 
 # Use a while loop to let the user guess again until he/she gets the answer right.
 while answer != secret
