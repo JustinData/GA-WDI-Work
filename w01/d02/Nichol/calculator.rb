@@ -2,11 +2,8 @@
 # A user should be able to choose from the menu
 def menu
 	puts "What would you like to do?"
-	puts "(a)dd"
-	puts "(s)ub"
-	puts "(m)ultiply"
-	puts "(d)ivide"
-	puts "(q)uit"
+	puts "(b)asic"
+	puts "(a)dvanced"
 
 	return gets.chomp.downcase
 end
@@ -14,8 +11,22 @@ end
 
 # A user should be able to enter numbers to perform the operation on
 # A user should be shown the result
-def basic_calc (operation, a, b)
+def basic_calc
   
+  	puts "What would you like to do?"
+	puts "(a)dd"
+	puts "(s)ub"
+	puts "(m)ultiply"
+	puts "(d)ivide"
+
+	operation = gets.chomp.downcase
+
+	puts "give me one number"
+	a = gets.chomp.to_f
+  
+  	puts "give me the other number"
+  	b = gets.chomp.to_f
+
   case operation
   when "a"
   	result = a+b
@@ -31,10 +42,6 @@ def basic_calc (operation, a, b)
 
   puts "the result of #{a} #{operation} #{b} is #{result}"
   return result
-
-
-#  print "(a)dd, (s)ubtract, (m)ultiply, (d)ivide: "
-
 end
 
 # Only tackle these once you get all of the basic_calc operations working
@@ -45,18 +52,25 @@ def advanced_calc
 
 end
 
+#dry attempt?
+def getnumbers(a, b)
+	
+end
+
 
 response = menu
 
 # This process should continue until the user selects a quit option from the menu
 while response != 'q'
-  puts "give me one number"
-  num1 = gets.chomp.to_i
   
-  puts "give me the other number"
-  num2 = gets.chomp.to_i
-
-  basic_calc(response, num1, num2)
+case response
+when "b"
+	basic_calc()
+when "a"
+	advanced_calc()
+else
+	"puts error"
+end
 
   response = menu
 end
