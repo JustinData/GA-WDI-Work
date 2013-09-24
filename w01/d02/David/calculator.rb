@@ -62,6 +62,11 @@ def advanced_calc
   when "s"
     puts "The square root of #{num1}  = #{Math.sqrt(num1)}"
   when "sin"
+    puts "The sine of #{num1}  = #{Math.sin(num1)}"
+  when "cos"
+    puts "The cosine of #{num1}  = #{Math.cos(num1)}"
+  when "tan"
+    puts "The tangent of #{num1}  = #{Math.tan(num1)}"
   end
 end
 
