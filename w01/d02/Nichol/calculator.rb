@@ -6,6 +6,7 @@ def menu
 	puts "What would you like to do?"
 	puts "(b)asic"
 	puts "(a)dvanced"
+  puts "(t)rig"
 	puts "(q)uit"
 
 	return gets.chomp.downcase
@@ -72,9 +73,30 @@ def advanced_calc
 
 end
 
+def trig_calc
+  print "(s)in, (c)os, (t)an:"
+  operation = gets.chomp
+
+  puts "give me a number"
+  number = gets.chomp.to_f
+
+  case operation
+  when "s"
+    result = sin(number)
+  when "c"
+    result = cos(number)
+  when "t"
+    result = tan(number)
+  else
+    puts "error"
+  end
+
+  puts "the #{operation} of #{number} is #{result}"
+end
+
+
 #dry attempt?
 # def getnumbers(a, b)
-	
 # end
 
 
@@ -88,6 +110,8 @@ when "b"
 	basic_calc()
 when "a"
 	advanced_calc()
+when "t"
+  trig_calc()
 else
 	"puts error"
 end
