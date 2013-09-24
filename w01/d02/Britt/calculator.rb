@@ -15,7 +15,7 @@ end
 # methods for user input depending on how many numbers are necessary
 def get_one_number
 	puts "What number would you like to use?"
-  $num1 = gets.chomp.to_f # all methods using one number conveniently all return floats
+  $num1 = gets.chomp.to_f # all methods using one number return floats except factorial
 end
 
 def get_two_numbers
@@ -28,7 +28,7 @@ end
 
 #methods for basic_calc
 def addition(a, b)
-	puts a + b
+	a + b
 end
 
 def subtraction(a, b)
@@ -114,7 +114,18 @@ def trigonometric_calc
 end
 
 
-def factorial; end
+def factorial
+	get_one_number.to_i
+
+	if $num1 > 0
+		puts (1..$num1).reduce(1, :*)
+	elsif $num1 == 0
+		puts 1
+	else
+		puts "A factorial can only accept a non-negative integer."
+	end
+
+end
 
 menu
 # This process should continue until the user selects a quit option from the menu
