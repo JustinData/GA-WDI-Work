@@ -47,15 +47,15 @@ def advanced_calc
 
   #user input
   puts "Pick a number"
-  n1 = get_user_input.to_i
+  n = get_user_input.to_i
 
   case choice
   when "p"
-  	puts "To what power do you want #{n1}?"
+  	puts "To what power do you want #{n}?"
   	n2 = get_user_input.to_i
-  	puts "Your answer: #{n1 ** n2}"
+  	puts "Your answer: #{n ** n2}"
   when "s"
-  	puts "The square root of #{n1} is #{Math.sqrt(n1)}"
+  	puts "The square root of #{n} is #{Math.sqrt(n)}"
   else
   	puts "Not an option. Resubmit."
   	choice = get_user_input
@@ -68,17 +68,17 @@ def extra
 
 	#user input
 	puts "Pick a number"
-	n1 = get_user_input.to_i
+	n = get_user_input.to_i
 
 	case choice
 	when "s"
-		puts "The cos of #{n1} is #{sin(n1)}"
+		puts "The cos of #{n} is #{sin(n)}"
 	when "c"
-		puts "The sin of #{n1} is #{sin(n1)}"
+		puts "The sin of #{n} is #{sin(n)}"
 	when "t"
-		puts "The sin of #{n1} is #{tan(n1)}"
+		puts "The sin of #{n} is #{tan(n)}"
 	when "f"
-		puts "The factorial of #{n1} is #{(1..n1).inject(:*)}"
+		puts "The factorial of #{n} is #{(1..n).inject(:*)}"
 	else
 		puts "Not a choice. Pick again."
 		choice = get_user_input
