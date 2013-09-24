@@ -19,10 +19,10 @@ def get_one_number
 end
 
 def get_two_numbers
-	puts "What is the first number you'd like to use?"
+	puts "What is the first integer you'd like to use?"
   $num1 = gets.chomp.to_i
 
-  puts "What is the second number youd like to use?"
+  puts "What is the second integer youd like to use?"
   $num2 = gets.chomp.to_i
 end
 
@@ -52,7 +52,7 @@ def basic_calc
 
   get_two_numbers
 
-  case arithmetic
+  case basic
   when "a"
   	puts addition($num1, $num2)
   when "s"
