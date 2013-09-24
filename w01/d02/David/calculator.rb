@@ -35,7 +35,22 @@ end
 # A user should be shown the result
 def advanced_calc
   print "(p)ower, (s)qrt: "
-
+  operation = gets.chomp
+  if operation == "p"
+    puts "Please enter your first number"
+    num1 = gets.chomp.to_f
+    
+    puts "Please enter your second number"
+    num2 = gets.chomp.to_f
+  elsif operation == "s"
+    puts "Please enter your number to be squared"
+    num1 = gets.chomp.to_f
+      
+case operation
+when "p"
+  puts "#{num1} to the power of #{num2} = #{num1 ** num2}"
+when "s"
+  puts "#{num1}  #{num2} = #{num1 + num2}"
 end
 
 
