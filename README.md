@@ -1,7 +1,7 @@
 Web Development Immersive - WORK REPOSITORY
 ============================
 
-##GITHUB CLASS WORK REPOSITORY
+##HOW TO SET UP YOUR GITHUB CLASS WORK REPOSITORY
 
 * You should start by forking this repo
 ![fork](screenshots/fork.png)
