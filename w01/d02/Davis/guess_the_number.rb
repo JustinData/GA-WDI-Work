@@ -14,8 +14,8 @@ while  answer != secret
 	answer = gets.chomp.to_i
 end
 
-# until answer = secret
-# 	 puts "Wrong answer"
+# until answer == secret
+# 	puts "Wrong answer"
 #   puts "Guess again"
 # 	answer = gets.chomp.to_i
 # end
