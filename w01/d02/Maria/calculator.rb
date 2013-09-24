@@ -10,7 +10,7 @@ end
 # A user should be shown the result
 def basic_calc
   print "(a)dd, (s)ubtract, (m)ultiply, (d)ivide: "
-  calculation_chosen = gets.chomp
+  calculation_chosen = gets.chomp.downcase
   puts "give me first number"
    	num1 = gets.chomp.to_i
    	puts "give me second number"
@@ -35,7 +35,22 @@ end
 # A user should be able to enter numbers to perform the operation on
 # A user should be shown the result
 def advanced_calc
-  print "(p)ower, (s)qrt: "
+  print "Which one you want? (p)ower, (s)qrt: "
+  calculation_chosen = gets.chomp.downcase
+	
+		if calculation_chosen == "p"
+			puts "give me first number"
+			num1 = gets.chomp.to_i
+			puts "give me second number"
+			num2 = gets.chomp.to_i
+			answer = num1 ** num2
+			puts "answer is #{answer}"
+		else 
+			puts "give me one number"
+			numsq = gets.chomp.to_f
+			answer = Math.sqrt(numsq)
+			puts "answer is #{answer}"
+		end
 
 end
 
@@ -46,6 +61,11 @@ while response != 'q'
   
   if response == "b"
   	basic_calc
+   	response = menu
+   elsif response == "a"
+   	advanced_calc
+   	response = menu
+   else 
    	response = menu
   end
 end
