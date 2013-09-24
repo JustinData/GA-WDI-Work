@@ -18,7 +18,7 @@ while answer != secret
   end
 end
 
-puts "Congrats! You read my mind!"
+puts "Congrats! You read my mind! You're amazing!"
 
 
 
