@@ -4,11 +4,12 @@ puts "I am thinking of an integer between 0 and 10... what number am I thinking 
 def get_answer_from_user
   puts "Please enter a number:"
   $answer = gets.chomp.to_i
+
 end
 
 
 # Obtain the user's input and interpret it as an integer.
-get_answer_from_user
+
 
 # Generate a random number between 0 and 10
 secret = rand(1..9)
