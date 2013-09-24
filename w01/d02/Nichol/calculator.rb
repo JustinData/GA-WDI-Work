@@ -1,3 +1,5 @@
+include Math
+
 # A user should be given a menu of operations
 # A user should be able to choose from the menu
 def menu
@@ -49,13 +51,30 @@ end
 # A user should be shown the result
 def advanced_calc
   print "(p)ower, (s)qrt: "
+  operation = gets.chomp
+  
+  puts "give me a number"
+  number = gets.chomp.to_f
+
+  case operation
+  when "p"
+  	puts "raise #{number} to what power?"
+  	power = gets.chomp.to_f
+  	result = number**power
+  when "s"
+  	result = sqrt(number)
+  else 
+  	puts error
+  end
+  
+  puts "the result is #{result}"
 
 end
 
 #dry attempt?
-def getnumbers(a, b)
+# def getnumbers(a, b)
 	
-end
+# end
 
 
 response = menu
