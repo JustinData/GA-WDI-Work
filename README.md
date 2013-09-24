@@ -49,7 +49,7 @@ git remote -v
 ![upstream](screenshots/upstream.png)
 
 ### NEXT
-* Move on to the First_Submission_Instructions
+* Move on to the [First_Submission_Instructions](First_Submission_Instructions/)
 
 ###How Do I Get Files From GitHub?
 
