@@ -5,10 +5,8 @@
 - Move to your local `WDI_NYC_Array_Work` folder
 
 ```bash
-cd path/to/ga_wdi/folder
 cd WDI_NYC_Array_work
 ```
-![image](./screenshots/work_directory.png)
 
 - Move to the folder with today's assignment and look at what is inside
 	- The description of the homework is in the README.md file
