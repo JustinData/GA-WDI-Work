@@ -63,17 +63,17 @@ end
 
 menu
 while $user_menu_choice != 'q'
-case $user_menu_choice
-when "b"
-	basic_calc
-when "a"
-	advanced_calc
-when "q"
-	abort
-else
-	"stop breaking the calculator"
-end
+	case $user_menu_choice
+	when "b"
+		basic_calc
+	when "a"
+		advanced_calc
+	when "q"
+		abort
+	else
+		"stop breaking the calculator"
+	end
 
-response = menu
+	response = menu
 end
 
