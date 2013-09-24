@@ -1,1 +1,2 @@
-Britt Lewis
+Name: Britt Lewis
+Github: brittlewis12
