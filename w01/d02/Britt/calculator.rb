@@ -5,11 +5,17 @@ def menu
 	puts "What type of operation you would like to perform?"
 	puts "(b)asic arithmetic: addition, subtraction, multiplication, division"
 	puts "(a)dvanced: exponents and square roots"
-	puts "(t)rigonometry: sin(), cos(), tan()"
+	puts "(t)rigonometry: sine, cosine, tangent"
 	puts "(f)actorial: product of each integer below itself"
 	puts "(q)uit the calculator"
 	puts "Type your selection and press return:"
 	$choice = gets.chomp.downcase
+end
+
+# methods for user input depending on how many numbers are necessary
+def get_one_number
+	puts "What number would you like to use?"
+  $num1 = gets.chomp.to_f # all methods using one number conveniently all return floats
 end
 
 def get_two_numbers
@@ -19,7 +25,6 @@ def get_two_numbers
   puts "What is the second number youd like to use?"
   $num2 = gets.chomp.to_i
 end
-
 
 #methods for basic_calc
 def addition(a, b)
@@ -70,8 +75,7 @@ def power
 end
 
 def square_root
-	puts "What number would you like to use?"
-	$num1 = gets.chomp.to_f
+	get_one_number
 	puts Math.sqrt($num1)
 end
 
@@ -80,7 +84,7 @@ end
 # A user should be able to enter numbers to perform the operation on
 # A user should be shown the result
 def advanced_calc
-  print "(p)ower, (s)qrt: "
+  puts "(p)ower, (s)qrt: "
   advanced = gets.chomp.downcase
 
   case advanced
@@ -93,7 +97,22 @@ def advanced_calc
 end
 
 
-def trigonometric_calc; end
+def trigonometric_calc
+	puts "(s)ine, (c)osine, (t)angent: "
+	trig = gets.chomp.downcase
+
+	get_one_number
+
+	case trig
+	when "s"
+		puts Math.sin($num1)
+	when "c"
+		puts Math.cos($num1)
+	when "t"
+		puts Math.tan($num1)
+	end
+end
+
 
 def factorial; end
 
