@@ -6,15 +6,16 @@ answer = gets.chomp.to_i
 
 # Generate a random number between 0 and 10
 secret = rand(10)
-  if secret >= 5 
-    puts "higher"
-  else
-    puts "lower"
-end
+
 # Use a while loop to let the user guess again until he/she gets the answer right.
 
 until answer == secret
   puts "Thats Not It!"
+    if answer > secret 
+    puts "higher"
+  else
+    puts "lower"
+end
  answer = gets.chomp.to_i
 end
 
