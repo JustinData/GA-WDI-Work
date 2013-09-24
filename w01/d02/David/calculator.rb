@@ -1,7 +1,8 @@
 # A user should be given a menu of operations
 # A user should be able to choose from the menu
 def menu
-  print "(b)asic or (q)uit"
+
+  print "(b)asic, (a)dvanced or (q)uit"
   return gets.chomp
 end
 
@@ -34,7 +35,8 @@ end
 # A user should be able to enter numbers to perform the operation on
 # A user should be shown the result
 def advanced_calc
-  print "(p)ower, (s)qrt: "
+
+  print "(p)ower, (s)qrt, (sin)e, (cos)ine, (tan)gent: "
   operation = gets.chomp
   if operation == "p"
     puts "Please enter your first number"
@@ -43,21 +45,35 @@ def advanced_calc
     puts "Please enter your second number"
     num2 = gets.chomp.to_f
   elsif operation == "s"
-    puts "Please enter your number to be squared"
-    num1 = gets.chomp.to_f
-      
-case operation
-when "p"
-  puts "#{num1} to the power of #{num2} = #{num1 ** num2}"
-when "s"
-  puts "#{num1}  #{num2} = #{num1 + num2}"
-end
 
+    puts "Please enter your number to have the square root taken"
+    num1 = gets.chomp.to_f
+  elsif operation == ("sin" || "cos")
+    puts "Please enter a number from -1 to 1"
+    num1 = gets.chomp.to_f
+  elsif operation == "tan"
+      puts "Please enter a number to have the tangent taken"
+      num1 = gets.chomp.to_f
+  end
+      
+  case operation
+  when "p"
+    puts "#{num1} to the power of #{num2} = #{num1 ** num2}"
+  when "s"
+    puts "The square root of #{num1}  = #{Math.sqrt(num1)}"
+  when "sin"
+  end
+end
 
 response = menu
 # This process should continue until the user selects a quit option from the menu
 while response != 'q'
-  basic_calc
+  if response == "b"
+    basic_calc
+  elsif response == "a"
+    advanced_calc
+  end
+
   response = menu
 end
 
