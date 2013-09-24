@@ -11,6 +11,7 @@ def menu
     advanced_calc
   elsif response == "q"
     puts "Goodbye!"
+    abort
   end
 end
 
@@ -66,8 +67,8 @@ def advanced_calc
 
   elsif advance_choice == "s"
     puts "Input numer you would like the square root of"
-      first_num = gets.chomp.to_f
-    puts "The square root is sqrt(#{first_num}"
+      first_num = gets.chomp.to_i
+    puts "The square root is #{Math.sqrt(first_num)}"
   end
 end
 
