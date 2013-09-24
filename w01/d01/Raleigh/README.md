@@ -1,1 +1,2 @@
-Raleigh Froeber
+Name: Raleigh Froeber
+GitHub: RDFroeber
