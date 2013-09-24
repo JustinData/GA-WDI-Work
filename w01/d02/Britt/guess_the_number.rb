@@ -2,16 +2,20 @@
 puts "I am thinking of an integer between 0 and 10... what number am I thinking of?"
 
 # Obtain the user's input and interpret it as an integer.
-answer = gets.chomp.to_i
+def get_input_from_user
+	$answer = gets.chomp.to_i
+end
+
+get_input_from_user
 
 # Generate a random number between 0 and 10
 secret = rand(9) + 1
 
 # Use a while loop to let the user guess again until he/she gets the answer right.
-while answer != secret
+while $answer != secret
 	# Checking to shame user if guess is above 10
-	if answer < 10
-		if secret > answer
+	if $answer < 10
+		if secret > $answer
 			puts "Good guess, but you undershot it! Guess higher!"
 		else
 			puts "Nice try, but you guessed too high! Guess lower!"
@@ -22,7 +26,7 @@ while answer != secret
 		puts "Whatever, guess again!"
 	end
 
-	answer = gets.chomp.to_i
+	get_input_from_user
 
 end
 
