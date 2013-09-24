@@ -7,6 +7,7 @@ def menu
 	puts "(b)asic"
 	puts "(a)dvanced"
   puts "(t)rig"
+  puts "(f)actorial"
 	puts "(q)uit"
 
 	return gets.chomp.downcase
@@ -95,6 +96,19 @@ def trig_calc
 end
 
 
+def factorial()
+  print "what number?"
+  number = gets.chomp.to_i
+  factorial = number
+  while number != 2
+    number -= 1
+    factorial = factorial * number
+  end
+
+  puts factorial
+end
+
+
 #dry attempt?
 # def getnumbers(a, b)
 # end
@@ -112,6 +126,8 @@ when "a"
 	advanced_calc()
 when "t"
   trig_calc()
+when "f"
+  factorial()
 else
 	"puts error"
 end
