@@ -40,6 +40,8 @@ end
  
  if same_line = true
  	locations = ticket(starting_line)
+elsif same_line = false
+	locations 
 
 ## define number of stop
 
