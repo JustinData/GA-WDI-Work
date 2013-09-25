@@ -16,4 +16,6 @@ when "friday"
 	puts "TGIF!"
 when "saturday"
 	puts "Sleep in!"
+else
+	puts "Don't lie at me fool!"
 end
