@@ -113,6 +113,14 @@ end
 # def getnumbers(a, b)
 # end
 
+def factorial(n)
+  if n > 1
+    return n * factorial(n-1)
+  else 
+    return 1
+  end
+end
+
 
 response = menu
 
@@ -127,7 +135,11 @@ when "a"
 when "t"
   trig_calc()
 when "f"
-  factorial()
+  puts "what number to factorialize?"
+  number = gets.chomp.to_i
+  result = factorial(number)
+  puts "#{number}! is #{result}"
+>>>>>>> dev
 else
 	"puts error"
 end
