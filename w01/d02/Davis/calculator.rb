@@ -6,7 +6,7 @@ end
 #multiple numbers/inputs method
 def get_multiple_numbers
   #convert user string into array of only numbers (ignore other input), change each element into integer
-  get_user_input.scan(/\d+/).map { |n| n.to_i }
+  get_user_input.scan(/\d+/).map { |num| num.to_i }
 end
 
 # A user should be given a menu of operations
@@ -18,7 +18,9 @@ end
 
 # A user should be able to enter numbers to perform the operation on
 # A user should be shown the result
-#extra: take multiple numbers, error when provide 0 in division that is not 1st value
+# extra: take multiple numbers, error when provide 0 in division that is not 1st value
+# extra2: allow for continous typing ie 2 + 4 - 3
+# extra3: "save" result for continued calculations
 def basic_calc
   print "(a)dd, (s)ubtract, (m)ultiply, (d)ivide: "
   choice = get_user_input
@@ -27,13 +29,17 @@ def basic_calc
   n = get_multiple_numbers
 
   case choice
-  when "a"
+  when "a" #add
     puts "#{n.join(" + ")} = #{n.inject(:+)}"
-  when "s"
+  when "s" #subtract
   	puts "#{n.join(" - ")} = #{n.inject(:-)}"
-  when "m"
+  when "m" #multiply
   	puts "#{n.join(" * ")} = #{n.inject(:*)}"
-  when "d"
+  when "d" #divide
+  	n.map! { |num| num.to_f }
+  	puts "Sorry. You can't divide a number by 0. Input again." if n[1..-1].include?(0)
+ 	  n = get_multiple_numbers if n[1..-1].include?(0)
+
   	puts "#{n.join(" / ")} = #{n.inject(:/)}"
   else
   	puts "Not an option. Resubmit."
@@ -54,12 +60,12 @@ def advanced_calc
   n = get_user_input.to_i
 
   case choice
-  when "p"
-  	puts "To what power do you want #{n}?"
+  when "p" #power
+  	puts "To what power do you want to raise #{n}?"
     n2 = get_user_input.to_i
 
     puts "Your answer: #{n ** n2}"
-  when "s"
+  when "s" #square root
   	puts "The square root of #{n} is #{Math.sqrt(n)}"
   else
   	puts "Not an option. Resubmit."
@@ -75,13 +81,13 @@ def extra
 	n = get_user_input.to_i
 
 	case choice
-	when "s"
+	when "s" #sin
 		puts "The cos of #{n} is #{sin(n)}"
-	when "c"
+	when "c" #cos
 		puts "The sin of #{n} is #{sin(n)}"
-	when "t"
+	when "t" #tan
 		puts "The sin of #{n} is #{tan(n)}"
-	when "f"
+	when "f" #factorial
 		puts "The factorial of #{n} is #{(1..n).inject(:*)}"
 	else
 		puts "Not a choice. Pick again."
