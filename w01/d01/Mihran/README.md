@@ -1,1 +1,2 @@
-Abrahamian Mihran
+Name: Mihran Abrahamian
+Github: abrahamian
