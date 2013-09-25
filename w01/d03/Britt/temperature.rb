@@ -17,10 +17,10 @@ temp_scale = gets.chomp.downcase
 case temp_scale
 when "f"
 	temp_scale = "Fahrenheit"
-	puts "#{temp_c} in #{temp_scale} is #{convert_to_fahrenheit(temp_c)}"
+	puts "#{temp_c} Celcius is #{convert_to_fahrenheit(temp_c)} #{temp_scale}"
 when "k"
 	temp_scale = "Kelvin"
-	puts "#{temp_c} in #{temp_scale} is #{convert_to_kelvin(temp_c)}"
+	puts "#{temp_c} Celcius is #{convert_to_kelvin(temp_c)} #{temp_scale}"
 else
 	puts "I didn't recognize your input. Please either type 'f' or 'k'."
 end
