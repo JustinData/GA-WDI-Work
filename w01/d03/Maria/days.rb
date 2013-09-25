@@ -15,4 +15,6 @@ case day
 		puts "Lets go out tonight..."
 	when "sunday"
 		puts "get ready for Monday"
+	else
+		puts "You did not enter a day"
 end 
