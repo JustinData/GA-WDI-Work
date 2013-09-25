@@ -14,10 +14,10 @@ puts "Welcome to Temperature Conversion! Would you like to convert from (C)elciu
 temperature_convert_from = gets.chomp.downcase
 
 case temperature_convert_from
-when "c"
-  get_temperature
+  when "c"
+    get_temperature
 
-  ask_convert_type
+    ask_convert_type
   
   case temperature_convert_to
   when "c"
