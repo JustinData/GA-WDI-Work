@@ -40,9 +40,9 @@ def advanced_calc
 	
 		if calculation_chosen == "p"
 			puts "give me first number"
-			num1 = gets.chomp.to_i
+			num1 = gets.chomp.to_f
 			puts "give me second number"
-			num2 = gets.chomp.to_i
+			num2 = gets.chomp.to_f
 			answer = num1 ** num2
 			puts "answer is #{answer}"
 		else 
@@ -62,7 +62,7 @@ while response != 'q'
   if response == "b"
   	basic_calc
    	response = menu
-   elsif response == "a"
+  elsif response == "a"
    	advanced_calc
    	response = menu
    else 
