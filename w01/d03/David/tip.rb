@@ -2,13 +2,13 @@ puts "Please enter the price of your meal"
 meal = gets.chomp.to_f
 
 puts "Please enter your tax percentage"
-tax = gets.chomp.to_f
+tax = gets.chomp.to_f / 100
 
 puts "Enter the percentage you want to tip"
-tip_perc = gets.chomp.to_f
+tip_perc = gets.chomp.to_f / 100
 
-tip = (tip_perc / 100) * meal
-total = meal + ((tax/100)*meal) +tip
+tip = tip_perc  * meal
+total = meal + (tax * meal) +tip
 
 puts "Your total cost is $#{total}."
 
