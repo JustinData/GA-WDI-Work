@@ -1,2 +1,1 @@
-Name: Peter Lai
-Github: peterylai
+Peter Lai
