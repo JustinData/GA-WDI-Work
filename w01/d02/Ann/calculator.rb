@@ -90,10 +90,9 @@ case advanced_menu_user_response
       when "s"
       puts "What is the  number you'd like to square?"
       number_sqrt = gets.chomp.to_i
-      math.sqrt(number_sqrt) = final_sqrt 
-      
+      #math.sqrt(number_sqrt) = final_sqrt 
 
-      puts "The square root of #{number_sqrt} is #{final_sqrt}!" 
+      puts "The square root of #{number_sqrt} is #{number_sqrt ** 0.5}!" 
      
    end 
   menu 
