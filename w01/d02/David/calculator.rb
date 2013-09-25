@@ -1,24 +1,19 @@
 # A user should be given a menu of operations
 # A user should be able to choose from the menu
 def menu
-
-  print "(b)asic, (a)dvanced or (q)uit"
+  print "(b)asic, (a)dvanced or (q)uit: "
   return gets.chomp
 end
-
 
 # A user should be able to enter numbers to perform the operation on
 # A user should be shown the result
 def basic_calc
   print "(a)dd, (s)ubtract, (m)ultiply, (d)ivide: "
   operation = gets.chomp
-  
   puts "Please enter your first number"
   num1 = gets.chomp.to_f
-  
   puts "Please enter your second number"
   num2 = gets.chomp.to_f
-
   case operation
   when "a"
     puts "#{num1} + #{num2} = #{num1 + num2}"
@@ -35,25 +30,26 @@ end
 # A user should be able to enter numbers to perform the operation on
 # A user should be shown the result
 def advanced_calc
-
   print "(p)ower, (s)qrt, (sin)e, (cos)ine, (tan)gent: "
   operation = gets.chomp
   if operation == "p"
     puts "Please enter your first number"
     num1 = gets.chomp.to_f
-    
     puts "Please enter your second number"
     num2 = gets.chomp.to_f
   elsif operation == "s"
-
     puts "Please enter your number to have the square root taken"
     num1 = gets.chomp.to_f
-  elsif operation == ("sin" || "cos")
+  #Tried to use || for "sin" and "cos" but I was getting an error??
+  elsif operation == "sin"
+    puts "Please enter a number from -1 to 1"
+    num1 = gets.chomp.to_f
+  elsif operation == "cos"
     puts "Please enter a number from -1 to 1"
     num1 = gets.chomp.to_f
   elsif operation == "tan"
-      puts "Please enter a number to have the tangent taken"
-      num1 = gets.chomp.to_f
+    puts "Please enter a number to have the tangent taken"
+    num1 = gets.chomp.to_f
   end
       
   case operation
@@ -78,7 +74,6 @@ while response != 'q'
   elsif response == "a"
     advanced_calc
   end
-
   response = menu
 end
 
