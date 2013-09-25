@@ -7,4 +7,6 @@ tax = gets.chomp[/\d+/].to_f / 100.0
 puts "How much would you like to tip in percentage terms?"
 tip = gets.chomp[/\d+/].to_f / 100.0
 
-puts "You are paying $#{price + (price * tax) + (price * tip)}"
+total = price + (price * tax) + (price * tip)
+
+puts "You are paying $#{total.round(2)}"
