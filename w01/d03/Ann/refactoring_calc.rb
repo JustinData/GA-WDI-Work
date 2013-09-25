@@ -1,3 +1,10 @@
+#correct possible input for main menu 
+  good_input = ["b", "a", "q"]
+
+#will work also 
+ok_input = {"basic" => "b", "advanced" => "a", "quit" => "q"}
+
+
 #basic_calc prints the menu prompt a/s/m/d
 def basic_calc
   print "(a)dd, (s)ubtract, (m)ultiply, (d)ivide: "
@@ -20,11 +27,23 @@ end
  
  
 # is the calculator???
-def menu
+def menu (good_input, map_input) 
+
   puts "(b)asic, (a)dvanced, or (q)uit:"
-  $request = gets.chomp.downcase
+  $request = gets.chomp.downcase  
+
+  mapped_request = map_input [$request]
+
+  if mapped_request != nil 
+    $request = mapped_request 
+
+  if ($request != (good_input[0]) && (good_input[1]) && (good_input[2]))
+    puts "Bad input!"
+  end 
+
+end 
  
-  if $request.to_sym == :b
+  if $request == :b
  
     # prints add/sub/mult/etc...
     request2 = basic_calc
@@ -32,7 +51,7 @@ def menu
     #obviously, gets two numbers....
     both_numbers = get_two_numbers
  
-    case request2.to_sym 
+    case $request.to_sy
       when :a
         puts "your answer is #{both_numbers[0] + both_numbers[1]}"
       when :s
@@ -68,17 +87,16 @@ def menu
  
   end
  
-end
+
  
  
 ########### DEFINITIONS OVER, PROGRAM BEGINS ##############
- 
- 
-$response = menu
+   
+ $response = menu (good_input, ok_input)
  
 # This process should continue until the user selects a quit option from the menu
  
 while $response != 'q'
  
-        $response = menu
+        $response = menu (good_input)
 end
