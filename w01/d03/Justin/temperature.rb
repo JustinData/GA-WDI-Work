@@ -28,3 +28,5 @@ else
 end
 
 puts "The converted temperature is #{converted_temp}"
+
+#I clearly forgot about arguments on defined statements.  Yay for review!
