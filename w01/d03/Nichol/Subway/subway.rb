@@ -1,19 +1,32 @@
 
 line_n = ["ts", "34", "28", "23", "us", "8"]
 line_l = ["8th", "6th", "us", "3rd", "1st"]
+line_s = ['gc', '33rd', '28th-s', '23rd-s', 'us']
 
 mta = {}
 mta[:n] = line_n
 mta[:l] = line_l
+mta[:s] = line_s
 
-def verify_station(line)
+def verify_station(station, line)
 	#TODO verify that the station is on line.
 	#return boolean
 end
 
-def print_subway_line(line)
-	print line
+def verify_line(line, system)
+	#TODO verify that the line is in the system
+	#return boolean
 end
+
+
+def print_subway_line(line)
+	puts line
+end
+
+def print_subway_system(system)
+	puts system
+end
+
 
 def get_start_station(line)
 	puts "What station are you starting on?"
@@ -50,7 +63,7 @@ def find_stops_to_US(station, line)
 	dist2 = find_position_in_array("us", line)
 	totaldistance = dist1 - dist2
 
-	puts "#{station} is distance #{totaldistance} from Union Square"
+	puts "#{station} is distance #{totaldistance.abs} from Union Square"
 	return totaldistance.abs
 end
 	
@@ -81,9 +94,10 @@ finish_line = get_finish_line(mta)
 print_subway_line(finish_line)
 finish_station = get_finish_station(finish_line)
 
-###testing stop
+###perform calculation
 numberofstops = calculate_trip_length(start_station, start_line, finish_station, finish_line)
 
-puts "you will have to travel #{numberofstops} number of stops"
+###display calculation
+puts "you will have to travel #{numberofstops} stops"
 
 
