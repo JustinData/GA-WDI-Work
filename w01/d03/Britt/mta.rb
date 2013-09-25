@@ -19,3 +19,17 @@ Subtract indeces from one another and return the absolute value
 Puts distance between the stops
 	
 =end
+
+n = ["ts", "34th", "28th-n", "23rd-n", "us", "8th-n"]
+
+puts "What stop are you getting on at?"
+puts "Choose 'ts', '34th', '28th-n', '23rd-n', 'us', or '8th-n': "
+start = gets.chomp.downcase
+
+puts "What stop are you getting off at?"
+puts "Choose 'ts', '34th', '28th-n', '23rd-n', 'us', or '8th-n': "
+stop = gets.chomp.downcase
+
+distance = ( n.index(start) - n.index(stop) ).abs
+
+puts "Your trip is #{distance} stops"
