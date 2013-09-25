@@ -37,10 +37,15 @@ def basic_calc
   	puts "#{n.join(" * ")} = #{n.inject(:*)}"
   when "d" #divide
   	n.map! { |num| num.to_f }
-  	puts "Sorry. You can't divide a number by 0. Input again." if n[1..-1].include?(0)
- 	  n = get_multiple_numbers if n[1..-1].include?(0)
 
-  	puts "#{n.join(" / ")} = #{n.inject(:/)}"
+  	#no division by 0
+  	if n[1..-1].include?(0)
+  		puts "Sorry. You can't divide a number by 0. Input again."
+  		n = get_multiple_numbers
+  	else
+  		puts "#{n.join(" / ")} = #{n.inject(:/)}"
+  	end
+
   else
   	puts "Not an option. Resubmit."
   	choice = get_user_input
