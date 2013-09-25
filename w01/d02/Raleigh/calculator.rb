@@ -8,7 +8,7 @@ def menu
 end
 
 def basic_calc
-   print "Would you like to (a)dd, (s)ubtract, (m)ultiply, (d)ivide, or (r)eturn to main menu: "
+   print "Would you like to (a)dd, (s)ubtract, (m)ultiply, or (d)ivide?"
    user_choice_oper = gets.chomp.downcase
 
     oper_choice_as_string = case user_choice_oper
@@ -20,19 +20,15 @@ def basic_calc
      "multiply"
     when "d"
      "divide"
-    when "r"
-      menu
     else 
-     puts "\nIncorrect input. Please enter 'a' for addition, 's' for subtraction, 'm' fomultiplication, 'd' for division or 'r' to return to the main screen.\n"    
+     puts "\nIncorrect input. Please enter 'a' for addition, 's' for subtraction, 'm' fomultiplication, 'd' for division or 'r' to return to the main screen. \n"    
      basic_calc
     end
 
-    unless user_choice_oper == "r"
-      puts "What is the first number you would like to #{oper_choice_as_string}: "
+      puts "The first number you would like to #{oper_choice_as_string}: "
       num_one = gets.chomp.to_i
-      puts "What is the second number you would like to #{oper_choice_as_string}: "
+      puts "The second number you would like to #{oper_choice_as_string}: "
       num_two = gets.chomp.to_i
-    end
 
     if user_choice_oper == "a"
       puts "Your answer is #{num_one + num_two}."
@@ -46,23 +42,23 @@ def basic_calc
   end
 
 def advanced_calc
-    print "Would you like to (p)ower, (s)qrt, or (r)eturn to main screen: "
+    print "Would you like to find a (p)ower or a (s)quare root?"
     adv_user_choice_oper = gets.chomp.downcase
 
-    print "What is the first number you would like to compute: "
-    adv_num_one = gets.chomp.to_i
-    print "What is the second number you would like to compute: "
-    adv_num_two = gets.chomp.to_i
-
     if adv_user_choice_oper == "p"
-      puts "Your answer is #{adv_num_one ** adv_num_two}."
+      puts "Your first number: "
+      adv_one = gets.chomp.to_i
+      puts "#{adv_one} to the power of: "
+      adv_two = gets.chomp.to_i
+      puts "Your answer is #{adv_one ** adv_two}."
     elsif adv_user_choice_oper == "s"
-      puts "Your answer is #{adv_num_one % adv_num_two}."
+      puts "Find the square root of: "
+      sqroot = gets.chomp.to_f
+      puts "The square root of #{sqroot} is #{Math.sqrt(sqroot)}"
     else
-      puts "\nIncorrect input. Please enter 'p' for power, 's' for square root, or 'r' to return to the main menu.\n"
+      puts "\nIncorrect input. Please enter 'p' for power or  's' for square root.\n"
       advanced_calc
     end
-# UNFINISHED
 end
 
 # Call menu
