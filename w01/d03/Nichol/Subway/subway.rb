@@ -50,7 +50,8 @@ def find_stops_to_US(station, line)
 	dist2 = find_position_in_array("us", line)
 	totaldistance = dist1 - dist2
 
-	#puts "#{station} is distance #{totaldistance} from Union Square"
+	puts "#{station} is distance #{totaldistance} from Union Square"
+	return totaldistance.abs
 end
 	
 def calculate_trip_length(start_station, start_line, finish_station, finish_line)
@@ -60,11 +61,12 @@ def calculate_trip_length(start_station, start_line, finish_station, finish_line
 		dist2 = find_position_in_array(finish_station, finish_line)
 		totaldistance = dist1 - dist2
 	else
+		puts "you will be transfering at union station"
 		dist1 = find_stops_to_US(start_station, start_line)
 		dist2 = find_stops_to_US(finish_station, finish_line)
 		totaldistance = dist1 + dist2
 	end
-	return totaldistance
+	return totaldistance.abs
 end
 
 ###########
@@ -79,8 +81,9 @@ finish_line = get_finish_line(mta)
 print_subway_line(finish_line)
 finish_station = get_finish_station(finish_line)
 
-###testing stops to US
+###testing stop
+numberofstops = calculate_trip_length(start_station, start_line, finish_station, finish_line)
 
-puts "you are done"
+puts "you will have to travel #{numberofstops} number of stops"
 
 
