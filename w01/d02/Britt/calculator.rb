@@ -1,7 +1,7 @@
 
 # Main menu of operations
 
-def menu
+def menu!
 	puts "What type of operation you would like to perform?"
 	puts "(b)asic arithmetic: addition, subtraction, multiplication, division"
 	puts "(a)dvanced: exponents and square roots"
@@ -142,9 +142,12 @@ def factorial_calc
 
 end
 
-# The running application is below:
 
-menu
+
+
+# Start application:
+
+menu!
 
 # This process continues until the user selects a quit option from the menu
 while $choice != 'q'
@@ -160,6 +163,6 @@ while $choice != 'q'
 		factorial_calc
 	end
 
-  menu
+  menu!
 end
 
