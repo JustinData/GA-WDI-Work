@@ -1,3 +1,13 @@
+
+
+def check_input
+  good_input = ["b", "a", "q"]
+  if !good_input.member?($request)
+    puts "Your input is not recognized. Please try again."
+    menu
+  end
+end
+ 
 #basic_calc prints the menu prompt a/s/m/d
 def basic_calc
   print "(a)dd, (s)ubtract, (m)ultiply, (d)ivide: "
@@ -23,8 +33,9 @@ end
 def menu
   puts "(b)asic, (a)dvanced, or (q)uit:"
   $request = gets.chomp.downcase
- 
-  if $request == "b"
+  check_input
+
+  if $request.to_sym == :b
  
     # prints add/sub/mult/etc...
     request2 = basic_calc
@@ -32,14 +43,14 @@ def menu
     #obviously, gets two numbers....
     both_numbers = get_two_numbers
  
-    case request2
-      when "a"
+    case request2.to_sym
+      when :a
         puts "your answer is #{both_numbers[0] + both_numbers[1]}"
-      when "s"
+      when :s
         puts "your answer is #{both_numbers[0] - both_numbers[1]}"
-      when "m"
+      when :m
         puts "your answer is #{both_numbers[0] * both_numbers[1]}"
-      when "d"
+      when :d
         puts "your answer is #{both_numbers[0] / both_numbers[1]}"
     end
  
