@@ -1,6 +1,6 @@
 
-# A user should be given a menu of operations
-# A user should be able to choose from the menu
+# Main menu of operations
+
 def menu
 	puts "What type of operation you would like to perform?"
 	puts "(b)asic arithmetic: addition, subtraction, multiplication, division"
@@ -12,10 +12,15 @@ def menu
 	$choice = gets.chomp.downcase
 end
 
-# methods for user input depending on how many numbers are necessary
+
+
+
+# methods for user input, based on how many numbers are necessary
+
 def get_one_number
 	puts "What number would you like to use?"
-  $num1 = gets.chomp.to_f # all methods using one number return floats except factorial
+  # all methods requiring one arg return floats except factorial_calc
+  $num1 = gets.chomp.to_f
 end
 
 def get_two_numbers
@@ -26,7 +31,12 @@ def get_two_numbers
   $num2 = gets.chomp.to_i
 end
 
-#methods for basic_calc
+
+
+
+# Methods used in all calcs
+# methods for basic_calc
+
 def addition(a, b)
 	a + b
 end
@@ -43,9 +53,28 @@ def division(a, b)
 	a / b
 end
 
+# methods for advanced_calc
 
-# A user should be able to enter numbers to perform the operation on
-# A user should be shown the result
+def power(a, b)
+	(a ** b)
+end
+
+def square_root(a)
+	Math.sqrt(a)
+end
+
+# method for factorial_calc
+
+def fact(a)
+	puts (1..a).reduce(1, :*)
+end
+
+
+
+
+# Methods for each menu option 
+# (basic_calc, advanced_calc, trigonometic_calc, and factorial_calc):
+
 def basic_calc
   puts "(a)dd, (s)ubtract, (m)ultiply, (d)ivide: "
   basic = gets.chomp.downcase
@@ -66,32 +95,17 @@ def basic_calc
 end
 
 
-
-
-# placeholder methods for advanced_calc
-def power
-	get_two_numbers
-	puts ($num1 ** $num2)
-end
-
-def square_root
-	get_one_number
-	puts Math.sqrt($num1)
-end
-
-
-# Only tackle these once you get all of the basic_calc operations working
-# A user should be able to enter numbers to perform the operation on
-# A user should be shown the result
 def advanced_calc
   puts "(p)ower, (s)qrt: "
   advanced = gets.chomp.downcase
 
   case advanced
   when "p"
-  	power
+  	get_two_numbers
+  	puts power ($num1, $num2)
   when "s"
-  	square_root
+  	get_one_number
+  	puts square_root($num1)
   end
 
 end
@@ -111,15 +125,16 @@ def trigonometric_calc
 	when "t"
 		puts Math.tan($num1)
 	end
+
 end
 
 
-def factorial
+def factorial_calc
 	get_one_number.to_i
 
-	if $num1 > 0
-		puts (1..$num1).reduce(1, :*)
-	elsif $num1 == 0
+	if a > 0
+		fact($num1)
+	elsif a == 0
 		puts 1
 	else
 		puts "A factorial can only accept a non-negative integer."
@@ -127,8 +142,11 @@ def factorial
 
 end
 
+# The running application is below:
+
 menu
-# This process should continue until the user selects a quit option from the menu
+
+# This process continues until the user selects a quit option from the menu
 while $choice != 'q'
 
 	case $choice
@@ -139,7 +157,7 @@ while $choice != 'q'
 	when "t"
 		trigonometric_calc
 	when "f"
-		factorial
+		factorial_calc
 	end
 
   menu
