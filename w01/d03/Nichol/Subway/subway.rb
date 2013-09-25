@@ -45,32 +45,42 @@ def find_position_in_array(station, line)
 	return position
 end
 
+def find_stops_to_US(station, line)
+	dist1 = find_position_in_array(station, line)
+	dist2 = find_position_in_array("us", line)
+	totaldistance = dist1 - dist2
+
+	#puts "#{station} is distance #{totaldistance} from Union Square"
+end
+	
 def calculate_trip_length(start_station, start_line, finish_station, finish_line)
 	
 	if start_line == finish_line
 		dist1 = find_position_in_array(start_station, start_line)
 		dist2 = find_position_in_array(finish_station, finish_line)
-
 		totaldistance = dist1 - dist2
 	else
-		puts "union square is closed"
+		dist1 = find_stops_to_US(start_station, start_line)
+		dist2 = find_stops_to_US(finish_station, finish_line)
+		totaldistance = dist1 + dist2
 	end
-
+	return totaldistance
 end
 
 ###########
 
-
+###get all of starting data
 start_line = get_start_line(mta)
 print_subway_line(start_line)
-
 start_station = get_start_station(start_line)
 
+###get all of finishing line
 finish_line = get_finish_line(mta)
 print_subway_line(finish_line)
-
 finish_station = get_finish_station(finish_line)
 
-print_subway_line(line_n)
+###testing stops to US
 
-calculate_trip_length(start_station, start_line, finish_station, finish_line)
+puts "you are done"
+
+
