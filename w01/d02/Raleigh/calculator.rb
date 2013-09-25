@@ -1,42 +1,38 @@
 # MyCalc Ruby App
 
-# menu method defined
+# Definitions
 def menu
-  puts ""
-  puts "***MyCalc***"
+  puts "\n***MyCalc***\n"
   puts "(b)asic, (a)dvanced, or (q)uit:"
   $user_choice = gets.chomp.downcase
 end
 
-# Call menu
-menu 
-
-# basic_calc method defined
 def basic_calc
    print "Would you like to (a)dd, (s)ubtract, (m)ultiply, (d)ivide, or (r)eturn to main menu: "
    user_choice_oper = gets.chomp.downcase
 
-    if user_choice_oper == "a"
-     user_oper = "add"
-    elsif user_choice_oper == "s"
-     user_oper = "subtract"
-    elsif user_choice_oper == "m" 
-     user_oper = "multiply"
-    elsif user_choice_oper == "d"
-     user_oper = "divide"
-    elsif user_choice_oper == "r"
+    oper_choice_as_string = case user_choice_oper
+    when "a"
+      "add"
+    when "s"
+     "subtract"
+    when "m" 
+     "multiply"
+    when "d"
+     "divide"
+    when "r"
       menu
     else 
-     puts ""
-     puts "Incorrect input. Please enter 'a' for addition, 's' for subtraction, 'm' fomultiplication, 'd' for division or 'r' to return to the main screen."
-     puts ""      
+     puts "\nIncorrect input. Please enter 'a' for addition, 's' for subtraction, 'm' fomultiplication, 'd' for division or 'r' to return to the main screen.\n"    
      basic_calc
     end
 
-    print "What is the first number you would like to #{user_oper}: "
-    num_one = gets.chomp.to_i
-    print "What is the second number you would like to #{user_oper}: "
-    num_two = gets.chomp.to_i
+    unless user_choice_oper == "r"
+      puts "What is the first number you would like to #{oper_choice_as_string}: "
+      num_one = gets.chomp.to_i
+      puts "What is the second number you would like to #{oper_choice_as_string}: "
+      num_two = gets.chomp.to_i
+    end
 
     if user_choice_oper == "a"
       puts "Your answer is #{num_one + num_two}."
@@ -49,19 +45,36 @@ def basic_calc
     end
   end
 
-# advanced_calc method defined
 def advanced_calc
-   print "Would you like to (p)ower, (s)qrt: "
+    print "Would you like to (p)ower, (s)qrt, or (r)eturn to main screen: "
+    adv_user_choice_oper = gets.chomp.downcase
+
+    print "What is the first number you would like to compute: "
+    adv_num_one = gets.chomp.to_i
+    print "What is the second number you would like to compute: "
+    adv_num_two = gets.chomp.to_i
+
+    if adv_user_choice_oper == "p"
+      puts "Your answer is #{adv_num_one ** adv_num_two}."
+    elsif adv_user_choice_oper == "s"
+      puts "Your answer is #{adv_num_one % adv_num_two}."
+    else
+      puts "\nIncorrect input. Please enter 'p' for power, 's' for square root, or 'r' to return to the main menu.\n"
+      advanced_calc
+    end
 # UNFINISHED
 end
+
+# Call menu
+menu 
 
 while $user_choice != "q"
   if $user_choice == "b"
     basic_calc
   elsif $user_choice == "a"
     advanced_calc
-  elsif $user_choice != "a" && $user_choice != "b" && $user_choice != "q"
-    puts "Incorrect input. Please enter 'b' for basic calculations, 'a' for advanced calculations, or 'q' to quit."
+  else
+    puts "\nIncorrect input. Please enter 'b' for basic calculations, 'a' for advanced calculations, or 'q' to quit.\n"
     menu
   end
 end
