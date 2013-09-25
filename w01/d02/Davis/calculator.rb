@@ -9,7 +9,7 @@ def get_multiple_numbers
   get_user_input.scan(/\d+/).map { |num| num.to_i }
 end
 
-#basic calculator functions
+#basic calculator functions: add, substract, multiply, divide
 def add(numbers)
   "#{numbers.join(" + ")} = #{numbers.inject(:+)}"
 end
@@ -34,15 +34,15 @@ def divide(numbers)
     end
 end
 
-#advanced calculator functions
+#advanced calculator functions: power
 def power(number)
   puts "To what power do you want to raise #{number}?"
   n2 = get_user_input.to_i
 
-  number ** n2
+  "#{number} ** #{n2} = #{number ** n2}"
 end
 
-#extra calculator functions
+#extra calculator functions: factorial
 def factorial(number)
   (1..number).inject(:*)
 end
@@ -95,7 +95,7 @@ def advanced_calc
 
   case choice
   when "p"
-  	puts "Your answer: #{power(n)}"
+  	puts power(n)
   when "s"
   	puts "The square root of #{n} is #{Math.sqrt(n)}"
   else
@@ -130,9 +130,11 @@ end
 response = menu
 # This process should continue until the user selects a quit option from the menu
 while response != 'q'
-	basic_calc if response == 'b'
-	advanced_calc if response == 'a'
-	extra if response == 'e'
+  case response
+    when 'b' then basic_calc
+    when 'a' then advanced_calc
+    when 'e' then extra
+  end
 
   response = menu
 end
