@@ -18,7 +18,7 @@ end
 # A user should be shown the result
 def basic_calc
   
-  	puts "What would you like to do?"
+  puts "What would you like to do?"
 	puts "(a)dd"
 	puts "(s)ub"
 	puts "(m)ultiply"
@@ -108,6 +108,13 @@ def factorial(n)
   end
 end
 
+def factorial_calc()
+  puts "what number to factorialize?"
+  number = gets.chomp.to_i
+  result = factorial(number)
+  puts "#{number}! is #{result}"
+end
+
 
 response = menu
 
@@ -122,10 +129,7 @@ when "a"
 when "t"
   trig_calc()
 when "f"
-  puts "what number to factorialize?"
-  number = gets.chomp.to_i
-  result = factorial(number)
-  puts "#{number}! is #{result}"
+  factorial_calc()
 else
 	"puts error"
 end
