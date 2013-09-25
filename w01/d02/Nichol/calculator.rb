@@ -7,6 +7,7 @@ def menu
 	puts "(b)asic"
 	puts "(a)dvanced"
   puts "(t)rig"
+  puts "(f)actorial"
 	puts "(q)uit"
 
 	return gets.chomp.downcase
@@ -99,6 +100,14 @@ end
 # def getnumbers(a, b)
 # end
 
+def factorial(n)
+  if n > 1
+    return n * factorial(n-1)
+  else 
+    return 1
+  end
+end
+
 
 response = menu
 
@@ -112,6 +121,11 @@ when "a"
 	advanced_calc()
 when "t"
   trig_calc()
+when "f"
+  puts "what number to factorialize?"
+  number = gets.chomp.to_i
+  result = factorial(number)
+  puts "#{number}! is #{result}"
 else
 	"puts error"
 end
