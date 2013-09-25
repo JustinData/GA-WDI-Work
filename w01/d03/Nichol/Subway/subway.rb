@@ -16,23 +16,25 @@ def print_subway_line(line)
 end
 
 def get_start_station(line)
-	puts "Where do you start?"
+	puts "What station are you starting on?"
 	gets.chomp.downcase
 end
 
 def get_finish_station(line)
-	puts "Where are you going?"
+	puts "What stop are you getting off at?"
 	gets.chomp.downcase
 end
 
 def get_start_line(system)
 	puts ("What line are you taking?")
-	gets.chomp.downcase
+	line = gets.chomp.downcase
+	return system[line.to_sym]
 end
 
 def get_finish_line(system)
 	puts ("What line are you ending on?")
-	gets.chomp.downcase
+	line = gets.chomp.downcase
+	return system[line.to_sym]
 end
 
 def find_position_in_array(station, line)
@@ -43,26 +45,32 @@ def find_position_in_array(station, line)
 	return position
 end
 
-def print
-
 def calculate_trip_length(start_station, start_line, finish_station, finish_line)
 	
-	dist1 = find_position_in_array(start_station, start_line)
-	dist2 = find_position_in_array(finish_station, finish_line)
+	if start_line == finish_line
+		dist1 = find_position_in_array(start_station, start_line)
+		dist2 = find_position_in_array(finish_station, finish_line)
 
-	totaldistance = dist1 - dist2
-	puts dist1
-	puts dist2
-	puts totaldistance.abs
+		totaldistance = dist1 - dist2
+	else
+		puts "union square is closed"
+	end
 
 end
 
 ###########
 
 
+start_line = get_start_line(mta)
+print_subway_line(start_line)
+
+start_station = get_start_station(start_line)
+
+finish_line = get_finish_line(mta)
+print_subway_line(finish_line)
+
+finish_station = get_finish_station(finish_line)
 
 print_subway_line(line_n)
-start = get_start(line_n)
-finish = get_finish(line_n)
 
-calculate_trip_length(start, line_n, finish, line_n)
+calculate_trip_length(start_station, start_line, finish_station, finish_line)
