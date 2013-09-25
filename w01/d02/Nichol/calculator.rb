@@ -139,7 +139,6 @@ when "f"
   number = gets.chomp.to_i
   result = factorial(number)
   puts "#{number}! is #{result}"
->>>>>>> dev
 else
 	"puts error"
 end
