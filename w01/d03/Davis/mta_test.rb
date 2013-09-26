@@ -7,7 +7,7 @@ $mta = {
 
 #list of stops available for given line
 def available_stops(subway_line)
-	subway_line.each { |line| line }
+	subway_line.join(" | ")
 end
 
 #check if going downtown or uptown
@@ -28,9 +28,9 @@ def reverse_trip_counter(subway_stops_list, start_stop, end_stop)
 end
 
 #method checking whether journey transfer involved
-def transfer?(line_off, stop_off)
+def transfer?(line_off, stop_on)
 	##subway line include start
-	!$mta[line_off.to_sym].include?(stop_off)
+	!$mta[line_off.to_sym].include?(stop_on)
 end
 
 #NOTES
@@ -41,30 +41,30 @@ end
 #############################################
 
 #procedure
-puts available_stops($n_line)
+# puts available_stops($n_line)
 
-puts "What stop do you wish to get BEGIN your journey?"
-stop_begin = gets.chomp.downcase
-puts "What stop do you wish to END your journey?"
-stop_end = gets.chomp.downcase
+# puts "What stop do you wish to get BEGIN your journey?"
+# stop_begin = gets.chomp.downcase
+# puts "What stop do you wish to END your journey?"
+# stop_end = gets.chomp.downcase
 
-if going_downtown?(stop_begin, stop_end)
-	puts "Your trip duration is: #{trip_counter($n_line, stop_begin, stop_end)} stops"
-else
-	puts "Your trip duration is: #{trip_counter($n_line.reverse, stop_begin, stop_end)} stops"
-end
+# if going_downtown?(stop_begin, stop_end)
+# 	puts "Your trip duration is: #{trip_counter($n_line, stop_begin, stop_end)} stops"
+# else
+# 	puts "Your trip duration is: #{trip_counter($n_line.reverse, stop_begin, stop_end)} stops"
+# end
 
 #transfers at 'union square'-------------------
 
 	#def total trip length =
 		counter = 0
 
-		start_stop = 
-		end_line = 
-		end_stop = 
+		start_stop = 'times square'
+		end_line = 'l'
+		end_stop = '1st ave'
 
 		#if transfer aka endline.include?(start stop) == false
-		if transfer?(end_line, end_stop)
+		if transfer?(end_line, start_stop)
 			#depending on trip type: check begin stop line & end stop line
 			puts "transfer"
 				#if start at n 
