@@ -1,7 +1,8 @@
 #subway lines######
 $subway = {
 	n: ["times square", "34th", "28th", "23rd", "union square", "8th"], 
-	l: ["8th ave", "6th ave", "union square", "3rd ave", "1st ave"]
+	l: ["8th ave", "6th ave", "union square", "3rd ave", "1st ave"], 
+	s: ["grand central", "33rd", "28th", "23rd", "union square", "astor"]
 }
 
 ###################
@@ -111,7 +112,19 @@ when 'n'
 			puts n_count('n', $stop_start, 'union square') + w_count('union square', $stop_end)
 		end
 	else #6 Line
-		nil
+		#SS
+		if going_south?('n', $stop_start, 'union square') && going_south?('s', 'union square', $stop_end)
+			puts s_count('n', $stop_start, 'union square') + s_count('s', 'union square', $stop_end)
+		#SN
+		elsif going_south?('n', $stop_start, 'union square')
+			puts s_count('n', $stop_start, 'union square') + n_count('s', $stop_start, 'union square')
+		#NS 
+		elsif going_south?('s', 'union square', $stop_end)
+			puts n_count('n', $stop_start, 'union square') + e_count('union square', $stop_end)
+		#NN
+		else
+			puts n_count('n', $stop_start, 'union square') + w_count('union square', $stop_end)
+		end
 	end
 
 
@@ -137,7 +150,7 @@ when 'l'
 	case line_stop
 	#if from L to N
 	when 'l'
-		puts going_east? ? north_to_south_count('l', $stop_start, $stop_end) : south_to_north_count(subway[:l], $stop_start, $stop_end)
+		puts going_east?($stop_start, $stop_end) ? s_count('l', $stop_start, $stop_end) : n_count(subway[:l], $stop_start, $stop_end)
 	when 'n'
 		#SE
 		if going_south?('n', 'union square', $stop_end) && going_east?($stop_start, 'union square')
