@@ -1,10 +1,18 @@
 #subway lines######
-subway = {
+$subway = {
 	n: ["times square", "34th", "28th", "23rd", "union square", "8th"], 
 	l: ["8th ave", "6th ave", "union square", "3rd ave", "1st ave"]
 }
 
-#choice methods####
+###################
+
+#show user available stops
+def list_stops(line)
+	puts "The stops available are:"
+	$subway[line.to_sym].each { |line| puts line }
+end
+
+#user input methods####
 def train_choice
   puts "Please choose a Train: (n) line or (l) line to get on"
   gets.chomp.downcase
@@ -16,7 +24,7 @@ def stop_on_choice
 end
 
 def line_off_choice
-	puts "What line do you wish to get off at?"
+	puts "What line do you wish to get off at (n) line or (l) line?"
 	gets.chomp.downcase
 end
 
@@ -25,12 +33,38 @@ def stop_off_choice
   gets.chomp.downcase
 end
 
-#commute counter for a single subway line
+#find out direction (ie north, east, south, west)
+def going_south?(line, start, stop)
+	$subway[line.to_sym].index(start) < $subway[line.to_sym].index(stop)
+end
+
+def going_east?(start, stop)
+	$subway[:l].index(start) < $subway[:l].index(stop)
+end
+
+#basic counter
 def how_many_stops(subway, on, off)
 	#array
 	choice_subway = subway
 
 	choice_subway.index(off) - choice_subway.index(on)
+end
+
+# Southward count
+def s_count(line, on, off)
+	how_many_stops($subway[line.to_sym], on, off)
+end
+# Northward count
+def n_count(line, on, off)
+	how_many_stops($subway[line.to_sym].reverse, on, off)
+end
+# Westward count
+def w_count(on, off)
+	how_many_stops($subway[:l].reverse, on, off)
+end
+# Eastward count
+def e_count(on, off)
+	how_many_stops($subway[:l], on, off)
 end
 
 #start execution##############################################
@@ -40,8 +74,7 @@ case train_choice
 #if user says n-LINE
 when 'n'
 	#provide all stops of n-LINE
-	puts "The stops available are"
-	subway[:n].each { |line| puts line }
+	list_stops('n')
 
 	#ask what STOP to get ON at
 	$stop_start = stop_on_choice
@@ -50,8 +83,8 @@ when 'n'
 	line_stop = line_off_choice
 
 	#provide all stops of OFF LINE
-	puts "The stops availabe are"
-	subway[line_stop.to_sym].each { |line| puts line }
+	list_stops(line_stop)
+
 	#ask what STOP to get OFF at
 	$stop_end = stop_off_choice
 
@@ -60,23 +93,22 @@ when 'n'
 	case line_stop
 	when 'n'
 		#N <- S vs N -> S
-		puts subway[:n].index($stop_start) < subway[:n].index($stop_end) ? how_many_stops(subway[:n], $stop_start, $stop_end) : how_many_stops(subway[:n].reverse, $stop_start, $stop_end)
-	#if from N to L ||
+		puts going_south?('n', $stop_start, $stop_end) ? s_count('n', $stop_start, $stop_end) : n_count('n', $stop_start, $stop_end)
+	#if from N to L
 	when 'l'
-		#simple count of N + simple count of L
 		
-		#if N -> S Union Square, then Union Square W <- E
-		#reverse the L line if W <- E to allow for 'rightward' counting-style
-		if $stop_start != '8th' && ($stop_end == '8th ave' || $stop_end == '6th ave')
-			puts 4 + how_many_stops(subway[:l].reverse, 'union square', $stop_end)
-		#if N -> S Union Square, then Union Square W -> E
-		elsif $stop_start != '8th'
-			puts 4 + how_many_stops(subway[:l], 'union square', $stop_end)
-		#if N <- S Union Square, then Union Square W <- E
-		elsif $stop_start == '8th' && ($stop_end == '8th ave' || $stop_end == '6th ave')
-			puts 1 + how_many_stops(subway[:l].reverse, 'union square', $stop_end)
+		#SE
+		if going_south?('n', $stop_start, 'union square') && going_east?('union square', $stop_end)
+			puts s_count('n', $stop_start, 'union square') + e_count('union square', $stop_end)
+		#SW
+		elsif going_south?('n', $stop_start, 'union square')
+			puts s_count('n', $stop_start, 'union square') + w_count('union square', $stop_end)
+		#NE
+		elsif going_east?('union square', $stop_end)
+			puts n_count('n', $stop_start, 'union square') + e_count('union square', $stop_end)
+		#NW
 		else
-			puts 1 + how_many_stops(subway[:l], 'union square', $stop_end)
+			puts n_count('n', $stop_start, 'union square') + w_count('union square', $stop_end)
 		end
 	else #6 Line
 		nil
@@ -86,8 +118,7 @@ when 'n'
 #if user says l-LINE
 when 'l'
 	#provide all stops of l-LINE
-	puts "The stops availabe are"
-	subway[:l].each { |line| puts line }
+	list_stops('l')
 
 	#ask what STOP to get ON at
 	$stop_start = stop_on_choice
@@ -96,29 +127,30 @@ when 'l'
 	line_stop = line_off_choice
 
 	#provide all stops of OFF LINE
-	puts "The stops availabe are"
-	subway[line_stop.to_sym].each { |line| puts line }
+	list_stops(line_stop)
+
 	#ask what STOP to get OFF at
 	$stop_end = stop_off_choice
 
 	#return number of stops
 	#case within case L
 	case line_stop
+	#if from L to N
 	when 'l'
-		puts subway[:l].index($stop_start) < subway[:l].index($stop_end) ? how_many_stops(subway[:l], $stop_start, $stop_end) : how_many_stops(subway[:l].reverse, $stop_start, $stop_end)
+		puts going_east? ? north_to_south_count('l', $stop_start, $stop_end) : south_to_north_count(subway[:l], $stop_start, $stop_end)
 	when 'n'
-		#if W <-E, then N <-S
-		if ($stop_start == '3rd ave' || $stop_start == '1st ave') && $stop_end != '8th'
-			puts how_many_stops(subway[:l].reverse, $stop_start, 'union square') + 4
-		#if W <- E, then N -> S
-		elsif ($stop_start == '3rd ave' || $stop_start == '1st ave')
-			puts how_many_stops(subway[:l].reverse, $stop_start, 'union square') + 1
-		#if W -> E, then N <- S
-		elsif $stop_end != '8th'
-			puts how_many_stops(subway[:l], $stop_start, 'union square') + 4
-		#if W -> E Union Square, then N -> S
+		#SE
+		if going_south?('n', 'union square', $stop_end) && going_east?($stop_start, 'union square')
+			puts s_count('n', 'union square', $stop_end) + e_count($stop_start, 'union square')
+		#SW
+		elsif going_south?('n', 'union square', $stop_end)
+			puts s_count('n', 'union square', $stop_end) + w_count($stop_start, 'union square')
+		#NE
+		elsif going_east?($stop_start, 'union square')
+			puts n_count('n', 'union square', $stop_end) + e_count($stop_start, 'union square')
+		#NW
 		else
-			puts how_many_stops(subway[:l], $stop_start, 'union square') + 1
+			puts n_count('n', 'union square', $stop_end) + w_count($stop_start, 'union square')
 		end
 	else #6 Line
 		#	nil
