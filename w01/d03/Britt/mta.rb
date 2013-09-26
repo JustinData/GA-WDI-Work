@@ -52,20 +52,17 @@ mta[:n] = n
 mta[:l] = l
 mta[:s] = s
 
-def get_line
-	puts "Choose 'l', 'n' or 's':"
-	gets.chomp.downcase.to_sym
-end
-
 puts "What line are you getting on at?"
-start_line = get_line
+puts "Choose 'l', 'n' or 's':"
+start_line = gets.chomp.downcase.to_sym
 
 puts "What stop are you getting on at?"
 puts "Choose #{mta[start_line]}: "
 start_station = gets.chomp.downcase
 
 puts "What line are you getting off at?"
-end_line = get_line
+puts "Choose 'l', 'n' or 's':"
+end_line = gets.chomp.downcase.to_sym
 
 puts "What stop are you getting off at?"
 puts "Choose #{mta[end_line]}: "
