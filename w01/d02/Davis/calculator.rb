@@ -9,6 +9,44 @@ def get_multiple_numbers
   get_user_input.scan(/\d+/).map { |num| num.to_i }
 end
 
+#basic calculator functions: add, substract, multiply, divide
+def add(numbers)
+  "#{numbers.join(" + ")} = #{numbers.inject(:+)}"
+end
+
+def subtract(numbers)
+  "#{numbers.join(" - ")} = #{numbers.inject(:-)}"
+end
+
+def multiply(numbers)
+  "#{numbers.join(" * ")} = #{numbers.inject(:*)}"
+end
+
+def divide(numbers)
+  numbers.map! { |num| num.to_f }
+
+    #no division by 0
+    if numbers[1..-1].include?(0)
+      puts "Sorry. You can't divide a number by 0. Input again."
+      n = get_multiple_numbers
+    else
+      puts "#{numbers.join(" / ")} = #{numbers.inject(:/)}"
+    end
+end
+
+#advanced calculator functions: power
+def power(number)
+  puts "To what power do you want to raise #{number}?"
+  n2 = get_user_input.to_i
+
+  "#{number} ** #{n2} = #{number ** n2}"
+end
+
+#extra calculator functions: factorial
+def factorial(number)
+  (1..number).inject(:*)
+end
+
 # A user should be given a menu of operations
 # A user should be able to choose from the menu
 def menu
@@ -29,23 +67,14 @@ def basic_calc
   n = get_multiple_numbers
 
   case choice
-  when "a" #add
-    puts "#{n.join(" + ")} = #{n.inject(:+)}"
-  when "s" #subtract
-  	puts "#{n.join(" - ")} = #{n.inject(:-)}"
-  when "m" #multiply
-  	puts "#{n.join(" * ")} = #{n.inject(:*)}"
-  when "d" #divide
-  	n.map! { |num| num.to_f }
-
-  	#no division by 0
-  	if n[1..-1].include?(0)
-  		puts "Sorry. You can't divide a number by 0. Input again."
-  		n = get_multiple_numbers
-  	else
-  		puts "#{n.join(" / ")} = #{n.inject(:/)}"
-  	end
-
+  when "a" 
+    puts add(n)
+  when "s" 
+  	puts subtract(n)
+  when "m" 
+  	puts multiply(n)
+  when "d" 
+    puts divide(n)
   else
   	puts "Not an option. Resubmit."
   	choice = get_user_input
@@ -65,12 +94,9 @@ def advanced_calc
   n = get_user_input.to_i
 
   case choice
-  when "p" #power
-  	puts "To what power do you want to raise #{n}?"
-    n2 = get_user_input.to_i
-
-    puts "Your answer: #{n ** n2}"
-  when "s" #square root
+  when "p"
+  	puts power(n)
+  when "s"
   	puts "The square root of #{n} is #{Math.sqrt(n)}"
   else
   	puts "Not an option. Resubmit."
@@ -86,14 +112,14 @@ def extra
 	n = get_user_input.to_i
 
 	case choice
-	when "s" #sin
+	when "s"
 		puts "The cos of #{n} is #{sin(n)}"
-	when "c" #cos
+	when "c"
 		puts "The sin of #{n} is #{sin(n)}"
-	when "t" #tan
+	when "t"
 		puts "The sin of #{n} is #{tan(n)}"
-	when "f" #factorial
-		puts "The factorial of #{n} is #{(1..n).inject(:*)}"
+	when "f"
+		puts "The factorial of #{n} is #{factorial(n)}"
 	else
 		puts "Not a choice. Pick again."
 		choice = get_user_input
@@ -104,9 +130,11 @@ end
 response = menu
 # This process should continue until the user selects a quit option from the menu
 while response != 'q'
-	basic_calc if response == 'b'
-	advanced_calc if response == 'a'
-	extra if response == 'e'
+  case response
+    when 'b' then basic_calc
+    when 'a' then advanced_calc
+    when 'e' then extra
+  end
 
   response = menu
 end
