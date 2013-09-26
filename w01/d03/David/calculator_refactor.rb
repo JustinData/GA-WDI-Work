@@ -1,3 +1,5 @@
+require 'pry'
+
 #prints initial menu for calculator
 def menu
   puts "(b)asic, (a)dvanced, or (q)uit:"
@@ -65,6 +67,7 @@ if request3 == "s"
   puts "give me a number"
   number11 = gets.chomp.to_i
   puts "your answer is #{Math.sqrt(number11)}"
+binding.pry
 end
 end
 end
