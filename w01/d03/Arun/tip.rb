@@ -1,5 +1,5 @@
 puts "What is the price of the meal?"
-meal_price = gets.chomp.to_f
+meal_price = gets.chomp.to_i
 puts "What is the tax percentage?"
 tax_pre_dec = gets.chomp.to_i
 dec = 0.01
