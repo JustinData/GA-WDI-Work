@@ -16,6 +16,7 @@ while answer != secret
   elsif answer < secret
   	puts "guess higher"
   end
+  
   answer = gets.chomp.to_i
 
 end
