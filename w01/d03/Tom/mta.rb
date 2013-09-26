@@ -20,21 +20,15 @@ mta[:s] = s
     start_station = gets.chomp.downcase
     #start_station_val = "#{mta[:"#{start_line}"].rindex("#{start_station}")}"
 
-
+    # This will display all of the possible stops.  It should exclude the one that boarded on
     puts "Please choose from the list of possible destinations:"
     puts mta.values
     final_station = gets.chomp.downcase
 
+    # Describe the riders journey
+    puts "Your journey will be from #{start_station} on the #{start_line} to #{final_station}"
 
-
-    #this will return index position of the stop on the chosen lines array
-
-
-
-
-     # puts "What stop would you like to travel to?"
-     # # this need to return the index position, in the line array and the symbol of the line
-     # end_station = gets.chomp
-#end
-
+    #  Should tell the rider how many stops until their destination.
+    # It should also tell them if they have to transfer
+    puts "On this journey you will make #{} stops"
 
