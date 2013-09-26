@@ -1,7 +1,12 @@
 class Person
 	attr_accessor :name, :age, :gender, :apartment
 
-	def initialize; end
+	def initialize
+		@name = nil
+		@age = 0
+		@gender = nil
+		@apartment = nil
+	end
 
 	def to_s ( param );	end
 
