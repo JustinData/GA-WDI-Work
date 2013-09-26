@@ -18,7 +18,7 @@ end
 # A user should be shown the result
 def basic_calc
   
-  	puts "What would you like to do?"
+  puts "What would you like to do?"
 	puts "(a)dd"
 	puts "(s)ub"
 	puts "(m)ultiply"
@@ -96,6 +96,19 @@ def trig_calc
 end
 
 
+def factorial()
+  print "what number?"
+  number = gets.chomp.to_i
+  factorial = number
+  while number != 2
+    number -= 1
+    factorial = factorial * number
+  end
+
+  puts factorial
+end
+
+
 #dry attempt?
 # def getnumbers(a, b)
 # end
@@ -106,6 +119,13 @@ def factorial(n)
   else 
     return 1
   end
+end
+
+def factorial_calc()
+  puts "what number to factorialize?"
+  number = gets.chomp.to_i
+  result = factorial(number)
+  puts "#{number}! is #{result}"
 end
 
 
@@ -122,10 +142,7 @@ when "a"
 when "t"
   trig_calc()
 when "f"
-  puts "what number to factorialize?"
-  number = gets.chomp.to_i
-  result = factorial(number)
-  puts "#{number}! is #{result}"
+  factorial_calc()
 else
 	"puts error"
 end
