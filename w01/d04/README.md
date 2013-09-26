@@ -6,3 +6,9 @@
 ## Morning Exercise
 * Students
 * Magician
+
+## Homework
+* Rental App
+
+## Optional reading review
+* [Ruby Classes](http://pine.fm/LearnToProgram/?Chapter=09)
