@@ -10,4 +10,5 @@ elsif todays_day == "wednesday"
 elsif todays_day  == "thursday"
   puts "TGIT"
 else todays_day  == "friday"
+  puts "TGIF!"
 end 
