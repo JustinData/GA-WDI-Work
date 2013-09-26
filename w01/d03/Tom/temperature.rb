@@ -5,17 +5,19 @@ puts "Convert to (f)arenheit or (k)elvin?"
 response = gets.chomp.downcase
 
 if response == "f"
-  covert_to_farenheit
-elsif response == "k"
-  convert_to_kelvin
-else
-  puts "please pick f or k to convert."
+    convert_to_farenheit
+  elsif response == "k"
+    convert_to_kelvin
+  else
+    puts "please pick f or k to convert."
 end
 
-def covert_to_farenheit
-  celcius
+def convert_to_farenheit
+  farenheit = (celsius * 9/5) + 32
+  puts "The temp is #{farenheit} degrees in f"
 end
 
 def convert_to_kelvin
-
-  end
+  kelvin = celsius + 273
+  puts "The temp is #{kelvin} degrees in k"
+end
