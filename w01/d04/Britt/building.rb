@@ -1,5 +1,5 @@
 class Building
-	attr_accessor :address, :style, :has_doorman?, :is_walkup?, :num_floors, :apartments
+	attr_reader :address, :style, :has_doorman, :is_walkup, :num_floors, :apartments
 
 	def initialize; end
 

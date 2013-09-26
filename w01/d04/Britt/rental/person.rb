@@ -1,5 +1,6 @@
 class Person
-	attr_accessor :name, :age, :gender, :apartment
+	attr_accessor :age, :apartment
+	attr_reader :name, :gender
 
 	def initialize; end
 
