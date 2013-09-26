@@ -13,6 +13,8 @@ class Apartment
 
 	def to_s ( param );	end
 
-	def list_renters; end
+	def list_renters
+		renters.join(", ")
+	end
 
 end
