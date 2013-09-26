@@ -7,3 +7,5 @@ tip = gets.chomp.to_f
 
 answer = price * percentage / tip 
 puts "Your answer is #{answer.to_f}"
+
+
