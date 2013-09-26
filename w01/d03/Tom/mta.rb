@@ -20,15 +20,15 @@ mta[:s] = s
     start_station = gets.chomp.downcase
     #start_station_val = "#{mta[:"#{start_line}"].rindex("#{start_station}")}"
 
-<<<<<<< HEAD
+
 
     #def journey
-=======
+
     # This will display all of the possible stops.  It should exclude the one that boarded on
     puts "Please choose from the list of possible destinations:"
     puts mta.values
     final_station = gets.chomp.downcase
->>>>>>> development
+
 
     # Describe the riders journey
     puts "Your journey will be from #{start_station} on the #{start_line} to #{final_station}"
