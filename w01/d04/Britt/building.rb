@@ -13,6 +13,8 @@ class Building
 
 	def to_s ( param );	end
 
-	def list_apartments; end
+	def list_apartments
+		apartments.key.join(", ")
+	end
 
 end
