@@ -82,13 +82,13 @@ def advanced_calc
 
 case advanced_menu_user_response 
       when "p"
-      puts "What is the  number you'd like to square?"
+      puts "What is the number you'd like to square?"
       number_squared = gets.chomp.to_i
 
       puts "#{number_squared} is #{number_squared ** 2}!" 
 
       when "s"
-      puts "What is the  number you'd like to square?"
+      puts "What is the number you'd like to take the square root of?"
       number_sqrt = gets.chomp.to_i
       #math.sqrt(number_sqrt) = final_sqrt 
 
