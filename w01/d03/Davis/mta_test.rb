@@ -7,24 +7,26 @@ $mta = {
 
 #list of stops available for given line
 def available_stops(subway_line)
-	subway_line.join(" | ")
+	$mta[subway_line.to_sym].join(" | ")
 end
 
-#check if going downtown or uptown
+#check if going downtown/east or uptown/west
 #if start position is < end position then downtown
-def going_downtown?(start_stop, end_stop)
+#takes subway line, start position on that line, end posiition on
+#that line, returns true if end is farther downtown/east
+def going_downtown?(subway_line, start_stop, end_stop)
 	#going EAST == going DOWNTOWN
-	$n_line.index(start_stop) < $n_line.index(end_stop) ? true : false
+	$mta[subway_line.to_sym].index(start_stop) < $mta[subway_line.to_sym].index(end_stop) ? true : false
 end
 
 #count through how many of stops passed by
-def trip_counter(subway_stops_list, start_stop, end_stop)
-	subway_stops_list.index(end_stop) - subway_stops_list.index(start_stop)
+def trip_counter_regular(subway_line, start_stop, end_stop)
+	$mta[subway_line.to_sym].index(end_stop) - $mta[subway_line.to_sym].index(start_stop)
 end
 
 #count through after array reversal
-def reverse_trip_counter(subway_stops_list, start_stop, end_stop)
-	subway_stops_list.index(end_stop) - subway_stops_list.index(start_stop)
+def trip_counter_reverse(subway_line, start_stop, end_stop)
+	$mta[subway_line.to_sym].reverse.index(end_stop) - $mta[subway_line.to_sym].reverse.index(start_stop)
 end
 
 #method checking whether journey transfer involved
@@ -59,64 +61,98 @@ end
 	#def total trip length =
 		counter = 0
 
-		start_stop = 'times square'
-		end_line = 'l'
-		end_stop = '1st ave'
+		puts "What LINE would you like to start at? (n) line or (l) line?"
+		start_line = gets.chomp.downcase
+		puts available_stops(start_line)
+
+		puts "What STOP would you like to start at?"
+		start_stop = gets.chomp
+
+		puts "What LINE would you like to end at? (n) line or (l) line?"
+		end_line = gets.chomp.downcase
+		puts available_stops(end_line)
+
+		puts "What STOP would you like to end at?"
+		end_stop = gets.chomp
 
 		#if transfer aka endline.include?(start stop) == false
 		if transfer?(end_line, start_stop)
+			#intialize variables for usuage inside this scope
+			@start_line = start_line
+			@start_stop = start_stop
+			@end_line = end_line
+			@end_stop = end_stop
+
 			#depending on trip type: check begin stop line & end stop line
 			puts "transfer"
 				#if start at n 
-
+				case start_line
+				when 'n'
+					puts "starting on n"
 					#if going downtown
-						#counter += from start stop to 'union square'
+					if going_downtown?(@start_line, @start_stop, 'union square')
+						puts "going downtown"
+						counter += trip_counter_regular(@start_line, @start_stop, 'union square')
 					#else if going uptown
-						#counter += from start stop to 'union square' w/ line reverse
-					#end
+					else
+						puts "going uptown"
+						counter += trip_counter_reverse(@start_line, @start_stop, 'union square')
+					end
 
 					#if going east
-						#counter += from start stop to 'union square'
+					if going_downtown?(@end_line, 'union square', @end_stop)
+						puts "going east"
+						counter += trip_counter_regular(@end_line, 'union square', @end_stop)
 					#else if going west
-						#counter += from start stop to 'union square' w/ line reverse
-					#end					
+					else
+						puts "going west"
+						counter += trip_counter_reverse(@end_line, 'union square', @end_stop)
+					end					
 
 				#else if start at l
-
+				when 'l'
+					puts "starting on l"
 					#if going east
-						#counter += from start stop to 'union square'
+					if going_downtown?(@start_line, start_stop, 'union square')
+						puts "going east"
+						counter += trip_counter_regular(@start_line, start_stop, 'union square')
 					#else if going west
-						#counter += from start stop to 'union square' w/ line reverse
-					#end
+					else
+						puts "going west"
+						counter += trip_counter_reverse(@start_line, start_stop, 'union square')
+					end
 
 					#if going downtown
-						#counter += from start stop to 'union square'
+					if going_downtown?(@end_line, 'union square', @end_stop)
+						puts "going downtown"
+						counter += trip_counter_regular(@end_line, 'union square', @end_stop)
 					#else if going uptown
-						#counter += from start stop to 'union square' w/ line reverse
-					#end
+					else
+						puts "going uptown"
+						counter += trip_counter_reverse(@end_line, 'union square', @end_stop)
+					end
 
-				#end
+				#else nothing
+				else
+					puts "you fucking retard"
+				end
 
-		#else if regular trip
+		#else if regular trip / should work for 6 line addition
 		else
 		puts "NOT transfer"
 			#if downtown/east
-				#counter += regular count
+			if going_downtown?(end_line, start_stop, end_stop)
+				puts "downtown or east"
+				counter += trip_counter_regular(@end_line, @start_stop, @end_stop)
 			#else if uptown/west
-				#counter += regular count w/ line reverse
-			#end
+			else
+				puts "uptown or west"
+				counter += trip_counter_reverse(@end_line, @start_stop, @end_stop)
+			end
 		end
 		
 
-		counter
+		puts "Your strip will take #{counter} stops"
 	#end
 
 #--------------------------------------------------
-
-
-def total_trip_length
-end
-
-
-
-

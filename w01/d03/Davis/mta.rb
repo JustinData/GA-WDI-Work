@@ -1,174 +1,136 @@
-#subway lines######
-$subway = {
+#define subway line list
+$mta = {
 	n: ["times square", "34th", "28th", "23rd", "union square", "8th"], 
 	l: ["8th ave", "6th ave", "union square", "3rd ave", "1st ave"], 
-	s: ["grand central", "33rd", "28th", "23rd", "union square", "astor"]
+#	s: ["grand central", "33rd", "28th", "23rd", "union square", "astor"]
 }
 
-###################
-
-#show user available stops
-def list_stops(line)
-	puts "The stops available are:"
-	$subway[line.to_sym].each { |line| puts line }
+#list of stops available for given line
+def available_stops(subway_line)
+	$mta[subway_line.to_sym].join(" | ")
 end
 
-#user input methods####
-def train_choice
-  puts "Please choose a Train: (n) line or (l) line to get on"
-  gets.chomp.downcase
+#check if going downtown/east or uptown/west
+#if start position is < end position then downtown
+#takes subway line, start position on that line, end posiition on
+#that line, returns true if end is farther downtown/east
+def going_downtown?(subway_line, start_stop, end_stop)
+	#going EAST == going DOWNTOWN
+	$mta[subway_line.to_sym].index(start_stop) < $mta[subway_line.to_sym].index(end_stop) ? true : false
 end
 
-def stop_on_choice
-  puts "Please choose a stop to get on"
-  gets.chomp.downcase
+#count through how many of stops passed by
+def trip_counter_regular(subway_line, start_stop, end_stop)
+	$mta[subway_line.to_sym].index(end_stop) - $mta[subway_line.to_sym].index(start_stop)
 end
 
-def line_off_choice
-	puts "What line do you wish to get off at (n) line or (l) line?"
-	gets.chomp.downcase
+#count through after array reversal
+def trip_counter_reverse(subway_line, start_stop, end_stop)
+	$mta[subway_line.to_sym].reverse.index(end_stop) - $mta[subway_line.to_sym].reverse.index(start_stop)
 end
 
-def stop_off_choice
-  puts "Please choose a stop to get off?"
-  gets.chomp.downcase
+#method checking whether journey transfer involved
+def transfer?(line_off, stop_on)
+	##subway line include start
+	!$mta[line_off.to_sym].include?(stop_on)
 end
 
-#find out direction (ie north, east, south, west)
-def going_south?(line, start, stop)
-	$subway[line.to_sym].index(start) < $subway[line.to_sym].index(stop)
-end
+#procedure
+#transfers at 'union square'-------------------
 
-def going_east?(start, stop)
-	$subway[:l].index(start) < $subway[:l].index(stop)
-end
+	#def total trip length
+		counter = 0
 
-#basic counter
-def how_many_stops(subway, on, off)
-	#array
-	choice_subway = subway
+		puts "What LINE would you like to start at? (n) line or (l) line?"
+		start_line = gets.chomp.downcase
+		puts available_stops(start_line)
 
-	choice_subway.index(off) - choice_subway.index(on)
-end
+		puts "What STOP would you like to start at?"
+		start_stop = gets.chomp
 
-# Southward count
-def s_count(line, on, off)
-	how_many_stops($subway[line.to_sym], on, off)
-end
-# Northward count
-def n_count(line, on, off)
-	how_many_stops($subway[line.to_sym].reverse, on, off)
-end
-# Westward count
-def w_count(on, off)
-	how_many_stops($subway[:l].reverse, on, off)
-end
-# Eastward count
-def e_count(on, off)
-	how_many_stops($subway[:l], on, off)
-end
+		puts "What LINE would you like to end at? (n) line or (l) line?"
+		end_line = gets.chomp.downcase
+		puts available_stops(end_line)
 
-#start execution##############################################
+		puts "What STOP would you like to end at?"
+		end_stop = gets.chomp
 
-# ask user what subway_LINE want to get on until they say get OFF
-case train_choice
-#if user says n-LINE
-when 'n'
-	#provide all stops of n-LINE
-	list_stops('n')
+		#if transfer aka endline.include?(start stop) == false
+		if transfer?(end_line, start_stop)
+			#intialize variables for usuage inside this scope
+			@start_line = start_line
+			@start_stop = start_stop
+			@end_line = end_line
+			@end_stop = end_stop
 
-	#ask what STOP to get ON at
-	$stop_start = stop_on_choice
+			#depending on trip type: check begin stop line & end stop line
+			puts "transfer"
+				#if start at n 
+				case start_line
+				when 'n'
+					puts "starting on n"
+					#if going downtown
+					if going_downtown?(@start_line, @start_stop, 'union square')
+						puts "going downtown"
+						counter += trip_counter_regular(@start_line, @start_stop, 'union square')
+					#else if going uptown
+					else
+						puts "going uptown"
+						counter += trip_counter_reverse(@start_line, @start_stop, 'union square')
+					end
 
-	#ask what LINE to get OFF at
-	line_stop = line_off_choice
+					#if going east
+					if going_downtown?(@end_line, 'union square', @end_stop)
+						puts "going east"
+						counter += trip_counter_regular(@end_line, 'union square', @end_stop)
+					#else if going west
+					else
+						puts "going west"
+						counter += trip_counter_reverse(@end_line, 'union square', @end_stop)
+					end					
 
-	#provide all stops of OFF LINE
-	list_stops(line_stop)
+				#else if start at l
+				when 'l'
+					puts "starting on l"
+					#if going east
+					if going_downtown?(@start_line, start_stop, 'union square')
+						puts "going east"
+						counter += trip_counter_regular(@start_line, start_stop, 'union square')
+					#else if going west
+					else
+						puts "going west"
+						counter += trip_counter_reverse(@start_line, start_stop, 'union square')
+					end
 
-	#ask what STOP to get OFF at
-	$stop_end = stop_off_choice
+					#if going downtown
+					if going_downtown?(@end_line, 'union square', @end_stop)
+						puts "going downtown"
+						counter += trip_counter_regular(@end_line, 'union square', @end_stop)
+					#else if going uptown
+					else
+						puts "going uptown"
+						counter += trip_counter_reverse(@end_line, 'union square', @end_stop)
+					end
 
-	#return number of stops
-	#case within case N
-	case line_stop
-	when 'n'
-		#N <- S vs N -> S
-		puts going_south?('n', $stop_start, $stop_end) ? s_count('n', $stop_start, $stop_end) : n_count('n', $stop_start, $stop_end)
-	#if from N to L
-	when 'l'
+				#else nothing
+				else
+					puts "you fucking retard"
+				end
+
+		#else if regular trip / should work for 6 line addition
+		else
+		puts "NOT transfer"
+			#if downtown/east
+			if going_downtown?(end_line, start_stop, end_stop)
+				puts "downtown or east"
+				counter += trip_counter_regular(@end_line, @start_stop, @end_stop)
+			#else if uptown/west
+			else
+				puts "uptown or west"
+				counter += trip_counter_reverse(@end_line, @start_stop, @end_stop)
+			end
+		end
 		
-		#SE
-		if going_south?('n', $stop_start, 'union square') && going_east?('union square', $stop_end)
-			puts s_count('n', $stop_start, 'union square') + e_count('union square', $stop_end)
-		#SW
-		elsif going_south?('n', $stop_start, 'union square')
-			puts s_count('n', $stop_start, 'union square') + w_count('union square', $stop_end)
-		#NE
-		elsif going_east?('union square', $stop_end)
-			puts n_count('n', $stop_start, 'union square') + e_count('union square', $stop_end)
-		#NW
-		else
-			puts n_count('n', $stop_start, 'union square') + w_count('union square', $stop_end)
-		end
-	else #6 Line
-		#SS
-		if going_south?('n', $stop_start, 'union square') && going_south?('s', 'union square', $stop_end)
-			puts s_count('n', $stop_start, 'union square') + s_count('s', 'union square', $stop_end)
-		#SN
-		elsif going_south?('n', $stop_start, 'union square')
-			puts s_count('n', $stop_start, 'union square') + n_count('s', $stop_start, 'union square')
-		#NS 
-		elsif going_south?('s', 'union square', $stop_end)
-			puts n_count('n', $stop_start, 'union square') + e_count('union square', $stop_end)
-		#NN
-		else
-			puts n_count('n', $stop_start, 'union square') + w_count('union square', $stop_end)
-		end
-	end
 
-
-#if user says l-LINE
-when 'l'
-	#provide all stops of l-LINE
-	list_stops('l')
-
-	#ask what STOP to get ON at
-	$stop_start = stop_on_choice
-
-	#ask what LINE to get OFF at
-	line_stop = line_off_choice
-
-	#provide all stops of OFF LINE
-	list_stops(line_stop)
-
-	#ask what STOP to get OFF at
-	$stop_end = stop_off_choice
-
-	#return number of stops
-	#case within case L
-	case line_stop
-	#if from L to N
-	when 'l'
-		puts going_east?($stop_start, $stop_end) ? s_count('l', $stop_start, $stop_end) : n_count(subway[:l], $stop_start, $stop_end)
-	when 'n'
-		#SE
-		if going_south?('n', 'union square', $stop_end) && going_east?($stop_start, 'union square')
-			puts s_count('n', 'union square', $stop_end) + e_count($stop_start, 'union square')
-		#SW
-		elsif going_south?('n', 'union square', $stop_end)
-			puts s_count('n', 'union square', $stop_end) + w_count($stop_start, 'union square')
-		#NE
-		elsif going_east?($stop_start, 'union square')
-			puts n_count('n', 'union square', $stop_end) + e_count($stop_start, 'union square')
-		#NW
-		else
-			puts n_count('n', 'union square', $stop_end) + w_count($stop_start, 'union square')
-		end
-	else #6 Line
-		#	nil
-	end
-
-else #6 line
-	nil
-end
+		puts "Your strip will take #{counter} stops"
+	#end
