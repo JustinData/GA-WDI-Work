@@ -8,7 +8,7 @@ mta[:s] = s
 
     puts "What line would you like to start on?"
     #(this will return symbol of the mta hash down cased)
-    puts "Choose N, L, S"
+    puts mta.keys
     start_line = gets.chomp.downcase
 
     # show the user the stops that are available
@@ -16,14 +16,17 @@ mta[:s] = s
     puts "Please choose: #{mta[:"#{start_line}"].map { |i| "'" + i.to_s + "'" }.join(",")}"
 
 
-
-    #def journey
-
-    #end
-
+    #store the index of the stop in a variable
+    start_station = gets.chomp.downcase
+    #start_station_val = "#{mta[:"#{start_line}"].rindex("#{start_station}")}"
 
 
-    #board_station = mta[:"#{start_line}"]
+    puts "Please choose from the list of possible destinations:"
+    puts mta.values
+    final_station = gets.chomp.downcase
+
+
+
     #this will return index position of the stop on the chosen lines array
 
 
