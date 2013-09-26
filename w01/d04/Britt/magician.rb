@@ -11,7 +11,7 @@ def say_persons_name(person)
 end
 
 def say_dogs_name(dog)
-	puts "#{dog[:name]} is from #{dog[:hometown]}"
+	puts "Woof! #{dog[:name]} woof!"
 end
 
 def do_magic(person)
