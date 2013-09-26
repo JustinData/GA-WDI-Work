@@ -18,21 +18,21 @@ and stop that user is getting off at and prints the total number of stops for th
 
 #####Phase 1
 - One line functionality
-	- Assume that the N line is the only subway line first.
-	- The user should be given a list of all the stops on the N line
-	- The user should be able to enter the stop that they want to get on at
-	- The user should be able to enter the stop that they want to get off at
-	- The user should be told the number of stops for their trip
+  - Assume that the N line is the only subway line first.
+  - The user should be given a list of all the stops on the N line
+  - The user should be able to enter the stop that they want to get on at
+  - The user should be able to enter the stop that they want to get off at
+  - The user should be told the number of stops for their trip
 
 #####Phase 2
 - Two lines functionality (N and L)
-	- The user should be asked what line they want to get on
-	- The user should be given a list of all the stops on that line
-	- The user should be able to enter the stop that they want to get on at
-	- The user should be asked what line they want to get off
-	- The user should be given a list of all the stops on that line
-	- The user should be able to enter the stop that they want to get off at
-	- The user should be told the number of stops for their trip
+  - The user should be asked what line they want to get on
+  - The user should be given a list of all the stops on that line
+  - The user should be able to enter the stop that they want to get on at
+  - The user should be asked what line they want to get off
+  - The user should be given a list of all the stops on that line
+  - The user should be able to enter the stop that they want to get off at
+  - The user should be told the number of stops for their trip
 
 #####Phase 3
 - Three lines functionality (N, L and 6)
