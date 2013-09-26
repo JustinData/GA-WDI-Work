@@ -3,4 +3,8 @@ class Apartment
 
 	def initialize; end
 
+	def to_s ( param )
+		param = "#{param}"
+	end
+
 end
