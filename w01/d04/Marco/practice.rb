@@ -1,19 +1,12 @@
-#this is a type of template
 class MyClass
-  #replaces "!!!!!!!!!!" (4 down)
-  attr_accessor :tables, :chairs
+  attr_reader :tables, :chairs
+  attr_writer :tables, :chairs
 
-  # Attr_reader :tables, :chairs
-  # Attr_writer :tables, :chairs
+  #def initialize
+    #@tables = "none"
+    #@chairs = "none"
+  #end
 
-  
-  # if you don't have "initialize", it will run nil - it sets a default state for the methods
-  def initialize
-    @tables = "none"
-    @chairs = "none"
-  end
-
-  #"!!!!!!!!!!!!"
   # def tables=( param1 )
   #   @tables = param1
   # end
@@ -27,22 +20,23 @@ class MyClass
   # end
 
   # def chairs
-  #     return @chairs
-  #   end
+  #   return @chairs
+  # end
 
   def whadda_we_got
-    puts "OK, we got some #{@tables} tables here!"
+    puts "OK WE GOT SOME #{@tables} TABLES HERE!"
     puts "AND SOME #{@chairs} CHAIRS, TOO!"
   end
 
-  # def what_else_we_got
-  #   whadda_we_got
-  # end
 end
 
 my_class = MyClass.new
 
 puts my_class.class
-puts my_class.tables"white"
-puts my_class.chairs "BLACK"
-puts my_class.whadda_we_got
+
+my_class.tables = {:num => 3, :color => "white"}
+
+puts "These tables are soooo #{my_class.tables}!"
+
+
+#my_class.whadda_we_got
