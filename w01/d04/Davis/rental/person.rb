@@ -8,16 +8,7 @@ class Person
 		@apartment = apartment
 	end
 
-	#def to_s
-		
-	#end
+	def to_s
+		"#{@name}"	
+	end
 end
-
-ravis_apartment = "apartment for now"
-ravis = Person.new("Ravis", 22, "m", ravis_apartment)
-# puts ravis.name
-# puts ravis.age
-# puts ravis.gender
-# puts ravis.apartment
-
-puts ravis.to_s

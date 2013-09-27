@@ -1,8 +1,8 @@
 class MyClass
 	attr_accessor :tables, :chairs
 
-	def initialize
-		@tables = "default"
+	def initialize(optional_param = "default")
+		@tables = optional_param
 	end
 
 	def whadda_we_got
