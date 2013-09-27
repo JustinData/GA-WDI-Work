@@ -17,16 +17,13 @@ def new_apartment(name)
 	Apartment.new(name, price, sqft, beds, baths)
 end
 
-def new_tenant
-	puts "Okay! Let's get started."
-	puts "What is this tenant's name?"
-	name = gets.chomp.split.map(&:capitalize).join(' ')
+def new_tenant(name)
 	puts "How old is this tenant?"
 	age = gets.chomp.to_i
 	puts "What apartment are they living in?"
 	apartment = gets.chomp
 	# Instantiated new Person object
-	@renters << Person.new(name, age, apartment)
+	Person.new(name, age, apartment)
 end
 
 def create
@@ -82,10 +79,12 @@ while choice != 'q'
 		puts "Alright! Let's get started."
 		puts "What is the name of this unit?"
 		unit_name = gets.chomp.upcase
-		@apartments[unit_name.name] = new_apartment(unit_name)
+		my_building.add_apartment(unit_name, new_apartment(unit_name))
 	when 't'
-		
-		new_tenant
+		puts "Okay! Let's get started."
+		puts "What is this tenant's name?"
+		tenant_name = gets.chomp.split.map(&:capitalize).join(' ')
+		WTF_IS_MY_APARTMENT_CALLED.add_renter(tenant_name)
 	else
 		puts "I'm sorry, I didn't recognize that input."
 	end

@@ -32,7 +32,7 @@ class Building
 		@address = address
 		@style = style
 		@num_floors = num_floors
-		@apartments = {}
+		@apartments = Hash.new
 		has_doorman?
 		is_walkup?
 	end
