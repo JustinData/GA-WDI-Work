@@ -34,10 +34,16 @@ class Shelter
 		@animals.join(", ")
 	end
 
-	def adoption(animal)#, need something from client but not sure how to implement)
+	def client_adopts(animal, client)
 		# returns animal, which must be
-		# added to client's pets array 
-		@animals.delete(animal)
+		# added to client's pets array
+		@clients[client].add_pet( @animals.delete(animal) )
+	end
+
+	def client_dumps(animal, client)
+		# returns animal, which must be
+		# added to shelter's animal array
+		rescue_animal( @clients[client].pets.delete(animal) )
 	end
 
 	def to_s

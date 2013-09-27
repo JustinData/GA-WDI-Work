@@ -20,9 +20,6 @@ require 'pry'
 		# $my_shelter.list_clients
 	# quit -->
 
-# currently JUST puts the menu.
-# actions and conditionals to
-# be incorporated later
 def new_animal
 	puts "What is the name of the animal?"
 	name = gets.chomp.capitalize
@@ -51,6 +48,48 @@ def new_shelter
 	Shelter.new(name)
 end
 
+def animal_selection
+	puts "What animal is being adopted?"
+	i = 1
+	$my_shelter.animals.each do |animal|
+		puts "#{i} : #{animal}"
+		i += 1
+	end
+	selection = gets.chomp.to_i
+	$my_shelter.animals[selection - 1]
+end
+
+def client_selection
+	puts "What client is adopting #{animal}?"
+	# Puts each client name
+	$my_shelter.clients.each_key do |client|
+		puts "#{client}"
+	end
+	selection = gets.chomp.capitalize
+	$my_shelter.client[selection]
+end
+
+def adoption
+	# runs animal selection method, which returns an Animal object
+	animal = animal_selection
+	# runs client selection method, which returns a Client object
+	client = client_selection
+	# calls the client_adopts method on class Shelter instance $my_shelter
+	$my_shelter.client_adopts(animal, client)
+end
+
+def drop_off
+	# runs animal selection method, which returns
+	# an Animal object and converts it to a string
+	animal = animal_selection.to_s
+	# runs client selection method, which returns
+	# a Client object and converts it to a string
+	client = client_selection.to_s
+	# calls the client_dumps method on class Shelter instance $my_shelter
+	$my_shelter.client_dumps(animal, client) 
+end
+
+
 def menu
 	puts "*****  Welcome to HappiTales!  *****\n"
 	
@@ -61,14 +100,14 @@ def menu
 	puts "3 : Create a new shelter"
 	puts "4 : Display all animals"
 	puts "5 : Display all clients"
+	puts "6 : Facilitate adoption"
+	puts "7 : Receive animal for adoption from client"
 
 	gets.chomp.downcase
 end
 
 #####----- BEGIN PROGRAM -----#####
 choice = menu
-
-binding.pry
 
 while choice != "q"
 	case choice
@@ -86,6 +125,10 @@ while choice != "q"
 		$my_shelter.list_animals
 	when "5"
 		$my_shelter.list_clients
+	when "6"
+		adoption
+	when "7"
+		drop_off
 	else
 		puts "I don't understand your request."
 	end
