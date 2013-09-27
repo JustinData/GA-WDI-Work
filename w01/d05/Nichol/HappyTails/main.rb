@@ -54,7 +54,7 @@ require './shelter_class'
 # puts shelter1
 
 def display_menu
-	puts "Hi, welcome to Happy Tails"
+	
 	puts ""
 	puts "What would you like to do?"
 	puts ""
@@ -64,26 +64,47 @@ def display_menu
 	puts ""
 end
 
+def create_animal(shelter)
+	puts "What is the little guy's name?"
+	name = gets.chomp
+	puts "And what kind of animal is he?"
+	species = gets.chomp
+
+	animal1 = Animal.new(name, species)
+	shelter.animals << animal1
+end
+
+def create_client(shelter)
+	puts "What is the client's name?"
+	name = gets.chomp
+	puts "How old are they?"
+	age = gets.chomp.to_i
+
+	person1 = Client.new(name, age)
+
+	shelter.clients << person1
+end
+
+
 
 shelter1 = Shelter.new("ASPCA")
 
+puts "Hi, welcome to Happy Tails"
 
 controller = nil
 while controller != 3
 	display_menu	
-	controller = gets.chomp
+	controller = gets.chomp.to_i
 
 	case controller
 	when 1
-		puts "Create animal"
+		create_animal(shelter1)
 	when 2
-		puts "Create a Client"
+		create_client(shelter1)
 	when 3
 		puts "Goodbye!"
 	else
 		puts "Thats a bad number"
 	end
 end
-
-
 
