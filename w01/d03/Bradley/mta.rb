@@ -27,7 +27,7 @@ def transit
 
   #handles case where line or stops provided don't exist
 
-  until mta.keys.include?(line_on) && mta[line_on].include?(on)
+  unless mta.keys.include?(line_on) && mta[line_on].include?(on)
     puts "not valid responses! try again."
     transit
   end
@@ -42,7 +42,7 @@ def transit
 
   #handles case where line or stops provided don't exist
   
-  until mta.keys.include?(line_off) && mta[line_off].include?(off)
+  unless mta.keys.include?(line_off) && mta[line_off].include?(off)
     puts "not valid responses! try again."
     transit
   end

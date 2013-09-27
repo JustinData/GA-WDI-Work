@@ -2,7 +2,7 @@ require_relative 'person'
 require_relative 'building'
 require_relative 'apartment'
 
-#defines method for creating an instance of a person
+#method for new building
 
 def new_building
   puts "First things first: we need to create a new building!"
@@ -19,12 +19,16 @@ def new_building
   puts "How many floors are there?"
   num_floors = gets.chomp
 
+  #creates instance of new building
+
   $b = Building.new(address, style, has_doorman, is_walkup, num_floors, apts = {})
 
   puts "Great! building added with the following information : "
   $b.to_s
 
 end
+
+#method for person creation
 
 def new_person(apt_name = 0)
 
@@ -37,7 +41,7 @@ def new_person(apt_name = 0)
   puts "Gender : (m or f)"
   gender = gets.chomp
 
-  #checks to see if an instance of a person is created within the new_apt method
+  #if a user enters the person creation menu from the apartment creation menu, the apartment name will have already been specified
 
   if apt_name == 0
     puts "Apartment : "
@@ -54,7 +58,7 @@ def new_person(apt_name = 0)
   else
     puts "Looks like that apartment isn't in the system. Create it now: "
     puts " "
-    new_apt
+    new_apt(apt_name)
     $b.apts[apt_name.to_sym].renters << Person.new(name, age, gender, apt_name)
   end
 
@@ -62,20 +66,22 @@ def new_person(apt_name = 0)
 
   $b.apts[apt_name.to_sym].renters.last.apartment = apt_name
 
+  #prints string with person's info
+
   puts "Great! A person has been added to the system with the following information : "
   $b.apts[apt_name.to_sym].renters.last.to_s
   puts " "
-  rental_app(1)
 end
 
 #defines method for creating an instance of an apartment
 
-def new_apt
+def new_apt(apartment = 0)
 
     #prompts user for input
-
-    puts "What's the name of the apartment?"
-    apartment = gets.chomp
+    if apartment == 0
+      puts "What's the name of the apartment?"
+      apartment = gets.chomp
+    end
     puts "What's the price?"
     price = gets.chomp
     puts "What's the square footage?"
@@ -89,6 +95,7 @@ def new_apt
 
     if $b.apts.keys.include?(apartment.to_sym)
       puts "That apartment already exists!"
+      rental_app(1)
 
     #if not, adds apartment to apts hash
 
@@ -99,7 +106,7 @@ def new_apt
       puts "Here is the information on apartment #{apartment} : "
       $b.apts[apartment.to_sym].to_s
 
-    #creates a person (or people) who is/are automatically added the apartment's renters
+    #options menu
 
       puts " "
       puts "Here are your options:"
@@ -113,12 +120,15 @@ def new_apt
         puts "That's not a valid reponse. Type 1 or 2:"
         choice = gets.chomp
       end
+
+      #if user wants to add renter to apartment, will be redirected to new_person menu with the apartment parameter being the param from new_apt
       if choice == '1'
         new_person(apartment.to_sym)
       end
       puts " "
-      rental_app(1)
 end
+
+#options method for main menu 
 
 def options
   puts "Here are your options:"
@@ -152,12 +162,17 @@ def rental_app(exit = 0)
   case selection
     when "1"
       new_apt
+      rental_app(1)
     when "2"
       new_person
+      rental_app(1)
     when "3"
       $b.list_apartments
       puts " "
       rental_app(1)
+
+      #searches for apartment, returns list of tenants in that apartment
+
     when "4"
       puts "What apartment?"
       query = gets.chomp.to_sym
