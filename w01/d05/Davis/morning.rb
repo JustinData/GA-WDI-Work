@@ -24,5 +24,9 @@ h[:four] = 4
 #5
 h.delete(1)
 
+<<<<<<< HEAD
 ##Wizard
 
+=======
+##Wizard
+>>>>>>> master
