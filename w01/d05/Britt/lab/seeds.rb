@@ -20,6 +20,7 @@ $my_shelter.rescue_animal(animal_3)
 $my_shelter.rescue_animal(animal_4)
 $my_shelter.rescue_animal(animal_5)
 $my_shelter.rescue_animal(animal_6)
+$my_shelter.rescue_animal(animal_7)
 
 $my_shelter.acquire_client(client_1)
 $my_shelter.acquire_client(client_2)

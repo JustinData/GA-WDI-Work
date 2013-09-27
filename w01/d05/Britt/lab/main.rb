@@ -60,26 +60,7 @@ def animal_selection
 end
 
 def client_selection(animal)
-	puts "What client is adopting #{animal}?"
-	# Puts each client name
-	$my_shelter.clients.each_key do |client|
-		puts "#{client}"
-	end
-	selection = gets.chomp.capitalize
-	$my_shelter.clients[selection]
-end
-
-def adoption
-	# runs animal selection method, which returns an Animal object
-	animal = animal_selection
-	# runs client selection method, which returns a Client object
-	client = client_selection(animal)
-	# calls the client_adopts method on class Shelter instance $my_shelter
-	$my_shelter.client_adopts(animal, client)
-end
-
-def client_selection_2
-	puts "What client is putting an animal up for adoption?"
+	puts "Which client is adopting #{animal.name}?"
 	# Puts each client name
 	$my_shelter.clients.each_key do |client|
 		puts "#{client}"
@@ -97,6 +78,29 @@ def animal_selection_2(client)
 	end
 	selection = gets.chomp.to_i
 	$my_shelter.animals[selection - 1]
+end
+
+def client_selection_2
+	puts "What client is putting an animal up for adoption?"
+	# Puts each client name
+	$my_shelter.clients.each_key do |client|
+		puts "#{client}"
+	end
+	selection = gets.chomp.capitalize
+	$my_shelter.clients[selection]
+end
+
+def adoption
+	# runs animal selection method, which returns an Animal object
+	animal = animal_selection
+	# runs client selection method, which returns a Client object
+	client = client_selection(animal)
+	if client.pets.count > 1
+		puts "HEY!!! NO MORE THAN TWO PETS FOR YOU."
+		choice = menu
+	else
+		# calls the client_adopts method on class Shelter instance $my_shelter
+		$my_shelter.client_adopts(animal, client)
 end
 
 def drop_off
