@@ -12,7 +12,6 @@
   - Prints the index of "Sal Lardizzone"
   - Prints the fifth person (In this case its David)
   - Prints a list of all the student names on one line, with each name separated by a pipe: |
-exit
 
 ### Magician
 - Create a file called magician.rb
