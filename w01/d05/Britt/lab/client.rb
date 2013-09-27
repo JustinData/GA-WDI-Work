@@ -18,6 +18,8 @@ class Client
 		@pets
 	end
 
-	def to_s; end
+	def to_s
+		"#{self.name} is #{self.age} years old and has #{self.pets.count} pets."
+	end
 
 end
