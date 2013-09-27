@@ -65,3 +65,7 @@
 #####Phase 6 (Bonus)
 - Limit the number of animals a client can adopt to 2 per client. If they try to adopt more than that, yell at them.
 - Refactor your code to make sure it is DRY (Don't Repeat Yourself) and all your methods are in the appropriate classes.
+
+TO DO:
+#####Phase 7 (Bonus)
+- Add a new class that inherits from your client/person class called CatLady. A cat lady only takes cats, and take as many cats as there is space in a computer's memory.
