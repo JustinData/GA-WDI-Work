@@ -4,10 +4,7 @@ require_relative 'building'
 
 # instantiates first building
 
-def new_apartment
-	puts "Alright! Let's get started."
-	puts "What is the name of this unit?"
-	name = gets.chomp.upcase
+def new_apartment(name)
 	puts "What is the monthly cost of this unit?"
 	price = gets.chomp.to_i
 	puts "What is the area of the apartment, in square feet?"
@@ -17,7 +14,7 @@ def new_apartment
 	puts "How many bathrooms are in this apartment?"
 	baths = gets.chomp.to_f.round(1)
 	# Instantiated new Apartment object
-	@apartments[name] = Apartment.new(name, price, sqft, beds, baths)
+	Apartment.new(name, price, sqft, beds, baths)
 end
 
 def new_tenant
@@ -32,13 +29,36 @@ def new_tenant
 	@renters << Person.new(name, age, apartment)
 end
 
-def menu
-	puts "What would you like to do?"
-	puts "Create new (a)partment, (t)enant, (q)uit"
+def create
+	puts "What would you like to create?"
+	puts "New (a)partment or (t)enant"
 	gets.chomp.downcase
-
 end
 
+def list
+	puts "Would you like to view (t)enants or (a)partments?"
+	input = gets.chomp.downcase
+	if input == 't'
+		puts @renters
+	elsif input == 'a'
+		puts @apartments
+	else
+		puts "I don't recognize that input."
+	end
+end
+
+def menu
+	puts "What would you like to do?"
+	puts "Create (n)ew tenent/apartment, (l)ist those entries, or (q)uit?"
+	input = gets.chomp.downcase
+	if input == 'n'
+		create
+	elsif input == 'l'
+		list
+	else
+		puts "I don't recognize that input."
+	end
+end
 
 
 #******PROGRAM BEGINS******
@@ -54,13 +74,17 @@ floors = gets.chomp.to_i
 # Instantiates first Building object with given input
 my_building = Building.new(address, style, floors)
 puts my_building
-choice = menu
+choice = create
 
 while choice != 'q'
 	case choice
 	when 'a'
-		new_apartment
+		puts "Alright! Let's get started."
+		puts "What is the name of this unit?"
+		unit_name = gets.chomp.upcase
+		@apartments[unit_name.name] = new_apartment(unit_name)
 	when 't'
+		
 		new_tenant
 	else
 		puts "I'm sorry, I didn't recognize that input."
