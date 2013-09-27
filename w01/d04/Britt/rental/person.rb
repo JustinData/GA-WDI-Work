@@ -4,17 +4,28 @@
 # method_name_set=('stuff') syntax
 
 class Person
-	attr_accessor :name, :age, :gender, :apartment
+	attr_accessor :name, :age, :apartment
+	attr_reader :gender
 
-	def initialize(name, age, gender, apartment)
+	def get_gender
+		puts "Is this person (m)ale or (f)emale?"
+		input = gets.chomp.downcase
+		if input == "m" || input == "male"
+			@gender = "male"
+		else
+			@gender = "female"
+		end
+	end
+
+	def initialize(name, age, apartment)
 		@name = name
 		@age = age
-		@gender = gender
 		@apartment = apartment
+		get_gender
 	end
 
 	def to_s
-		"#{@name} is a #{@age} year old #{@gender} living in #{@apartment}."
+		"#{@name}: #{@gender}, #{@age} years old; living in #{@apartment}."
 	end
 
 end

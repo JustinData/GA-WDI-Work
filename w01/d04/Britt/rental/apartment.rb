@@ -7,7 +7,7 @@ class Apartment
 	attr_accessor :name, :monthly_price, :sqft, :num_beds, :num_baths
 	attr_reader :is_occupied, :renters
 
-	# Gets user input, and return true if 'y' or 'yes', else returns false
+	# Prompts for user input; returns true if 'y' or 'yes', else returns false
 	def get_true_or_false
 		print "'y' or 'n': "
 		input = gets.chomp.downcase
@@ -42,7 +42,11 @@ class Apartment
 	end
 
 	def to_s
-		"#{@name} is a #{@sqft}ft^2 apartment with #{@num_beds}-bed, #{@num_baths}-bath, running $#{@price} a month."
+		if @is_occupied == false
+			"#{@name} is a #{@sqft}ft^2 apartment: #{@num_beds}-bed, #{@num_baths}-bath, running for $#{@price} a month.\nIt is currently available for lease or sale."
+		else
+			"#{@name} is a #{@sqft}ft^2 apartment: #{@num_beds}-bed, #{@num_baths}-bath, running for $#{@price} a month.\nHowever, it is currently unavailable."
+		end
 	end
 
 end
