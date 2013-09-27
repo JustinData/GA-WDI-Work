@@ -60,21 +60,22 @@ until choice == 'q'
 
 				#create another apartment?
 				decision = create_apartment_y_or_n
-				case decision
-				when 'y'
-					get_apartment_input
-					#create vacant apartment to existing building
-					add_apartment(@person[3], @apt_input[0], @apt_input[1], @apt_input[2], @apt_input[3], [])
+				until decision == 'y' || decision == 'n'
+					case decision
+					when 'y'
+						get_apartment_input
+						#create vacant apartment to existing building
+						add_apartment(@person[3], @apt_input[0], @apt_input[1], @apt_input[2], @apt_input[3], [])
 
-					#add person to created apartment
-					add_person(@person[0], @person[1].to_i, @person[2][0], @person[3].to_sym)
-				when 'n'
-					puts "Then re-enter your info"
-					puts "In order, what is the name, age, gender, and apartment (like this: apt#) of this person?"
-					@person = gets.chomp.scan(/\w+/)
-				else
-					puts error_msg
-					decision = create_apartment_y_or_n
+						#add person to created apartment
+						add_person(@person[0], @person[1].to_i, @person[2][0], @person[3].to_sym)
+					when 'n'
+						puts "Then re-enter your info"
+						get_person_input
+					else
+						puts error_msg
+						decision = create_apartment_y_or_n
+					end
 				end
 			end
 	#create apartment

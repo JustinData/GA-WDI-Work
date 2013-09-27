@@ -1,4 +1,5 @@
 #remember to downcase each renter name before using
+#extra: set default values to averages?
 
 class Apartment
 	attr_accessor :name, :price, :sqft, :num_beds, :num_baths, :renters
