@@ -8,7 +8,7 @@ class Building
 		@has_doorman = doorman
 		@is_walkup	= walkup
 		@num_floors = numfloors
-		@apartments = Array.new
+		@apartments = Hash.new
 	end
 
 	def list_apartments

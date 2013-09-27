@@ -50,8 +50,39 @@ def display_menu
 	puts " "
 	puts "Would you like to (a)dd a new apartment, (c)reate a new person?, or (q)uit?"
 	puts " "
-
 	gets.chomp.downcase
+end
+
+def add_apartment(building)
+	puts "You are adding a new apt. \n"
+	puts "What is the rental price?"
+	price = gets.chomp.to_i
+	puts "How many square feet is it?"
+	sqft = gets.chomp.to_i
+	puts "How many bedrooms?"
+	beds = gets.chomp.to_i
+	puts "And how many baths?"
+	baths = gets.chomp.to_i
+
+
+	building.apartments << Apartment.new(price, sqft, beds, baths)
+
+end
+
+def create_person()
+	puts "You are creating a new person ;)"
+	puts "What is their name?"
+	name = gets.chomp
+	puts "How many years do they have?"
+	age = gets.chomp.to_i
+	puts "What is their gender?"
+	gender = gets.chomp
+	puts "What aparment are they renting?"
+	apartment = gets.chomp
+
+	person1 = Person.new(name, age, gender, apartment)
+
+	return person1
 end
 
 
@@ -61,14 +92,16 @@ choice = nil
 
 puts "Welcome to the Rental App"
 puts "\n"
+
 while choice != "q"
 	choice = display_menu
 
 	case choice
 	when "a"
-		puts "add a new apt"
+		add_apartment(my_building)
 	when "c"
-		puts "create a new person"
+		person1 = create_person
+		#my_building.apartments{person1.name => aparment}
 	when "q"
 		"puts goodbye"
 	else 
