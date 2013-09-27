@@ -1,12 +1,42 @@
-class Building
-  attr_accessor :building_name
+# class Building
+#   attr_accessor :building_name, :address, :style, :has_doorman, :is_walkup, :num_floors, :apartments 
+#   #(apartments is a hash where the keys are the names of the apartments)
 
-  def initialize(param1)
-    @building_name = param1
+#   def initialize(building_name, address, style, has_doorman, is_walkup, num_floors)
+#     @building_name = building_name
+#     @address = address
+#     @style = style
+#     @has_doorman = has_doorman
+#     @is_walkup = is_walkup
+#     @num_floors = num_floors
+#     @apartments = Hash.new
+#   end
+
+#   def to_s
+#     "You have successfully created the new building: #{@building_name}, Address: #{@address}, Style: #{style}, Doorman: #{has_doorman}, Walk-Up: #{is_walkup}, Number of Floors: #{num_floors}"
+#   end
+
+# end
+
+
+class Building
+  attr_accessor :name, :address, :style, :has_doorman, :is_walkup, :num_floors, :apartments 
+  #(apartments is a hash where the keys are the names of the apartments)
+
+  def initialize
+    @name
+    @address
+    @style
+    @has_doorman
+    @is_walkup 
+    @num_floors
+    @apartments = "none"
   end
 
   def to_s
-    @building_name.to_s
+    "You have successfully created the new building: #{@name}, Address: #{@address}, Style: #{@style}, Doorman: #{@has_doorman}, Walk-Up: #{@is_walkup}, Number of Floors: #{@num_floors}, Apartments: #{@apartments}"
   end
 
 end
+
+

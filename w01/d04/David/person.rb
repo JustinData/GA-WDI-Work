@@ -1,16 +1,29 @@
+# class Person
+#   attr_accessor :name, :age, :gender, :apartment
+
+#   def initialize(name, age, gender, apartment)
+#     @name = name
+#     @age = age
+#     @gender = gender
+#     @apartment = apartment
+#   end
+
+#   def to_s
+#     "You have successfully created a new tenant\nName: #{@name}, Age: #{@age}, Sex: #{gender}, Apartment: #{apartment}"
+#   end
+# end
+
 class Person
   attr_accessor :name, :age, :gender, :apartment
 
-  def initialize(name, age, gender, apartment)
-    @name = name
-    @age = age
-    @gender = gender
-    @apartment = apartment
+  def initialize
+    @name
+    @age
+    @gender
+    @apartment = Hash.new
   end
 
   def to_s
-    "Hi I'm #{@name}, who is #{@age} years old #{gender} in #{apartment}"
+    "You have successfully created a new tenant\nName: #{@name}, Age: #{@age}, Sex: #{@gender}, Apartment: #{@apartment}"
   end
 end
-
-david = Person.new("david", "15", "m", "soho")
