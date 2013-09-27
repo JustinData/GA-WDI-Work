@@ -64,4 +64,4 @@
 
 #####Phase 6 (Bonus)
 - Limit the number of animals a client can adopt to 2 per client. If they try to adopt more than that, yell at them.
-- Refactor your code to make sure it is DRY (Don't Repeat Yourself) and all of your methods are in the appropriate classes.
+- Refactor your code to make sure it is DRY (Don't Repeat Yourself) and all your methods are in the appropriate classes.
