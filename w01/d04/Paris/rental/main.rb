@@ -16,8 +16,6 @@ b.apartments = apartments
 a.renters = renters
 
 
-
-
 #need to add every p into the renters hash. 
 puts "Welcome to our building. Here is our menu: create a (p)rofile, (a)dd your apartment listing, (l)ist current available units, (r)ead about current tenants or (q)uit."
 
@@ -39,6 +37,7 @@ response = gets.chomp
 
   add_apartments = {}
   add_apartments[:apartment] = name
+
   elsif response== "a"
     puts "What's your name?"
     renters = gets.chomp
@@ -50,7 +49,6 @@ response = gets.chomp
     num_beds = gets.chomp
     puts "How many bathrooms do you have?"
     num_baths = gets.chomp
-
 
   a = Apartment.new(is_occupied, sqft, num_beds, num_baths)
 
@@ -74,3 +72,4 @@ response = gets.chomp
 
 #   response = menu
 # end
+
