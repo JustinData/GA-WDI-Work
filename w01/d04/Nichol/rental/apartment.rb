@@ -21,11 +21,11 @@ class Apartment
 
 	def list_renters
 	#returns a string with all of the renters.
-		# if @renters == nil
-		# 	puts "your building is empty"
-		# else
-		# 	puts @renters[0].person.name
-		# end
+		 if @renters == nil
+		 	puts "your building is empty"
+		 else
+		 	return @renters.join(", ")
+		 end
 	end
 
 	def add_renter(person)
