@@ -4,8 +4,7 @@
 - Comprehensive Ruby Lab
 
 ###Prompt
-- You are the manager at HappiTails animal shelter. You need to manage your
-shelter by storing and manipulating information about clients and animals.
+- You are the manager at HappiTails animal shelter. You need to manage your shelter by storing and manipulating information about clients and animals.
 - __Make git commits as you finish each phase, so you can see the history__
 - __DO NOT USE ATTR_ACCESSOR, ATTR_READER, or ATTR_WRITER__
 
