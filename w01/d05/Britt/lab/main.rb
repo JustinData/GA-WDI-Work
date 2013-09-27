@@ -34,9 +34,22 @@ def new_animal
 	$my_shelter.rescue_animal(animal)
 end
 
-def new_client; end
+def new_client
+	puts "What is the new client's name?"
+	name = gets.chomp.capitalize
+	puts "What is the client's age?"
+	age = gets.chomp.to_i
+	# instantiating new Animal object
+	client = Client.new(name, age)
+	# setting client instance to $my_shelter
+	$my_shelter.acquire_client(client)
+end
 
-def new_shelter; end
+def new_shelter
+	puts "What would you like to call the new shelter?"
+	# instantiating new Shelter object
+	Shelter.new(name)
+end
 
 def menu
 	puts "*****  Welcome to HappiTales!  *****\n"
@@ -66,8 +79,9 @@ while choice != "q"
 		# add a new client
 		new_client
 	when "3"
-		# create a new shelter
-		new_shelter
+		# create a new shelter and set it 
+		# equal to variable shelter_1
+		shelter_1 = new_shelter
 	when "4"
 		$my_shelter.list_animals
 	when "5"
