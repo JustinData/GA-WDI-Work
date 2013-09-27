@@ -11,33 +11,34 @@ puts $building.to_s
 puts "Let's get started!"
 
 def menu
-  
+  #gets input from user for what they want to do
   puts "Here are the options:"
   puts $option.join("\n")
   
   @selection = gets.chomp.downcase
   case @selection
+     #makes a new tenant
       when "tenant"
         $new_tenant = Person.new
         $new_tenant.make_person
-        $building.add_apartment
-    
+   
+    #makes a new apartment
       when "apartment"
         puts "Ok, so first what is the apartment number?"
         num= gets.chomp
-        # if $listing.include?(num)
-        #   puts "Choose another apartment! That one is full!"
-        #   num = gets.chomp
-        # end
+        
         new_apartment = Apartment.new
         new_apartment.make_apartment(num)
+      
+      #lists all tenants
       when "list"
-        if $listing.empty?
+        if $tenant.empty?
           puts "No apartments yet!"
         else
-           
-         end
+          puts $tenant
         end
+     
+      #lists all apartments  
       when "resident"
         $building.list_apartments
       when "quit"
