@@ -7,6 +7,7 @@ class Person
 	attr_accessor :name, :age, :apartment
 	attr_reader :gender
 
+	# Prompts for user input; sets gennder to male or female
 	def get_gender
 		puts "Is this person (m)ale or (f)emale?"
 		input = gets.chomp.downcase
