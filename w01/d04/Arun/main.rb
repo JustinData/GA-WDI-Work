@@ -43,8 +43,9 @@ elsif $user_choice == "cp"
 	person = Person.new(name, age, gender, apartment)
 	my_building.apartments[apartment].renters.push(person)
 elsif $user_choice == "la"
-	hash = my_building.apartments.renters.key
-	puts hash
+	apartment = Apartment.new(price, is_occupied, sqft, num_beds, num_baths, name)
+	apartment = renters.keys
+	puts renters
 	
 end
 @user_choice = menu
