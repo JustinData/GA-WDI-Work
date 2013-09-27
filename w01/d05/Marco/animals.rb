@@ -11,7 +11,7 @@ class Animal
   end
 
   #creates instance variable for animal species
-  def species 
+  def species
     @species
   end
 
