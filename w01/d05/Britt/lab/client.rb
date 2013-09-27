@@ -18,8 +18,8 @@ class Client
 		@pets
 	end
 
-	def add_pet(pet_name)
-		@pets[name]
+	def add_pet(pet)
+		@pets << pet
 	end
 
 	def list_pets
