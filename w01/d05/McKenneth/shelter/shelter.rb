@@ -16,9 +16,11 @@ class Shelter
   end
   #---------------non initialized methods
   def list_clients
+    "Here are our clients!"
    @clients.join(" | ")
   end
   def list_animals
+    "Here are the pets we have:\n"
     @animals.join(" | ")
   end
   def add_client(client)
