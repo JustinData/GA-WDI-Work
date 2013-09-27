@@ -22,6 +22,7 @@ h[3] = "Three"
 #4
 h[:four] = 4
 #5
-p h.delete(1)
+h.delete(1)
 
 ##Wizard
+
