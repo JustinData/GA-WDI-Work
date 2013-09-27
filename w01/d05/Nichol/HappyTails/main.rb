@@ -57,12 +57,14 @@ def do_adoption(shelter1)
 	animal_obj = nil
 	client_obj = nil
 
+	#retrieve animal obj
 	shelter1.animals.each do |x|
 		if x.name == animal_name then
 			animal_obj = x
 		end
 	end
 	
+	#retrieve client obj
 	shelter1.clients.each do |x|
 		if x.name == client_name then
 			client_obj = x
@@ -83,11 +85,32 @@ def do_return(shelter1)
 	puts "what client?"
 	client_name = gets.chomp
 
-	animal_name = nil
-	client_obj = nil
+	animal_return_obj = nil
+	client_return_obj = nil
+
 
 	binding.pry
 
+	#get client obj
+	shelter1.clients.each do |z|
+		if z.name == client_name then
+			client_return_obj = z
+		end
+	end
+
+	#shelter1.clients.each {|z| if z.name == client_name then client_return_obj= z}
+	
+	#get pet object
+
+	#binding.pry
+
+	client_return_obj.pets.each do |y|
+		if y.name == animal_name then
+			animal_return_obj = y
+		end
+	end
+
+	shelter1.facilitate_return(client_return_obj, animal_return_obj)
 
 end
 
