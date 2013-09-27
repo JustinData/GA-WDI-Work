@@ -84,7 +84,8 @@ while choice != 'q'
 		puts "Okay! Let's get started."
 		puts "What is this tenant's name?"
 		tenant_name = gets.chomp.split.map(&:capitalize).join(' ')
-		WTF_IS_MY_APARTMENT_CALLED.add_renter(tenant_name)
+		tenant_name = new_tenant(tenant_name)
+		tenant_name.apartment.add_renter(tenant_name)
 	else
 		puts "I'm sorry, I didn't recognize that input."
 	end
