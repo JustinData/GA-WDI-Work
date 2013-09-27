@@ -59,32 +59,54 @@ def animal_selection
 	$my_shelter.animals[selection - 1]
 end
 
-def client_selection
+def client_selection(animal)
 	puts "What client is adopting #{animal}?"
 	# Puts each client name
 	$my_shelter.clients.each_key do |client|
 		puts "#{client}"
 	end
 	selection = gets.chomp.capitalize
-	$my_shelter.client[selection]
+	$my_shelter.clients[selection]
 end
 
 def adoption
 	# runs animal selection method, which returns an Animal object
 	animal = animal_selection
 	# runs client selection method, which returns a Client object
-	client = client_selection
+	client = client_selection(animal)
 	# calls the client_adopts method on class Shelter instance $my_shelter
 	$my_shelter.client_adopts(animal, client)
 end
 
+def client_selection_2
+	puts "What client is putting an animal up for adoption?"
+	# Puts each client name
+	$my_shelter.clients.each_key do |client|
+		puts "#{client}"
+	end
+	selection = gets.chomp.capitalize
+	$my_shelter.clients[selection]
+end
+
+def animal_selection_2(client)
+	puts "What animal is being adopted?"
+	i = 1
+	client.pets.each do |pet|
+		puts "#{i} : #{pet}"
+		i += 1
+	end
+	selection = gets.chomp.to_i
+	$my_shelter.animals[selection - 1]
+end
+
 def drop_off
-	# runs animal selection method, which returns
-	# an Animal object and converts it to a string
-	animal = animal_selection.to_s
-	# runs client selection method, which returns
+	# runs 2nd client selection method, which returns
 	# a Client object and converts it to a string
-	client = client_selection.to_s
+	client = client_selection_2
+	# runs 2nd animal selection method, which returns
+	# an Animal object and converts it to a string
+	animal = animal_selection_2(client).to_s
+	
 	# calls the client_dumps method on class Shelter instance $my_shelter
 	$my_shelter.client_dumps(animal, client) 
 end
@@ -122,9 +144,9 @@ while choice != "q"
 		# equal to variable shelter_1
 		shelter_1 = new_shelter
 	when "4"
-		$my_shelter.list_animals
+		puts $my_shelter.list_animals
 	when "5"
-		$my_shelter.list_clients
+		puts "Your clients are #{$my_shelter.list_clients}."
 	when "6"
 		adoption
 	when "7"
@@ -133,5 +155,5 @@ while choice != "q"
 		puts "I don't understand your request."
 	end
 
-	menu
+	choice = menu
 end

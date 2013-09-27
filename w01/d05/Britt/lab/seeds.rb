@@ -1,8 +1,5 @@
-require 'pry'
 
 $my_shelter = Shelter.new("HappiTails")
-
-binding.pry
 
 client_1 = Client.new("Peter", 25)
 client_2 = Client.new("PJ", 25)

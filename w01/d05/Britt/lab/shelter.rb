@@ -37,13 +37,13 @@ class Shelter
 	def client_adopts(animal, client)
 		# returns animal, which must be
 		# added to client's pets array
-		@clients[client].add_pet( @animals.delete(animal) )
+		client.add_pet( @animals.delete(animal) )
 	end
 
 	def client_dumps(animal, client)
 		# returns animal, which must be
 		# added to shelter's animal array
-		rescue_animal( @clients[client].pets.delete(animal) )
+		rescue_animal( client.pets.delete(animal) )
 	end
 
 	def to_s
