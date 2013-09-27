@@ -39,15 +39,6 @@ def menu
 	puts "What would you like to do?"
 	puts "Create (n)ew tenent/apartment, (l)ist those entries, or (q)uit?"
 	input = gets.chomp.downcase
-	# while input != 'q'
-	# 	if input == 'n'
-	# 		choice = create
-	# 	elsif input == 'l'
-	# 		choice = list
-	# 	else
-	# 		puts "I don't recognize that input."
-	# 	end
-	# end
 end
 
 
