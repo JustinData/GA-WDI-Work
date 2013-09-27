@@ -19,18 +19,36 @@ class Shelter
 
 	end
 
-	def display_all_animals
-		
+	def name
+		return @name
 	end
 
-	def display_all_clients
+	def animals
+		return @animals
+	end
+
+	def clients
+		return @clients
+	end
+
+	def facilitate_adoption(client, animal)
+		#assign animal to client as a pet
+		#remove animal from array
+
+		client.pets << animal
+		self.animals.delete(animal)
+
+		puts "good work #{client.name}, you have adopted #{animal.name}"
 	
 	end
 
-	def facilitate_adoption
-	end
+	def facilitate_return(client, animal)
+		#remove from pets
+		#add to animals
 
-	def facilitate_return
+		client.pets.delete(animal)
+		self.animals << animal
+	
 	end
 
 	def to_s
