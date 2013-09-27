@@ -15,12 +15,12 @@ class Animal
       @species
    end
 
-   def toys
-      @toys
+   def add_toys(new_toy)
+      @toys.push(new_toy)
    end
 
    def to_s
-      "#{self.animal} is a #{self.species} and has the following toys: #{self.toys}"
+      "#{self.animal} is a #{self.species} and has the following toys: #{self.toys.join(", ")}"
    end
 
 end

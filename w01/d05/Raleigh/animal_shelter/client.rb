@@ -4,7 +4,7 @@ class Client
    def initialize(name, age)
       @name = name
       @age = age
-      @pets = {}
+      @animals = []
    end
 
    def name
@@ -15,12 +15,12 @@ class Client
       @age
    end
 
-   def pets
-      @pets
+   def animals
+      @animals
    end
 
    def to_s
-      "#{name} is #{age} years old and has the following pets: #{pets}"
+      "#{name} is #{age} years old and has the following animals: #{animals}"
    end
 
 end
