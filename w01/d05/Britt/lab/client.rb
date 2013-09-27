@@ -5,4 +5,19 @@ class Client
 		@age = age
 		@pets = []
 	end
+
+	def name
+		@name
+	end
+
+	def age
+		@age
+	end
+
+	def pets
+		@pets
+	end
+
+	def to_s; end
+
 end

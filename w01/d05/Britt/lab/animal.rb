@@ -5,4 +5,19 @@ class Animal
 		@species = species
 		@toys = []
 	end
+
+	def name
+		@name
+	end
+
+	def species
+		@species
+	end
+
+	def toys
+		@toys
+	end
+
+	def to_s; end
+
 end
