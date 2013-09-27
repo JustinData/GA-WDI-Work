@@ -2,11 +2,11 @@ require './person.rb'
 require './apartment.rb'
 require './building.rb'
 
-#methods
 def apartment_exist?(apartment)
 	$building.apartments.keys.include?(apartment.to_sym)
 end
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 def apartment_input
 end
@@ -23,6 +23,8 @@ end
 
 =======
 #input methods
+=======
+>>>>>>> w01d04
 def person_input
 	puts "In order, what is the name, age, gender, and apartment (like this: apt#) of this person?"
 	@person = gets.chomp.scan(/\w+/)
@@ -33,20 +35,31 @@ def menu
 	gets.chomp.downcase
 end
 
-#error message
 def error_msg
 	"Not valid option. Choose again."
 end
 
+<<<<<<< HEAD
 #creator methods
 >>>>>>> w01d04
 def add_building
+=======
+def create_apartment_y_or_n
+	puts "Hey, the apartment you specified doesn't exist yet"
+	puts "Do you wanna create it and add the person to it? Yes or No?"
+	gets.chomp.downcase[0]
+>>>>>>> w01d04
 end
 
-def add_person
+def add_apartment(apartment_name, price, sqft, num_beds, num_baths, renters)
+	$building.apartments[apartment_name.to_sym] = Apartment.new(apartment_name, price, sqft, num_beds, num_baths, [])
 end
 
-#create building
+def add_person(person_name, age, gender, apartment_name)
+	$building.apartments[apartment_name.to_sym].renters << Person.new(person_name, age.to_i, gender, apartment_name)
+end
+
+#create building / start
 $building = Building.new("2109 Broadway", "Parisian", true, false, 16, {} )
 
 #present menu of choices
@@ -64,21 +77,22 @@ until choice == 'q'
 			#if apartment exists
 			if apartment_exist?(@person[3])
 				#add to existing apartment
-				$building.apartments[@person[3].to_sym].renters << Person.new(@person[0], @person[1].to_i, @person[2][0], @person[3].to_sym)
+				add_person(@person[0], @person[1].to_i, @person[2][0], @person[3].to_sym)
 			else 
 				person_copy = info
 
-				puts "Hey, the apartment you specified doesn't exist yet"
-				puts "Do you wanna create it and add the person to it?"
-				decision = gets.chomp.downcase[0]
+				#create another apartment?
+				decision = create_apartment_y_or_n
 				case decision
 				when 'y'
 					puts "In order state: price, sqft, number of beds, and number of baths"
 					apt_input = gets.chomp.scan(/\w+/).map { |n| n.to_i }
 					
 					#create vacant apartment to existing building
-					$building.apartments[person_copy[3].to_sym] = Apartment.new(person_copy[3] , apt_input[0], apt_input[1], apt_input[2], apt_input[3], [])
+					add_apartment(person_copy[3] , apt_input[0], apt_input[1], apt_input[2], apt_input[3], [])
+
 					#add person to created apartment
+<<<<<<< HEAD
 					$building.apartments[person_copy[3].to_sym].renters << Person.new(person_copy[0], person_copy[1].to_i, person_copy[2][0], person_copy[3].to_sym)
 					puts $building.apartments
 				else # 'n'
@@ -87,8 +101,16 @@ until choice == 'q'
 =======
 					puts error_msg
 >>>>>>> w01d04
+=======
+					add_person(@person[0], @person[1].to_i, @person[2][0], @person[3].to_sym)
+				when 'n'
+					puts "Then re-enter your info"
+>>>>>>> w01d04
 					puts "In order, what is the name, age, gender, and apartment (like this: apt#) of this person?"
 					@person = gets.chomp.scan(/\w+/)
+				else
+					puts error_msg
+					decision = create_apartment_y_or_n
 				end
 			end
 
@@ -112,10 +134,10 @@ until choice == 'q'
 			apt_input = apt_input.scan(/\w+/).map! { |e| apt_input[e] == apt_input.scan(/\w+/).first ? e : e.to_i }
 		end
 		#make vacant apartment
-		$building.apartments[apt_input[0].to_sym] = Apartment.new(apt_input[0] , apt_input[1], apt_input[2], apt_input[3], apt_input[4], [])
+		add_apartment(apt_input[0], apt_input[1], apt_input[2], apt_input[3], apt_input[4], [])
 	#list apartments in building
 	when 'l' 
-		puts "All apartments in building"
+		puts "All apartments in building:"
 		$building.list_apartments
 	#list people in given apartment in building
 	when 'lp'
