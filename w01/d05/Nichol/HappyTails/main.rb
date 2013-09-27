@@ -60,7 +60,9 @@ def display_menu
 	puts ""
 	puts "1. Create an animal."
 	puts "2. Create a client."
-	puts "3. Quit"
+	puts "3. Display all animals."
+	puts "4. Display all clients."
+	puts "0. Quit"
 	puts ""
 end
 
@@ -92,7 +94,7 @@ shelter1 = Shelter.new("ASPCA")
 puts "Hi, welcome to Happy Tails"
 
 controller = nil
-while controller != 3
+while controller != 0
 	display_menu	
 	controller = gets.chomp.to_i
 
@@ -102,6 +104,11 @@ while controller != 3
 	when 2
 		create_client(shelter1)
 	when 3
+		puts shelter1.animals
+		# puts shelter1.clients.pets #####********##########
+	when 4
+		puts shelter1.clients
+	when 0
 		puts "Goodbye!"
 	else
 		puts "Thats a bad number"
