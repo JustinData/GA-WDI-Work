@@ -1,57 +1,9 @@
+require 'pry'
+
 require './animal_class'
 require './client_class'
 require './shelter_class'
-
-# person1 = Client.new("Nichol", 38)
-# puts person1
-
-# animal1 = Animal.new("Stella", "Dog")
-# puts animal1
-
-# animal1.toys << "sally"
-# puts animal1
-
-# person1.pets << animal1
-# puts person1
-
-# animal1.toys << "sammy"
-# animal1.toys << "cat"
-# puts animal1
-
-# animal2 = Animal.new("Lucy", "Dog")
-# animal2.toys << "sarah"
-# animal2.toys << "stephen"
-# animal2.toys << "eloise"
-
-# shelter1 = Shelter.new("ASPC")
-# puts shelter1
-
-# shelter1.animals << animal1
-# shelter1.animals << animal2
-
-# puts shelter1.animals
-# puts shelter1
-
-# shelter1.clients << person1
-# puts shelter1
-
-# person2 = Client.new("Maddy", 5)
-# shelter1.clients << person2
-
-# puts shelter1.clients
-# puts shelter1
-
-# shelter1.facilitate_adoption(person1, animal2)
-
-# puts person1
-# puts shelter1
-
-# puts person1.pets
-
-# shelter1.facilitate_return(person1, animal2)
-
-# puts person1
-# puts shelter1
+require './seed.rb'
 
 def display_menu
 	
@@ -62,6 +14,8 @@ def display_menu
 	puts "2. Create a client."
 	puts "3. Display all animals."
 	puts "4. Display all clients."
+	puts "5. Do an adoption"
+	puts "6. Do a return"
 	puts "0. Quit"
 	puts ""
 end
@@ -87,9 +41,60 @@ def create_client(shelter)
 	shelter.clients << person1
 end
 
+def do_adoption(shelter1)
+	puts "you are going to send an animal home with a client"
+	puts "what animal?"
+	animal_name = gets.chomp
+
+	puts "what client?"
+	client_name = gets.chomp
+
+	#get animal object with animal_name
+	#get client object with client_name
+	#call facilitate_adoption
+	#shelter1.facilitate_adoption(person1, animal2)
+
+	animal_obj = nil
+	client_obj = nil
+
+	shelter1.animals.each do |x|
+		if x.name == animal_name then
+			animal_obj = x
+		end
+	end
+	
+	shelter1.clients.each do |x|
+		if x.name == client_name then
+			client_obj = x
+		end
+	end
+
+	shelter1.facilitate_adoption(client_obj, animal_obj)
+
+	puts "you sent #{animal_name} home with #{client_name}"
+	
+end
+
+def do_return(shelter1)
+	puts "you are going to return an animal from a client"
+	puts "what animal?"
+	animal_name = gets.chomp
+
+	puts "what client?"
+	client_name = gets.chomp
+
+	animal_name = nil
+	client_obj = nil
+
+	binding.pry
+
+
+end
 
 
 shelter1 = Shelter.new("ASPCA")
+
+populate_shelter(shelter1)
 
 puts "Hi, welcome to Happy Tails"
 
@@ -108,6 +113,10 @@ while controller != 0
 		# puts shelter1.clients.pets #####********##########
 	when 4
 		puts shelter1.clients
+	when 5
+		do_adoption(shelter1)
+	when 6
+		do_return(shelter1)
 	when 0
 		puts "Goodbye!"
 	else
