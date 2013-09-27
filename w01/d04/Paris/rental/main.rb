@@ -10,8 +10,11 @@ renters = ["melissa", "bob", "karen"]
 
 a = Apartment.new("is_occupied", "700 sqft", "2 beds", "2 baths")
 b = Building.new("2000 South Street", "modern building", "has doorman", "is a walk up", "3 floors")
+p = Person.new("melissa", "20", "female", "2d")
+
 b.apartments = apartments
 a.renters = renters
+
 
 
 
@@ -31,8 +34,11 @@ response = gets.chomp
     apartment = gets.chomp
 
   p = Person.new(name, age, gender, apartment)
-  #apartments.store(name, apartment)
+  p.apartment = apartment
+  p.name = name
 
+  add_apartments = {}
+  add_apartments[:apartment] = name
   elsif response== "a"
     puts "What's your name?"
     renters = gets.chomp
@@ -45,13 +51,15 @@ response = gets.chomp
     puts "How many bathrooms do you have?"
     num_baths = gets.chomp
 
-  a = Apartment.new(renters, is_occupied, sqft, num_beds, num_baths)
-  #associate the apartment with our building
-  #add each 'a' to the b.apartments hash.
 
+  a = Apartment.new(is_occupied, sqft, num_beds, num_baths)
 
   elsif response == "l"
+
     puts b.list_apartments
+    #the below was my attempt to add an array of new apartments added from the person profile to list_apartments
+    #puts b.list_apartments + add_apartments.join(", " )
+    # puts b.list_apartments + "#{add_apartments}"
 
   elsif response == "r"  
    puts a.list_renters

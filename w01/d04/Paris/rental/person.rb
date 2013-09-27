@@ -14,9 +14,9 @@ class Person
     "#{@name} is a #{@gender} who is #{@age} years old and lives in #{@apartment}."
   end
 
-  def add_renters
-    Hash.new = {@name => @apartment}
-  end
+  # def add_renters
+  #   Hash.new = {@name => @apartment}
+  # end
 
 end
 
