@@ -18,10 +18,10 @@ class Person
 		end
 	end
 
-	def initialize(name, age, apartment)
+	def initialize(name, age)
 		@name = name
 		@age = age
-		@apartment = apartment
+		@apartment = nil
 		get_gender
 	end
 

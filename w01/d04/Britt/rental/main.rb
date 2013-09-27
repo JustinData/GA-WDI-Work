@@ -1,6 +1,7 @@
 require_relative 'person'
 require_relative 'apartment'
 require_relative 'building'
+require 'pry'
 
 # instantiates first building
 
@@ -20,10 +21,8 @@ end
 def new_tenant(name)
 	puts "How old is this tenant?"
 	age = gets.chomp.to_i
-	puts "What apartment are they living in?"
-	apartment = gets.chomp
 	# Instantiated new Person object
-	Person.new(name, age, apartment)
+	Person.new(name, age)
 end
 
 def create
@@ -84,8 +83,24 @@ while choice != 'q'
 		puts "Okay! Let's get started."
 		puts "What is this tenant's name?"
 		tenant_name = gets.chomp.split.map(&:capitalize).join(' ')
+		# Run new_tenant with user-given input for name
 		tenant_name = new_tenant(tenant_name)
-		tenant_name.apartment.add_renter(tenant_name)
+		puts "Which apartment are they living in?"
+		# enumerable on array of created apartment names 
+		# runs a block that presents a number with each apartment
+		# and iterates to match the number of apartments that exist
+		my_building.apartments.keys.each do |apt| 
+			i = 1
+			puts "#{i}. #{apt}"
+			i += 1
+		end
+		puts "Type the number that matches the apartment you'd like to select."
+		apt_selection = gets.chomp.to_i
+		binding.pry
+		# Setting Person object apartment attribute to the user's selection from above
+		tenant_name.apartment = (my_building.apartments.keys[apt_selection - 1])
+		# Call add_renter method on Apartment object from user's selection from above
+		(my_building.apartments.keys[apt_selection - 1].add_renter(tenant_name)
 	else
 		puts "I'm sorry, I didn't recognize that input."
 	end
