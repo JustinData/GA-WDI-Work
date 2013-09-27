@@ -18,6 +18,8 @@ class Animal
 		@toys
 	end
 
-	def to_s; end
+	def to_s
+		"#{self.name} is a #{self.species} with the following toys: #{self.toys.join(", ")}"
+	end
 
 end
