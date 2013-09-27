@@ -72,10 +72,8 @@ end
 
 class Shelter
 
-  def initialize (name, animals, clients, adoption, pet_return)
+  def initialize (name)
       @name = name
-      @animals = animals
-      @clients = clients
       @adoption = adoption
       @pet_return = pet_return
     end
@@ -86,18 +84,16 @@ class Shelter
     end
 
     #creates instance variable for shelter
-    def animals 
-      @animals
-    end
-
-    #creates instance variable for shelter
-    def clients
-      @clients
-    end
-
-    #creates instance variable for shelter
     def adoption
       @adoption
+    end
+
+    def shelter_clients
+
+    end
+
+    def shelter_pets
+
     end
 
     #creates instance variable for shelter
@@ -106,7 +102,7 @@ class Shelter
     end
 
     def to_s
-      "copy copy copy #{parameter}"
+      "#{name} has #{shelter_clients.length} clients and #{shelter_animals.length} animals."
     end
 
 end
@@ -124,6 +120,8 @@ gina_fina.pets_owned "parrot"
 
 puts gina_fina.to_s
 
-new_shelter = Shelter.new()
+big_woof = Shelter.new("Big Woof")
+
+puts big_woof.to_s
 
 
