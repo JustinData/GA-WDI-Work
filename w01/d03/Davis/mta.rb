@@ -1,3 +1,7 @@
+# set variables to instance variables
+# delete reptition
+
+
 #define subway line list
 $mta = {
 	n: ["times square", "34th", "28th", "23rd", "union square", "8th"], 

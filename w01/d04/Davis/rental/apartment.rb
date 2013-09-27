@@ -11,7 +11,11 @@ class Apartment
 		@sqft = sqft
 		@num_beds = num_beds
 		@num_baths = num_baths
+<<<<<<< HEAD
 		
+=======
+
+>>>>>>> w01d04
 		#arrays
 		@renters = renters
 		@is_occupied = @renters.nil? ? false : true

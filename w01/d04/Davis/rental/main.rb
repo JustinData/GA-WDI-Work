@@ -7,6 +7,7 @@ def apartment_exist?(apartment)
 	$building.apartments.keys.include?(apartment.to_sym)
 end
 
+<<<<<<< HEAD
 def apartment_input
 end
 
@@ -20,6 +21,25 @@ def menu
 	gets.chomp.downcase
 end
 
+=======
+#input methods
+def person_input
+	puts "In order, what is the name, age, gender, and apartment (like this: apt#) of this person?"
+	@person = gets.chomp.scan(/\w+/)
+end
+
+def menu
+	puts "What would you like to do: create (p)erson, create (a)partment, (l)ist apartments, (lp) list people in single apartment, or (q)uit?"
+	gets.chomp.downcase
+end
+
+#error message
+def error_msg
+	"Not valid option. Choose again."
+end
+
+#creator methods
+>>>>>>> w01d04
 def add_building
 end
 
@@ -62,7 +82,11 @@ until choice == 'q'
 					$building.apartments[person_copy[3].to_sym].renters << Person.new(person_copy[0], person_copy[1].to_i, person_copy[2][0], person_copy[3].to_sym)
 					puts $building.apartments
 				else # 'n'
+<<<<<<< HEAD
 					puts "Provide your input again"
+=======
+					puts error_msg
+>>>>>>> w01d04
 					puts "In order, what is the name, age, gender, and apartment (like this: apt#) of this person?"
 					@person = gets.chomp.scan(/\w+/)
 				end
@@ -71,7 +95,11 @@ until choice == 'q'
 	#create apartment
 	when 'a'
 		puts "In order state: name (like this apt#), price, sqft, number of beds, and number of baths"
+<<<<<<< HEAD
 		#note: this apt_input indexes diff than one above
+=======
+		#NOTE: this apt_input indexes diff than one above
+>>>>>>> w01d04
 		apt_input = gets.chomp
 		apt_input = apt_input.scan(/\w+/).map! { |e| apt_input[e] == apt_input.scan(/\w+/).first ? e : e.to_i }
 		
@@ -93,7 +121,11 @@ until choice == 'q'
 	when 'lp'
 		$building.apartments.values.each { |apt| puts apt.list_renters }
 	else
+<<<<<<< HEAD
 		puts "Not valid option. Choose again."
+=======
+		puts error_msg
+>>>>>>> w01d04
 		choice = menu
 	end
 
