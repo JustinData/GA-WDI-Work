@@ -34,26 +34,23 @@ def menu
 
       #Creating an apartment 
       when "t" 
-      puts "What is the address?"
-      address = gets.chomp.to_s
+      puts "What is the price of the apt"
+      price = gets.chomp.to_s
 
-      puts "What is the style?"
+      puts "How many square feet is the apt?"
       style = gets.chomp.to_s
 
-      puts "Does the apt have a doorman? y/n"
+      puts "How many bedrooms does the apt have?"
       has_doorman = gets.chomp.to_s
 
-      puts "Is it is a walk_up? y/n"
+      puts "How many bathrooms does the apartment have?"
       is_walkup = gets.chomp.to_s
-
-      puts "How many floors are in your building?"
-      num_floors = gets.chomp.to_s
 
       #@name = 
     end 
 
     #Creating an building 
-      when "t" 
+      when "l" 
       puts "What is the address?"
       address = gets.chomp.to_s
 

@@ -10,8 +10,11 @@ class Building
     @names_total = []
   end 
 
-  def list_apartments 
-    
-  end 
+  def to_s
+          "The building has #{}"
+  end
 
+  def list_apartments 
+      
+  end 
 end 
