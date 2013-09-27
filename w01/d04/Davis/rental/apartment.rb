@@ -3,7 +3,6 @@
 class Apartment
 	attr_accessor :name, :price, :sqft, :num_beds, :num_baths, :renters
 	attr_reader :is_occupied
-	# renters should be Array
 
 	def initialize(name = nil, price = nil, sqft = nil, num_beds = nil, num_baths = nil, renters = nil)
 		@name = name
@@ -11,11 +10,7 @@ class Apartment
 		@sqft = sqft
 		@num_beds = num_beds
 		@num_baths = num_baths
-<<<<<<< HEAD
-		
-=======
 
->>>>>>> w01d04
 		#arrays
 		@renters = renters
 		@is_occupied = @renters.nil? ? false : true
@@ -26,7 +21,6 @@ class Apartment
 	end
 
 	def list_renters
-		#return list of all renters
 		result = @renters.map { |person| person.name }.join("\n")
 	end
 end
