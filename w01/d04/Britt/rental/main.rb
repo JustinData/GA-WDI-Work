@@ -1,7 +1,6 @@
 require_relative 'person'
 require_relative 'apartment'
 require_relative 'building'
-require 'pry'
 
 # instantiates first building
 
@@ -33,10 +32,10 @@ end
 
 def list
 	puts "Would you like to view (t)enants or (a)partments?"
-	input = gets.chomp.downcase
-	if input == 't'
+	input_2 = gets.chomp.downcase
+	if input_2 == "t"
 		puts @renters
-	elsif input == 'a'
+	elsif input_2 == "a"
 		puts @apartments
 	else
 		puts "I don't recognize that input."
@@ -45,7 +44,7 @@ end
 
 def menu
 	puts "What would you like to do?"
-	puts "Create (n)ew tenent/apartment, (l)ist those entries, or (q)uit?"
+	puts "Create (n)ew tenent/apartment or (l)ist those entries?"
 	input = gets.chomp.downcase
 	if input == 'n'
 		create
@@ -96,11 +95,10 @@ while choice != 'q'
 		end
 		puts "Type the number that matches the apartment you'd like to select."
 		apt_selection = gets.chomp.to_i
-		binding.pry
 		# Setting Person object apartment attribute to the user's selection from above
 		tenant_name.apartment = (my_building.apartments.keys[apt_selection - 1])
 		# Call add_renter method on Apartment object from user's selection from above
-		(my_building.apartments.keys[apt_selection - 1].add_renter(tenant_name)
+		my_building.apartments[tenant_name.apartment].add_renter(tenant_name)
 	else
 		puts "I'm sorry, I didn't recognize that input."
 	end
