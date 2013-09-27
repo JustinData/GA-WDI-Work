@@ -6,25 +6,6 @@ def apartment_exist?(apartment)
 	$building.apartments.keys.include?(apartment.to_sym)
 end
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-def apartment_input
-end
-
-def person_input
-	puts "In order, what is the name, age, gender, and apartment (like this: apt#) of this person?"
-	@person = gets.chomp.scan(/\w+/)
-end
-
-def menu
-	puts "What would you like to do: create (p)erson, create (a)partment, (l)ist apartments, (lp) list people in single apartment, or (q)uit?"
-	gets.chomp.downcase
-end
-
-=======
-#input methods
-=======
->>>>>>> w01d04
 def person_input
 	puts "In order, what is the name, age, gender, and apartment (like this: apt#) of this person?"
 	@person = gets.chomp.scan(/\w+/)
@@ -39,16 +20,10 @@ def error_msg
 	"Not valid option. Choose again."
 end
 
-<<<<<<< HEAD
-#creator methods
->>>>>>> w01d04
-def add_building
-=======
 def create_apartment_y_or_n
 	puts "Hey, the apartment you specified doesn't exist yet"
 	puts "Do you wanna create it and add the person to it? Yes or No?"
 	gets.chomp.downcase[0]
->>>>>>> w01d04
 end
 
 def add_apartment(apartment_name, price, sqft, num_beds, num_baths, renters)
@@ -87,25 +62,14 @@ until choice == 'q'
 				when 'y'
 					puts "In order state: price, sqft, number of beds, and number of baths"
 					apt_input = gets.chomp.scan(/\w+/).map { |n| n.to_i }
-					
+
 					#create vacant apartment to existing building
 					add_apartment(person_copy[3] , apt_input[0], apt_input[1], apt_input[2], apt_input[3], [])
 
 					#add person to created apartment
-<<<<<<< HEAD
-					$building.apartments[person_copy[3].to_sym].renters << Person.new(person_copy[0], person_copy[1].to_i, person_copy[2][0], person_copy[3].to_sym)
-					puts $building.apartments
-				else # 'n'
-<<<<<<< HEAD
-					puts "Provide your input again"
-=======
-					puts error_msg
->>>>>>> w01d04
-=======
 					add_person(@person[0], @person[1].to_i, @person[2][0], @person[3].to_sym)
 				when 'n'
 					puts "Then re-enter your info"
->>>>>>> w01d04
 					puts "In order, what is the name, age, gender, and apartment (like this: apt#) of this person?"
 					@person = gets.chomp.scan(/\w+/)
 				else
@@ -117,14 +81,10 @@ until choice == 'q'
 	#create apartment
 	when 'a'
 		puts "In order state: name (like this apt#), price, sqft, number of beds, and number of baths"
-<<<<<<< HEAD
-		#note: this apt_input indexes diff than one above
-=======
 		#NOTE: this apt_input indexes diff than one above
->>>>>>> w01d04
 		apt_input = gets.chomp
 		apt_input = apt_input.scan(/\w+/).map! { |e| apt_input[e] == apt_input.scan(/\w+/).first ? e : e.to_i }
-		
+
 		#while specified apartment exist
 		while apartment_exist?(apt_input[0].to_sym)
 			#ask user to rename choice
@@ -143,11 +103,7 @@ until choice == 'q'
 	when 'lp'
 		$building.apartments.values.each { |apt| puts apt.list_renters }
 	else
-<<<<<<< HEAD
-		puts "Not valid option. Choose again."
-=======
 		puts error_msg
->>>>>>> w01d04
 		choice = menu
 	end
 
