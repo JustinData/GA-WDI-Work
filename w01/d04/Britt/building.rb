@@ -7,21 +7,7 @@ class Building
 	attr_accessor :name, :address, :style, :num_floors
 	attr_reader :has_doorman, :is_walkup, :apartments
 
-	def initialize (name, address, style, has_doorman, is_walkup, num_floors)
-		@name = name
-		@address = address
-		@style = style
-		@has_doorman = has_doorman
-		@is_walkup = is_walkup
-		@num_floors = num_floors
-		@apartments = {}
-	end
-
-	def list_apartments
-		apartments.keys.join(", ")
-	end
-
-	# Prompts user input; returns true if 'y' or 'yes', else returns false
+# Prompts user input; returns true if 'y' or 'yes', else returns false
 	def get_true_or_false
 		print "'y' or 'n': "
 		input = gets.chomp.downcase
@@ -34,16 +20,30 @@ class Building
 
 	def has_doorman?
 		puts "Does this building have a doorman?"
-		get_true_or_false
+		@has_doorman = get_true_or_false
 	end
 
 	def is_walkup?
 		puts "Is this building a walkup?"
-		get_true_or_false
+		@is_walkup = get_true_or_false
+	end
+
+	def initialize (name, address, style, num_floors)
+		@name = name
+		@address = address
+		@style = style
+		@num_floors = num_floors
+		@apartments = {}
+		has_doorman?
+		is_walkup?
 	end
 
 	def add_apartment(key, value)
 		@apartments[key] = value
+	end
+
+	def list_apartments
+		apartments.keys.join(", ")
 	end
 
 	def to_s

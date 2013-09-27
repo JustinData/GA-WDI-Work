@@ -4,22 +4,8 @@
 # method_name_set=('stuff') syntax
 
 class Apartment
-	attr_accessor :name, :price, :sqft, :num_beds, :num_baths
+	attr_accessor :name, :monthly_price, :sqft, :num_beds, :num_baths
 	attr_reader :is_occupied, :renters
-
-	def initialize(name, monthly_price, is_occupied, sqft, num_beds, num_baths)
-		@name = name
-		@monthly_price = monthly_price
-		@is_occupied = is_occupied
-		@sqft = sqft
-		@num_beds = num_beds
-		@num_baths = num_baths
-		@renters = []
-	end
-
-	def list_renters
-		renters.join(", ")
-	end
 
 	# Gets user input, and return true if 'y' or 'yes', else returns false
 	def get_true_or_false
@@ -34,11 +20,25 @@ class Apartment
 
 	def is_occupied?
 		puts "Is this apartment currently occupied?"
-		get_true_or_false
+		@is_occupied = get_true_or_false
+	end
+
+	def initialize(name, monthly_price, sqft, num_beds, num_baths)
+		@name = name
+		@monthly_price = monthly_price
+		@sqft = sqft
+		@num_beds = num_beds
+		@num_baths = num_baths
+		@renters = []
+		is_occupied?
 	end
 
 	def add_renter(renter)
 		@renters << renter
+	end
+
+	def list_renters
+		@renters.join(", ")
 	end
 
 	def to_s
