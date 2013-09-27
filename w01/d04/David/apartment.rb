@@ -21,22 +21,23 @@
 
 class Apartment
 
-  attr_accessor :name, :price, :is_occupied, :sqft, :num_beds, :num_baths, :renters
+  attr_accessor :price, :is_occupied, :sqft, :num_beds, :num_baths, :renters
 
   def initialize
-    @name
     @price
     @is_occupied
     @sqft
     @num_beds
     @num_baths
-    @renters = "none"
+    @renters
   end
 
   def to_s
-    "You have successfully created the apartment #{name} with price: #{@price}, it is #{@is_occupied} occupied, sqft: #{@sqft}, number of bed: #{@num_beds}, number of baths: #{@num_baths}"
+    "You have successfully created the apartment with price: #{@price}, it is #{@is_occupied} occupied, sqft: #{@sqft}, number of bed: #{@num_beds}, number of baths: #{@num_baths}"
   end
 end
+
+
 
 
     

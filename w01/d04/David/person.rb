@@ -27,3 +27,5 @@ class Person
     "You have successfully created a new tenant\nName: #{@name}, Age: #{@age}, Sex: #{@gender}, Apartment: #{@apartment}"
   end
 end
+
+

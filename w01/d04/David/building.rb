@@ -20,23 +20,24 @@
 
 
 class Building
-  attr_accessor :name, :address, :style, :has_doorman, :is_walkup, :num_floors, :apartments 
+  attr_accessor :address, :style, :has_doorman, :is_walkup, :num_floors, :apartments 
   #(apartments is a hash where the keys are the names of the apartments)
 
   def initialize
-    @name
     @address
     @style
     @has_doorman
     @is_walkup 
     @num_floors
-    @apartments = "none"
+    @apartments = Hash.new
   end
 
   def to_s
-    "You have successfully created the new building: #{@name}, Address: #{@address}, Style: #{@style}, Doorman: #{@has_doorman}, Walk-Up: #{@is_walkup}, Number of Floors: #{@num_floors}, Apartments: #{@apartments}"
+    "You have successfully created the new building Address: #{@address}, Style: #{@style}, Doorman: #{@has_doorman}, Walk-Up: #{@is_walkup}, Number of Floors: #{@num_floors}, Apartments: #{@apartments}"
   end
 
 end
+
+
 
 
