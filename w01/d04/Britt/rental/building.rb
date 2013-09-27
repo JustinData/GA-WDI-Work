@@ -47,13 +47,13 @@ class Building
 
 	def to_s
 		if @has_doorman == false && @is_walkup == false
-			"#{@address} is a #{@style}, #{@num_floors}-story building."
+			"#{@address} is a #{@style}, #{@num_floors}-story building with #{@apartments.keys.count} units."
 		elsif @has_doorman == true && @is_walkup == true
-			"#{@address} is a #{@style}, #{@num_floors}-story doorman building with a walkup."
+			"#{@address} is a #{@style}, #{@num_floors}-story doorman building with #{@apartments.keys.count} units and a walkup."
 		elsif @has_doorman == true && @is_walkup == false
-			"#{@address} is a #{@style}, #{@num_floors}-story doorman building."
+			"#{@address} is a #{@style}, #{@num_floors}-story doorman building with #{@apartments.keys.count} units."
 		else
-			"#{@address} is a #{@style}, #{@num_floors}-story building with a walkup."
+			"#{@address} is a #{@style}, #{@num_floors}-story building with #{@apartments.keys.count} units and a walkup."
 		end
 	end
 
