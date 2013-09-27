@@ -1,35 +1,28 @@
 #remember to downcase each renter name before using
 
 class Apartment
-	attr_accessor :price, :is_occupied, :sqft, :num_beds, :num_baths, :renters
+	attr_accessor :name, :price, :sqft, :num_beds, :num_baths, :renters
+	attr_reader :is_occupied
 	# renters should be Array
 
-	def initialize(price = nil, is_occupied = nil, sqft = nil, num_beds = nil, num_baths = nil, renters = nil)
+	def initialize(name = nil, price = nil, sqft = nil, num_beds = nil, num_baths = nil, renters = nil)
+		@name = name
 		@price = price
-		@is_occupied = is_occupied
 		@sqft = sqft
 		@num_beds = num_beds
 		@num_baths = num_baths
+
+		#arrays
 		@renters = renters
+		@is_occupied = @renters.nil? ? false : true
 	end
 
-	#to_s method
-	#end
+	def to_s
+		"#{@name}"
+	end
 
 	def list_renters
 		#return list of all renters
-		@renters.join(" | ")
+		result = @renters.map { |person| person.name }.join("\n")
 	end
 end
-
-temporary_renters = ['john', 'bill']
-
-apt_1 = Apartment.new(1000, true, 100, 1, 1, temporary_renters)
-puts apt_1.price
-puts apt_1.is_occupied
-puts apt_1.sqft
-puts apt_1.num_beds
-puts apt_1.num_baths
-puts apt_1.renters
-
-puts apt_1.list_renters
