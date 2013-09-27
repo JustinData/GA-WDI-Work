@@ -8,7 +8,7 @@ attr_accessor :name, :spells
   end
 
   def to_s
-    puts "Your wizard name #{@name} knows #{@spells.join(", ")} spells"
+    "Your wizard name #{@name} knows #{@spells.join(", ")} spells"
   end
 
 end
