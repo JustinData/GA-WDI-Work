@@ -44,6 +44,7 @@
 - It should create a new shelter for you
 - It should display a menu of options for the user to choose from:
   - Create an animal
+  - Create a client
   - Create a shelter
   - Quit
 - When creating an animal or client, the user is prompted for information like names, age etc. Newly created animals and clients should be added to the shelter.

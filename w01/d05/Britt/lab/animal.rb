@@ -18,6 +18,10 @@ class Animal
 		@toys
 	end
 
+	def give_animal_toy(toy)
+		@toys << toy
+	end
+
 	def list_toys
 		@toys.join(", ")
 	end

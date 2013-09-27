@@ -21,6 +21,10 @@ class Shelter
 	def rescue_animal(animal)
 		@animals << animal
 	end
+
+	def acquire_client(client)
+		@clients[client.name] = client
+	end
 	
 	def list_clients
 		@clients.keys.join(", ")

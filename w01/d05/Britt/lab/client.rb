@@ -31,3 +31,6 @@ class Client
 	end
 
 end
+
+class CatLady < Client
+end
