@@ -13,7 +13,7 @@ class Wizard
    end
 
    def to_s
-      puts "The wizard #{@name} knows the following spells: #{@spells.join(", ")}"
+      "The wizard #{@name} knows the following spells: #{@spells.join(", ")}"
    end
 
 end
