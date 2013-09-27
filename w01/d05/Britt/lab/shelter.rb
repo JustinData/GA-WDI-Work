@@ -18,6 +18,10 @@ class Shelter
 		@animals
 	end
 
+	def rescue_animal(animal)
+		@animals << animal
+	end
+	
 	def list_clients
 		@clients.keys.join(", ")
 	end

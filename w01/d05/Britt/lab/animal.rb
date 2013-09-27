@@ -23,7 +23,13 @@ class Animal
 	end
 
 	def to_s
-		"#{self.name} is a #{self.species} with the following toys: #{self.list_toys}"
+		if self.toys > 1
+			"#{self.name} is a #{self.species} with the following toys: #{self.list_toys}"
+		elsif self.toys == 1
+			"#{self.name} is a #{self.species} with the following toy: #{self.list_toys}"
+		else
+			"#{self.name} is a #{self.species} with no toys."
+		end
 	end
 
 end
