@@ -1,7 +1,7 @@
 class Client
   def initialize(name, age, pets)
     @name = name
-    @age = age
+    @age = age.to_i
     @pets = pets
   end
   def name

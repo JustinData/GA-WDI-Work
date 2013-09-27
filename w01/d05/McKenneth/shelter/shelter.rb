@@ -1,8 +1,9 @@
+
 class Shelter
-  def initialize(name, clients, animals)
+  def initialize(name)
     @name = name
-    @clients = clients
-    @animals = animals
+    @clients = []
+    @animals = []
   end
   def name
     @name
@@ -10,17 +11,20 @@ class Shelter
   def clients
     @clients
   end
-  def animal
-    @animal
+  def animals
+    @animals
   end
   #---------------non initialized methods
   def list_clients
-    puts @clients.join(" | ")
+   @clients.join(" | ")
   end
   def list_animals
-    puts @animals.join(" | ")
+    @animals.join(" | ")
   end
-  def add_client(name, age, pets)
-    @clients << [name, age, pets]
+  def add_client(client)
+    @clients << client
+  end
+  def add_pet(pet)
+    @animals << pet
   end
 end
