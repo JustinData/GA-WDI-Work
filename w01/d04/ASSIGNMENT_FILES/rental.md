@@ -21,7 +21,7 @@ An apartment should have the following attributes:
 
 * price
 * is_occupied
-* sqft
+* sqft	
 * num_beds
 * num_baths
 * renters (an array of people(person objects))
