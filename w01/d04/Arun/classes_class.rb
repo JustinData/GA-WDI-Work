@@ -9,35 +9,35 @@ class MyClass
 	end
 
 
-	def tables= (param1)
-		@tables = param1
+	# def tables= (param1)
+	# 	@tables = param1
 		
-	end
+	# end
 
 
-	def chairs= ( param1) #setter method has equals
-		@chairs = param1
+	# def chairs= ( param1) #setter method has equals
+	# 	@chairs = param1
 
 
-	def whadda_we_got
-		puts "OK WE GOT SOME #{@tables} TABLES HERE!"
-		#puts "AND SOME #{cairs} CHAIRS, TOO!"
-	end
+	# def whadda_we_got
+	# 	puts "OK WE GOT SOME #{@tables} TABLES HERE!"
+	# 	#puts "AND SOME #{cairs} CHAIRS, TOO!"
+	# end
 
 
-	def tables #getter method does not
-		return @tables
-	end
+	# def tables #getter method does not
+	# 	return @tables
+	# end
 
 
-	def chairs
-		return @chairs
-	end
+	# def chairs
+	# 	return @chairs
+	# end
 
 
-	def what_else_we_got
-		whadda_we_got
-	end
+	# def what_else_we_got
+	# 	whadda_we_got
+	# end
 
 end
 

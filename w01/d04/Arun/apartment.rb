@@ -9,7 +9,6 @@ class Apartment
 		@name = name
 		@renters = []
 	end
-
 	def to_s
 		puts "#{price}, #{is_occupied}, #{sqft}, #{num_beds}, #{num_baths}, #{name}"
 
