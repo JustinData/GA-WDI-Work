@@ -13,6 +13,7 @@ end
 
 def get_apartment_input
 	puts "In order state: name (like this apt#), price, sqft, number of beds, and number of baths"
+	#remove .to_i because added within class initialize itself
 	@apt_input = gets.chomp
 	@apt_input = @apt_input.scan(/\w+/).map! { |e| @apt_input[e] == @apt_input.scan(/\w+/).first ? e : e.to_i }
 end

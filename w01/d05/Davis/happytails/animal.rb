@@ -1,7 +1,9 @@
 class Animal
-	def initialize(name, client, species, toys = [])
+	def initialize(name = nil, client = nil, species = nil, toys = [])
+		#capitalize each word
 		@name = name
 		@client = client
+		
 		@species = species
 		@toys = toys
 	end
@@ -18,9 +20,9 @@ class Animal
 		@toys
 	end
 
-	def toys=(toys)
-		@toys = toys
-	end
+	# def toys=(toys)
+	# 	@toys = toys
+	# end
 
 	def to_s
 		"#{name} is a #{@species} breed and has the following toys: #{@toys.join(", ")}"

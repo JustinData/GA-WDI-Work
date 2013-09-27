@@ -1,6 +1,7 @@
 class Shelter
-	def initialize(name, clients = {})
+	def initialize(name = nil, shelter_animals = [], clients = {})
 		@name = name
+		@shelter_animals = shelter_animals
 		@clients = clients
 	end
 
@@ -16,9 +17,9 @@ class Shelter
 		@clients
 	end
 
-	def clients=(clients)
-		@clients = clients
-	end
+	# def clients=(clients)
+	# 	@clients = clients
+	# end
 
 	def list_clients
 		#lists all clients
@@ -49,17 +50,6 @@ class Shelter
 	end
 end
 
-
-doog = Animal.new("frog", "idiot")
-doog.toys.push("iphone", "knife")
-
-john = Client.new("John", 22)
-john.animals << doog
-
-
-shitty_place = Shelter.new("Shitty Place")
-shitty_place.clients[:john] = john
-shitty_place.clients
 
 # Shelter has:
 # clients = {
