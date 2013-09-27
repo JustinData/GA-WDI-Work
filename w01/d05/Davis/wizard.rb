@@ -15,4 +15,5 @@ wizard = Wizard.new("Harry Potter")
 wizard.spells << "Lumos"
 wizard.spells << "Accio"
 wizard.spells << "Expecto Patronum"
+#wizard.push("Lumos", "Accio", "Expecto Patronum")
 puts wizard.to_s
