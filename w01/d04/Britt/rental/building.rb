@@ -4,7 +4,7 @@
 # method_name_set=('stuff') syntax
 
 class Building
-	attr_accessor :name, :address, :style, :num_floors
+	attr_accessor :address, :style, :num_floors
 	attr_reader :has_doorman, :is_walkup, :apartments
 
 	# Prompts user input; returns true if 'y' or 'yes', else returns false
@@ -28,8 +28,7 @@ class Building
 		@is_walkup = get_true_or_false
 	end
 
-	def initialize (name, address, style, num_floors)
-		@name = name
+	def initialize (address, style, num_floors)
 		@address = address
 		@style = style
 		@num_floors = num_floors
@@ -43,18 +42,18 @@ class Building
 	end
 
 	def list_apartments
-		apartments.keys.join(", ")
+		@apartments.keys.join(", ")
 	end
 
 	def to_s
 		if @has_doorman == false && @is_walkup == false
-			"#{name} at #{address} is a #{style}, #{@num_floors}-story building."
+			"#{@address} is a #{@style}, #{@num_floors}-story building."
 		elsif @has_doorman == true && @is_walkup == true
-			"#{name} at #{address} is a #{style}, #{@num_floors}-story doorman building with a walkup."
+			"#{@address} is a #{@style}, #{@num_floors}-story doorman building with a walkup."
 		elsif @has_doorman == true && @is_walkup == false
-			"#{name} at #{address} is a #{style}, #{@num_floors}-story doorman building."
+			"#{@address} is a #{@style}, #{@num_floors}-story doorman building."
 		else
-			"#{name} at #{address} is a #{style}, #{@num_floors}-story building with a walkup."
+			"#{@address} is a #{@style}, #{@num_floors}-story building with a walkup."
 		end
 	end
 
