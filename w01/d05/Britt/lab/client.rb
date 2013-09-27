@@ -18,6 +18,10 @@ class Client
 		@pets
 	end
 
+	def add_pet(pet)
+		@pets << pet
+	end
+
 	def to_s
 		"#{self.name} is #{self.age} years old and has #{self.pets.count} pets."
 	end
