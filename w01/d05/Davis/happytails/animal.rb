@@ -1,6 +1,7 @@
 class Animal
-	def initialize(name, species, toys = [])
+	def initialize(name, client, species, toys = [])
 		@name = name
+		@client = client
 		@species = species
 		@toys = toys
 	end
