@@ -16,3 +16,4 @@ my_class = MyClass.new
 
 puts my_class.class
 puts my_class.add_tables( "white" )
+my_class.what_else_we_got
