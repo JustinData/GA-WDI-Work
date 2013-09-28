@@ -10,6 +10,9 @@
 
 class Apartment
   # not using attr_ shortcuts yet!
+  #attr_reader :...
+  #attr_accessor :...
+
 
   # initialize all instance variables when object instantiated
   def initialize

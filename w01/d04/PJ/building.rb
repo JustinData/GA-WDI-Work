@@ -10,6 +10,10 @@
 ########################
 
 class Building
+  # not using attr_.. macros juuuuussstttt yet
+  #attr_reader :...
+  #attr_accessor :...
+
 
   # initialize all instance variables when object instantiated
   def initialize
