@@ -11,8 +11,8 @@ happy_petz.to_s
   end   
   puts "What can we help you with today?"
   def menu
-  puts "Make an (A)nimal, Make a (C)lient, (P)ets We Have, (L)ist of Clients or (Q)uit"
-  puts "Choose A | C | P | L | Q"
+  puts "Make an (A)nimal, Make a (C)lient, (P)ets We Have, (L)ist of Clients, (T)o Adopt a Pet , (R)eturn a Pet or (Q)uit"
+  puts "Choose A | C | P | L | T | R | Q"
   gets.chomp.downcase
   end
       choice = menu
@@ -39,9 +39,14 @@ happy_petz.to_s
           client = Client.new(name, age, pets)
           happy_petz.add_client(client)
         when "p"
+          "Here are the pets we have!"
           happy_petz.list_animals
         when "l"
           happy_petz.list_clients
+        when "t"
+          happy_petz.adopt_pet
+        when "r"
+          happy_petz.return_pet
         end
         choice = menu
       end

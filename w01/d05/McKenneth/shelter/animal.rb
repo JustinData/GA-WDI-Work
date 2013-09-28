@@ -15,7 +15,7 @@ class Animal
   end
   #-------------non initialized methods
   def to_s
-    puts "#{@name} is a #{@species} and has #{@toys} toys"
+    puts "#{@name} is a #{@species} and has these toys: #{@toys[0]}"
   end
   def add_toy(toy)
     @toys << toy
