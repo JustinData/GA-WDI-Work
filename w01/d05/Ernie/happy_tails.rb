@@ -45,7 +45,7 @@ class Client
     end
     
     def animals
-          @animals.join(" , ")
+          @pets.join(" , ")
     end
 
     def to_s
