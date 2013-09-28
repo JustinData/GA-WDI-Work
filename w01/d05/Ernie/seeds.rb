@@ -2,16 +2,16 @@ require_relative "happy_tails"
 require_relative "main"
 require 'pry'
 
-happy_tails= Shelter.new("Happy Tails")
+$happy_tails = Shelter.new("Happy Tails")
 
-  dave = Client.new("Joe", 22)
-  happy_tails.clients.push(new_client)
-  
-  dave = Client.new("Dave", 22)
-  happy_tails.clients.push("Dave")
+dave = Client.new("Joe", 22)
+happy_tails.clients.push(new_client)
 
-  joe = Client.new("joe", 22)
-  happy_tails.clients.push( "joe" )
+dave = Client.new("Dave", 22)
+happy_tails.clients.push("Dave")
+
+joe = Client.new("joe", 22)
+happy_tails.clients.push( "joe" )
 
 
 fido = Animal.new(fido, dog)

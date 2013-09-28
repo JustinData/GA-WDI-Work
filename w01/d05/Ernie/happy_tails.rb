@@ -22,7 +22,6 @@ class Animal
    end
 end
 
-# dog = Animal.new("boobie","dog","bone")
 
 class Client
     
@@ -51,9 +50,6 @@ class Client
     def to_s
         "Im #{self.name} whose #{self.age} with these many #{self.pets}"
     end
-
-  
-  
 end
 
 class Shelter
@@ -86,8 +82,6 @@ class Shelter
   def to_s
      "Hello we are #{self.name} who has these many animals #{@list_animals.count} and these many #{self.clients}"
   end
-        
-  
 end
 
 

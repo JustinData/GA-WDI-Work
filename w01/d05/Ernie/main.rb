@@ -2,11 +2,6 @@ require_relative "happy_tails"
 require_relative "seeds"
 require 'pry'
 
-#hen creating an animal or client, the user is prompted for information like names, age etc. 
-#Newly created animals and clients should be added to the shelter.
-
-      
-
 
 def menu
   puts "\n\n*** Hello Welcome to Happy Tails ***\n\n"
@@ -19,9 +14,6 @@ def menu
   puts "Q : Quit\n\n"
   gets.chomp.downcase
 end
-
-
-
 
 
 response = ""
