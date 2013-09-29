@@ -21,14 +21,24 @@ class Shelter
 	# 	@clients = clients
 	# end
 
-	def list_clients
-		#lists all clients
-		#refer to rental for exact process
+	def shelter_animals
+		@shelter_animals
+	end
+
+	def shelter_animals=(shelter_animals)
+		@shelter_animals = shelter_animals
 	end
 
 	def list_animals
 		#lists all animals
 		#refer to rental for exact process
+		shelter_animals.each { |animal| puts animal.name }
+	end
+
+	def list_clients
+		#lists all clients
+		#refer to rental for exact process
+		clients.values.each { |client| pus client.name }
 	end
 
 	def facilitate_adoption

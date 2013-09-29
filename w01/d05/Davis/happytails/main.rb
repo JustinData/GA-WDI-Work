@@ -21,7 +21,7 @@ require './shelter'
 #methods##########################################################
 
 def menu
-	puts "What would you like to do manneeeeeee: create (a)nimal, (c)lient, or (q)uit?"
+	puts "What would you like to do manneeeeeee: create (a)nimal, (c)lient,\n (da) display all animals, (dc) display all clients, or (q)uit?"
 	gets.chomp.downcase
 end
 
@@ -118,6 +118,16 @@ until choice == 'q'
 			add_client(@client_input[0], @client_input[1])
 		end
 	
+	#3 display all animals
+	when 'da'
+		puts 'Displaying all shelter animals'
+		$shelter1.list_animals
+
+	#4 display all clients
+	when 'dc'
+		puts "Display all clients"
+		$shelter1.list_clients
+
 	#else error message
 	else
 		puts error_msg
