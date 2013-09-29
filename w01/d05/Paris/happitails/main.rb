@@ -1,7 +1,7 @@
 require_relative 'animal'
 require_relative 'shelter'
 require_relative 'client'
-require_relative 'seeds'
+# require_relative 'seeds'
 #require "pry"
 
 def menu 
@@ -19,17 +19,18 @@ end
 
 shelter = Shelter.new("HappiTails")
 name = Client.new("Sally", 20)
-pet = Animal.new("Max", "dog", 0)
 shelter = Shelter.new("HappiTails")
 shelter.clients["Bob"] = Client.new("Bob", 20)
 shelter.clients["Sally"] = Client.new("Sally", 20)
-shelter.clients["Sally"].pets_list << Animal.new("Max", "dog", 0)
-shelter.animals["Goober"] = Animal.new("Goober", "cat", 0)
-shelter.animals["Rocket"] = Animal.new("Rocket", "dog", 0) 
-shelter.animals["J"] = Animal.new("J", "dog", 0) 
+#shelter.clients["Sally"].pets_list << Animal.new("Max", "dog", "ball")
+shelter.animals["Goober"] = Animal.new("Goober", "cat", "ball of yarn")
+shelter.animals["Rocket"] = Animal.new("Rocket", "dog", "rope") 
+shelter.animals["J"] = Animal.new("J", "dog", "frisbee") 
+shelter.animals["Max"] = Animal.new("Max", "dog", "ball")
+petname = Animal.new("Max", "dog", "ball")
+petname = Animal.new("Max", "dog", "ball")
 #shelter.adopted_pet << Animal.new("Max", "dog", 0)
 name = Client.new("Sally", 20)
-
 response = menu ###NOTE TO SELF: NEED TO REVIEW HOW THIS WORKS
 
 while response != 'q'
@@ -37,18 +38,18 @@ while response != 'q'
   case response
   when '1'
     print "Animal's name: "
-    pet = gets.chomp
+    petname = gets.chomp
     print "Species: "
     species = gets.chomp
     print "Has toys? Y or n? "
     toys = gets.chomp.downcase
 
     while toys == 'y'
-      puts "How many? "
-      toys = gets.to_i
+      puts "List the toys here (i.e. ball, frisbee): "
+      toys = gets.chomp
     end 
       puts "Thank you. Let's find this bundle of joy a home."
-      shelter.animals[name] = Animal.new(name, species, toys)
+      shelter.animals[petname] = Animal.new(petname, species, toys)
 
   when '2'
     print "Your name: "
@@ -71,27 +72,29 @@ while response != 'q'
     age = gets.to_i #why do we not need chomp? 
     puts "Which animal would you like to adopt? "
     puts shelter.adoptables_list
-    pet = gets.chomp  
-    name = Client.new(name, age) #add new client
+    petname = gets.chomp  
     shelter.clients[name] = name #add new client
-    shelter.adopted_pet << shelter.remove_pet_from_shelter(pet) # 
-    puts name.add_pet(pet) # add to pets_list and print it out. 
+    shelter.animals.delete(petname)
+    #shelter.adopted_pet << shelter.remove_pet_from_shelter(petname) # 
+    shelter.clients[name] = Client.new(name, age) #add new client
+    puts shelter.clients[name].add_pet(petname) # add to pets_list and print it out. 
     
   when '6'
     print "Animal's name: "
-    pet = gets.chomp
+    petname = gets.chomp
     print "Species: "
     species = gets.chomp
     print "Has toys? Y or n? "
     toys = gets.chomp.downcase
 
-    while toys == 'y'
-      puts "How many? "
-      toys = gets.to_i
-    end 
-      shelter.animals[pet] = Animal.new(name, species, toys)
-      shelter.return_pet_to_shelter(pet)
-      name.bring_pet_back(pet)
+      while toys == 'y'
+        puts "List the toys here (i.e. ball, frisbee): "
+        toys = gets.chomp
+      end 
+
+    shelter.animals[petname] = Animal.new(petname, species, toys)
+    shelter.return_pet_to_shelter(petname)
+    name.bring_pet_back[petname]
 end #end of while
 
 response = menu

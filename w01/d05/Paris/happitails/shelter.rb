@@ -29,7 +29,7 @@ class Shelter
   end
 
   def return_pet_to_shelter(x)
-    @adopted_pet.delete(x)    
+    @adopted_pet.delete(x) 
     puts "Thank you. #{x.capitalize} has been returned to HappiTails."
   end
 

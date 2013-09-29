@@ -17,7 +17,7 @@ class Client
   end
 
   def bring_pet_back(x)
-    @pets_list.delete(x)
+    @pets_list.delete[x]
   end
 
   def age
@@ -35,8 +35,5 @@ class Client
   end
 
 end
-
-
-bob = Client.new("bob", 10) 
 
 
