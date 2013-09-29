@@ -1,4 +1,3 @@
-
 class Shelter
   def initialize(name)
     @name = name
@@ -72,11 +71,7 @@ class Shelter
     puts "These are our animals, select the number of the one to adopt."
   #lists shelters pets, takes it out, and pushes to client pet list
     while j <= @animals.size
-      if @animals[j-1].kind_of?(Array)
-        puts "#{j}. " + @animals[j-1][0]
-      else
       puts "#{j}. " + @animals[j-1].name
-      end
       j+=1
     end
     prompt
@@ -104,12 +99,12 @@ class Shelter
     puts " (Clients cannot return pets they started with!! That's just cruel)"
   #Lists pets, takes the pet back and pushes to the shelter
     while j <= @clients[choice-1].pets.size
-      if @clients[choice-1].kind_of?(Array)
-        puts "#{j}. " + @clients[choice-1][0]
-      else
-        puts "#{j}. " + @clients[choice-1].pets[j - 1][0]
-      end
-      j+=1
+        if @clients[choice-1].pets[j-1].kind_of?(Array)
+          puts "#{j}. " + @clients[choice-1].pets[j-1][0]
+        else
+         puts "#{j}. " + @clients[choice-1].pets[j - 1]
+       end
+         j+=1
     end
     prompt
     pet_select = gets.chomp.to_i
