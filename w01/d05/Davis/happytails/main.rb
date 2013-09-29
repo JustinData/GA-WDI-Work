@@ -74,49 +74,49 @@ until choice == 'q'
 		#animal input
 		get_animal_input
 		#does client specified / owner exist? yes
+
 		if client_exist?(@animal_input[1])	
 			#add animal to specified client
 			add_animal(@animal_input[0], @animal_input[1], @animal_input[2])
 		else
 
-
 			#create? yes or no loop
-			decision = y_or_n_create_client
-			until (decision == 'y') || (decision == 'n')
-				#do you want to create client and add animal?
-				case decision
-				when 'y'
-					#create client
-					get_client_input
-					add_client(@client_input[0], @client_input[1])
-
-					#add animal to created client
-					p add_animal(@animal_input[0], @animal_input[1], @animal_input[2])
-				#no
-				when 'n'
-					puts "no"
-					#reprompt for (animal input)
-					puts "Please re-provide input"
-				else
-					#reprompt for (yes or no loop)
-					puts error_msg
-					decision = y_or_n_create_client
+			decision = y_or_n_create_client					
+				until decision == 'n'
+					#do you want to create client and add animal?
+					case decision
+					when 'y'
+						get_client_input
+						#create client
+						add_client(@client_input[0], @client_input[1])
+						
+						#add animal to created client
+						add_animal(@animal_input[0], @animal_input[1], @animal_input[2])
+						puts "animal added to create client"
+						break
+					#no
+					else
+						#reprompt for (yes or no loop)
+						puts error_msg
+						decision = y_or_n_create_client
+					end		
 				end
-			end
-
 		end
 
 	#2 create client
 	when 'c'
 		#client input
-		puts "Creating client"
+		get_client_input
 		#does client exist? yes
+		if client_exist?(@client_input[0])
 			#reprompt (client input)
+			puts "Sorry, but that client already exists"
 		#no
+		else
 			#create client
-		#else
-			#reprompt client input
-		#end
+			puts "creating client"
+			add_client(@client_input[0], @client_input[1])
+		end
 	
 	#else error message
 	else
