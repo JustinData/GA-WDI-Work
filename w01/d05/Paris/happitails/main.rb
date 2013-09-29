@@ -18,13 +18,16 @@ end
 ###NOTE TO SELF: review \n and the difference between double quotes and single quote
 
 shelter = Shelter.new("HappiTails")
+name = Client.new("Sally", 20)
+pet = Animal.new("Max", "dog", 0)
+shelter = Shelter.new("HappiTails")
 shelter.clients["Bob"] = Client.new("Bob", 20)
 shelter.clients["Sally"] = Client.new("Sally", 20)
 shelter.clients["Sally"].pets_list << Animal.new("Max", "dog", 0)
 shelter.animals["Goober"] = Animal.new("Goober", "cat", 0)
 shelter.animals["Rocket"] = Animal.new("Rocket", "dog", 0) 
 shelter.animals["J"] = Animal.new("J", "dog", 0) 
-shelter.adopted_pet << Animal.new("Max", "dog", 0)
+#shelter.adopted_pet << Animal.new("Max", "dog", 0)
 name = Client.new("Sally", 20)
 
 response = menu ###NOTE TO SELF: NEED TO REVIEW HOW THIS WORKS
@@ -32,9 +35,9 @@ response = menu ###NOTE TO SELF: NEED TO REVIEW HOW THIS WORKS
 while response != 'q'
 
   case response
-  when '1' 
-    print "Pet's name: "
-    name = gets.chomp
+  when '1'
+    print "Animal's name: "
+    pet = gets.chomp
     print "Species: "
     species = gets.chomp
     print "Has toys? Y or n? "
@@ -71,25 +74,28 @@ while response != 'q'
     pet = gets.chomp  
     name = Client.new(name, age) #add new client
     shelter.clients[name] = name #add new client
-    shelter.adopted_pet << shelter.delete_pet(pet) # 
-    
-
+    shelter.adopted_pet << shelter.remove_pet_from_shelter(pet) # 
     puts name.add_pet(pet) # add to pets_list and print it out. 
     
-    # .delete
-    # shelter.clients["Sally"].pets_list << Animal.new("Max", "dog", 0)
-    
-  # when '6'
+  when '6'
+    print "Animal's name: "
+    pet = gets.chomp
+    print "Species: "
+    species = gets.chomp
+    print "Has toys? Y or n? "
+    toys = gets.chomp.downcase
 
+    while toys == 'y'
+      puts "How many? "
+      toys = gets.to_i
+    end 
+      shelter.animals[pet] = Animal.new(name, species, toys)
+      shelter.return_pet_to_shelter(pet)
+      name.bring_pet_back(pet)
 end #end of while
 
 response = menu
 end
 
-# shelter.animals[name] = grover
-
-# name.delete_pet(grover)
-
-# puts adopted_list
 
 

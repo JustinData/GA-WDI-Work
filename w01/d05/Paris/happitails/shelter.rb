@@ -24,8 +24,13 @@ class Shelter
     @adopted_pet
   end
 
-  def delete_pet(x)
+  def remove_pet_from_shelter(x)
     @animals.delete(x)
+  end
+
+  def return_pet_to_shelter(x)
+    @adopted_pet.delete(x)    
+    puts "Thank you. #{x.capitalize} has been returned to HappiTails."
   end
 
   def clients
