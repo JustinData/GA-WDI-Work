@@ -14,8 +14,17 @@ class Shelter
   def animals
     @animals
   end
+  def prompt
+    print ">"
+  end
   #---------------non initialized methods
   
+  def animal_ct
+    @animals.size
+  end
+  def client_ct
+    @clients.size
+  end
   #list all shelter clients
   def list_clients
     i=1
@@ -58,6 +67,7 @@ class Shelter
       puts "#{i}. " + @clients[i-1].name
       i+=1
     end
+    prompt
     choice = gets.chomp.to_i
     puts "These are our animals, select the number of the one to adopt."
   #lists shelters pets, takes it out, and pushes to client pet list
@@ -69,6 +79,7 @@ class Shelter
       end
       j+=1
     end
+    prompt
     pet_select = gets.chomp.to_i
     pet_actual = @animals.delete_at(pet_select - 1)
     if pet_actual.kind_of?(Array)
@@ -87,6 +98,7 @@ class Shelter
       puts "#{i}. " + @clients[i-1].name
       i+=1
     end
+    prompt
     choice = gets.chomp.to_i
     puts "These are their pets, select the number of the one to return."
     puts " (Clients cannot return pets they started with!! That's just cruel)"
@@ -99,6 +111,7 @@ class Shelter
       end
       j+=1
     end
+    prompt
     pet_select = gets.chomp.to_i
     pet_actual = @clients[choice-1].pets.delete_at(pet_select - 1)
     @animals << pet_actual
