@@ -6,7 +6,7 @@ require_relative 'shelter'
 require_relative 'seed'
 
 def menu
-  puts "\n\n******* Animal Shelter App *******\n\n"
+  puts "\n\n******* #{$shelter.name.upcase} *******\n\n"
   puts "1: Enter Animal Details"
   puts "2: Enter Client Details"
   puts "3: Display all Animals"
@@ -15,6 +15,14 @@ def menu
   puts "6: Return"
   puts "Q: Quit"
   gets.chomp.downcase
+end
+
+def get_shelter_animal(name)
+  $shelter.animals[name]
+end
+
+def get_shelter_client(name)
+  $shelter.clients[name]
 end
 
 response = menu
@@ -57,29 +65,34 @@ while response != 'q'
   when '5'
     print "Please enter your name: "
     name_client = gets.chomp.downcase
-    if $shelter.clients[name_client].pets.count >= 2
+    if get_shelter_client(name_client).pets.count >= 2
       puts "\n\nYou live in a tiny apartment Asshole...you can't adopt more than 2 pets"
     else
       puts "Which animal would you like to adopt"
       puts $shelter.list_animals
       print "Please choose by the animals's name: "
       name_animal = gets.chomp.downcase
-      $shelter.clients[name_client].pets[name_animal] = $shelter.animals[name_animal]
+      #get_shelter_animal method works here but not below for some reason????
+      get_shelter_client(name_client).pets[name_animal] = get_shelter_animal(name_animal)
       $shelter.animals.delete(name_animal)
       puts "\n\n #{name_client.capitalize} you have successfully adopted #{name_animal.capitalize} and your account has been updated below\n\n" 
-      puts $shelter.clients[name_client]
+      puts get_shelter_client(name_client)
     end
   when '6'
     print "Please enter your name: "
     name_client = gets.chomp.downcase
     puts"Which animal would you like return: "
-    puts $shelter.clients[name_client].list_pets
+    puts get_shelter_client(name_client).list_pets
     print "Please choose by the animals's name: "
     name_animal = gets.chomp.downcase
-    $shelter.animals[name_animal] = $shelter.clients[name_client].pets[name_animal]
-    $shelter.clients[name_client].pets.delete(name_animal)
+    # get an error if I use the get_shelter_animal method????
+    # main.rb:87: syntax error, unexpected '=', expecting keyword_end
+    #main.rb:93: syntax error, unexpected keyword_end, expecting end-of-input
+    # get_shelter_animal(name_animal) = get_shelter_client(name_client).pets[name_animal]
+    $shelter.animals[name_animal] = get_shelter_client(name_client).pets[name_animal]
+    get_shelter_client(name_client).pets.delete(name_animal)
     puts "\n\n #{name_client.capitalize} you have successfully returned #{name_animal.capitalize} and your account has been updated below\n\n" 
-    puts $shelter.clients[name_client]
+    puts get_shelter_client(name_client)
   end
   response = menu
 end
