@@ -17,7 +17,7 @@ class Client
   end
 
   def bring_pet_back(x)
-    @pets_list.delete[x]
+    @pets_list.delete(x)
   end
 
   def age
