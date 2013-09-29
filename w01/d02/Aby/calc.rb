@@ -1,12 +1,12 @@
-# A user should be given a menu of operations
-# A user should be able to choose from the menu
+A user should be given a menu of operations
+# User chooses from a menu
 def menu
 	print " Welcome to Calc-it "
 	print "(A)dvanced, (B)asic, (Q)uit: "
 	response = gets.chomp.downcase
 end
 
-# A user should be able to enter numbers to perform the operation on
+# User enters two numbers to perform the operation 
 # A user should be shown the result
 def basic_calc
 	print "(a)dd, (s)ubtract, (m)ultiply, (d)ivide: "
@@ -52,16 +52,12 @@ def advanced_calc
   	end
 end
 
-response = menu
-while response != 'q'
-	if response == 'b'
-		basic_calc
-		response = menu
-	elsif response == 'a'
-		advanced_calc
-		response = menu
-	else
-		response = menu
-	end
+$response = menu (good_input)
+ 
+# This process should continue until the user selects a quit option from the menu
+ 
+while $response != 'q'
+ 
+        $response = menu (good_input)
 end
 
