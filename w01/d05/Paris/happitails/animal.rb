@@ -1,17 +1,17 @@
 class Animal
 
-  def initialize(name, species)
+  def initialize(name, species, toys)
     @name = name
     @species = species
-    @toys = []# this will be a array
+    @toys = toys
+  end
+
+ def name
+    @name
   end
 
   def to_s
-    return "This is #{@name}. It's a #{@species}. These are its toys: #{@toys.join(", ")}."
-  end
-
-   def name
-    @name
+    return "#{@name}, #{@species}. Toy(s): #{@toys}."
   end
 
   def species
@@ -22,20 +22,14 @@ class Animal
     @toys
   end
 
-  def add_toys(x)
-    @toys.push(x) 
-  end
-
-
 end
 
 
-  # - An animal should have a name.
-  # - An animal should have a species.
-  # - An animal can have multiple toys, but doesn't start with any.
-  # - When we print an animal to a string, it should tell us about its name, species and all of its toys.
+##  a.delete("PJ") #here, if you want to do something with the item you delete, then have to save it in a new variable, i.e. 
+## person_deleted = a.delete("PJ") then call on person_deleted and you'll see all the ones that were deleted.
 
-#   spot = Animal.new("Spot", "Dog", "Squeaky Hamburger")
 
-# puts spot.name
+
+
+
 
