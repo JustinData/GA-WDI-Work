@@ -8,29 +8,31 @@ class Client
     @pets_list = []
   end
 
-  def pets_list
-    @pets_list
-  end
-
-  def to_s
-    "#{@name} is #{@age} years old. Total pets: #{@pets_list.count}"
-  end
-
   def name
     @name
+  end
+
+  def pets_list
+    @pets_list
   end
 
   def age
     @age
   end
 
-  def add_pet(x)
-    @pets_list << x
+  def to_s
+    "#{@name} is #{@age} years old. Total pets: #{@pets_list.count}"
+  end
+
+  def add_pet(y)
+    @pets_list << y
+    puts "Congrats, #{@name}. You've just adopted #{y}."
+
   end
 
 end
 
 
-# bob = Client.new("bob", "10")
+bob = Client.new("bob", 10) 
 
-# puts bob.pets
+

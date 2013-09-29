@@ -2,7 +2,7 @@ require_relative 'animal'
 require_relative 'shelter'
 require_relative 'client'
 require_relative 'seeds'
-require 'pry'
+#require "pry"
 
 def menu 
   puts "\n\n*** HappiTails ***\n\n"
@@ -20,15 +20,12 @@ end
 shelter = Shelter.new("HappiTails")
 shelter.clients["Bob"] = Client.new("Bob", 20)
 shelter.clients["Sally"] = Client.new("Sally", 20)
-# shelter.animals["Max"] = Animal.new("Max", "dog", 1)
-shelter.clients["Sally"].pets_list << Animal.new("Max", "dog", 1)
+shelter.clients["Sally"].pets_list << Animal.new("Max", "dog", 0)
+shelter.animals["Goober"] = Animal.new("Goober", "cat", 0)
+shelter.animals["Rocket"] = Animal.new("Rocket", "dog", 0) 
+shelter.animals["J"] = Animal.new("J", "dog", 0) 
+shelter.adopted_pet << Animal.new("Max", "dog", 0)
 name = Client.new("Sally", 20)
-lucky_pet = Animal.new("Max", "dog", 1)
-# shelter.adopter_adoptee["Sally"] = Client.new("Sally", 20)
-# # shelter.adopter_adoptee["Max"] = Animal.new("Max", "dog", 1)
-# shelter.animals["Grover"] = Animal.new("Grover", "dog", 2)
-# shelter.adopter_adoptee[name] = lucky_pet 
-# lucky_pet = Animal.new("Max", "dog", 1)
 
 response = menu ###NOTE TO SELF: NEED TO REVIEW HOW THIS WORKS
 
@@ -40,15 +37,15 @@ while response != 'q'
     name = gets.chomp
     print "Species: "
     species = gets.chomp
-    print "Has toys? Yes or no? "
+    print "Has toys? Y or n? "
     toys = gets.chomp.downcase
 
-    while toys == 'yes'
+    while toys == 'y'
       puts "How many? "
       toys = gets.to_i
     end 
-    puts "Thank you. Let's find this bundle of joy a home."
-    shelter.animals[name] = Animal.new(name, species, toys)
+      puts "Thank you. Let's find this bundle of joy a home."
+      shelter.animals[name] = Animal.new(name, species, toys)
 
   when '2'
     print "Your name: "
@@ -71,10 +68,16 @@ while response != 'q'
     age = gets.to_i #why do we not need chomp? 
     puts "Which animal would you like to adopt? "
     puts shelter.adoptables_list
-    lucky_pet = gets.chomp.downcase   
-    shelter.clients.add_pet(lucky_pet) << Animal.new(name, species, toys)
-    puts pets_list
+    pet = gets.chomp  
+    name = Client.new(name, age) #add new client
+    shelter.clients[name] = name #add new client
+    shelter.adopted_pet << shelter.delete_pet(pet) # 
+    
+
+    puts name.add_pet(pet) # add to pets_list and print it out. 
+    
     # .delete
+    # shelter.clients["Sally"].pets_list << Animal.new("Max", "dog", 0)
     
   # when '6'
 
@@ -83,6 +86,10 @@ end #end of while
 response = menu
 end
 
+# shelter.animals[name] = grover
 
+# name.delete_pet(grover)
+
+# puts adopted_list
 
 

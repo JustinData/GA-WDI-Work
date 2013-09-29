@@ -1,3 +1,5 @@
+#require "pry"
+
 class Shelter
 
 #THESE ARE OBJECTS
@@ -5,6 +7,7 @@ class Shelter
     @name = name
     @animals = {}
     @clients = {}
+    @adopted_pet = []
   end
 
 #THESE ARE METHODS
@@ -15,6 +18,14 @@ class Shelter
 
   def name
     @name
+  end
+
+  def adopted_pet
+    @adopted_pet
+  end
+
+  def delete_pet(x)
+    @animals.delete(x)
   end
 
   def clients
@@ -33,22 +44,7 @@ class Shelter
     @clients.values.join("\n")
    end
 
-  def remove(x)
-    @animals.delete(x)
-  end
-
-  # def adoption_database_reader
-  #    @adoption_database
-  # end
-  
-
-
-  # def print
-  #   puts self.to_s
-  # end
-
-
-
-
-
 end
+
+
+

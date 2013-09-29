@@ -4,6 +4,7 @@ class Animal
     @name = name
     @species = species
     @toys = toys
+    # @adopted_pet = []
   end
 
  def name
@@ -11,7 +12,7 @@ class Animal
   end
 
   def to_s
-    return "#{@name}, #{@species}. Toy(s): #{@toys}."
+    return "#{@name}, #{@species}. Toy(s): #{@toys}"
   end
 
   def species
@@ -21,6 +22,10 @@ class Animal
   def toys
     @toys
   end
+
+  # def adopted_pet
+  #   @adopted_pet
+  # end
 
 end
 
