@@ -1,77 +1,68 @@
-##### Happy Tails Site #######
-
-require_relative 'happyT'
-require_relative 'seeds'
-
-##### The program begins here
-# 1st it creates an empty shelter for the user.
+require_relative "client"
+require_relative "animal"
+require_relative "shelter"
+require "pry"
+#####Program starts here #####
+# It begins by creating a shelter for user.
 shelter = Shelter.new("Animals R Us")
-maria = Client.new("Maria", 23)
-tiny = Animal.new("Tiny", "Capuchin Monkey", "Rattle")
-shelter.clients.push(maria)
-shelter.animals.push(tiny)
 
-# Then it welcomes the user with the new shelter name 
-# and gives a menu
+# Then it shows user a menu
+def menu
+	puts "\n\n*** Pet Adoption App ***\n\n"
+  puts '1 : Create Client'
+  puts '2 : Create an Animal'
+  puts '3 : Display All Animals'
+  puts '4 : Display all Clients'
+  puts "Q : Quit\n\n"
+  gets.chomp.downcase
+end
 
-puts "Welcome to #{shelter}!"
-puts "Would you like to add a (C)lient, an (A)nimal, or (Q)uit?"
-answer = gets.chomp.downcase
+# This calls the menu method which returns
+# a string and we assign that string with the 
+# variable "response".
+response = menu
 
-# This choice gets the user info and then uses it to populate the vars
-# in the client class to create a new instance of user with those vars
-# in the happyT file.
+# Now we begin a loop that says while the 
+# response is NOT "q", stay in ths loop.
 
-if answer == "c"
-	puts "Your name?"
-	name = gets.chomp
-	puts "Your age?"
-	age = gets.chomp
+while response != "q"
+	case response
+	when "1"
+# Here we get the input from user and it gets stored in 
+# the Instance Vars that live in the Client class.
+		puts "Your name?"
+		name = gets.chomp
+		puts "Your age?"
+		age = gets.chomp
+  
+  # Here we create a new client with those vars and 
+  # push it into the clients hash that lives in the 
+  # shelter class.
+  # This was hard for me to figure out, I got a tip to make 
+  # it a hash in shelter and then make shelter a global. 
+  # Also I forgot that you don't need "Push" to add to hash.
+  # That messed me up for a long time too.
+  # Also, not understanding how age went into the hash
+  # too really confused me.
+  $shelter.clients[name.downcase] = Client.new(name, age)
 	
-  shelter.clients.push(Client.new(name, age))
+	when "2"
+		puts "Your pet's name?"
+		name = gets.chomp
+		puts "Your pet's species type?"
+		species = gets.chomp
+		puts "Your pet's toy?"
+		toys = gets.chomp
 
-  # This choice gets the user animal info to create new animal from class
-  # in HappyT file.
+  # Here we create a new animal with those vars and 
+  # push it into the animals array that lives in the 
+  # shelter class
+  $shelter.animals[name.downcase] = Animal.new(name, species, toys)
+  # I decided to puts the result so I could see result.
+  puts $shelter.animals[name.downcase]
+	when "3"
+		puts $shelter.animals 
 
-elsif answer == "a"
-	puts "Your pet's name?"
-	name = gets.chomp
-	puts "Your pet's species type?"
-	species = gets.chomp
-	puts "Your pet's toy?"
-	toys = gets.chomp
-
-  shelter.animals.push(Animal.new(name, species, toys))
-
-else
-# If we get herethe program will end
-Puts "Goodbye!"
+	end
 end
-
-# Here the program offers the user another menu
-puts "Would you like to see:"
-puts "All the shelter clients and pets? Y or N"
-answer = gets.chomp.downcase
-
-# This will show the user the clients array in shelter class
-# and the animal class in the shelter class.
-if answer == "y"
-  puts shelter.clients()  
-  puts shelter.animals()
-else
-end
-
-puts 
-
-############### SKETCH BOOK AREA #####################
-
-# This is just stuff I was trying out
-
-# maria = Client.new("Maria", 23, "Momo")
-# puts client1
-
-# tiny = Animal.new("Tiny", "Capuchin Monkey", "Rattle")
-# puts animal1
-
-# shelter1 = Shelter.new("Animals R Us", 5, 8)
-# puts shelter1
+binding.pry
