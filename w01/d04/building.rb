@@ -7,11 +7,12 @@ def initialize(address, style, has_doorman, is_walkup, num_floors)
 	@has_doorman = has_doorman
 	@is_walkup = is_walkup
 	@num_floors = num_floors
+	@renters = renters
 end
 
 
  def to_s
-	return "#{@address} #{@style} #{@has_doorman} #{is_walkup} #{@num_floors}"
+	return "#{@address} #{@style} #{@has_doorman} #{is_walkup} #{@num_floors} #{renters.join(", ")
 end
 
  puts building1 = Building.new("123 Park Ave", "duplex", "yes", "no", "2")
