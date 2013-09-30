@@ -24,3 +24,10 @@ get "/calculator/:id" do
 		"No calculation with that id found."
 	end
 end
+
+post "/calculator/add/:num_1/:num_2" do
+	last_id = calc_history.keys.max
+	num_1 = params[:num_1]
+	num_2 = params[:num_2]
+	calc_history[last_id + 1] = "#{num_1} + #{num_2} = #{num_1 + num_2}"
+end
