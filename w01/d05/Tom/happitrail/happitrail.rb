@@ -21,7 +21,9 @@ class Shelter
     puts "Sorry to be rude, but how old are you?"
     @age = gets.chomp.to_s
 
-    add_client << [@name, @age]
+    puts "Hello #{@name} Welcome!"
+
+
   end
 
   # this method should add an amimal to the shelter
@@ -31,11 +33,14 @@ class Shelter
 
     puts "How old is the animal?"
     @age = gets.chomp.to_s
-
-
   end
 
   def return_animal
+    puts "What species of animal are you bringing in?"
+    @species = gets.chomp.downcase
+
+    puts "How old is the animal?"
+    @age = gets.chomp.to_s
   end
 
   # This should return an array of the list of clients for the shelter
@@ -71,13 +76,13 @@ class Person
     @animal = []
   end
 
-  def add_person(name, age)
-    puts "What is your name?"
-    @name = gets.chomp.downcase
+  # def add_person(name, age)
+  #   puts "What is your name?"
+  #   @name = gets.chomp.downcase
 
-    puts "Sorry to be rude, but how old are you?"
-    @age = gets.chomp.to_s
-  end
+  #   puts "Sorry to be rude, but how old are you?"
+  #   @age = gets.chomp.to_s
+  # end
 
   def to_s
     "#{@name} is #{@age} years and is the proud owner of #{@animal}"
