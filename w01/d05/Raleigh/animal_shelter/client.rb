@@ -15,12 +15,12 @@ class Client
       @age
    end
 
-   def animals
-      @animals
+   def add_animals(new_animal)
+      @animals.push(new_animal.split(", "))
    end
 
    def to_s
-      "#{name} is #{age} years old and has the following animals: #{animals}"
+      "#{self.name} is #{self.age} years old and has the following #{@animals.length} animals: #{@animals.join(", ")}."
    end
 
 end

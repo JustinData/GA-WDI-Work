@@ -3,39 +3,42 @@
 class Shelter
    def initialize(name)
       @name = name
-      @client_with_animal = {no_client: []}
+      @client_with_animal = {}
    end
 
    def name
       @name
    end
 
+   def add_client(client_name, client_obj)
+      added_client = {client_name => client_obj}
+      @client_with_animal.merge!(added_client)
+   end
+
+   def add_animal_to_shelter(animal)
+      @client_with_animal["No Client"] << animal
+   end
+
    def display_clients
-      puts "All clients at #{self.name}:"
-      @client_with_animal.keys.each do |client|
-         if client != :no_client
-            puts client.to_s.capitalize
+      puts "\n#{self.name} Clients:"
+      @client_with_animal.each do |k,v| 
+         if k != "No Client"
+            puts v.to_s
          end
       end
    end
 
    def display_animals
-      puts "All animals at #{self.name}:"
-      @client_with_animal.values.each do |animal_arr|
-         animal_arr.each {|animal| puts animal}
-      end
+      puts "\n#{self.name} Animals:"
+      @client_with_animal["No Client"].join(", ")
    end
 
-   def add_client(client_to_add)
-      @client_with_animal.keys {client_to_add}
-   end
+   def animal_adoption(adopting)
 
-   def add_animal(animal_to_add)
-      @client_with_animal.values {animal_to_add}
    end
 
    def to_s
-      "Shelter #{name} has #{client_with_animal.keys.count} clients and #{client_with_animal.values.count} animals."
+      "Shelter #{self.name} has #{@client_with_animal.keys.count.to_i - 1} clients and #{@client_with_animal.values.count} animals."
    end
 end
 
