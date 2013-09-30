@@ -11,6 +11,6 @@ class Person
    end
 
    def to_s
-      "#{@name} is #{@age} years old, a #{@gender}, and lives in apartment #{@apartment}."
+      "#{@name}, #{@gender}, #{@age} years old lives in #{apartment}."
    end
 end
