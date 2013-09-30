@@ -59,7 +59,3 @@ post "/calculator/divide" do
 	calc_history[last_id + 1] = "#{num_1} / #{num_2} = #{num_1 / num_2}"
 end
 
-
-
-
-
