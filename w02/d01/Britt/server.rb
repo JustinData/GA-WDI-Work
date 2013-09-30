@@ -5,19 +5,19 @@ get "/" do
 end
 
 # hash for all historical calculations
-calc_history = {}
+calc_history = {0 => 0}
 
 # finds the largest key in the calculations history hash
-def calculate_last_id
-	calc_history.keys.max
-end
-
+# def calculate_last_id
+# 	calc_history.keys.max
+# end
 
 get "/calculator" do
-	calc_history.keys.each do |id,calculation|
-		# something that works to show all calculations
-		"#{id}. #{calculation}\n"
+	output = ""
+	calc_history.each do |id, calculation|
+		output << "(#{id}). #{calculation}\n"
 	end
+	output
 end
 
 get "/calculator/:id" do
@@ -31,29 +31,29 @@ get "/calculator/:id" do
 	end
 end
 
-post "/calculator/add/:num_1/:num_2" do
-	last_id = calculate_last_id
+post "/calculator/add" do
+	last_id = calc_history.keys.max
 	num_1 = params[:num_1].to_i
 	num_2 = params[:num_2].to_i
 	calc_history[last_id + 1] = "#{num_1} + #{num_2} = #{num_1 + num_2}"
 end
 
-post "calculator/subtract/:num_1/:num_2" do
-	last_id = calculate_last_id
+post "/calculator/subtract" do
+	last_id = calc_history.keys.max
 	num_1 = params[:num_1].to_i
 	num_2 = params[:num_2].to_i
 	calc_history[last_id + 1] = "#{num_1} - #{num_2} = #{num_1 - num_2}"
 end
 
-post "calculator/multiply/:num_1/:num_2" do
-	last_id = calculate_last_id
+post "/calculator/multiply" do
+	last_id = calc_history.keys.max
 	num_1 = params[:num_1].to_i
 	num_2 = params[:num_2].to_i
 	calc_history[last_id + 1] = "#{num_1} * #{num_2} = #{num_1 * num_2}"
 end
 
-post "calculator/divide/:num_1/:num_2" do
-	last_id = calculate_last_id
+post "/calculator/divide" do
+	last_id = calc_history.keys.max
 	num_1 = params[:num_1].to_i
 	num_2 = params[:num_2].to_i
 	calc_history[last_id + 1] = "#{num_1} / #{num_2} = #{num_1 / num_2}"
