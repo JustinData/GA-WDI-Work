@@ -49,4 +49,4 @@ users.each_value do |v|
 end
 array.uniq!.sort!
 #9
-users["Peter"][:favorite_numbers][1] = "12"
+users["Peter"][:favorite_numbers][0] = "12"
