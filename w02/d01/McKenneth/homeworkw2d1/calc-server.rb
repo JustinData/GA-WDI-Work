@@ -3,21 +3,23 @@ require 'sinatra'
 calculator = {0 => "INITIALIZED"}
 
 get("/") do
-  "Welcome to the Calculator!
-  Here's how it works:
-  ADD : put in /calculator/add/num1/num2
-  SUBTRACT : put in /calculator/sub/num1/num2
-  MULTIPLY : put in /calculator/multi/num1/num2
-  DIVIDE : put in /calculator/divide/num1/num2
-  To see a list of all the calculations done just type /calculator"
+  "Welcome to the Calculator! To see a list of all the calculations done just type localhost:4567/calculator"
 end
 
+#lists all calculations performed
 get("/calculator") do
-  calcs = calculator.values.join("  |-|  ")
+  calcs = calculator.values.join("  |  ")
   "Here's a list of all the calculations done so far:
   #{calcs}"
 end
 
+#shows individual calculations at supplied index
+get("/calculator/:id") do
+  id = params[:id].to_i
+  calculator[id]
+end
+
+#performs addition
 post("/calculator/add") do
   num_1 = params[:num_1].to_i
   num_2 = params[:num_2].to_i
@@ -27,6 +29,7 @@ post("/calculator/add") do
   "The sum of #{num_1} and #{num_2} is : #{sum}" 
 end
 
+#performs subtraction
 post("/calculator/sub") do
   num_1 = params[:num_1].to_i
   num_2 = params[:num_2].to_i
@@ -36,3 +39,22 @@ post("/calculator/sub") do
   "The net of #{num_1} minus #{num_2} is : #{net}"
 end
 
+#performs multiplication
+post("/calculator/multi") do
+  num_1 = params[:num_1].to_i
+  num_2 = params[:num_2].to_i
+  multi = num_1 * num_2
+  key = calculator.keys.max + 1
+  calculator[key] = "The net of #{num_1} times #{num_2} is : #{multi}"
+  "The net of #{num_1} times #{num_2} is : #{multi}"
+end
+
+#performs division
+post("/calculator/divide") do
+  num_1 = params[:num_1].to_i
+  num_2 = params[:num_2].to_i
+  div = num_1 / num_2
+  key = calculator.keys.max + 1
+  calculator[key] = "The net of #{num_1} divided by #{num_2} is : #{div}"
+  "The net of #{num_1} minus #{num_2} is : #{div}"
+end
