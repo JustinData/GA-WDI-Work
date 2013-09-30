@@ -1,14 +1,14 @@
+require 'pry'
 require_relative "client"
 require_relative "animal"
 require_relative "shelter"
-require "pry"
 #####Program starts here #####
 # It begins by creating a shelter for user.
 shelter = Shelter.new("Animals R Us")
+puts "Welcome to #{shelter.name}"
 
 # Then it shows user a menu
 def menu
-	puts "\n\n*** Pet Adoption App ***\n\n"
   puts '1 : Create Client'
   puts '2 : Create an Animal'
   puts '3 : Display All Animals'
@@ -22,7 +22,7 @@ end
 # variable "response".
 response = menu
 
-# Now we begin a loop that says while the 
+# Now we begin a loop that says: while the 
 # response is NOT "q", stay in ths loop.
 
 while response != "q"
@@ -34,6 +34,30 @@ while response != "q"
 		name = gets.chomp
 		puts "Your age?"
 		age = gets.chomp
+		puts "Do you have an pet?(Y or N)"
+		do_u_have_a_pet = gets.chomp.downcase
+			case do_u_have_a_pet
+			when "y"
+				puts "How many? (Please enter an integer)"
+				how_many = gets.chomp.to_i
+				if how_many >= 2 
+					puts "You have too many animals, goodbye!"
+				else
+					puts "What is your pets name?"
+					name = gets.chomp.downcase
+					puts "What is the species?"
+					species = gets.chomp.downcase
+					puts "Does your pet have a toy?"
+					toys = gets.chomp.downcase
+					
+					#animal.toys.push(new_toy)
+      		shelter.animals.push(Animal.new(name, species, toys))
+				end
+			when "n"
+				puts "OK"
+			end
+
+
   
   # Here we create a new client with those vars and 
   # push it into the clients hash that lives in the 
@@ -45,7 +69,9 @@ while response != "q"
   # Also, not understanding how age went into the hash
   # too really confused me.
   $shelter.clients[name.downcase] = Client.new(name, age)
-	
+
+	# I decided to puts the result so I could see result.
+  #puts clients[name.capitalize]
 	when "2"
 		puts "Your pet's name?"
 		name = gets.chomp
@@ -65,4 +91,3 @@ while response != "q"
 
 	end
 end
-binding.pry

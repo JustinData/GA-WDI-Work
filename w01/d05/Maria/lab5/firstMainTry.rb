@@ -1,15 +1,16 @@
 ##### Happy Tails Site #######
 
-require_relative 'happyT'
-require_relative 'seeds'
+require_relative "client"
+require_relative "animal"
+require_relative "shelter"
 
 ##### The program begins here
 # 1st it creates an empty shelter for the user.
 shelter = Shelter.new("Animals R Us")
-maria = Client.new("Maria", 23)
-tiny = Animal.new("Tiny", "Capuchin Monkey", "Rattle")
-shelter.clients.push(maria)
-shelter.animals.push(tiny)
+# maria = Client.new("Maria", 23)
+# tiny = Animal.new("Tiny", "Capuchin Monkey", "Rattle")
+# shelter.clients.push(maria)
+# shelter.animals.push(tiny)
 
 # Then it welcomes the user with the new shelter name 
 # and gives a menu

@@ -2,8 +2,8 @@ class Shelter
 
   def initialize(name)
     @name = name
-    @animals = {} # create an empty animals hash
-    @clients = {} # create an empty clients hash
+    @animals = {} # create an empty animals hash but dodnt wprk
+    @clients = {} # same here
   end
 
   def name
@@ -18,15 +18,15 @@ class Shelter
     @clients
   end
 
-  def show_clients
-    @clients.values.join(", ")
-  end
-
-  def show_animals
-    @animals.values.join(", ")
-  end
-
   def to_s
-    "#{name}! We have #{@clients.count} clients and #{@animals.count} animals "
+    "#{name}We have #{clients.length} clients and #{animals.length} animals "
+  end
+
+  def list_animals
+    animals.values.join("\n")
+  end
+  
+  def list_clients
+    clients.values.join("\n")
   end
 end

@@ -15,13 +15,15 @@ class Client
   end
 
   def pets
-    @pets
+    @pets = pet
   end
 
   def show_pets
-    @pets.value.join(", ")
+    @pets.join(", ")
   end
+  
   def to_s
-    "#{@name}, whose age is #{@age} has #{@pets.values.join", "} number of pets."
+    
+    "#{@name}, whose age is #{@age} has #{@pets.join(", ")} number of pets."
   end
 end
