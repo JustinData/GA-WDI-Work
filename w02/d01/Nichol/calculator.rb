@@ -29,8 +29,6 @@ end
 
 post "/calculator/add" do
  	#2 numbers will be in body of request
- 	binding.pry
- 	"you're adding two numbers!"
  	num1 = params[:num1].to_i
  	num2 = params[:num2].to_i
  	result = num1 + num2
@@ -38,16 +36,26 @@ post "/calculator/add" do
 
 end
 
-# post "/calculator/subtract" do
+post "/calculator/subtract" do
+ 	num1 = params[:num1].to_i
+ 	num2 = params[:num2].to_i
+ 	result = num1 - num2
+ 	calculation_history << "you subtracted #{num2} from #{num1} and got #{result}"
+end
 
-# end
+post "/calculator/multiply" do
+ 	num1 = params[:num1].to_i
+ 	num2 = params[:num2].to_i
+ 	result = num1 * num2
+ 	calculation_history << "you multiplied #{num1} and #{num2} and got #{result}"
+end
 
-# post "/calculator/multiply" do
-# end
-
-# post "/calculator/divide" do
-# end
-
+post "/calculator/divide" do
+ 	num1 = params[:num1].to_f
+ 	num2 = params[:num2].to_f
+ 	result = num1 / num2
+ 	calculation_history << "you divided #{num1} by #{num2} and got #{result}"
+end
 
 
 
