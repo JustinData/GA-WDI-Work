@@ -40,10 +40,6 @@ def basic_calc
       puts "Your answer is #{num_1 / num_2}"
     else "Please choose an option"
     end
-
-
-
-
 end
 
 # Only tackle these once you get all of the basic_calc operations working
@@ -64,8 +60,6 @@ def advanced_calc
       puts "The square root of #{num_1} is #{Math.sqrt(num_1)}"
     else "Please choose a menu option"
     end
-
-
 end
 
 
