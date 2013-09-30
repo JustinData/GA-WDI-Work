@@ -10,45 +10,61 @@
 class Shelter
   def initialize(name)
     @name = name
-    @animals = []
-    @clients = []
+    @animals = {}
+    @clients = {}
+    @adoption_database = {}
   end
 
-  # animals in the shelter.
+  def name 
+    @name
+  end
+
+  def animals
+    @animals
+  end
+
+  def clients
+    @clients
+  end
+
+  # Shelter animal
   def animals(pet)
     @animals.push(pet)
   end
 
-  # clients of the shelter
+  # Shelter client(s)
   def clients(client)
     @clients.push(client)
   end
 
+  # "Display all animals" list 
   def animals_list 
-    @animals.join
+    @animals.each do |animals|
   end
 
   def clients_list
     @clients.join("|")
   end
 
-  def adoption
-    
+  def adopt(clients, animals)
+    @adoption_database[client] = animals
+  end
+
+  def return(client)
+    @adoption_database.delete(client)
+  end
+  
+  def adoption_database_reader
+    @adoption_database
   end
 
   # print a shelter to a string
   def to_s
-   puts "#{@name.capitalize} has #{@clients.size} clients #{@clients.join(", ")} and #{@animals.size} animals: #{@animals.join(" , ")}."
+   "#{@name.capitalize} has #{@clients.size} clients #{@clients.join(", ")} and #{@animals.size} animals: #{@animals.join(" , ")}."
   end
 end
 
-shelter1 = Shelter.new("Erica's Crib")
-shelter1.clients("abby")
-shelter1.clients("billy")
-shelter1.clients_list
-shelter1.to_s
-
-
-
-
+shelter_uno = Shelter.new("Uno")
+shelter_uno.animals("bruno" "kelly")
+puts shelter_uno.animals
 

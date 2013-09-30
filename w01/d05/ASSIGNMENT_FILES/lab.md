@@ -33,19 +33,19 @@ shelter by storing and manipulating information about clients and animals.
   - A shelter should be able to display all of its animals.
   - A shelter should be able to facilitate an adoption (one of its clients adopting one of the animals from shelter)
   - A shelter should be able to facilitate a return (one of its clients returning his/her pet to the shelter)
-  - When we print an shelter to a string, it should tell us about its name, the number of clients, and the number of animals.
+  - When we print a shelter to a string, it should tell us about its name, the number of clients, and the number of animals.
 
 
 #####Phase 1
 - Define the animal, client and shelter classes according to the specs. Each class should have the appropriate attributes and initialize method.
-- Test these out with pry to make sure you can create the objects and that they do what you think the should do. Check the methods that you wrote too!
+- Test these out with pry to make sure you can create the objects and that they do what you think they should do. Check the methods that you wrote too!
 
 #####Phase 2
 - Create a main.rb
 - It should create a new shelter for you
 - It should display a menu of options for the user to choose from:
   - Create an animal
-  - Create a shelter
+  - Create a client
   - Quit
 - When creating an animal or client, the user is prompted for information like names, age etc. Newly created animals and clients should be added to the shelter.
 
