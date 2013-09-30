@@ -41,8 +41,7 @@ class Shelter
 		puts "good work #{client.name}, you have adopted #{animal.name}"
 	
 	end
-
-	def facilitate_return(client, animal)
+	
 		#remove from pets
 		#add to animals
 
