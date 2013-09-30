@@ -19,10 +19,10 @@ end
 
 get "/calculator/:id" do
  	#see 3rd calculation in past or if not available, Id wasn't found
- 	if :id.to_i > calculation_history.size then
+ 	if params[:id].to_i < calculation_history.size then
  		"id not found"
  	else 
- 		calculation_history[:id.to_i]
+ 		calculation_history[params[:id.to_i]]
  	end
 end
 
