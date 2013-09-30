@@ -1,14 +1,15 @@
 
-#this code doesn't work :(
+def display_trains
+
+#this code doesn't work :(ls
 n = ["times square", "34th", "28th", "23rd", "union square", "8th"]
 l = ['8th', '6th', 'us', '3rd', '1st']
 s = ['gc', '33rd', '28th-s', '23rd-s', 'us']
 
+mta = {n: n, l: l, s: s}
 
-l_hash = Hash[l.map.with_index.to_a]
-n_hash = Hash[n.map.with_index.to_a]
 
-puts "what line would you like to get on? (l/n)"
+puts "what line would you like to get on? #{}"
 line_on = gets.chomp.downcase
 if line_on == "l"
   puts "the line goes to #{l}"
@@ -65,6 +66,13 @@ end
 # find_difference = (stop_off_index - stop_on_index).abs
 
 # puts  "You have #{find_difference} stops to go."
+
+
+
+
+
+
+
 
 
 
