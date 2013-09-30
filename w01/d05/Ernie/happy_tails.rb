@@ -86,10 +86,10 @@ end
 
 
 
-# class CatLady
-#   def initialize(a)
+class CatLady
+  def initialize(a)
     
-#   end
+  end
   
   
-# end
+end
