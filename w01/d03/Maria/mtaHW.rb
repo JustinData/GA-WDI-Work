@@ -26,7 +26,8 @@ user_off = gets.chomp
 # 	end
 # end
 	
-n.each do |key, array|
+n.each_with_index do |key, array|
+	puts key
 	puts array 
 end
 
