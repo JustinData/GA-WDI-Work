@@ -1,7 +1,7 @@
 require_relative 'animal'
 require_relative 'shelter'
 require_relative 'client'
-#require_relative 'seeds'
+#require_relative './seed.rb'
 #require "pry"
 
 def menu 
@@ -29,6 +29,7 @@ shelter.animals["Max"] = Animal.new("Max", "dog", "ball")
 petname = Animal.new("Max", "dog", "ball")
 petname = Animal.new("Max", "dog", "ball")
 name = Client.new("Sally", 20)
+name2 = Client.new("Jee", 20)
 
 response = menu ###NOTE TO SELF: NEED TO REVIEW HOW THIS WORKS
 
@@ -57,7 +58,7 @@ while response != 'q'
     age = gets.to_i #why do we not need chomp? 
     shelter.clients[name] = Client.new(name, age)
     print "Thank you for creating a profile. Welcome to our commmunity."
- 
+
   when '3'
     puts shelter.adoptables_list
  
@@ -66,16 +67,20 @@ while response != 'q'
 
   when '5'
     print "Your name: "
-    name = gets.chomp
-    print "Age: "
-    age = gets.to_i #why do we not need chomp? 
-    puts "Which animal would you like to adopt? "
-    puts shelter.adoptables_list
-    petname = gets.chomp  
-    shelter.remove_pet_from_shelter(petname) ###THIS WORKS ONLY WITH ANIMALS THAT ARE NOT IN THE SEED FILE
-    shelter.clients[name] = Client.new(name, age) #add new client
-    puts shelter.clients[name].add_pet(petname) # add to pets_list and print it out. 
-    
+    name = gets.chomp   
+      if shelter.clients[name].pets_list.count < 2 
+      puts " "
+      puts "Which animal would you like to adopt? "
+      puts " "
+      puts shelter.adoptables_list
+      puts " "
+      puts "Enter a name: "
+      petname = gets.chomp  
+      shelter.adopted_pet << shelter.remove_pet_from_shelter(petname)
+      puts shelter.clients[name].add_pet(petname) # add to pets_list and print it out. 
+    else
+      puts "We apologize. You seem to have activated our hoarder alert. Please see Jeff at the front desk to adopt another pet."
+    end
   when '6'
     print "Animal's name: "
     petname = gets.chomp

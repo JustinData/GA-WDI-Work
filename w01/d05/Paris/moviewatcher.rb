@@ -52,14 +52,13 @@ end
 jeff.watch(snakes_on_a_plane)
 
 
-# app pry type 'cd jeff' this allows you to go inside the 
+# app pry, anchor with: binding.pry. this allows you to go inside the file. 
 
 class ScaryMovie < Movie
   
   def genre
     "scary"
-  end
-
+  efile
   end
 
 class FishComedy < Movie

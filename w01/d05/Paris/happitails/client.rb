@@ -31,9 +31,15 @@ class Client
   def add_pet(y)
     @pets_list << y
     puts "Congrats, #{@name}. You've just adopted #{y}."
+ end
 
-  end
 
 end
 
+class CatLady < Client
+
+
+end
+
+# Add a new class that inherits from your client/person class called CatLady. A cat lady only takes cats, and take as many cats as there is space in a computer's memory.
 

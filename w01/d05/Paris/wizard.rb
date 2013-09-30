@@ -29,7 +29,6 @@ class Wizard
 
 end
 
-
 harry = Wizard.new("Harry Potter", "Lumos")
 
 harry.spells.push("Lumos", "Accio", "Expecto Patronum") ##I don't understand why you need harry here, why can't it just be spells.push blah blah

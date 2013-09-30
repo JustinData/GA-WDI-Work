@@ -27,6 +27,8 @@ h.delete(1)
 # to delete a pair, just need to give it a key.
   # to return a key in a hash use: h.key("Two")
 
+#when you've deleteed something but need to hold onto it, set it equal to a new variable. 
+
 #   ### Wizard
 # - Create a file called wizard.rb
 # - In it define a wizard class. Here's the spec:
