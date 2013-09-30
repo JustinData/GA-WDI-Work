@@ -8,10 +8,10 @@
 - You should make git commits as you finish each phase, so you can see the history.
 
 ###Specification:
-- When they visit the homepage (`/`), a user should see some text to welcome them to the calculator
-- When they visit the `/calculator` page, a user should be able to see all of the calculations that have been done in the past
-- A user can see a the third calculation they've done in the past by visiting `/calculator/3`. Same with any other number. If the calculation doesn't exist, they should see text saying that the id wasn't found.
-- A user can POST an Addition calculation to `/calculator/add` by providing 2 numbers.
+- When they visit the homepage (GET) (`/`), a user should see some text to welcome them to the calculator
+- When they visit the `/calculator` page (GET), a user should be able to see all of the calculations that have been done in the past
+- A user can see a the third calculation they've done in the past by visiting `/calculator/3` (GET). Same with any other number. If the calculation doesn't exist, they should see text saying that the id wasn't found.
+- A user can POST an Addition calculation to `/calculator/add` by providing 2 numbers as parameters.
 - Same with `/calculator/subtract`, `/calculator/multiply`, and `/calculator/divide`
 - The calculator can add, subtract, multiply and divide.
 
@@ -20,7 +20,7 @@
 	- `curl -i http://localhost:port`
   - `-X POST,PUT,DELETE,GET`
   - `-F name=jeff`
-- When a user POSTs a calculation, they should get back the string saying what the calculation was.
+- When a user POSTs a calculation, they should get back the string saying what the calculation was printed to the terminal like we did in class.
 
 ###Bonus
 - Translate one line of your MTA app to Sinatra
