@@ -44,7 +44,9 @@ users["PJ"][:favorite_numbers].find_all(&:even?)
 users["Jeff"][:favorite_numbers] & users["Peter"][:favorite_numbers] & users["PJ"][:favorite_numbers]
 #8
 array = []
-# users.each_value { |v| v.each_value { |array| array.each { |n| array << n } } }
-# array.uniq.sort!
+users.each_value do |v|
+  v[:favorite_numbers].each { |n| array << n }
+end
+array.uniq!.sort!
 #9
 users["Peter"][:favorite_numbers][1] = "12"
