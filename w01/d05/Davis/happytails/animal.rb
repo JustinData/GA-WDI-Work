@@ -20,9 +20,17 @@ class Animal
 		@toys
 	end
 
-	# def toys=(toys)
-	# 	@toys = toys
-	# end
+	def toys=(toys)
+		@toys = toys
+	end
+
+	def client
+		@client
+	end
+
+	def client=(client)
+		@client = client
+	end
 
 	def to_s
 		"#{name} is a #{@species} breed and has the following toys: #{@toys.join(", ")}"
