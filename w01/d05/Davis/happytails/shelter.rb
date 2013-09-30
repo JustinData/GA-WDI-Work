@@ -1,5 +1,5 @@
 class Shelter
-	def initialize(name = nil, shelter_animals = [], clients = {})
+	def initialize(name = nil, shelter_animals = {}, clients = {})
 		@name = name
 		@shelter_animals = shelter_animals
 		@clients = clients
@@ -32,19 +32,21 @@ class Shelter
 	def list_animals
 		#lists all animals
 		#refer to rental for exact process
-		shelter_animals.each { |animal| puts animal.name }
+		shelter_animals.values.each { |animal| puts animal.name }
 	end
 
 	def list_clients
 		#lists all clients
 		#refer to rental for exact process
-		clients.values.each { |client| pus client.name }
+		clients.values.each { |client| puts client.name }
 	end
 
-	def facilitate_adoption
+	def facilitate_adoption(animal, client_for_adoption)
+		clients[client_for_adoption.to_sym].animals << shelter_animals.delete(animal.to_sym)
 	end
 
-	def facilitate_return
+	def facilitate_put_up(animal, client_for_put_up)
+		client_for_put_up.animals[animal.to_sym] = $shelter1.shelter_animals.delete(animal.to_sym)
 	end
 
 	def animals_count

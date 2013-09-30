@@ -21,7 +21,7 @@ require './shelter'
 #methods##########################################################
 
 def menu
-	puts "What would you like to do manneeeeeee: create (a)nimal, (c)lient,\n (da) display all animals, (dc) display all clients, or (q)uit?"
+	puts "What would you like to do manneeeeeee: create (a)nimal, (c)lient,\n (da) display all animals, (dc) display all clients, (ad)opt an animal, or (q)uit?"
 	gets.chomp.downcase
 end
 
@@ -41,8 +41,17 @@ def get_client_input
 	@client_input = gets.chomp.scan(/\w+/)
 end
 
+def get_adoption_input
+	puts "Which animal and which client?"
+	@adoption_input = gets.chomp.scan(/\w+/)
+end
+
 def client_exist?(client_instance)
 	$shelter1.clients.include?(client_instance.to_sym)
+end
+
+def animal_exist?(client, animal)
+	client.animals.values.include?(animal.to_sym)
 end
 
 def y_or_n_create_client
@@ -52,7 +61,7 @@ def y_or_n_create_client
 end
 
 def add_animal(name, client_instance, species)
-	$shelter1.clients[client_instance.to_sym].animals << Animal.new(name, client_instance, species)
+	$shelter1.clients[client_instance.to_sym].animals[name.to_sym] = Animal.new(name, client_instance, species)
 end
 
 def add_client(name, age)
@@ -127,6 +136,33 @@ until choice == 'q'
 	when 'dc'
 		puts "Display all clients"
 		$shelter1.list_clients
+
+
+	when 'ad'
+		get_adoption_input
+
+		if client_exist?(@adoption_input[1])
+		#facilitate adoption
+		$shelter1.facilitate_adoption(@adoption_input[0], @adoption_input[1])
+		else
+			puts "That client does not exist"
+		end
+
+	when 'p'
+		get_adoption_input
+
+		if client_exist?(@adoption_input[1])
+		
+			if animal_exist?(@adoption_input[1], @adoption_input[0])
+				#facilitate putting up
+				$shelter1.facilitate_put_up(@adoption_input[0], @adoption_input[1])
+			else
+				puts "That animal does not exist"
+			end
+
+		else
+			puts "That client does not exist"
+		end
 
 	#else error message
 	else
