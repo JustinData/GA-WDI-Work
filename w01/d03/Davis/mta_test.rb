@@ -1,3 +1,12 @@
+#change variables in Self scope to @, then delete reptitive
+
+
+
+
+
+
+
+
 #define subway line list
 $mta = {
 	n: ["times square", "34th", "28th", "23rd", "union square", "8th"], 
@@ -15,7 +24,7 @@ end
 #takes subway line, start position on that line, end posiition on
 #that line, returns true if end is farther downtown/east
 def going_downtown?(subway_line, start_stop, end_stop)
-	#going EAST == going DOWNTOWN
+#going EAST == going DOWNTOWN
 	$mta[subway_line.to_sym].index(start_stop) < $mta[subway_line.to_sym].index(end_stop) ? true : false
 end
 
