@@ -45,7 +45,11 @@ get "/guest_book/:id" do
 end
 
 if entry
+<<<<<<< HEAD
     entry
+=======
+  entry
+>>>>>>> master
   else
     "None Found"
 end
