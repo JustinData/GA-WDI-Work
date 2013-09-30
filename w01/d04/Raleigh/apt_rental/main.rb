@@ -9,7 +9,7 @@ require "pry"
 main_building = Building.new("St. George Tower.", "Modern", "yes", "no", "17")
 
 def menu
-   puts "***Apartment Rental***"
+   puts "\n***Apartment Rental***"
    puts "(1) Create a new apartment, (2) Create a new tenant, (3) List all apartments in building, (4) List all tenants in apartment, or (Q) Quit the program:"
    gets.chomp.downcase
 end
@@ -41,8 +41,8 @@ while response != "q"
       occupied = gets.chomp
 
       apt_obj = Apartment.new(price, occupied, sqft, bed, bath)
-      puts "\nNew apartment added!\n"
- 
+      puts "\nNew apartment added!"
+
       main_building.add_apt(apt_name, apt_obj)
 
    elsif response == "2"
@@ -59,7 +59,14 @@ while response != "q"
       apartment = gets.chomp
 
       person_new = Person.new(name, age, gender, apartment)   
-      main_building.add_renter(person_new)
+
+      # Conditional does NOT work
+      if apt_obj == true
+          apt_obj.add_renter(person_new.to_s)
+          puts "\nNew tenant added!"
+      else
+         puts "\nThat apartment does not exist yet. Please create a new apartment."
+      end
 
    elsif response == "3"
       puts main_building.list_apartments
@@ -67,11 +74,15 @@ while response != "q"
    elsif response == "4"
       puts "What apartment are you inquiring about?"
       apt_inquire = gets.chomp
-      #NOT WORKING
-      main_building.address.list_renters[apt_inquire]
+
+      if main_building.apartments.key == apt_inquire
+         main_building.apartments[apt_inquire].list_renters
+      else
+         puts "\nThat apartment does not exist."
+      end
 
    else
-      puts "\nThat is not an option.\n"
+      puts "\nThat is not an option."
       
    end
 
