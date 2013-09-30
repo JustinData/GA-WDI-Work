@@ -51,7 +51,6 @@ end
 get "/guest_book/:id" do 
   id = params[:id].to_i 
   entry = guest_book[id]
-
   if entry 
     entry 
   else 
@@ -78,7 +77,7 @@ end
 #TO UPDATE A UNIQUE ID WITH A NAME  
 #Expect parameter name=name params[:name] == new_name 
 put "/guest_book/:id" do 
-  guest_book[params[:id].to_i
+  guest_book[params[:id]].to_i
   guest_book[id] = params[:name]
 end 
 #type into command line --> curl localhost:4567/guest_book/3 -X PUT -F name=Moush
