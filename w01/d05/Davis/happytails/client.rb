@@ -1,9 +1,5 @@
 class Client
 	def initialize(name = nil, age = nil, animals = {})
-		#change animals into hash
-
-
-
 		#capitalize each word
 		@name = name
 		@age = age.to_i

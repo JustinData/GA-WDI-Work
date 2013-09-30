@@ -42,7 +42,7 @@ class Shelter
 	end
 
 	def facilitate_adoption(animal, client_for_adoption)
-		clients[client_for_adoption.to_sym].animals << shelter_animals.delete(animal.to_sym)
+		clients[client_for_adoption.to_sym].animals[animal.to_sym] = shelter_animals.delete(animal.to_sym)
 	end
 
 	def facilitate_put_up(animal, client_for_put_up)

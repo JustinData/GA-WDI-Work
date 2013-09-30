@@ -1,6 +1,7 @@
 require './animal'
 require './client'
 require './shelter'
+require './seed.rb'
 
 #NOTES##########################################################
 
@@ -69,9 +70,6 @@ def add_client(name, age)
 end
 
 #################################################################
-
-#create new shelter #available to ../ of instances of Self scope
-$shelter1 = Shelter.new("shelter1")
 
 choice = menu
 #menu loop
