@@ -64,11 +64,12 @@ when 'aa'
 	shelter.clients[client].pets << shelter.animals[pet]
 	shelter.animals.delete(pet)
 when 'gu'
-	puts "What is the name of the animal you'd like to give up for adoption?"
-	pet = gets.chomp.downcase
 	puts "What is your name?"
 	client = gets.chomp.downcase
-	shelter.animals[name] = shelter.clients.pets(pet)
+	puts "What is the name of the animal you'd like to give up for adoption?"
+	puts shelter.clients[client].pets
+	pet = gets.chomp.downcase
+	shelter.animals[pet] = shelter.clients[client].pets(0)
 end
 # This process should continue until the user selects a quit option from the menu
 response = menu 
