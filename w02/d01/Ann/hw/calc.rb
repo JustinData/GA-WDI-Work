@@ -22,8 +22,8 @@ calculations = {1 => "2 + 3 = 5", 2 => "6 - 4 = 2", 3 => "4 * 3 = 12"}
 
 ###Catalogue of calculations  
 get "/calculator" do 
-     total_calculations = calculations.values.join("\n")
-     "What have people calculated? \n Check out the list: \n #{total_calculations}"
+     total_calculations = calculations.values.join(" | ")
+     "What have people calculated? Check out the list: #{total_calculations}"
 end 
 
 #Creating keys for each calculation (entry id)
@@ -35,12 +35,12 @@ end
 #Functioning calculator 
 #Adding/subtracting/multiplying/dividing two variables and pushing complete calculation to string 
   post "/calculator/add" do 
-     num1 = params[:num1]
-     num2 = params[:num2]
+     num1 = params[:num1].to_i
+     num2 = params[:num2].to_i 
      result = num1 + num2
-     return "Your result is #{result}." 
-     key=calculations.keys.max +1 
+     key = calculations.keys.max + 1 
      calculations[key] = "#{num1} + #{num2} = #{result}" 
+     "Your result is #{result}." 
     end 
 #type into terminal: curl localhost:4567/calculator/add -X POST -F num1="2" -F num2="3"
 
@@ -48,27 +48,27 @@ end
      num1 = params[:num1].to_i
      num2 = params[:num2].to_i 
      result = num1 - num2
-     return result.to_s 
-     key= calculations.keys.max +1 
+     key= calculations.keys.max + 1 
      calculations[key] = "#{num1} - #{num2} = #{result}" 
+     "Your result is #{result}."   
     end 
 
   post "/calculator/multiple" do 
      num1 = params[:num1].to_i
      num2 = params[:num2].to_i 
      result = num1 * num2
-     return result.to_s
-     key= calculations.keys.max +1 
+     key= calculations.keys.max + 1 
      calculations[key] = "#{num1} * #{num2} = #{result}" 
+     "Your result is #{result}." 
     end 
 
   post "/calculator/divide" do 
     num1 = params[:num1].to_i
     num2 = params[:num2].to_i 
     result = num1 / num2
-    return "Your result is #{result}."  
-    key=calculations.keys.max +1 
+    key=calculations.keys.max + 1 
     calculations[key] = "#{num1} / #{num2} = #{result}" 
+    "Your result is #{result}."  
   end 
  
 
