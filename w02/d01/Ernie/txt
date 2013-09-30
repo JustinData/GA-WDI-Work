@@ -1,0 +1,35 @@
+Internet is a set a protocol
+
+Hi I'm ohh hey I'm (bound roalty)
+
+Mc'donalds line protocol each cash register has is own queue in burger king all register has one queue
+
+protcol are used so two parties can start a transaction and both parties are aware of what is taking place in said transaction
+
+Internet Protocol Suite 
+
+I.P is the first layer (Internet Protocol)
+everything to the Net has an address and it looks something like 192.1.005 
+google.com routes to a DNS and fetches the ip address then the sever tied to it is called then the sever 
+
+Transport Layer
+Transport Protocol (TCP) transmission control protocol
+TCP gruantees that the packets are sent and received in the same order it was initailzed 
+
+to see a website in TCP you need the four step process of handshakes but its much slower
+
+UDP USER DATAGRAM PROTOCOL
+
+UDP uses no handshakes in order to connect but there no guarantees of packets but its must faster common use is VOIP
+
+
+Application Layer
+HTTP "is how you have a conversation"
+Using HTTP verbs we can request (GET) information from the sever then you receive a response 200 = OK
+404 = client gave a malformed request
+500 = server error  
+
+proxy = is a way to wall to your IP in front of another IP address
+
+
+*meta_data = data about data
