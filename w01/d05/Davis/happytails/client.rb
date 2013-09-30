@@ -1,5 +1,5 @@
 class Client
-	def initialize(name = nil, age = nil, animals = [])
+	def initialize(name = nil, age = nil, animals = {})
 		#capitalize each word
 		@name = name
 		@age = age.to_i

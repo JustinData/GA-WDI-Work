@@ -13,18 +13,21 @@ class Apartment
    end
 
    def add_renter(person)
-      @renters.push(person)
+      if @is_occupied == "yes"
+         @renters.push(person)
+      end
    end
       
-   def list_renters(search)
-      puts "Renters: #{@renters["search"].join(", ")}"
+   def list_renters
+      puts "Renters:"
+      @renters.each{|renter| puts renter}
    end
 
    def to_s
       if @is_occupied == "yes"
-      "(The apartment is $#{@price}. The apartment has #{@num_beds}, #{@num_baths}, and is #{@sqft} square feet. OCCUPIED), "
+      "(The apartment is $#{@price}. The apartment has #{@num_beds} bedroom(s), #{@num_baths} bathroom(s), and is #{@sqft} square feet. OCCUPIED), "
       else
-      "(The apartment is $#{@price}. It is not occupied. The apartment has #{@num_beds}, #{@num_baths}, and is #{@sqft} square feet. NOT OCCUPIED), "
+      "(The apartment is $#{@price}. It is not occupied. The apartment has #{@num_beds} bedroom(s), #{@num_baths} bathroom(s), and is #{@sqft} square feet. NOT OCCUPIED), "
       end
    end
 
