@@ -1,7 +1,7 @@
 ### Building Class ###
 
 class Building
-    attr_accessor :address, :style, :has_doorman,  :is_walkup, :num_floors
+    attr_accessor :address, :style, :has_doorman,  :is_walkup, :num_floors, :apartments
 
    def initialize(address, style, doorman, walkup, floors)
       @address = address
@@ -12,15 +12,13 @@ class Building
       @apartments = {}
    end
 
-   # I don't understand how this is working
    def add_apt(apt_name, apt_objects)
       added_apt = {apt_name => apt_objects}
-      # binding.pry
       @apartments.merge!(added_apt)
    end 
 
    def list_apartments
-      puts "Appartments: #{@apartments.to_a.join(" ")}"
+      puts "Total appartments in building: #{@apartments.to_a.join(" ")}"
    end
 
    def to_s
