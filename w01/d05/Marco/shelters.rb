@@ -1,5 +1,6 @@
 require './animals.rb'
 require './clients.rb'
+require './seeds.rb'
 
 class Shelter
 
@@ -7,10 +8,12 @@ class Shelter
       @name = name
       @adoption = adoption
       @pet_return = pet_return
+      @clients = []
+      @animals = []
     end
 
     #creates instance variable for shelter
-    def name 
+    def name
       @name
     end
 
@@ -19,17 +22,27 @@ class Shelter
       @adoption
     end
 
-    def shelter_clients
-
-    end
-
-    def shelter_pets
-
-    end
-
     #creates instance variable for shelter
     def pet_return
       @pet_return
+    end
+
+    def animals
+      @animals
+    end
+
+    def clients
+       @clients
+    end
+
+    #add animal to shelters
+    def add_animals(animal)
+      @animals.push(animal)
+    end
+
+    #add clients to shelters
+    def add_clients(client)
+      @clients.push(client)
     end
 
     def to_s

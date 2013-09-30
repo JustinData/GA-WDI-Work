@@ -1,3 +1,6 @@
+require './shelters.rb'
+
+
 class Animal
   def initialize (name, species)
     @name = name
@@ -20,8 +23,8 @@ class Animal
     @toys
   end
 
-  def give_toy (x)
-    @toys.push (x)
+  def give_toy(specific_toy)
+    @toys.push(specific_toy)
   end
 
   def to_s

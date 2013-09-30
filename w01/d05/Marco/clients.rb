@@ -1,3 +1,6 @@
+require './shelters.rb'
+
+
 class Client
 
   def initialize (name, age)
