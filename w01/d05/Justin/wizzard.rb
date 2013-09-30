@@ -39,7 +39,8 @@ class Wizard
 	harry.add_spell("Lumos")
 	harry.add_spell("Accio")
 	harry.add_spell("Expecto Patronum")
+	harry.spells.push("Oi!")
 
-	puts "#{harry}"
+	puts harry #puts will automatically call the to_s
 
 end	
