@@ -1,7 +1,7 @@
 require_relative 'animal'
 require_relative 'shelter'
 require_relative 'client'
-#require_relative './seed.rb'
+#require_relative 'seed'
 #require "pry"
 
 def menu 
@@ -15,23 +15,23 @@ def menu
   puts 'q : Quit'
   response = gets.chomp.downcase
 end
-###NOTE TO SELF: review \n and the difference between double quotes and single quote
 
 shelter = Shelter.new("HappiTails")
 name = Client.new("Sally", 20)
 shelter = Shelter.new("HappiTails")
 shelter.clients["Bob"] = Client.new("Bob", 20)
 shelter.clients["Sally"] = Client.new("Sally", 20)
-shelter.animals["Goober"] = Animal.new("Goober", "cat", "ball of yarn")
-shelter.animals["Rocket"] = Animal.new("Rocket", "dog", "rope") 
-shelter.animals["J"] = Animal.new("J", "dog", "frisbee") 
-shelter.animals["Max"] = Animal.new("Max", "dog", "ball")
-petname = Animal.new("Max", "dog", "ball")
-petname = Animal.new("Max", "dog", "ball")
+shelter.animals["Goober"] = Animal.new("Goober", "cat", "n")
+shelter.animals["Rocket"] = Animal.new("Rocket", "dog", "n") 
+shelter.animals["J"] = Animal.new("J", "dog", "n") 
+shelter.animals["Max"] = Animal.new("Max", "dog", "n")
+petname = Animal.new("Max", "dog", "n")
+petname = Animal.new("Max", "dog", "n")
 name = Client.new("Sally", 20)
 name2 = Client.new("Jee", 20)
+catlady = Client.new("Cat Lady", ["cats"])
 
-response = menu ###NOTE TO SELF: NEED TO REVIEW HOW THIS WORKS
+response = menu 
 
 while response != 'q'
 

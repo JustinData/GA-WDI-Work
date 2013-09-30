@@ -37,7 +37,14 @@ class Client
 end
 
 class CatLady < Client
+  def initialize(name, preference)
+    @name = name
+    @preference = preference
+  end
 
+  def preference
+    "I love cats!"
+  end
 
 end
 

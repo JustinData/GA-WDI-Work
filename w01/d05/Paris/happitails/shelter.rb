@@ -2,15 +2,12 @@
 
 class Shelter
 
-#THESE ARE OBJECTS
   def initialize(name)
     @name = name
     @animals = {}
     @clients = {}
     @adopted_pet = []
   end
-
-#THESE ARE METHODS
 
   def to_s
     return "#{@name} has #{@clients.count} clients and  #{@animals.count} animals."
