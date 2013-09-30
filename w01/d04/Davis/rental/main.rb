@@ -61,7 +61,6 @@ until choice == 'q'
 
 				#create another apartment?
 				decision = create_apartment_y_or_n
-				until decision == 'y' || decision == 'n'
 					case decision
 					when 'y'
 						get_apartment_input
@@ -77,7 +76,7 @@ until choice == 'q'
 						puts error_msg
 						decision = create_apartment_y_or_n
 					end
-				end
+									
 			end
 	#create apartment
 	when 'a'

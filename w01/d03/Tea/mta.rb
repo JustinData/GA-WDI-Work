@@ -31,8 +31,6 @@ if line_on == line_off
   stop2 = mta[line_on].index(stop_off)
 
   trip_length = (stop2 - stop1).abs
-  puts "Your trip has #{trip_length} stops." 
-  
 else
   intersection = (mta[line_on] & mta[line_off]).first
   stop1 = mta[line_on].index(stop_on)
@@ -40,9 +38,9 @@ else
   stop3 = mta[line_off].index(stop_off)
 
   trip_length = (stop2 - stop1).abs + (stop3 - stop2).abs
-  puts "Your trip has #{trip_length} stops." 
 end
 
+puts "Your trip has #{trip_length} stops." 
 
 
 
