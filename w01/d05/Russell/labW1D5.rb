@@ -83,28 +83,15 @@ end
 end
 
 
-# class FishComedy < Movie
-# 	def genre
 
 
-
-
-person1 = Client.new("Russell", "23", "2") ##this returns an instance of the Movie class
+person1 = Client.new("Russell", "23", "4") ##this returns an instance of the Movie class
 # godfather = Movie.new("Godfather")
 
 puts person1.name
 
 
-animal1 = Animal.new("Mittens", "12", "6)
+animal1 = Animal.new("Mittens", "12", "6" )
 
 
-# jeff = Person.new("Jeff")
-# tom = Person.new("Tom")
 
-# jeff.watch(snakes_on_plane)
-# tom.watch(godfather)
-
-# jason = ScaryMovie.new("Friday The 13th")
-#running this alone returns Friday the 13th
-# puts jason.genre
-#returns: scary
