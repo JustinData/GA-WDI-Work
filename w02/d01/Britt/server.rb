@@ -8,8 +8,9 @@ end
 calc_history = {}
 
 get "/calculator" do
-	calc_history.keys.each do
+	calc_history.keys.each do |id,calculation|
 		# something that works to show all calculations
+		"#{id}. #{calculation}\n"
 	end
 end
 
