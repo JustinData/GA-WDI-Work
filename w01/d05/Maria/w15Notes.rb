@@ -7,7 +7,7 @@ puts a[0]
 a << "maria" or a.push("maria")
 
 3. How would you remove "PJ" from the array
-a.delete("PJ") this will give us beak what we just 
+a.delete("PJ") this will give us bak what we just 
 deleted so we can put it in a variable.
 puts a{"0"}
 

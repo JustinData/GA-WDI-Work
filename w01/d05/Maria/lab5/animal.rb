@@ -3,7 +3,7 @@ class Animal
   def initialize(name, species, toys)
     @name = name
     @species = species
-    @toys = toys
+    @toys = []
   end
 
   def name 
