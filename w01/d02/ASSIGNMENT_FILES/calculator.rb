@@ -1,12 +1,13 @@
 # A user should be given a menu of operations
 # A user should be able to choose from the menu
-def menu 
+def menu
+
 end
 
 
 # A user should be able to enter numbers to perform the operation on
 # A user should be shown the result
-def basic_calc 
+def basic_calc
   print "(a)dd, (s)ubtract, (m)ultiply, (d)ivide: "
 
 end
