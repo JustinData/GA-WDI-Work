@@ -20,3 +20,9 @@ ask user what stop they get off
 	gets answer into variable
 
 give how many stops they have left (which would be stopOFF in index of array minus stopOn in array)
+
+
+
+
+
+
