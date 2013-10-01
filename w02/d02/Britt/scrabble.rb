@@ -2,15 +2,10 @@ class ScrabbleWord
 
 	def initialize(word)
 		@word = word
-		@word_array = word.split(//)
 	end
 
 	def word
 		"#{@word.downcase}"
-	end
-
-	def word_array
-		@word_array
 	end
 
 	TILE_VALUES = {
@@ -23,23 +18,23 @@ class ScrabbleWord
 }
 
 	def to_array
-		@word.split(//)
+		self.split(//)
 	end
 
 	def char_at(index)
-		@word_array[index.to_i]
+		self.to_array[index.to_i]
 	end
 
 	def score
 		points = 0
-		@word_array.each do |letter|
+		self.to_array.each do |letter|
 			points += TILE_VALUES[letter]
 		end
-		@score = points
+		points
 	end
 
 	def multiplier_score(multiplier)
-		@score * multiplier
+		self.score * multiplier
 	end
 
 end
