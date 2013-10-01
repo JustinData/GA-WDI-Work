@@ -3,6 +3,7 @@ require "sinatra/reloader"
 require "erb"
 require "pry"
 
+<<<<<<< HEAD
 get( "/profiles/:profile_name" ) do
   if params[:profile_name] == "ann-margret"
     output_name = "Ann Margret"
@@ -19,3 +20,25 @@ get( "/profiles/:profile_name" ) do
   # implicit return
   output_string
 end
+=======
+#if the URL is the root directory, load ERB template "profile"
+get( "/" ) do
+  erb :profile
+end
+
+get( "/personaldata/dob" ) do
+
+  "THE DATA+POINT IS DOB"
+end
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> f18dc631c82b838eb8f5654b5651c227039b6fda
