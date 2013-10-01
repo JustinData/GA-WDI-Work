@@ -17,10 +17,13 @@ class ScrabbleWord
 }
 
 	def to_array
-		@word.split(//)
+		@word_array = @word.split(//)
 	end
 
-	def char_at(param); end
+	def char_at(index)
+		@word_array[index]
+	end
+	
 	def score; end
 	def multiplier_score(param); end
 
