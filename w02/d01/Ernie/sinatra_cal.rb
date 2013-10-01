@@ -12,7 +12,7 @@ get "/calculator" do
   "These are your last registered calculations/n #{recent_calulations}"
 end
 
-get "/guest_book/:id" do
+get "/calculator/:id" do
   id = params[:id].to_i
   entry = calculator[id]
 
