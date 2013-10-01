@@ -52,7 +52,7 @@ post "/guest_book" do
 end
 
 #expect params[:name] == new_name
-
+###puts can be used to change things that already exist
 put "/guest_book/:id" do
   id = params[:id].to_i
   guest_book[id] = params[:name]
