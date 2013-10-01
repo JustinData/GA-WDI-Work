@@ -16,7 +16,10 @@ class ScrabbleWord
   "z"=>10
 }
 
-	def to_array; end
+	def to_array
+		@word.split(//)
+	end
+
 	def char_at(param); end
 	def score; end
 	def multiplier_score(param); end
