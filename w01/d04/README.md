@@ -1,14 +1,22 @@
-#Week01-Day4
+#Morning
 
-## ONLY WORK IN YOUR OWN FOLDER
-  - Instructions are in the `ASSIGNMENT_FILES` folder.
+* Blocks & Enumeration
+  * How to iterate over a collection
 
-## Morning Exercise
-* Students
-* Magician
+#Afternoon
 
-## Homework
-* Rental App
+* Objects & Classes
+  * What is an object and how do we define one?
+* Instance variables
+* Initializers
+  * How do we create new objects?
+* Instance methods
+  * How do we define behavior for our object?
+* Getters & Setters
+  * attr_reader, attr_writer, attr_accessor
+* Class variables
+* Class methods
 
-## Optional reading review
-* [Ruby Classes](http://pine.fm/LearnToProgram/?Chapter=09)
+#Homework
+
+* Aparment Rental App
