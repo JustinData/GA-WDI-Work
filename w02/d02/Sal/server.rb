@@ -12,8 +12,21 @@ get( "/profiles/:profile_name" ) do
   end
 
   output_string = "<!doctype html><html><head></head>"
-  output_string += "<body><h1>#{output_name}</h1>#{output_img}</body></html>"
-
+  output_string += "<body><h1>#{output_name}</h1>#{output_img}<p><a href=\"data/statement\">The critics had an image of me</a></p></body></html>"
+  output_string += <p style=\"margin-bottom: 200px\"><a href=\"/data/name|\">
   # implicit return
   output_string
 end
+
+get ("/data/:data_point") do
+	"You sent us a #{params[:data_point]}"
+end
+
+get ("/data/name") do 
+	"HER NAME IS ANN!"
+end
+
+get ("/") do 
+	erb: profile
+end
+
