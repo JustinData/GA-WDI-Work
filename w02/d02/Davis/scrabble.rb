@@ -34,10 +34,11 @@ class ScrabbleWord
 	end
 end
 
-kon = ScrabbleWord.new("konowitch")
-kon.char_at(1)
-kon.score
-kon.multiplierscore(2)
+s = ScrabbleWord.new("konowitch")
+s.to_a
+s.char_at(1)
+s.score
+s.multiplierscore(2)
 
 TILE_VALUES = {
   "a"=>1, "b"=>3, "c"=>3, "d"=>2, "e"=>1,
