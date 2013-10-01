@@ -3,7 +3,7 @@ class Client
 	def initialize(name, age)
 		@name = name
 		@age = age
-		@pets = []
+		@pets = {}
 	end
 
 	def name
