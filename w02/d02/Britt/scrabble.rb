@@ -1,4 +1,5 @@
 class ScrabbleWord
+
 	def initialize(word)
 		@word = word
 		@word_array = word.split(//)
@@ -6,6 +7,10 @@ class ScrabbleWord
 
 	def word
 		"#{@word.downcase}"
+	end
+
+	def word_array
+		@word_array
 	end
 
 	TILE_VALUES = {
@@ -18,16 +23,16 @@ class ScrabbleWord
 }
 
 	def to_array
-		@word_array
+		word.split(//)
 	end
 
 	def char_at(index)
-		@word_array[index]
+		word_array[index]
 	end
 
 	def score
 		points = 0
-		@word_array.each do |letter|
+		word_array.each do |letter|
 			points += TILE_VALUES[letter]
 		end
 		points
@@ -53,6 +58,8 @@ TILE_VALUES = {
   "u"=>1, "v"=>4, "w"=>4, "x"=>8, "y"=>4,
   "z"=>10
 }
+
+letter_array = ["c","h","a","i","r"]
 
 TILE_VALUES.select { |letter, points| points == 4 }
 
