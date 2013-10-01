@@ -1,0 +1,74 @@
+&
+	intersection of arrays
+|
+	combine arrays
+
+##############################################################################
+
+--Modules--
+
+use Mod to encapsulate shared behavior
+
+Responds To:
+1. implemented by class
+2. implemented by parents
+3. included in module
+4. included in module included by parent
+
+-Inheritance-
+
+#say
+::humanity
+
+--------------
+
+&block
+	turns block into proc
+
+------------------------------------------------------------------------------
+
+Internet
+	applications interface w/ humans across internet
+
+Internet Protocol Suite
+	Internet
+		-Application Layer
+			Hyper Text Transport Protocol (HTTP)
+				request
+					header
+					body
+				response, HTTP Verbs
+					GET
+					POST
+					PUT - update
+					DELETE
+
+		-Transport Layer
+			Transmission Control Protocol (TCP)
+				guarantees packets received in order
+				no packets dropped
+
+			User Datagram Protocol (UDP)
+				no connection
+				faster
+				no guarantees about order or dropped
+				ex. VOIP, Skype
+	IP (Internet Protocol)
+		-address
+		-Domain Name Server (DNS)
+
+-------------------------------------------------------------------------------
+
+server keeps running
+
+server left tab
+	ruby file.rb
+curl right tab
+browser w/ localhost
+
+-X POST
+	provide data, signal it to operate on it
+-F name=Davis
+
+curl -v localhost:4567/guest_book -X POST -F name=Davis
+

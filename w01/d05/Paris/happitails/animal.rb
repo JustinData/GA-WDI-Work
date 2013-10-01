@@ -1,5 +1,5 @@
 class Animal
-
+  # attr_accessor :petname, :species, :toys
   def initialize(petname, species, toys)
     @petname = petname
     @species = species
