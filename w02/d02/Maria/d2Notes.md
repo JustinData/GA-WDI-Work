@@ -195,8 +195,41 @@ get( "/profiles/ann-margret" ) do
   output_string += "<body><h1>#{output_name}</h1>#{output_img}</body></html>"
 end
 
+ERB = Embedded Ruby
+
+Another Sinatra convention:
+
+ERB files use the filemame.erb, live in the directory/views
+erb(:name of file)
+
+get("/") do
+ erb :index <-- the file it needs to reference
+end
+He renamed the .html file to .erb
+ 
+
+ if URL is the root directory load erb template :profile
+
+ get("/") do
+ erb :profile
+ end
 
 
+FOR DEBUGGING:
+ dont forget to use params.inspect in pry to see whats in the params hash
+
+erb is html with this tag:
+
+<%=   %> <----ruby goes inside
+
+layout.erb
+
+HW will be to build a series of webpages that connect using one layout. 
+
+run ruby server.rb
+while that runs (server.rb)
+
+then go to browser
 
 
 
