@@ -23,7 +23,7 @@ shelter.animals["ruby"] = Animal.new("ruby", "Dog", ["bone"])
 shelter.animals["dusty"] = Animal.new("dusty", "Cat", ["bone"])
 shelter.animals["sparky"] = Animal.new("sparky", "Dog", ["bone"])
 shelter.clients["sal"] = Client.new("sal", "28")
-shelter.clients["sal"].pets << Animal.new("justice", "hamster", ["wheel"])
+shelter.clients["sal"].pets["justice"] = Animal.new("justice", "hamster", ["wheel"])
 
 #User resonse for while loop 
 response = menu
@@ -61,15 +61,15 @@ when 'aa'
 	puts "What is the name of the pet would you like to adopt?"
 	pet = gets.chomp.downcase
 	#Uses user input to push pet object 
-	shelter.clients[client].pets << shelter.animals[pet]
+	shelter.clients[client].pets[pet] = shelter.animals[pet]
 	shelter.animals.delete(pet)
 when 'gu'
 	puts "What is your name?"
 	client = gets.chomp.downcase
 	puts "What is the name of the animal you'd like to give up for adoption?"
-	puts shelter.clients[client].pets
 	pet = gets.chomp.downcase
-	shelter.animals[pet] = shelter.clients[client].pets(0)
+	shelter.animals[pet] = shelter.clients[client].pets[pet]
+	shelter.clients[client].pets.delete(pet)
 end
 # This process should continue until the user selects a quit option from the menu
 response = menu 
