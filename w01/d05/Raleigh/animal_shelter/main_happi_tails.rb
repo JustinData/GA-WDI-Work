@@ -3,7 +3,7 @@
 require "./animal"
 require "./client"
 require "./shelter"
-require "./seeds"
+load "./seeds.rb"
 
 def menu
    puts "\n*** HappiTails Shelter ***"
@@ -21,7 +21,7 @@ while response !="q"
       client_age = gets.chomp
 
       new_client = Client.new(client_name, client_age)
-      happitails.add_client(client_name, new_client)
+      $happitails.add_client(client_name, new_client)
 
       puts "\nClient added!"
 
@@ -34,7 +34,7 @@ while response !="q"
       animal_toys_decision = gets.chomp.downcase
 
       new_animal = Animal.new(animal_name, animal_species)
-      happitails.add_animal_to_shelter(new_animal)
+      $happitails.add_animal_to_shelter(new_animal)
 
       if animal_toys_decision == "yes"
          puts "Please list the animal's toys (separate each toy with a comma):"
@@ -47,30 +47,30 @@ while response !="q"
       puts "\nAnimal added!"
 
    elsif response == "3"
-      puts happitails.display_clients
+      puts $happitails.display_clients
 
    elsif response == "4"
-      puts happitails.display_animals
+      puts $happitails.display_animals
 
    elsif response == "5"
       puts "Please chose an animal from the following list."
-      puts happitails.display_animals
+      puts $happitails.display_animals
       puts "\nEnter the name of the animal you would like to adopt:"
       adopt_animal = gets.chomp.capitalize
 
       puts "Please enter your name:"
       client_adopt_name = gets.chomp.capitalize
-      if happitails.has_key?(client_adopt_name) == true
+      if $happitails.has_key?(client_adopt_name) == true
          # {"name" => ar.select {|l| l.include? 'name'}
-         happitails["No Client"].delete(adopt_animal)
-         #happitails[client_adopt_name].push()
+         $happitails["No Client"].delete(adopt_animal)
+         #$happitails[client_adopt_name].push()
          puts "#{client_adopt_name} adopted #{adopt_animal}!"
       else
          puts "I'm sorry that client does not exist. You must create a new client before you adopt an animal."
    end
 
    elsif response == "6"
-      puts happitails.display_animals
+      puts $happitails.display_animals
    else
       puts "\nThat is not an option."
    end
