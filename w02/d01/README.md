@@ -1,8 +1,14 @@
-#Week02-Day1
+# Morning
 
-## ONLY WORK IN YOUR OWN FOLDER
-  - Instructions are in the `ASSIGNMENT_FILES` folder.
+* Inheritance review
+* Modules
+* Enumerable Module
+* More blocks & enumeration
 
-## Morning Exercise
+# Afternoon
 
-## Homework
+* How the web works
+* HTTP request/response
+* GET, HEAD, POST, PUT, DELETE, OPTIONS, PATCH, etc.
+* curl
+* Sinatra
