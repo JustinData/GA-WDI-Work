@@ -28,7 +28,7 @@ get "/calcs/:id" do
   calcs[id]
 end
 
-post "cals/:id" do
+post "calcs/:id" do
   last_id = cals.keys.max
   calcs[last_id + 1] = params[:name]
 end
@@ -38,8 +38,9 @@ post "/calculator/add" do
   first_num = params[:first_param].to_i
   second_num = params[:second_param].to_i
   "The sum is #{first_num} + #{second_num} = #{first_num + second_num}"
-
 end
+
+binding.pry
 
 post "/calculator/subtract" do
   first_num = params[:first_param].to_i
