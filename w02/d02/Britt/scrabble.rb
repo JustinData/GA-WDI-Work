@@ -27,7 +27,7 @@ class ScrabbleWord
 	end
 
 	def char_at(index)
-		@word_array[index]
+		@word_array[index.to_i]
 	end
 
 	def score
