@@ -1,6 +1,7 @@
 #require "pry"
 
 class Client
+  # attr_accessor :name, :age, :pets_list
 
   def initialize(name, age)
     @name = name
