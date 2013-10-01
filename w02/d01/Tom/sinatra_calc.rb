@@ -16,11 +16,22 @@ end
 # create an empty hash to store the history of calculations
 calcs = {}
 
-
 # The user should see a list of all the calculations and can pick to see by a unique id
-# get "/calculator" do
-#   solved_probs = calcs
-# end
+# Index
+get "/calculator" do
+  all_calcs = calcs.values.join(", ")
+  "Here is a list of all of your calculations #{all_calcs}"
+end
+
+get "/calcs/:id" do
+  id = params[:id].to_i
+  calcs[id]
+end
+
+post "cals/:id" do
+  last_id = cals.keys.max
+  calcs[last_id + 1] = params[:name]
+end
 
 # we need to pass in either add, subtract, multiply or divide to the id
 post "/calculator/add" do
@@ -28,8 +39,6 @@ post "/calculator/add" do
   second_num = params[:second_param].to_i
   "The sum is #{first_num} + #{second_num} = #{first_num + second_num}"
 
-    # need to increment the unique id
-    # need to push to the hash as strings
 end
 
 post "/calculator/subtract" do
@@ -84,8 +93,8 @@ end
 
 
   # Need to create a unique id for each new calculation
-  #last_id = guest_book.keys.max
-  #guest_book[last_id + 1] = params[:name]
+  # last_id = guest_book.keys.max
+  # guest_book[last_id + 1] = params[:name]
 
 
 
@@ -93,7 +102,7 @@ end
 
 
 
-# localhost:4567/calculator/add -X POST -F first_param="1" -F second_param="2"
+# curl localhost:4567/calculator/add -X POST -F first_param="1" -F second_param="2"
 #=> 3
 
 
