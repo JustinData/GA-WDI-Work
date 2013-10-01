@@ -1,13 +1,26 @@
-#Week01-Day2
+#Morning
 
-## ONLY WORK IN YOUR OWN FOLDER
+* Git & Github
+  * clone
+  * remote
+  * pull
+  * push
+  * fetch
+  * merge
+* Homework submission process with Git
+  * forking
+  * branching
+  * pull requests
 
-## Afternoon Lab
-- Complete the Guess the Number assignment
-  - It is in the `ASSIGNMENT_FILES` folder. Instructions for what to do are within.
-  - Make sure if you use the starter code you are copying it into your OWN directory first
+#Afternoon
 
-## Homework - Calculator
-- Complete the Calculator assignment
-  - It is in the `ASSIGNMENT_FILES` folder. Instructions for what to do are within.
-  - Make sure if you use the starter code you are copying it into your OWN directory first
+* Case Statements
+  * So we don't have to write `elsif` a million times
+* Functions & Methods
+  * Reusable chunks of code
+* Loops
+  * Doing things over and over again
+
+#Homework
+
+* Ruby Calculator
