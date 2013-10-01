@@ -17,14 +17,21 @@ class ScrabbleWord
 }
 
 	def to_array
-		@word_array = @word.split(//)
+		@word_array = word.split(//)
 	end
 
 	def char_at(index)
 		@word_array[index]
 	end
-	
-	def score; end
+
+	def score
+		points = 0
+		@word_array.each do |letter|
+			points += TILE_VALUES[letter]
+		end
+		points
+	end
+
 	def multiplier_score(param); end
 
 end
