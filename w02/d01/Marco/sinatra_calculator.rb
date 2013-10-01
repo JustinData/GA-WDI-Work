@@ -16,13 +16,13 @@ end
 past_calculations = {0 => "Initialized"}
 
 get "/calculator" do
-  past_calculations.values.join(", ")
-  "Past Calculations: \n #{past_calculations}"
+  index = past_calculations.values.join(", ")
+  "Past Calculations: #{index}"
 end
 
 get "/calculator/:id" do
   id = params[:id].to_i
-  entry = calculator[id]
+  entry = past_calculations[id]
 
   if entry
     entry
@@ -33,25 +33,34 @@ end
 
 
 post "/calculator/add" do
-
   num_1 = params[:num_1].to_i
   num_2 = params[:num_2].to_i
-  "#{num_1} + #{num_2} = #{num_1 + num_2}"
 
+  id = past_calculations.keys.max + 1
+  past_calculations[id] = "#{num_1} + #{num_2} = #{num_1 + num_2}"
+
+  "#{num_1} + #{num_2} = #{num_1 + num_2}"
 end
 
 post "/calculator/subtract" do
 
   num_1 = params[:num_1].to_i
   num_2 = params[:num_2].to_i
-  "#{num_1} - #{num_2} = #{num_1 - num_2}"
 
+  id = past_calculations.keys.max + 1
+  past_calculations[id] = "#{num_1} - #{num_2} = #{num_1 - num_2}"
+
+  "#{num_1} - #{num_2} = #{num_1 - num_2}"
 end
 
 post "/calculator/multiply" do
 
   num_1 = params[:num_1].to_i
   num_2 = params[:num_2].to_i
+  
+  id = past_calculations.keys.max + 1
+  past_calculations[id] = "#{num_1} * #{num_2} = #{num_1 * num_2}"
+
   "#{num_1} * #{num_2} = #{num_1 * num_2}"
 
 end
@@ -60,6 +69,10 @@ post "/calculator/divide" do
 
   num_1 = params[:num_1].to_i
   num_2 = params[:num_2].to_i
+  
+  id = past_calculations.keys.max + 1
+  past_calculations[id] = "#{num_1} ÷ #{num_2} = #{num_1 / num_2}"
+
   "#{num_1} ÷ #{num_2} = #{num_1 / num_2}"
 
 end
@@ -90,3 +103,7 @@ end
 
 #   end
 # end
+
+# curl localhost:4567/calculator/add -X POST -F num_1="10" -F num_2="5"
+
+
