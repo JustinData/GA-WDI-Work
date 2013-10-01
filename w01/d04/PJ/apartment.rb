@@ -15,7 +15,8 @@ class Apartment
 
 
   # initialize all instance variables when object instantiated
-  def initialize
+  #
+  def initialize( sqft, num_beds, num_baths, price )
     @price = 0.00         # using a Float, for math that may work on @price
     @is_occupied = false  # using a boolean
     @sqft = 0.00          # using a Float, for math that may work on @sqft
@@ -24,6 +25,7 @@ class Apartment
   end
 
   # collect all of the instance variables and print
+  #
   def to_s
     output = "This #{@sqft.round().to_s} sq. ft. apartment has #{@num_beds} beds, "
     output += "#{@num_baths} baths, is "

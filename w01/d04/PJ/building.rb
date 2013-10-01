@@ -16,6 +16,7 @@ class Building
 
 
   # initialize all instance variables when object instantiated
+  #
   def initialize
     @address = ""
     @style = ""
@@ -25,7 +26,15 @@ class Building
     @apartments = {}    # an empty hash
   end
 
+  # add an apartment by pushing an Apartment object on to the hash, using
+  # the descriptive name given by the user as it's key value
+  #
+  def add_apartment( name, apartment_obj )
+    @apartments[name] = apartment_obj
+  end
+
   # collect all of the instance variables and print
+  #
   def to_s
     output = "The #{@style} building at #{@address} has #{@num_floors.to_s} floors, "
     if @has_doorman

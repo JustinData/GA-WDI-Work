@@ -14,7 +14,8 @@ class Person
 
 
   # initialize all instance variables when object instantiated
-  def initialize
+  #
+  def initialize( name, age, gender )
     @name = ""
     @age = 0         # using integer (Fixnum) for math
     @gender = ""
@@ -22,6 +23,7 @@ class Person
   end
 
   # collect all of the instance variables and print
+  #
   def to_s
     output = "#{@name}: #{@age} year old #{@gender} "
     if @apartment.nil?
