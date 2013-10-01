@@ -31,12 +31,12 @@ guest_book = { 1 => "Jeff", 2 => "PJ", 3 => "Peter"}
 get "/guest_book" do
   # .values returns an array, then join seperates the items of the array with commas
   names = guest_book.values.join(", ")
-  "Three people have registered: #{names}"
+  "These people have registered: #{names}"
 end
 
 # Show (just one entry)
 # I know the key or id
-# Get - Gets infor lets you "read it"
+# Get - Gets info lets you "read it"
 get "/guest_book/:id" do
   id = params[:id].to_i
   guest_book[id]
