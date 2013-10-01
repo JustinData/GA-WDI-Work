@@ -1,11 +1,12 @@
 require "sinatra"
 require 'sinatra/reloader'
+require 'erb'
 require 'pry'
 
 
 # get the root route
 get "/"  do
-  "Happy Days Part 2"
+  erb: profile  #this is a file "profile.erb" that should be in a sub folder "views"
 end
 
 get "/profiles/steve-mcqueen" do
