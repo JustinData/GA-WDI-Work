@@ -1,6 +1,7 @@
 require "sinatra"
 require "sinatra/reloader"
 require "pry"
+require "erb"
 
 get "/" do
 	"this is the output"
