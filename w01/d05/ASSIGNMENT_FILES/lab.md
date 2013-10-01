@@ -4,8 +4,7 @@
 - Comprehensive Ruby Lab
 
 ###Prompt
-- You are the manager at HappiTails animal shelter. You need to manage your
-shelter by storing and manipulating information about clients and animals.
+- You are the manager at HappiTails animal shelter. You need to manage your shelter by storing and manipulating information about clients and animals.
 - __Make git commits as you finish each phase, so you can see the history__
 - __DO NOT USE ATTR_ACCESSOR, ATTR_READER, or ATTR_WRITER__
 
@@ -33,12 +32,12 @@ shelter by storing and manipulating information about clients and animals.
   - A shelter should be able to display all of its animals.
   - A shelter should be able to facilitate an adoption (one of its clients adopting one of the animals from shelter)
   - A shelter should be able to facilitate a return (one of its clients returning his/her pet to the shelter)
-  - When we print a shelter to a string, it should tell us about its name, the number of clients, and the number of animals.
+  - When we print an shelter to a string, it should tell us about its name, the number of clients, and the number of animals.
 
 
 #####Phase 1
 - Define the animal, client and shelter classes according to the specs. Each class should have the appropriate attributes and initialize method.
-- Test these out with pry to make sure you can create the objects and that they do what you think they should do. Check the methods that you wrote too!
+- Test these out with pry to make sure you can create the objects and that they do what you think the should do. Check the methods that you wrote too!
 
 #####Phase 2
 - Create a main.rb
@@ -46,6 +45,7 @@ shelter by storing and manipulating information about clients and animals.
 - It should display a menu of options for the user to choose from:
   - Create an animal
   - Create a client
+  - Create a shelter
   - Quit
 - When creating an animal or client, the user is prompted for information like names, age etc. Newly created animals and clients should be added to the shelter.
 
@@ -64,4 +64,8 @@ shelter by storing and manipulating information about clients and animals.
 
 #####Phase 6 (Bonus)
 - Limit the number of animals a client can adopt to 2 per client. If they try to adopt more than that, yell at them.
-- Refactor your code to make sure it is DRY (Don't Repeat Yourself) and all of your methods are in the appropriate classes.
+- Refactor your code to make sure it is DRY (Don't Repeat Yourself) and all your methods are in the appropriate classes.
+
+TO DO:
+#####Phase 7 (Bonus)
+- Add a new class that inherits from your client/person class called CatLady. A cat lady only takes cats, and take as many cats as there is space in a computer's memory.
