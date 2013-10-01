@@ -10,6 +10,10 @@ if its not a symbol it tries to match otherwise it automatically matches it if i
 
 what ever data has been sent
 
+ERB files use the file_name.erb live in the directory /views and are referenced with erb(:name_of_file)
+
+ERB = Embbed Ruby
+
 get "/x/y/:z" do
   "String"
 end
@@ -52,6 +56,16 @@ the idea behind XHTML was to make html a stricter language
  meta charset = "utf-8" is very important
 
  Paul Irish
+
+ DOM
+ BOX-Model
+ HTML = box model
+
+
+ DISPLAY :
+ block
+ inline
+ img = inline block
 
 
 
