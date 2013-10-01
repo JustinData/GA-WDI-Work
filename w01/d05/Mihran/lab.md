@@ -67,3 +67,10 @@ shelter by storing and manipulating information about clients and animals.
 - Refactor your code to make sure it is DRY (Don't Repeat Yourself) and all of your methods are in the appropriate classes.
 
 
+limiting clients:
+it should be a method on shetler that returns a boolean (true/false)
+if it returns as true, let the client continue under aaa
+
+
+
+
