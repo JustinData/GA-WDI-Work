@@ -17,8 +17,8 @@ class ScrabbleWord
 }
 
 	def to_array; end
-	def char_at; end
+	def char_at(param); end
 	def score; end
-	def multiplier_score; end
+	def multiplier_score(param); end
 
 end
