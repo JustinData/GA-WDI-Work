@@ -18,7 +18,7 @@ class ScrabbleWord
 }
 
 	def to_array
-		self.split(//)
+		self.word.split(//)
 	end
 
 	def char_at(index)
