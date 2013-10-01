@@ -1,6 +1,6 @@
 #Week 2 - Intro to the Web
 
-###What did the class do last week?
+###What we do last week?
 
 - We got used to developer tools like the command line, text editor and GitHub.
 - We wrote a variety of programs to get used to programming in Ruby.
