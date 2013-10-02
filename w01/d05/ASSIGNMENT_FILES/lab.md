@@ -4,7 +4,9 @@
 - Comprehensive Ruby Lab
 
 ###Prompt
+
 - You are the manager at HappiTails animal shelter. You need to manage your shelter by storing and manipulating information about clients and animals.
+
 - __Make git commits as you finish each phase, so you can see the history__
 - __DO NOT USE ATTR_ACCESSOR, ATTR_READER, or ATTR_WRITER__
 
@@ -64,6 +66,7 @@
 
 #####Phase 6 (Bonus)
 - Limit the number of animals a client can adopt to 2 per client. If they try to adopt more than that, yell at them.
+
 - Refactor your code to make sure it is DRY (Don't Repeat Yourself) and all your methods are in the appropriate classes.
 
 TO DO:
