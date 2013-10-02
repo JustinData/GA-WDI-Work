@@ -9,7 +9,13 @@ require './person'
   def menu
     # Giving the end user a menus of options
     puts "Would you like to add and (A)partmnet, a new (T)enant or (Q)uit the program?"
+<<<<<<< HEAD
     create = gets.chomp.upcase
+=======
+    create = gets.chomp.downcase
+
+    CHANGE TO DOWNCASE ANS IT MIGHT WORK
+>>>>>>> master
 
     # using an if statment to direct the program to the proper method
     if create == "A"

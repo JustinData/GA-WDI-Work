@@ -4,7 +4,11 @@
 require_relative "./person"
 require_relative "./apartment"
 require_relative "./building"
+<<<<<<< HEAD
 require "pry"
+=======
+#require "pry"
+>>>>>>> master
      
 ####Create the building
 ####                        (address, style, doorman, walkup, floors)

@@ -61,7 +61,10 @@ until choice == 'q'
 
 				#create another apartment?
 				decision = create_apartment_y_or_n
+<<<<<<< HEAD
 				until decision == 'y' || decision == 'n'
+=======
+>>>>>>> master
 					case decision
 					when 'y'
 						get_apartment_input
@@ -77,7 +80,11 @@ until choice == 'q'
 						puts error_msg
 						decision = create_apartment_y_or_n
 					end
+<<<<<<< HEAD
 				end
+=======
+									
+>>>>>>> master
 			end
 	#create apartment
 	when 'a'

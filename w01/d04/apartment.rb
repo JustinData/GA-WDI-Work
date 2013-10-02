@@ -1,5 +1,9 @@
 class Apartment
+<<<<<<< HEAD
 	attr_accessor :price, :is_occupied, :sqft, :num_baths, :num_beds
+=======
+	attr_accessor :price, :is_occupied, :sqft, :num_baths, :num_beds, :renters
+>>>>>>> master
 	
 
 def initialize(price, is_occupied, sqft, num_baths, num_beds)
@@ -8,6 +12,10 @@ def initialize(price, is_occupied, sqft, num_baths, num_beds)
 	@sqft = sqft
 	@num_baths = num_baths
 	@num_beds = num_beds
+<<<<<<< HEAD
+=======
+	@renters = []
+>>>>>>> master
 end
 
 def to_s
