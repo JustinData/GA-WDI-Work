@@ -7,6 +7,12 @@
 * CSS
 	* Box Model
 		* margin, border, padding
+		* border-radius, border-width
+		* background
+		* width, height
+		* overflow
+		* display
+		* text-align
 	* Positioning
 		* relative, absolute, fixed
 	* Specificity
