@@ -126,10 +126,13 @@ end
 
 #method allowing existing client to adopting existing animal
 
-def adopt_animal
+def adoption(adopting = true)
   line
   puts "What is the client's name?"
   client_name = gets.chomp.downcase.to_sym
+  moving_animal_to = client_name 
+  moving_animal_from = :no_clients
+  desciption = "The following animals are available for adoption : "
 
   #if client doesn't it exist, returns user to menu to create the client
 
@@ -138,83 +141,42 @@ def adopt_animal
     shelter_app(false)
   end
 
-  #checks the animals hash of the client object to see if client has more than two animals. Returns them to main menu if they do.
+  if adopting
 
-  if $s.clients[client_name].animals.keys.length >= 2
-    puts "HOW FUCKING DARE THEY. THEY DON'T NEED ANOTHER PET. THEY SHOULD TAKE CARE OF THEIR OWN."
-    shelter_app(false)
+    if $s.clients[client_name].animals.keys.length >= 2
+      puts "HOW FUCKING DARE THEY. THEY DON'T NEED ANOTHER PET. THEY SHOULD TAKE CARE OF THEIR OWN."
+      shelter_app(false)
+    end
+
+  else
+    moving_animal_to = :no_clients
+    moving_animal_from = client_name
+    desciption = "The following animals are available to give up for adoption : "
   end
 
-  #goes through animal objects in the homeless animals object and prints them
+line
+puts description
+line
+$s.clients[moving_animal_from].animals.values.each { |animal| animal.to_s}
+line
+puts "Select an animal by typing the name of the animal."
+animal_name = gets.chomp.downcase.capitalize
 
-  puts "The following animals are available for adoption :"
-  line
-  $s.clients[:no_clients].animals.values.each { |animal| animal.to_s}
-  line
-  puts "Which animal would you like to adopt? Type the name of the animal : "
-  animal_name = gets.chomp.downcase.capitalize
-
-  #forces user to specify the name of an existing homeless animal
-
-  unless $s.clients[:no_clients].animals.keys.include?(animal_name)
+ unless $s.clients[moving_animal_from].animals.keys.include?(animal_name)
     puts "Sorry, that animal is not in the system. Try again : "
     animal_name = gets.chomp.downcase.capitalize
   end
 
-  #adds animal object to the animal hash of the adopting client's client object, removes animal object from homeless object
-
-  $s.clients[client_name].animals[animal_name] = $s.clients[:no_clients].animals[animal_name]
-  $s.clients[:no_clients].animals.delete(animal_name)
+  $s.clients[moving_animal_to].animals[animal_name] = $s.clients[moving_animal_from].animals[animal_name]
+  $s.clients[moving_animal_from].animals.delete(animal_name)
   line
-  puts "Congratulations! #{client_name.to_s.capitalize} has officially adopted #{animal_name}!"
+  puts "Updated!"
   line
   puts "Here's #{client_name.to_s.capitalize}'s new profile :"
   line
   $s.clients[client_name].to_s
   line
-end
 
-#method allowing existing client to place one of their pets up for adoption
-
-def put_up_for_adoption
-  line
-  puts "What is the client's name?"
-  client_name = gets.chomp.downcase.to_sym
-
-  #if client doesn't exist, user is returned to main menu
-
-  unless $s.clients.keys.include?(client_name)
-    puts "Sorry, that client is not in the system. Please create them and then return here."
-    shelter_app(false)
-  end
-
-  #prints all animal objects of the respective client
-
-  puts "Our records show that #{client_name.to_s.capitalize} has the following animals :"
-  line
-  $s.clients[client_name].animals.values.each { |animal| animal.to_s }
-  line
-  puts "Which animal would the client like to put up for adoption?"
-  animal_name = gets.chomp.downcase.capitalize
-
-  #forces user to specify an animal the client currently owns
-
-  unless $s.clients[client_name].animals.keys.include?(animal_name)
-    puts "Sorry, that animal is not in the system. Try again : "
-    animal_name = gets.chomp.downcase.capitalize
-  end
-
-  #adds animal object to the animals hash of the homeless animals object, removes animal object from the animals hash of client
-
-  $s.clients[:no_clients].animals[animal_name] = $s.clients[client_name].animals[animal_name]
-  $s.clients[client_name].animals.delete(animal_name)
-  line
-  puts "#{client_name.to_s.capitalize} has officially put up #{animal_name} for adoption."
-  line
-  puts "Here's #{client_name.to_s.capitalize}'s new profile :"
-  line
-  $s.clients[client_name].to_s
-  line
 end
 
 #displays home menu
@@ -259,9 +221,9 @@ def shelter_app(first_time = true)
       when 4
         display_clients
       when 5
-        adopt_animal
+        adoption
       when 6
-        put_up_for_adoption
+        adoption(false)
     end
 
       #the false parameter runs the shelter_app method again, but bypasses the homeless animals object creation method
