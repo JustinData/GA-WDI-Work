@@ -1,10 +1,7 @@
 require './animal'
 require './client'
 require './shelter'
-<<<<<<< HEAD
-=======
 require './seed.rb'
->>>>>>> master
 
 #NOTES##########################################################
 
@@ -25,11 +22,7 @@ require './seed.rb'
 #methods##########################################################
 
 def menu
-<<<<<<< HEAD
-	puts "What would you like to do manneeeeeee: create (a)nimal, (c)lient, or (q)uit?"
-=======
 	puts "What would you like to do manneeeeeee: create (a)nimal, (c)lient,\n (da) display all animals, (dc) display all clients, (ad)opt an animal, or (q)uit?"
->>>>>>> master
 	gets.chomp.downcase
 end
 
@@ -49,25 +42,19 @@ def get_client_input
 	@client_input = gets.chomp.scan(/\w+/)
 end
 
-<<<<<<< HEAD
-=======
 def get_adoption_input
 	puts "Which animal and which client?"
 	@adoption_input = gets.chomp.scan(/\w+/)
 end
 
->>>>>>> master
 def client_exist?(client_instance)
 	$shelter1.clients.include?(client_instance.to_sym)
 end
 
-<<<<<<< HEAD
-=======
 def animal_exist?(client, animal)
 	client.animals.values.include?(animal.to_sym)
 end
 
->>>>>>> master
 def y_or_n_create_client
 	puts "That client doesn't exist."
 	puts "Do you want to create him/her then add the animal to him/her? (y)es or (n)o?"
@@ -75,11 +62,7 @@ def y_or_n_create_client
 end
 
 def add_animal(name, client_instance, species)
-<<<<<<< HEAD
-	$shelter1.clients[client_instance.to_sym].animals << Animal.new(name, client_instance, species)
-=======
 	$shelter1.clients[client_instance.to_sym].animals[name.to_sym] = Animal.new(name, client_instance, species)
->>>>>>> master
 end
 
 def add_client(name, age)
@@ -88,12 +71,6 @@ end
 
 #################################################################
 
-<<<<<<< HEAD
-#create new shelter #available to ../ of instances of Self scope
-$shelter1 = Shelter.new("shelter1")
-
-=======
->>>>>>> master
 choice = menu
 #menu loop
 until choice == 'q'
@@ -104,42 +81,11 @@ until choice == 'q'
 		#animal input
 		get_animal_input
 		#does client specified / owner exist? yes
-<<<<<<< HEAD
-=======
 
->>>>>>> master
 		if client_exist?(@animal_input[1])	
 			#add animal to specified client
 			add_animal(@animal_input[0], @animal_input[1], @animal_input[2])
 		else
-
-<<<<<<< HEAD
-
-			#create? yes or no loop
-			decision = y_or_n_create_client
-			until (decision == 'y') || (decision == 'n')
-				#do you want to create client and add animal?
-				case decision
-				when 'y'
-					#create client
-					get_client_input
-					add_client(@client_input[0], @client_input[1])
-
-					#add animal to created client
-					p add_animal(@animal_input[0], @animal_input[1], @animal_input[2])
-				#no
-				when 'n'
-					puts "no"
-					#reprompt for (animal input)
-					puts "Please re-provide input"
-				else
-					#reprompt for (yes or no loop)
-					puts error_msg
-					decision = y_or_n_create_client
-				end
-			end
-
-=======
 			#create? yes or no loop
 			decision = y_or_n_create_client					
 				until decision == 'n'
@@ -161,23 +107,11 @@ until choice == 'q'
 						decision = y_or_n_create_client
 					end		
 				end
->>>>>>> master
 		end
 
 	#2 create client
 	when 'c'
 		#client input
-<<<<<<< HEAD
-		puts "Creating client"
-		#does client exist? yes
-			#reprompt (client input)
-		#no
-			#create client
-		#else
-			#reprompt client input
-		#end
-	
-=======
 		get_client_input
 		#does client exist? yes
 		if client_exist?(@client_input[0])
@@ -227,7 +161,6 @@ until choice == 'q'
 			puts "That client does not exist"
 		end
 
->>>>>>> master
 	#else error message
 	else
 		puts error_msg
