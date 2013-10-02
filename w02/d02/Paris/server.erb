@@ -6,11 +6,15 @@ require "pry"
 #if the URL is the root directory, load ERB template "profile"
 
 get "/" do
-   erb :pair_programming
+    @refactor = "/views/refactor"
+    @write_code = "/views/write_code"
+    erb :pair_programming
 end
 
 get( "/views/:data_point" ) do  
      @refactor = params[:refactor]
+     @do_refactor = "/views/do_refactor"
+     @new_feature = "/views/new_feature"
      @pair_programming = "/"
     erb :refactor
 end
