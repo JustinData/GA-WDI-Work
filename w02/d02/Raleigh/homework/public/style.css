@@ -46,3 +46,29 @@ a:active {
    color: #ffffff;
    background: orange;
 }
+a.back {
+   background: none;
+   padding: 10px 20px 10px 20px;
+   margin: 0;
+   float: right;
+   font-family: helvetica, sans-serif;
+    font-size: 14px;
+   -m-border-radius: 0;
+   -webkit-border-radius: 0;
+   border-radius: 0;
+}
+a.back:link {
+   color: #000000;
+   text-decoration: none;
+}
+a.back:visited {
+   color: #000000;
+}
+a.back:hover {
+   color: red;
+   text-decoration: underline;
+}
+a.back:active {
+   color: red;
+   text-decoration: underline;
+}
