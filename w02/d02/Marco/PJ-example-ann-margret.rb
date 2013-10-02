@@ -17,3 +17,7 @@ get( "/profiles/:profile_name" ) do
   # implicit return
   output_string
 end
+
+get( "/data/:data_point") do
+  "You sent us a #{params[:data_point]}"
+end
