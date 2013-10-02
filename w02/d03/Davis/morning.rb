@@ -30,6 +30,7 @@ random_animals = ["porpoise", "camel", "lobster", "kangaroo", "wombat", "chamele
 
 random_animals.each { |animal| puts animal + "s" }
 random_animals.sort
-random_animals.sort.reverse
+random_animals.sort.reverse # random_animals.sort {|x,y| y <=> x}
 random_animals.sort_by { |animal| animal.length }
 random_animals.sort_by { |animal| animal.reverse }
+random_animals.sort_by { |animal| animal[-1] }
