@@ -5,7 +5,7 @@
 - Style a website with basic HTML & CSS
 
 #### Prompt
-- You are going to recreate your own version (or something similar) of the [pair programming bot](http://pairprogrammingbot.com/) from scratch using Sinatra. The web app should follow a flowchart. Each page will either have a Yes/No option or Done option which links to another page.
+- You are going to recreate your own version of (or something similar to) the [pair programming bot](http://pairprogrammingbot.com/) from scratch using Sinatra. The web app should follow a flowchart. Each page will either have a Yes/No option or Done option which links to another page.
 
 ####Options (Choose one)
 
