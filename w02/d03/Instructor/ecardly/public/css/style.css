@@ -20,4 +20,53 @@
 }
 
 
+.body-wrapper {
+     background-color: #d6d6d6;
+}
+
+.box {
+     width: 940px;
+     background-color: white;
+     margin: 0 auto;
+     padding: 15px;
+}
+
+.card-text, .card-img {
+     display: inline-block;
+}
+
+.card-img {
+     width: 640px;
+}
+
+.card-text {
+     width: 250px;
+     float: right;
+     border: 1px solid white;
+     margin: 0;
+}
+
+img.logo {
+     margin: 0 auto;
+     display: block;
+     /*border: 1px solid black;*/
+}
+
+a {
+     text-decoration: none;
+     font-weight: bold;
+     color: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
