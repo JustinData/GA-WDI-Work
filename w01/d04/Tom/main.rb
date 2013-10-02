@@ -12,7 +12,7 @@ require './person'
     create = gets.chomp.downcase
 
     CHANGE TO DOWNCASE ANS IT MIGHT WORK
-
+    
     # using an if statment to direct the program to the proper method
     if create == "A"
       new_apartment_obj
