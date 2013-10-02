@@ -5,54 +5,32 @@ require "pry"
 
 #if the URL is the root directory, load ERB template "profile"
 
-get( "/pair_programming" ) do
-  erb :pair_programming
-   @pair_programming = params[:pair_programming]
+get "/" do
+   erb :pair_programming
+end
+
+get( "/views/:data_point" ) do  
+     @refactor = params[:refactor]
+     @pair_programming = "/"
+    erb :refactor
 end
 
 get( "/views/:data_point" ) do
-  if params[:data_point] == "refactor"
-     @link_url = "/refactor"  
-     @refactor = params[:refactor]
-    erb ( :refactor ) 
-  else @link_url = "/"
-    erb( :pair_programming )
-  end
+     @do_refactor = params[:do_refactor]
+     @pair_programming = "/"
+    erb :do_refactor 
 end
 
-  get( "/views/:data_point" ) do
-  if params[:data_point] == "do_refactor"
-    @link_url = "/do_refactor"
-    @do_refactor = params[:do_refactor]
-     erb( :do_refactor )
-  else
-    @link_url = "/"
-    erb( :pair_programming )
-  end
+get( "/views/:data_point" ) do
+     @write_code = params[:write_code]
+     @pair_programming = "/"
+    erb :write_code 
 end
 
-  get( "/views/:data_point" ) do
-
- if params[:data_point] == "write_code"
-    @link_url = "/write_code"
-    @write_code = params[:write_code]
-    erb( :write_code )
-  else
-    @link_url = "/"
-    erb( :pair_programming )
-end
-end
-
-  get( "/views/:data_point" ) do
-
-  if params[:data_point] == "new_feature"
-    @link_url = "/new_feature"
-    @new_feature = params[:new_feature]
-    erb( :new_feature )
-  else
-    @link_url = "/"
-    erb( :pair_programming )
-  end
+get( "/views/:data_point" ) do
+     @new_feature = params[:new_feature]
+     @pair_programming = "/"
+    erb :new_feature 
 end
   
 
