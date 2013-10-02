@@ -1,19 +1,28 @@
 require "sinatra"
 require "sinatra/reloader"
+require 'erb'
 require "pry"
 
-get( "/profiles/:profile_name" ) do
-  if params[:profile_name] == "ann-margret"
-    output_name = "Ann Margret"
-    output_img = "<img src='http://www.whatgoesaroundnyc.com/blog/wp-content/uploads/2013/08/1964-elvis-e-ann-margret-in-viva-las-wegas.jpg' width='400' />"
-  elsif params[:profile_name] == "elvis"
-    output_name = "Elvis Presley"
-    output_img = "<img src='http://www.whatgoesaroundnyc.com/blog/wp-content/uploads/2013/08/1964-elvis-e-ann-margret-in-viva-las-wegas.jpg' width='400' />"
-  end
+get '/' do   
+  "don't you want somebody to love"
+end
 
-  output_string = "<!doctype html><html><head></head>"
-  output_string += "<body><h1>#{output_name}</h1>#{output_img}</body></html>"
+get '/want' do  
+  "don't you want somebody to love" 
+end
 
-  # implicit return
-  output_string
+get '/need' do   
+  "don't you need somebody to love"
+end
+
+get '/love' do  
+  "wouldn't you love somebody to love" 
+end
+
+get '/find' do  
+  "you better find somebody to love" 
+end
+
+get '/notfind' do   
+  "you better not find somebody to love."
 end
