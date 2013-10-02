@@ -29,8 +29,13 @@ get( "/profiles/:profile_name" ) do
 
   # implicit return
   output_string = "<doctype html><html><head></head>"
-  output_string += "<body><h1> #{output_name}</h1> #{output_img}
+  output_string += "<body><h1> #{output_name}</h1> #{output_img}"
 
+  get( "/data/name" ) do 
+    "HER NAME IS ANN!"
+  end 
+
+  
  
 
 
