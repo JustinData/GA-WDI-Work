@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-choice = gets.chomp
-until x == 'y'
-	case choice
-		when 'y'
-			puts "yes"
-		else
-			puts "else"
-		end	
-end
-=======
 class Shelter
 	def initialize(name = nil, shelter_animals = {}, clients = {})
 		@name = name
@@ -120,4 +109,3 @@ p client_exist?(@adoption_input[1])
 
 
 
->>>>>>> master

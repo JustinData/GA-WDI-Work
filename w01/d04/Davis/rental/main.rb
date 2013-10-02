@@ -76,7 +76,7 @@ until choice == 'q'
 						puts error_msg
 						decision = create_apartment_y_or_n
 					end
-					
+                  
 			end
 	#create apartment
 	when 'a'

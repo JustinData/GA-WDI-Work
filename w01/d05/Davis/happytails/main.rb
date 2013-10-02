@@ -86,6 +86,7 @@ until choice == 'q'
 			#add animal to specified client
 			add_animal(@animal_input[0], @animal_input[1], @animal_input[2])
 		else
+
 			#create? yes or no loop
 			decision = y_or_n_create_client					
 				until decision == 'n'

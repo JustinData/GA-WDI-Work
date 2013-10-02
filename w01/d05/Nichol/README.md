@@ -1,5 +1,3 @@
-Nichol Alexander
-=======
 Morning Exercise
 ==================
 
