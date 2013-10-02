@@ -4,7 +4,45 @@ html {
    background: blue;
 }
 div#wrapper {
-   margin: 0 auto;
+   margin: 30px auto;
    padding: 30px;
    background: #ffffff;
+   width: 500px;
+   -m-border-radius: 20px;
+   -webkit-border-radius: 20px;
+   border-radius: 20px;
+   text-align: center;
+}
+h1 {
+
+}
+p {
+   font-family: helvetica, sans-serif;
+   font-size: 32px;
+   margin-top: 50px;
+}
+a {
+   background: red;
+   padding: 10px 20px 10px 20px;
+   margin: 20px 20px;
+   font-family: helvetica, sans-serif;
+    font-size: 18px;
+   -m-border-radius: 10px;
+   -webkit-border-radius: 10px;
+   border-radius: 10px;
+}
+a:link {
+   color: #000000;
+   text-decoration: none;
+}
+a:visited {
+   color: #000000;
+}
+a:hover {
+   color: #ffffff;
+   background: orange;
+}
+a:active {
+   color: #ffffff;
+   background: orange;
 }

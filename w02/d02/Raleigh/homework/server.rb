@@ -26,6 +26,6 @@ get("/fix/:should/:it") do
   elsif params[:should] == "no" && params[:it] == "no"
     erb(:no_prob)
   else
-    erb :move
+    erb (:move)
   end
 end
