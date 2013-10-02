@@ -2,59 +2,54 @@
 # A user should be able to choose from the menu
 def menu
   puts 'basic, advanced, or quit'
-  answer = gets.chomp.downcase
+  $answer = gets.chomp.downcase
 end
 
 def basic_calc
   print "(a)dd, (s)ubtract, (m)ultiply, (d)ivide: "
-  answer = gets.chomp.downcase
+  $answerx = gets.chomp.downcase
 end
 
 def advanced_calc
   print '(p)ower, (s)qrt: '
-  answer = gets.chomp.downcase
+  $answery = gets.chomp.downcase
 end
 
 menu
-answer = gets.chomp.downcase
-if answer == "basic"
+if $answer == "basic"
   basic_calc
 end
 
 # A user should be able to enter numbers to perform the operation on
 # A user should be shown the result
-    if answer == "a"
+    $answer == "basic"
+    if $answerx == "a"
     puts 'Give me a number'
     number1 = gets.chomp.to_i
     puts 'Give me another number'
     number2 = gets.chomp.to_i
-    puts "the answer is #{number1 + number2}"
+    puts "the answer is #{number1 + number2}"   
   end
-  answer = gets.chomp.downcase
-  if answer == 's'
+  if $answerx == "s"
     puts 'Give me a number'
     number3 = gets.chomp.to_i
     puts 'Give me another number'
     number4 = gets.chomp.to_i
     puts "the answer is #{number3 - number4}"
   end
-  basic_calc 
-  answer = gets.chomp.downcase
-  if answer == 'm'
-    puts 'Give me a number'
+  if $answerx == "m"
+  puts 'Give me a number'
   number5 = gets.chomp.to_i
   puts 'Give me another number'
   number6 = gets.chomp.to_i
   puts "the answer is #{number5 * number6}"
   end
-  basic_calc
-  answer = gets.chomp.downcase
-  if answer == 'd'
-    puts 'Give me a number'
+  if $answerx == "d"
+  puts 'Give me a number'
   number7 = gets.chomp.to_i
   puts 'Give me another number'
   number8 = gets.chomp.to_i
-  puts "the answer is #{number7/number8}"
+  puts "the answer is #{number7 / number8}"
   end
     
 # Only tackle these once you get all of the basic_calc operations working
