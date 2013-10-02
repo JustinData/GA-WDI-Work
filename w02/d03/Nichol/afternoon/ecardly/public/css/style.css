@@ -23,6 +23,10 @@
 .body-wrapper  {
      background-color: #d6d6d6;
      color: #000000;
+     height: 100%;
+     padding: 2em;
+     position: relative;
+
 }
 
 .logo {
@@ -49,12 +53,13 @@
 }
 
 .card-text {
-     font-size: 12px;
      display: inline-block;
-     width: 250px;
-     float: right;
-     border: 1px solid black;
-     margin: 0px; 
+    width: 280px;
+    float: right;
+    margin: 0;
+    text-align: justify;
+    font-size: 12px;
+    position: relative;
 }
 
 .card-a {
