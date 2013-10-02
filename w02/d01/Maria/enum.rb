@@ -62,3 +62,9 @@ this takes the first 2 numbers in the array (1,2 which = 3)then
 
 
 
+
+
+
+
+
+

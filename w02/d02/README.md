@@ -1,8 +1,36 @@
-#Week02-Day1
+##Agenda
+* Why is web development a thing?
 
-## ONLY WORK IN YOUR OWN FOLDER
-  - Instructions are in the `ASSIGNMENT_FILES` folder.
+* The Web
+   * protocol
+   * domain name (or IP address)
+   * (port, or TCP/UDP port) -- type of application
+   * path
+   * query string
 
-## Morning Exercise
+* HTML & CSS Basics
+   * Head element
+   * Comment tags: `<!-- -->`
+   * Block Elements:
+      * sections: `<body>` (or `<header>`, `<footer>`)
+      * headers: `<hN>`
+      * paragraphs: `<p>`
+      * lists: `<ul>` and `<ol>`, `<li>`
+      * basic division: `<div>`
+   * Inline Elements:
+      * mostly text-based
+      * links: `<a>`
+   * Inline-Block Elements:
+      * `<img>`
 
-## Homework
+* Sinatra's back!
+  * ERb
+  * layout.erb
+
+* The DOM
+
+* Basic CSS
+  * Selectors
+  * Display
+  * The box model
+  * Adding CSS to your Sinatra App
