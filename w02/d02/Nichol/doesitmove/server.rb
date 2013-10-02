@@ -3,12 +3,26 @@ require "sinatra/reloader"
 require "erb"
 require "pry"
 
+# module Variables
+
+# 	def Variables.set_it_up(string)
+# 		@choice1 = "yes"
+# 		@choice2 = "no"
+		
+# 		@string_for_url1 = string.chomp("?").delete " "
+# 		@url_link_choice1 = @string_for_url1 +  "/" + @choice1
+		
+# 		@string_for_url2 = string.chomp("?").delete " "
+# 		@url_link_choice2 = @string_for_url2 +  "/" + @choice2
+# 	end
+# end
+
 class Problem
 	attr_accessor :doesitmove, :shoulditmove
 
 end
 
-$my_problem = Problem.new
+$my_problem = Problem.new #problem with scope!
 
 get "/" do	
 	erb :splash
@@ -16,6 +30,8 @@ end
 
 get "/doesitmove/" do
 	@string = "does it move?"
+	#binding.pry
+	#Variables.set_it_up(@string)
 	@choice1 = "yes"
 	@choice2 = "no"
 	
