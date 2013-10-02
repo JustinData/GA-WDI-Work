@@ -16,8 +16,42 @@
 }
 
 .clear {
-	clear: both;
+     clear: both;
 }
 
+.body-wrapper{
+     background-color: #d6d6d6;
+}
 
+.box{
+     width: 948px;
+     height: ;
+     background-color: #fff;
+     padding: 15px;
+     margin: 0 auto;
+}
 
+.card-text, .card-img{
+     display: inline-block;
+}
+
+.card-img {
+     width: 600px;
+}
+.card-text {
+     width: 200px;
+     float: right;
+     /*border: 2px solid black;*/
+     margin: 0px;
+}
+
+img.logo {
+     margin: 0 auto;
+     display: block;
+}
+
+a {
+     text-decoration: none;
+     font-weight: bold;
+     color: red;
+}
