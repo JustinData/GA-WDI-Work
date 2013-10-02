@@ -5,14 +5,30 @@ require "pry"
 
 #if the URL is the root directory, load ERB template "profile"
 get( "/" ) do
-  erb :index
+  erb( :index )
 end
 
-get( "/something/:data_point" ) do
+get( "/options/:data_point" ) do
 
-  if params[:data_point] == "somewhere"
-    @link_url = "somewhere.com"
+  case params[:data_point]
+  when "pass"
+    @link_url = "/options/pass.erb"
     erb( :data )
+  when "write_test"
+  	@link_url = "/options/write_test.erb"
+  	erb( :data )
+  when "write_code"
+  	@link_url = "/options/write_code.erb"
+  	erb( :data )
+  when "refactor"
+  	@link_url = "/options/refactor.erb"
+  	erb( :data )
+  when "do_refactor"
+  	@link_url = "/options/do_refactor.erb"
+  	erb( :data )
+  when "new_feature"
+  	@link_url = "/options/new_feature.erb"
+  	erb( :data )
   else
     @link_url = "/"
     erb( :data )
