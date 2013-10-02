@@ -20,4 +20,42 @@
 }
 
 
+.body-wrapper {
+     background-color: #d6d6d6;
+}
 
+.box {
+     width: 940px;
+     background-color: white;
+     margin: 0 auto;
+     padding: 5px;
+}
+
+/*comma is basically or*/
+.card-text, .card-img {
+     display: inline-block;
+}
+
+.card-img {
+     width: 640px;
+}
+
+.card-text {
+     width: 220px;
+     /*take out of flow & allow to be rightside of image*/
+     float: right;
+     /*makes tops align*/
+     margin: 0;
+}
+
+.logo {
+     /*center the logo*/
+     margin: 0 auto;
+     display: block;
+}
+
+a {
+     text-decoration: none;
+     font-weight: bold;
+     color: red;
+}
