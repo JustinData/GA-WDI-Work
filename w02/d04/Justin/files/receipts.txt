@@ -1,0 +1,2 @@
+Giant,beer,$5
+Target,cards,$5
