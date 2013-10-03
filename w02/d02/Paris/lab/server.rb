@@ -37,6 +37,34 @@ get( "/views/:data_point" ) do
     erb :new_feature 
 end
   
+get "/page1" do
+    @header = "Header for page 1"
+    @yes = "/views/do_refactor"
+erb :page
+end
+
+get "/page2" do
+    @header = "Header for page 2"
+erb :page
+end
+
+# @header
+# @yes
+# @no
+# @image
+
+# stick these in the html
+
+@pair_programming = "/"
+@header = "Paris"
+
+
+
+
+
+
+
+
 
 
 

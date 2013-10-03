@@ -37,7 +37,7 @@
      display: inline-block;
 }
 
-.card-text {
+.br-text {
      width: 250px;
      float: right;
      text-align: left;
@@ -45,13 +45,15 @@
 }
 
 .img-logo { 
+
      margin: 0 auto;
+     padding: 10px;
      display: block; 
-     border: 1px solid black;
 
 }
 
 .a {
+     text-align: left;
      text-decoration: none;
      font-weight: bold;
      color: red;
