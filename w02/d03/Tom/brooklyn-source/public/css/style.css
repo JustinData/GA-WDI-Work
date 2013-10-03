@@ -11,12 +11,20 @@ Link Hover Color = #20222a
 
 */
 
-
-.box {
+#model-image {
+  margin: 10px;
+  display: inline-block;
 
 }
 
-#container {
+#rings-image {
+  margin: 10px;
+  display: inline-block;
 
+}
+
+.bottom-boxes {
+  margin: 10px;
+  display: inline-block;
 
 }
