@@ -16,3 +16,5 @@ body contains
 
 request = path, verb, query params>HEAD
 request = body = params (hash)
+
+persistant storage = storage of files after the application is quitted
