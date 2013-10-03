@@ -7,19 +7,14 @@
 <% 	i += 1 %>
 <% 	i	%>
 <% end %>
-<% binding.pry %>
 
 <% file.close %>
 
 <% @item_info.unshift(i + 1) %>
-<% binding.pry %>
-
 <% item_string = @item_info.join(",") %>
 
 <% file = File.new("receipts.txt", "a") %>
-
 <% file.puts item_string %>
-
 <% file.close %>
 
 <h2>Success!</h2>
