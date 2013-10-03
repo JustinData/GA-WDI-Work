@@ -1,0 +1,6 @@
+<h3><%= @stock_symbol %></h3>
+<p><%= @price %></p>
+<form action= "/stocks" method="GET">
+  <input type="text" placeholder ="Stock Symbol" name = 'stock_symbol' >
+  <button>Get Quote!</button>
+</form>
