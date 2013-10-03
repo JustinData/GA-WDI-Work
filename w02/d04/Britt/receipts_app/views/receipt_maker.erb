@@ -1,0 +1,27 @@
+<h1>Receipt.io<h1>
+
+<% file = File.new("receipts.txt", "r") %>
+
+<% i = 0 %>
+<% file.each do |line| %>
+<% 	i += 1 %>
+<% 	i	%>
+<% end %>
+<% binding.pry %>
+
+<% file.close %>
+
+<% @item_info.unshift(i) %>
+<% binding.pry %>
+
+<% item_string = @item_info.join(",") %>
+
+<% file = File.new("receipts.txt", "a") %>
+
+<% file.puts item_string %>
+
+<% file.close %>
+
+<h2>Success!</h2>
+
+<p><a href="/">Home page</a><p>

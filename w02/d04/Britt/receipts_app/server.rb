@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'sinatra/reloader'
+require 'pry'
 
 # Receipts.io
 
@@ -16,8 +17,12 @@ end
 
 # POST "/receipts" => create a new receipt and save it as a CSV to receipts.txt (and assign it a unique id)
 post "/receipts" do
+	@item_info = []
+	@item_info << params[:store]
+	@item_info << params[:product]
+	@item_info << params[:price]
 
-	
+	erb :receipt_maker
 end
 
 # GET "/receipts" => print out all the generated receipts
