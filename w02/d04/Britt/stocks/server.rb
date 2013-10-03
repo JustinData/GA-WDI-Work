@@ -1,7 +1,6 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'httparty'
-require 'pry'
 
 # GET /
 # => User to be presented with "Welcome to Stock.ly"
@@ -10,7 +9,7 @@ require 'pry'
 # => 845.45
 
 get "/" do
-	erb  :index
+	erb :index
 end
 
 get "/stocks" do
