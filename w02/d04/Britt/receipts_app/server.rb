@@ -15,7 +15,10 @@ get "/receipts/new" do
 end
 
 # POST "/receipts" => create a new receipt and save it as a CSV to receipts.txt (and assign it a unique id)
-post "/receipts" do; end
+post "/receipts" do
+
+	
+end
 
 # GET "/receipts" => print out all the generated receipts
 get "/receipts" do; end

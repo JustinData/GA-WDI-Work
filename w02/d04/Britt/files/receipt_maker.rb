@@ -1,4 +1,4 @@
-receipt_info
+receipt_info = []
 
 # User is prompted for store
 puts "What store is the purchase from?"
