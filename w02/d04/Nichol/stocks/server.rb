@@ -22,6 +22,7 @@ get "/stocks" do
 	@data = response["xml_api_reply"]["finance"]
 	@price = response["xml_api_reply"]["finance"]["last"]["data"]
 
+	@yahoo_response = HTTParty.get("http://chart.finance.yahoo.com/z?s=#{@stock_symbol}&t=6m&q=l&l=on&z=l&p=m50,e200,v&a=p12,p&c=%5EDJI,EURUSD=X&region=de&lang=de-DE")
 	erb :stocks
 
 end
