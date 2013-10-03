@@ -6,47 +6,55 @@ require "pry"
 #if the URL is the root directory, load ERB template "profile"
 
 get "/" do
-    @refactor = "/views/refactor"
-    @write_code = "/views/write_code" 
+    @header = "Do you have a test for that?"
+    @yes = "/pass"
+    @no = "/write_code" 
     erb :pair_programming
 end
 
-get( "/views/:data_point" ) do  
-     @refactor = params[:refactor]
-     @do_refactor = "/views/do_refactor" 
-     @new_feature = "/views/new_feature" 
-     @pair_programming = "/" 
-    erb :refactor
+get( "/pass") do  
+     @header = "Does the test pass?!"
+     @yes= "/do_refactor" 
+     @no = "/write_code" 
+    erb :pass
 end
 
-get( "/views/:data_point" ) do
-     @do_refactor = params[:do_refactor]
-     @pair_programming = "/" 
+get( "/refactor") do  
+     @header = "Need to refactor?"
+     @yes= "/do_refactor" 
+     @no = "/new_feature" 
+    erb :pass
+end
+
+get( "/do_refactor" ) do
+    @header = "Refactor the code."
+     @yes = "/do_refactor"
+     @no= "/" 
     erb :do_refactor 
 end
 
-get( "/views/:data_point" ) do
-     @write_code = params[:write_code]
-     @pair_programming = "/" 
+get( "/write_code" ) do
+     @header = "Write just enough code for the test to pass!"
+     @done = "/" 
     erb :write_code 
 end
 
-get( "/views/:data_point" ) do
-     @new_feature = params[:new_feature]
-     @pair_programming = "/" 
+get( "/new_feature" ) do
+     @header = "Select a new feature to implement!"
+     @continue= "/" 
     erb :new_feature 
 end
   
-get "/page1" do
-    @header = "Header for page 1"
-    @yes = "/views/do_refactor"
-erb :page
-end
+# get "/page1" do
+#     @header = "Header for page 1"
+#     @yes = "/views/do_refactor"
+# erb :page
+# end
 
-get "/page2" do
-    @header = "Header for page 2"
-erb :page
-end
+# get "/page2" do
+#     @header = "Header for page 2"
+# erb :page
+# end
 
 # @header
 # @yes
@@ -55,8 +63,8 @@ end
 
 # stick these in the html
 
-@pair_programming = "/"
-@header = "Paris"
+# @pair_programming = "/"
+# @header = "Paris"
 
 
 
