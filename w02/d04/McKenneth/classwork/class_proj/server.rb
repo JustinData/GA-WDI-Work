@@ -13,7 +13,6 @@ require 'httparty'
 # Get /stocks?symbol=GOOG
 #=>845.45
   get("/stocks") do 
-    binding.pry
     @stock_symbol = params[:stock_symbol]
     response = HTTParty.get("http://dev.markitondemand.com/Api/Quote/json?symbol=#{@stock_symbol}")
     @prices = response["Data"]["LastPrice"]
