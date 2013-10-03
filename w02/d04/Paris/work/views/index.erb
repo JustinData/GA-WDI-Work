@@ -1,11 +1,14 @@
 <h1>Welcome to Stock.ly.</h1>
 
-<form action="/stocks" method="GET" >
-  <input type="text" placeholder="Stock Symbol" name="stock_symbol" />
-  <button>Get Quote!</button>
-</form>
+<%=erb :form %>
 
-<!-- <input type="text" placeholder="Write some stuff" name="stuff" /> -->
+<% bananas = "yummy" %>
 
+<% if bananas == "yummy" %>
+    <h3>I LIKE BANANAS!</h3>
+ <% else %>
+    <h3>You're missing out :) </h3>
+<% end %>
 
-<!-- placeholder is the gray text in the box. name will match up to the variable that we assigned to the params -->
+<% a = 1 %>
+<%= a + 10 %>
