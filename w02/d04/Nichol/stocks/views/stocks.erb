@@ -1,0 +1,13 @@
+<h1> <%= @stock_symbol %> </h1>
+<p> The Price is: <%= @price %> </p>
+
+<p> The data is: </p>
+<p> <%= 
+		newstring = String.new
+		@data.each_key do |x|
+			newstring += "#{x}:" + "     " + "#{@data[x]["data"]}" +"<br>"
+		end
+		newstring
+	%>
+
+<p> Thanks for using the google api! </p>
