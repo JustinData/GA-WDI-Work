@@ -22,24 +22,20 @@ end
 get '/:name' do 
 	if params[:name].downcase == 'tea'
 		@name = params[:name]
-		@color = colors.sample
 		@compliment = "OMG Happy Birthday!!!"
-		erb :compliment
 	elsif params[:name].downcase == 'shitty'
 		@name = people.sample
-		@color = colors.sample
 		@compliment = compliments.sample
-		erb :compliment
 	else
 		@name = params[:name]
-		@color = colors.sample
 		@compliment = compliments.sample
-		erb :compliment
 	end
+
+	@color = colors.sample
+	erb :compliment
 end
 
 post '/' do 
 	compliments << params[:compliment]
-	compliments.join(" ")
 end
 
