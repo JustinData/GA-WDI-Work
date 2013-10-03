@@ -26,7 +26,7 @@
 .box {
      width: 940px;
      background-color: white ;
-     margin: 0 auto;
+     /*margin: 0 auto;*/
      padding: 15px;
      /*display: inline;*/
 }

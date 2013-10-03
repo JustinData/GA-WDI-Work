@@ -11,3 +11,13 @@
 - Put the site together using HTML & CSS.
 
 __Bonus:__ Make it a single page Sinatra app
+
+
+brook & lyn logo at top
+1. box centered with <img> no borders of lady
+2. box the same as above <img> grey one
+our latest collectiion <h1>
+date in cyan <h3>
+text<p>
+text<p>
+4 boxes that line up 
