@@ -1,7 +1,7 @@
 require "/person"
 require "/building"
-require "/apartments"
-require "/pry"
+require_relative  "/apartments"
+ 
 
 
       #creates new instance of a building
