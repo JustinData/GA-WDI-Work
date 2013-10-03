@@ -30,3 +30,7 @@ parameter or query string
  body      params
 
 
+ HTML forms supports only GET and POST
+ now to not have to go back to the last page we put a new form on our page2
+
+
