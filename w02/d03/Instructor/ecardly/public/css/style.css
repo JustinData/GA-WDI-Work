@@ -19,6 +19,46 @@
 	clear: both;
 }
 
+.body-wrapper {
+     background-color: #d6d6d6;
+     background-image: url("image/background.jpg");
+     background-repeat: repeat-X;
+}
+
+.box {
+     width: 940px;
+     background-color: white;
+     margin: 0 auto;
+     padding: 20px;
+
+}
+
+.card-text, .card-img {
+     display: inline-block;
+}
+
+.card-img {
+    width: 640px;
+}
+
+.card-text {
+    width: 250px;
+    float: right;
+    /*border: 1px solid black;*/
+    margin: none;
+}
+
+.img-logo {
+     margin: 0 auto;
+     display: block;
+     padding: 25px;
+}
+
+a {
+     text-decoration: none;
+     font-weight: bold;
+     color: red;
+}
 
 .body-wrapper {
      background-color: #d6d6d6;
