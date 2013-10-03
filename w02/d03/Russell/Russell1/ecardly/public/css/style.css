@@ -16,57 +16,37 @@
 }
 
 .clear {
-	clear: both;
+     clear: both;
 }
-
 
 .body-wrapper {
      background-color: #d6d6d6;
+
 }
 
 .box {
-     width: 940px;
+     width: 948px;
      background-color: white;
      margin: 0 auto;
      padding: 15px;
 }
 
-.card-text, .card-img {
-     display: inline-block;
-}
-
-.card-img {
-     width: 640px;
-}
-
 .card-text {
-     width: 250px;
+     width: 256px;
      float: right;
      border: 1px solid white;
      margin: 0;
+     display: inline-block;
+
 }
 
-img.logo {
+.logo {
      margin: 0 auto;
      display: block;
-     /*border: 1px solid black;*/
 }
 
-a {
-     text-decoration: none;
-     font-weight: bold;
-     color: red;
+.p {
+     display: inline-block;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
