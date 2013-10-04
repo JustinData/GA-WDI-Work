@@ -1,16 +1,51 @@
-# Movies API
+require 'sinatra'
+require 'sinatra/reloader'
+require 'erb'
 require 'httparty'
 require 'json'
 require 'pry'
 
-name = "the room"
-# to make query string functional
-name = params[:title]name.gsub(" ","+")
+get '/' do 
+	erb :home
+end
 
-# query string for title
-# url = "http://www.omgdbapi.com/?t=the+lion+king"
-url = "http://www.omdbapi.com/?t=#{name}"
+get '/movies/search' do 
+	erb :form
+end
 
-response = HTTParty.get(url)
-parsed = JSON(response)
+
+get '/movies/:id' do 
+	erb :specific
+end
+
+post '/movies' do 
+	#sorry Peter, page out of your solutions
+	total_lines = 0 #iterator
+	file = File.new("movies.txt", "a+")
+	file.each do |line|
+		total_lines += 1
+	end
+	@id = total_lines + 1
+
+	name = params[:title].gsub(" ","+")
+	url = "http://www.omdbapi.com/?t=#{name}"
+	response = HTTParty.get(url)
+	parsed = JSON(response)
+
+	title = parsed["Title"]
+	year = parsed["Year"]
+	poster = parsed["Poster"]
+
+	file = File.new("movies.txt", "a+")
+	file.puts "#{@id},#{title},#{year},#{poster}"	
+
+	file.close
+
+	# binding.pry
+	redirect to("/movies/#{@id}")
+end
+
+get '/movies' do 
+	erb :all
+end
 
