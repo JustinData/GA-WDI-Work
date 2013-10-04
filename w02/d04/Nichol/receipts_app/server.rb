@@ -30,17 +30,20 @@ get "/receipts" do
 	#print all receipts
 	
 	my_file = File.new("receipts.txt", "a+")
-	binding.pry
+	#binding.pry
 	
 	my_file.each do |line|
 		line_array = line.split(",")
+		
+		#pass one variable with array
 		@UID = line[0]
 		@store_name = line[0]
 		@product_name = line[1]
 		@price = line[2]
-		erb :display_receipt
+		
+		binding.pry
 	end
-	
+	erb :display_receipt #move to bottom / one erb code
 	my_file.close
 
 end
