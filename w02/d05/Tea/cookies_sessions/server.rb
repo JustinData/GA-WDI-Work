@@ -19,6 +19,7 @@ get "/" do
   erb :login_form
 end
 
+# log in
 post "/sessions" do
   if params[:password] == "batman"
     session[:logged_in] = true
@@ -27,6 +28,10 @@ post "/sessions" do
     redirect "/"
   end
 end
+
+# log out
+delete "/sessions" do
+end 
 
 get "/super_secret_info" do
   if session[:logged_in] == true
