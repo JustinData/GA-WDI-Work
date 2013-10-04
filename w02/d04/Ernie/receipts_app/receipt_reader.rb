@@ -11,7 +11,7 @@
 recepit = File.new("receipt.txt", "r")
 
 recepit.each do |line|
-  values = line.split (' ,')
+  values = line.split (',')
   puts "Store:#{values[0]}"
   puts "Product:#{values[1]}"
   puts "Price:#{values[2]}"

@@ -18,9 +18,9 @@ info << gets.chomp.downcase
 puts  "How much does the price tag say it cost!"
 info << gets.chomp.to_f
 
-receipt = File.new("receipt.txt", "a+")
+file = File.new("receipt.txt", "a+")
 
 
-receipt.puts info.join(',')
+info puts info.join(',')
 
-receipt.close
+info.close
