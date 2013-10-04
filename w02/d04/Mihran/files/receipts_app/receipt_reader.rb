@@ -1,6 +1,6 @@
 file = File.new("receipts.txt", "r")
 
-file.each do |line|
+file.each do |x|
   values = line.split(",")
   puts "Store: #{values[0]}"
   puts "Product: #{values[1]}"
