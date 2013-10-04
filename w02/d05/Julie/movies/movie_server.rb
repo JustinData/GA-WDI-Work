@@ -100,7 +100,7 @@ post "/movies" do
 
   file.puts info.join(",")
   file.close
-  redirect "/movies/id"
+  redirect "/movies/#{id}"
 
 end
 
