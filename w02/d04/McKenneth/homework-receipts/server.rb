@@ -19,6 +19,7 @@ require 'sinatra/reloader'
     @store = params[:store]
     @item = params[:item]
     @cost = params[:cost]
+    
     input = []
     input << @id
     input << @store
@@ -32,14 +33,10 @@ require 'sinatra/reloader'
 
 #prints all receipts
   get("/receipts") do 
-    
     erb :receipt_read
-
   end
 
 #shows a particular receipt
-  get("/receipts/:id") do 
-    @id = params[:id]
-    
+  get("/receipts/:index") do
     erb :receipt_read
   end
