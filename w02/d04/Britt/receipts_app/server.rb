@@ -2,9 +2,9 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'pry'
 
-# Receipts.io
+# Receipts.io server
 
-# GET "/" => "Welcome to Receipts.io"
+# GET "/" => "Welcome to Receipts.io, yo!"
 get "/" do
 	erb :index
 end
@@ -15,7 +15,8 @@ get "/receipts/new" do
 	erb :form
 end
 
-# POST "/receipts" => create a new receipt and save it as a CSV to receipts.txt (and assign it a unique id)
+# POST "/receipts" => create a new receipt
+# save it as a CSV to receipts.txt and assign unique id)
 post "/receipts" do
 	@item_info = []
 	@item_info << params[:store]
@@ -26,7 +27,11 @@ post "/receipts" do
 end
 
 # GET "/receipts" => print out all the generated receipts
-get "/receipts" do; end
+get "/receipts" do
+	erb :receipt_reader
+end
 
 # GET "/receipts/:id" => show a particular receipt
-get "receipts/:id" do; end
+get "receipts/:id" do
+	# Use Enum#select
+end

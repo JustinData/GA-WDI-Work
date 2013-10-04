@@ -1,0 +1,24 @@
+
+<!-- Instantiates new read-only File object -->
+<% file = File.new("receipts.txt", "r") %>
+
+<!-- enumerates through receipts.txt.
+	For each line:
+	* splits it into an array
+	* prints each value (id, store, product, price)
+		to html thru erb -->
+<% file.each do |line| %>
+<% 	item_info = [] %>
+<% 	item_info = line.split(",") %>
+<p>
+<%=		"ID: #{item_info[0]}" %> <br/>
+<%= 	"Store: #{item_info[1]}" %> <br/>
+<%= 	"Product: #{item_info[2]}" %> <br/>
+<%= 	"Price: #{item_info[3]}" %>
+</p>
+<% end %>
+<!-- closes the instance of the File object -->
+<% file.close %>
+
+<p><a href="/">Go home.io, yo!</a><p>
+
