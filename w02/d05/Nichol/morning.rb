@@ -36,3 +36,53 @@ def display_classmates_strings(array_of_strings)
 end
 
 display_classmates_strings(classmates_strings)
+
+def display_txt(filename)
+	my_file = File.new(filename, "r")
+	puts my_file.read
+	
+	my_file.close
+
+end
+
+display_txt("html.txt")
+
+
+classmates_hashes = [
+  { :name => "McKenneth",
+    :food => "Duck confit",
+    :github => "DrRobotmck"
+  },
+  { :name => "Aby",
+    :food => "Sushi",
+    :github => "abzilla"
+  },
+  { :name => "Marco",
+    :food => "Ceviche",
+    :github => "mpvazquez"
+  },
+]
+
+classmates_hashes.each {|x| puts("#{x[:name]}'s favorite food is #{x[:food]}")}
+
+display_txt("hashes.txt")
+
+
+# <ul>
+# <li>Name: McKenneth</li>
+# <li>Food: Duck confit</li>
+# <li>Github: DrRobotmck</li>
+# </ul>
+
+classmates_hashes.each do |x|
+	puts "<ul>"
+	puts "<li>Name: #{x[:name]} </li>"
+	puts "<li>Food: #{x[:food]} </li>"
+	puts "<li>github: #{x[:github]} </li>"
+	puts "<ul>"
+end
+
+sorted = classmates_hashes.sort_by {|k| k[:food]}
+
+puts sorted
+
