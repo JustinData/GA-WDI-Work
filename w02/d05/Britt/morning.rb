@@ -1,8 +1,13 @@
 classmates_strings = ["brad,sushi,bpuder0120","david,burgers,dtothefp","tom,wings,tommyb67"]
 
+# classmates_strings.map do |string|
+# 	ary = string.split(",")
+# 	ary.join("|")
+# end
+
+# That works, but THIS is better:
 classmates_strings.map do |string|
-	ary = string.split(",")
-	ary.join("|")
+	string.gsub( ",", "|" )
 end
 
 classmates_strings.each do |string|
@@ -13,9 +18,9 @@ end
 classmates_strings.each do |string|
 	ary = string.split(",")
 	puts "<ul>"
-	puts "<li>#{ary[0]}</li>"
-	puts "<li>#{ary[1]}</li>"
-	puts "<li>#{ary[2]}</li>"
+	ary.each do |elem|
+		puts "<li>#{elem}</li>"
+	end
 	puts "</ul>"
 end
 
@@ -44,9 +49,9 @@ end
 
 classmates_hashes.each do |hash|
 	puts "<ul>"
-	puts "<li>Name: #{hash[:name]}</li>"
-	puts "<li>Food: #{hash[:food]}</li>"
-	puts "<li>Github: #{hash[:github]}</li>"
+	hash.each do |k,v|
+		puts "<li>#{k.capitalize}: #{v}</li>"
+	end
 	puts "</ul>"
 end
 
@@ -58,9 +63,9 @@ sorted_strings = classmates_strings.sort {|a,b| a.split(",")[1] <=> b.split(",")
 sorted_strings.each do |string|
 	ary = string.split(",")
 	puts "<ul>"
-	puts "<li>#{ary[0]}</li>"
-	puts "<li>#{ary[1]}</li>"
-	puts "<li>#{ary[2]}</li>"
+	ary.each do |elem|
+		puts "<li>#{elem}</li>"
+	end
 	puts "</ul>"
 end
 
