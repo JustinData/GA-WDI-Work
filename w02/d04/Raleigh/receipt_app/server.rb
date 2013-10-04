@@ -35,6 +35,7 @@ get "/receipts" do
       last = "Store: #{entry[1]}", "Item: #{entry[2]}", "Price: $#{entry[3]}"
       @past_receipts.push(last)
    end
+   binding.pry
 
    file.close
 
