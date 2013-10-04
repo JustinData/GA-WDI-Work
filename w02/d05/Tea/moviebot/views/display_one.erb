@@ -1,0 +1,21 @@
+<a class ="greeting" href="/">Movie Submarine</a>
+<% file = File.new("movies.txt", "r") %>
+
+<% file.each do |line|%>
+  <% item = line.split(", ")%>
+  
+  <% if item[0] == params[:id]%>
+    <% title = "#{item[1]}" %>
+    <% year =  "(#{item[2]})" %>
+    <% poster_url =  "#{item[3]}" %>
+    <div class="single-movie">
+      <ul>
+      <li class="title"><%= title %></li>
+      <li><%= year %></li>
+      <img src=<%=poster_url%>/>
+      </ul>
+    </div>
+  <% end %>
+<% end %>
+
+<% file.close %>
