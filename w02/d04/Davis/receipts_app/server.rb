@@ -31,7 +31,11 @@ get '/receipts' do
 	erb :output
 end
 
-get '/receipts/:id' do 
-	# binding.pry
+get '/receipts/specific' do 
 	erb :specific
 end
+
+# get '/receipts/:id' do 
+# 	# binding.pry
+# 	erb :specific
+# end
