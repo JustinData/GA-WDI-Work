@@ -1,1 +1,2 @@
-0,Best Buy,TV,200.75
+1,Best Buy,LCD TV,225.95
+2,Target,Book Shelf,59.75
