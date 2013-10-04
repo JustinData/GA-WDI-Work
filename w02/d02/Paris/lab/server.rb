@@ -8,13 +8,13 @@ require "pry"
 get "/" do
     @header = "Do you have a test for that?"
     @yes = "/pass"
-    @no = "/write_code" 
+    @no = "/write_test" 
     erb :pair_programming
 end
 
 get( "/pass") do  
      @header = "Does the test pass?!"
-     @yes= "/do_refactor" 
+     @yes= "/refactor" 
      @no = "/write_code" 
     erb :pass
 end
@@ -28,8 +28,7 @@ end
 
 get( "/do_refactor" ) do
     @header = "Refactor the code."
-     @yes = "/do_refactor"
-     @no= "/" 
+     @done = "/"
     erb :do_refactor 
 end
 
@@ -39,10 +38,16 @@ get( "/write_code" ) do
     erb :write_code 
 end
 
+get( "/write_test" ) do
+     @header = "Write a test."
+     @done = "/" 
+    erb :write_code 
+end
+
 get( "/new_feature" ) do
      @header = "Select a new feature to implement!"
      @continue= "/" 
-    erb :new_feature 
+    erb :new_feature
 end
   
 # get "/page1" do
