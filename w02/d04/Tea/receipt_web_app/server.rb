@@ -7,8 +7,7 @@ get "/" do
 end
 
 get "/receipts" do
-  #prints out all the generated receipts
-  #reads and prints from the receipts.txt file
+  erb :receipt_list
 end
 
 get "/receipts/new" do
@@ -18,19 +17,29 @@ get "/receipts/new" do
 end
 
 get "/receipts/:id" do
-  # links param to id and prints just that one
+
+  if params[:id].to_i.is_a? Fixnum
+    @id_num = params[:id]
+    erb :particular_receipt
+  else
+    "We can't find your receipt"
+  end
+
 end
 
-post "/receipts/new" do
+post "/receipts" do
       file = File.new("receipts.txt", "a+")
       items = []
       params.values.each do |value|
         items << value
       end
 
-      list_items = items.join(", ")
+      id_num = 0
+      id_num += file.readlines.size
+      list_items = "#{id_num}, #{items.join(", ")}"
 
       file.puts list_items
       file.close
-
+      # Shows full list after submission
+      erb :receipt_list
 end
