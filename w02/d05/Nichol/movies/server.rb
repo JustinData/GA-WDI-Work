@@ -99,6 +99,13 @@ get "/search_movie" do
 	erb :movie
 end
 
+get "/random/?" do
+
+    @display_hash = all_films.sample
+    erb :movie
+end
+
+
 get "/error/?" do
 
     erb :error
