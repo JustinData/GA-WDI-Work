@@ -1,0 +1,2 @@
+0,Wal-mart,hairbrush,2.99
+1,abercrombie,flip-flops,19.99
