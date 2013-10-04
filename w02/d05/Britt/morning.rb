@@ -1,16 +1,17 @@
 classmates_strings = ["brad,sushi,bpuder0120","david,burgers,dtothefp","tom,wings,tommyb67"]
 
-classmates_strings.map do |string|
-	string.split("|")
+classmates_strings.map do |string_ary|
+	ary = string_ary[0].split(",")
+	ary.join("|")
 end
 
-classmates_strings.each do |string|
-	ary = string.split(",")
+classmates_strings.each do |string_ary|
+	ary = string_ary[0].split(",")
 	puts "#{ary[0].capitalize}'s favorite food is #{ary[1].capitalize}."
 end
 
-classmates_strings.each do |string|
-	ary = string.split(",")
+classmates_strings.each do |string_ary|
+	ary = string_ary[0].split(",")
 	puts "<ul>"
 	puts "<li>#{ary[0]}</li>"
 	puts "<li>#{ary[1]}</li>"
@@ -53,9 +54,9 @@ end
 ###########       BONUS       ############
 ##########################################
 
-sorted_strings = classmates_strings.sort {|a,b| a.split(",")[1] <=> b.split(",")[1] }
-sorted_strings.each do |string|
-	ary = string.split(",")
+sorted_strings = classmates_strings.sort {|a,b| a[0].split(",")[1] <=> b[0].split(",")[1] }
+sorted_strings.each do |string_ary|
+	ary = string_ary[0].split(",")
 	puts "<ul>"
 	puts "<li>#{ary[0]}</li>"
 	puts "<li>#{ary[1]}</li>"
@@ -71,13 +72,3 @@ sorted_hashes.each do |hash|
 	puts "<li>Github: #{hash[:github]}</li>"
 	puts "</ul>"
 end
-
-
-
-
-
-
-
-
-
-
