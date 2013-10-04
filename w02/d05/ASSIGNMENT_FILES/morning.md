@@ -4,6 +4,9 @@
 
 Given this array:
 
+
+***** classmates_strings.map {|s| s.gsub(/,/, '|') }
+
 ```
 classmates_strings = ["brad,sushi,bpuder0120","david,burgers,dtothefp","tom,wings,tommyb67"]
 ```
@@ -16,9 +19,21 @@ classmates_strings = ["brad,sushi,bpuder0120","david,burgers,dtothefp","tom,wing
 * Write a procedure that will print the following to the console:
 
 ```
+
 Brad's favorite food is Sushi
 David's favorite food is Burgers
 Tom's favorite food is Wings
+
+#  the return is an array with each word as an item in the array. In the below we're calling by the index. array would look like this: classmates = [brad, sushi, bpuder0120...]
+
+**********  classmates_strings.each do |s|
+                  classmates = s.split(",") 
+                  puts classmates[0].capitalize + "'s favorite food is " + classmates[1]
+                  end
+
+  string.each do |line|
+  puts line
+
 ```
 
 * Write a procedure that will print the following to the console:
@@ -39,6 +54,17 @@ Tom's favorite food is Wings
 <li>wings</li>
 <li>tommyb67</li>
 </ul>
+
+
+
+**********  classmates_strings.each do |s|
+                  classmates = s.split(",") 
+                  puts "<ul>"
+                  classmate.each do |info|
+                    puts "<li>" #{info} </li>
+                  end 
+                    puts "</ul>"
+                  end
 ```
 
 ## Part 2 - Hashes in an array
@@ -68,6 +94,13 @@ classmates_hashes = [
 McKenneth's favorite food is Duck confit
 Aby's favorite food is Sushi
 Marco's favorite food is Ceviche
+
+******classmates_hashes.each do |hash|
+            puts "#{hash[:name]}'s favorite food is #{hash[:food]}."
+          end
+
+
+
 ```
 
 * Write a procedure that will print the following to the console:
@@ -88,6 +121,19 @@ Marco's favorite food is Ceviche
 <li>Food: Ceviche</li>
 <li>Github: mpvazquez</li>
 </ul>
+
+********classmates_hashes.each do |hash|
+            puts "<ul>" 
+            classmates_hashes.each do |key, value| 
+              puts "<li> #{key}: #[value] </li>"
+            end
+            puts "</ul>"
+          end
+
+
+      instead of puts, use <%= and %> to print the return to the erbs.
+      use <% and %> to wrap the blocks and enumerators in the erb files. 
+
 ```
 
 ## Bonus

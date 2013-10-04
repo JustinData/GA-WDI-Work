@@ -35,6 +35,11 @@ post "/sessions" do
   end
 end
 
+# log out
+delete "/sessions" do
+  
+end
+
 #if/else protects info unless you're logged in. if not logged in, sends you back to "/".
 get "/super_secret_info" do
   if session[:logged_in] == true
