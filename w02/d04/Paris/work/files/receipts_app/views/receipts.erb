@@ -1,15 +1,11 @@
-<h2>Make a receipt</h2>
-<%=erb :form %>
-
-<!-- <p>What store would you like to shop at?</p>
-
-<p>What product would you like to buy?</p>
-
-<p>How much?</p>
- -->
-<% a = [store, product, price] %>
-
-
-<% file = File.new("receipts.txt", "a+") %>
-
-<% file.puts info.join(", ") %>
+<div>
+  <h1>Menu</h1>
+  <ul>
+    <li><a href="<%= @make %>">Make a receipt!</a></li>
+    <li><a href="<%= @print_one %>">Print one of your receipts.</a></li>
+    <li><a href="<%= @print_all %>">Print all of your receipts.</a></li>
+  </ul>
+  <h2><%= @receipt_text %></h2>
+  <p><%= "#{@string}" %></p>
+  <p><%= "#{@id}" %></p>
+</div>
