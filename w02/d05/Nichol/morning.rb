@@ -15,6 +15,12 @@ end
 puts classmates_strings
 puts new_classmates
 
+# def solution_with_map
+# 	new_array = classmates_strings.map do |line|
+# 		gsub(",", "|")
+# 	end
+# end
+
 
 # Write a procedure that will print the following to the console:
 # Brad's favorite food is Sushi
@@ -47,6 +53,29 @@ end
 
 display_txt("html.txt")
 
+#broke something here...
+# def classmates_html(array_of_strings)
+# 	temp_array = Array.new
+
+# 	puts "<ul>"
+
+# 	array_of_strings.each do |x|
+# 		temp_array = x.split(",")
+
+# 		name = temp_array[0]
+# 		food = temp_array[1]
+# 		github = temp_array[2]
+
+# 		x.each do |y|
+# 			puts "<li> #{y} </li>"
+# 		end
+# 	end
+
+# 	puts </ul>
+
+# end
+
+classmates_html(classmates_strings)
 
 classmates_hashes = [
   { :name => "McKenneth",
@@ -67,20 +96,16 @@ classmates_hashes.each {|x| puts("#{x[:name]}'s favorite food is #{x[:food]}")}
 
 display_txt("hashes.txt")
 
-
-# <ul>
-# <li>Name: McKenneth</li>
-# <li>Food: Duck confit</li>
-# <li>Github: DrRobotmck</li>
-# </ul>
-
 classmates_hashes.each do |x|
 	puts "<ul>"
 	puts "<li>Name: #{x[:name]} </li>"
 	puts "<li>Food: #{x[:food]} </li>"
 	puts "<li>github: #{x[:github]} </li>"
 	puts "<ul>"
+	#or use another .each and interpolate key and value
 end
+
+
 
 sorted = classmates_hashes.sort_by {|k| k[:food]}
 
