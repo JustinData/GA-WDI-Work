@@ -32,6 +32,7 @@ get "/receipts" do
 end
 
 # GET "/receipts/:id" => show a particular receipt
-get "receipts/:id" do
-	# Use Enum#select
+get "/receipts/:id" do
+	@id = params[:id]
+	erb :id_receipt_reader
 end
