@@ -36,7 +36,6 @@ get "/receipts/:id" do
     end 
     file.close
  @receipt_by_id = id_hash[params[:id].to_i]
- binding.pry
  erb :receipts
 end
 

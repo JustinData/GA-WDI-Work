@@ -4,3 +4,5 @@ Apple Store,ICrap,100000000
 Apple Store,ICrap,100000000
 New one,Good One,1
 Big fat daddy story,Big Product,.50
+Big fat daddy story,Big Product,.50
+,,
