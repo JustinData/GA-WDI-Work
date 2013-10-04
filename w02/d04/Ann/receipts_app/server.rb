@@ -39,11 +39,8 @@ post ("/receipts") do
     end  
 
   a.unshift(i +1) 
-
   total_receipt = a.join(",") 
-
   file.puts total_receipt
-
   file.close 
 
   redirect to("/receipts") 
@@ -53,19 +50,27 @@ end
 get ("/receipts") do 
 
     file = File.new("receipt.txt", "r")
-
-    file.each do |line|
-       receipt_collection = line.split(",")
-       @full_receipt = "ID Number: #{receipt_collection[0]}, Store: #{receipt_collection[1]}, Product: #{receipt_collection[2]}, Price: #{receipt_collection[3]}"
+    @print_receipts = []
+    file.each do |line| 
+       @print_receipts.push(line)
+       #full_receipt = "ID Number: #{receipt_collection[0]}, Store: #{receipt_collection[1]}, Product: #{receipt_collection[2]}, Price: #{receipt_collection[3]}"
+  
     end 
-    
+
     erb :full_receipt
 
 end  
 
-# get ("/receipts/:id") do 
-#    param[:id] =  
-#     total_receipt_hash = Hash.new{ |k,v| k[v] = {:id => v, :primary => '', :secondary => ''} 
-# end 
+get ("/receipts/:id") do 
+    @id = params[:id].to_i - 1 
+
+    file = File.new("receipt.txt", "r")
+    @big_array = []
+    file.each do |line| 
+       @big_array.push(line.split(",")) 
+    end 
+
+    erb :receipt_id  
+end 
 
  
