@@ -17,6 +17,10 @@
 # puts "How much?"
 # info << gets.chomp
 
+
+
+
+
 file = File.new("receipts.txt", "r")
 
 file.each do |line|
