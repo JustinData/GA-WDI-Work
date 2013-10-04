@@ -6,15 +6,18 @@ require 'json'
 require 'pry'
 
 get '/' do 
+	@h1 = "Welcome to Movies.io"
 	erb :home
 end
 
 get '/movies/search' do 
+	@h1 = "Search A Title"
 	erb :form
 end
 
 
 get '/movies/:id' do 
+	@h1 = "Your Movie Below!"
 	erb :specific
 end
 
@@ -45,7 +48,8 @@ post '/movies' do
 	redirect to("/movies/#{@id}")
 end
 
-get '/movies' do 
+get '/movies' do
+	@h1 = "All Movies Below!"
 	erb :all
 end
 

@@ -1,8 +1,9 @@
-<h1>All Movies Below!</h1>
 <p>
 	<% file = File.new("movies.txt", "r") %>
 	<% file.each do |line| %>
 		<% movies_array = line.split(",") %>
+		<a href="movies/<%= movies_array[0] %>">Isolate</a>
+		<br>
 		<%= "ID: #{movies_array[0]}" %>
 		<br>
 		<%= "Title: #{movies_array[1]}" %>
