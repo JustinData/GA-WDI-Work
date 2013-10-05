@@ -14,7 +14,7 @@ end
 
 post "/movies" do
   name = params[:title].gsub(" ", "+")
-  url= "http://www.omdapi.com/?t=#{name}"
+  url = "http://www.omdbapi.com/?t=#{name}"
   response = HTTParty.get(url)
   parsed = JSON(response)
   lines_in_file = 0
@@ -29,14 +29,15 @@ post "/movies" do
   # Create an array to hold the info we want to save
   info = []
   info << id
-  info << params[:title]
-  info << params[:poster]
-  info << params[:year]
+  info << parsed["Title"]
+  info << parsed["Year"]
+  info << parsed["Poster"]
 
   # Write the info to the csv
   file = File.new("movies.txt", "a+")
   file.puts info.join(",")
   file.close
+
 
 # Redirect to the page that shows the movie we just made
   redirect to("/movies/#{id}")
@@ -53,7 +54,7 @@ get '/movies' do
   erb :all_movies
 end
 
-get "/movies/id" do
+get "/movies/:id" do
   file = File.new("movies.txt", "a+")
   file.each do |line|
     if line.split(",")[0] == params[:id]
@@ -61,7 +62,7 @@ get "/movies/id" do
     end
   end
   file.close
-  erb :all_movies
+  erb :movies
 end
 
 
