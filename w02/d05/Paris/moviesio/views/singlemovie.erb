@@ -1,4 +1,8 @@
-  <div>
-  <h2><%= @greeting %></h2>
-  <p><%= "Year: #{@hash[@id][1]}, Poster: #{@hash[@id][2]}, Title: #{@hash[@id][3]}" %></p> 
-</div>
+<section>
+<h2><a href="/movies/<%=@movies_array[0]%>">Entry:</a></h2>
+  <ul>
+    <li>year: <%= @movies_array[1]%></li>
+    <li>poster: <%= @movies_array[2]%></li>
+    <li>title: <%= @movies_array[3]%></li>
+  </ul>
+</section>

@@ -12,3 +12,9 @@
 12, , , 
 13, , , 
 14, , , 
+15, , , die hard
+16, , , 
+17, , , 
+18, , , die hard
+19, , , die hard
+20, 1988, http://ia.media-imdb.com/images/M/MV5BMTY4ODM0OTc2M15BMl5BanBnXkFtZTcwNzE0MTk3OA@@._V1_SX300.jpg, Die Hard

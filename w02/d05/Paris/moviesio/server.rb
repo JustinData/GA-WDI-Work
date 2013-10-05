@@ -11,12 +11,7 @@ get "/" do
 end
 
 get "/movies/search" do
-
-# ["Poster"]["Title"] 
-# puts title["data"]
-
-
-  erb :movies
+  erb :forms
 end
 
 post "/movies" do
@@ -28,32 +23,46 @@ post "/movies" do
 name = params[:title].gsub(" ", "+")
 url = "http://www.omdbapi.com/?t=#{name}"
 response = HTTParty.get(url)
-parsed = JSON(response)
-# parsed is a hash
-# # #####WRITE EVERYTHING TO A FILE!######
-  parsed = %x{wc -l movies.txt}.split[0].to_i
-  movies = []
-  movies << parsed + 1
-  movies << params[:Year]
-  movies << params[:Poster]
-  movies << params[:Title]
-  file = File.new("movies.txt", "a+")
-  file.puts movies.join(", ")
-  file.close
+parsed_movie_info = JSON(response)
+# movie_info is a hash
+# MISSING SOMETHING IN HERE TO CONNECT THE HASH TO MOVIES.TXT
 
-  redirect "/movies/:id"
-  erb :movies
+# Count the number of lines in the file to figure out what id we should assign
+  lines_in_file = 0
+  file = File.new("movies.txt", "a+")
+  file.each do |line|
+    lines_in_file += 1
+  end
+  file.close
+  id = lines_in_file + 1
+
+  # Create an array to hold the info we want to save
+  movies_array = []
+  movies_array << id
+  # movies << params["year"]
+  # movies << params["poster"]
+  # movies << params["title"]
+ 
+  movies_array << parsed_movie_info["Year"]
+  movies_array << parsed_movie_info["Poster"]
+  movies_array << parsed_movie_info["Title"]
+
+ # Write the info to the csv
+ file = File.new("movies.txt", "a+")
+  file.puts movies_array.join(", ")
+  file.close
+  #redirect to the page that shows the single movie
+  redirect to("/movies/#{id}")
 end
 
 get "/movies/:id" do   
-  # @greeting="Here is your movie!"
-  @hash = {}
-  @id = params[:id].to_i
-  file = File.new("movies.txt", "r")
+  file = File.new("movies.txt", "a+")
   file.each do |line|
-  movies = line.split(",") 
-  @hash[movies[0].to_i] = movies
+    if line.split(",")[0] == params[:id] 
+    @movies_array = line.split(",")
+    end
   end
+  file.close 
   erb :singlemovie
 end
 
