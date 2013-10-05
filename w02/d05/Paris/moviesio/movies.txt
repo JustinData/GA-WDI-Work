@@ -1,20 +1,3 @@
-1, , , 
-2, , , 
-3, , , 
-4, , , 
-5, , , 
-6, , , 
-7, , , 
-8, , , 
-9, , , 
-10, , , 
-11, , , 
-12, , , 
-13, , , 
-14, , , 
-15, , , die hard
-16, , , 
-17, , , 
-18, , , die hard
-19, , , die hard
-20, 1988, http://ia.media-imdb.com/images/M/MV5BMTY4ODM0OTc2M15BMl5BanBnXkFtZTcwNzE0MTk3OA@@._V1_SX300.jpg, Die Hard
+2, 1988, http://ia.media-imdb.com/images/M/MV5BMTY4ODM0OTc2M15BMl5BanBnXkFtZTcwNzE0MTk3OA@@._V1_SX300.jpg, Die Hard
+3, 1986, http://ia.media-imdb.com/images/M/MV5BMTE5OTU4MjkxOV5BMl5BanBnXkFtZTYwNTc1NzQ5._V1_SX300.jpg, Cobra
+4, 1977, http://ia.media-imdb.com/images/M/MV5BMTU0NDk4MzA0NV5BMl5BanBnXkFtZTcwOTYwODIyMQ@@._V1_SX300.jpg, Saturday Night Fever

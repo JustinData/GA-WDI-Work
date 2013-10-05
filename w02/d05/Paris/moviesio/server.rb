@@ -55,6 +55,16 @@ parsed_movie_info = JSON(response)
   redirect to("/movies/#{id}")
 end
 
+get "/movies" do
+  @all_movies = []
+  file = File.new("movies.txt", "a+")
+  file.each do |line|
+    @all_movies << line
+  end
+  file.close
+  erb :allmovies
+end
+
 get "/movies/:id" do   
   file = File.new("movies.txt", "a+")
   file.each do |line|
@@ -68,6 +78,33 @@ end
 
 
 
+# <% @all_receipts.each do |receipt| %>
+#   <% @receipt_array = receipt.split(",") %>
+#   <%= erb :receipt %>
+# <% end %>
+
+
+
+# get '/receipts' do
+#   @all_receipts = []
+#   file = File.new("receipts.txt", "a+")
+#   file.each do |line|
+#     @all_receipts << line
+#   end
+#   file.close
+#   erb :all_receipts
+# end
+
+# get "/receipts/:id" do
+#   file = File.new("receipts.txt", "a+")
+#   file.each do |line|
+#     if line.split(",")[0] == params[:id]
+#       @receipt_array = line.split(",")
+#     end
+#   end
+#   file.close
+#   erb :receipt
+# end
 
 
 
