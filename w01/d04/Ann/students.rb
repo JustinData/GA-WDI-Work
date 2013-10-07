@@ -12,3 +12,10 @@ puts s[0..23].join("|")
 
 puts s.join(" | ")
 
+s.each do |x| 
+  if  "#{x}" == "Nichol Alexander"
+  puts "Welcome to class #{x.upcase}"
+  else 
+  puts "Welcome to class #{x.capitalize!}\n" 
+  end 
+end  
