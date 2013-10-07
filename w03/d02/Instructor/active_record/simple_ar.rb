@@ -1,7 +1,7 @@
 require 'pg'
 
 class Table
-  @@connection = PG.connect( dbname: "jeff" )
+  @@connection = PG.connect( dbname: "sandbox" )
 
   def self.insert(data)
     @@connection.exec "insert into #{self.to_s.downcase} ( #{ transform_keys(data.keys) } ) values ( #{ transform_vals(data.values) } )"
@@ -22,10 +22,10 @@ class Table
   end
 end
 
-class Receipts < Table
+class Movies < Table
 end
 
 
-Receipts.insert({:customer => "Jeff"})
+Movies.insert({:title => "The Sound of Music", :year => 1965})
 
-Receipts.find(1)
+Movies.find(1)
