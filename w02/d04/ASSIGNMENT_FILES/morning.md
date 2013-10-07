@@ -3,9 +3,9 @@
 
 ## Prompt
 For today's morning exercise, we're going to be creating a site like [Emergency Compliment](http://emergencycompliment.com/), except it will be WDI themed. When a user visits the site, they'll be greeted with a WDI pick me up that will hopefully cheer them up.
-mkd
+
 We're going to do a Sinatra app that mimics this. You are going to need to create a directory in your folder to hold your Sinatra app. In this folder you're going to have a server.rb file and a views folder. In your views folder, you'll have a layout.erb file and a compliment.erb file.
-open 
+
 
 ## Phase 1
 When I visit the root ("/") of your app, it should display a greeting and a randomly chosen compliment. The background color of the app should be random as well.
