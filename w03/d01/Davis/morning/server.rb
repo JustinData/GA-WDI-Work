@@ -14,3 +14,4 @@ get '/multiple/' do
 
 	erb :multiple
 end
+
