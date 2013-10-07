@@ -6,6 +6,7 @@ get "/" do
 end
 
 get "/multiple" do
+	@shape = params[:shape]
 	@num = params[:num].to_i
 	erb :multiple
 end
