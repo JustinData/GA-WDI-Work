@@ -45,7 +45,7 @@ The apartment class should have a list_renters method that returns a string with
 
 The building class should have a list_apartments method that returns a string with all of the apartments.
 
-__Hint__: Make sure all of your cla44sses work and you can create objects before moving on. You can use pry to help do this.
+__Hint__: Make sure all of your classes work and you can create objects before moving on. You can use pry to help do this.
 
 
 #### Phase 2 - Creating a main.rb file
