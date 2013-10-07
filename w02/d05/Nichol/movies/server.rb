@@ -65,7 +65,13 @@ get "/movies/?" do
 		@display_html += erb :movie, :layout => false
 	end
 
-	erb @display_html
+	erb @display_html, :layout => :movies_display
+
+    # TODO: erb :admin_layout, :layout => :main_layout do
+    #         erb :user
+    #        end
+    # From Sinatra docs / nesting erb renders.
+
 end
 
 #to show a particular film by id

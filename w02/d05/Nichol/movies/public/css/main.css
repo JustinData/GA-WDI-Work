@@ -32,19 +32,22 @@
 .movie-wrapper {
     width: 800px;
     margin: 0, auto;
-    border: 1px solid black;
-    display: block;
+    background: black;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .poster {
     margin: 0 auto;
     width: 500px;
     display: inline-block;
-    border: 1px solid black;
+    text-align: right;
 }
 
 .information {
+    color: white;
     width: 200px;
-    border: 1px solid black;
+    border: 1px solid white;
     display: inline-block;
+    vertical-align: 300px;
 }
