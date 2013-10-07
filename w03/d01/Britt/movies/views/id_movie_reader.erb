@@ -1,10 +1,10 @@
 <div class="movie_info">
-	<a href="/movies/<%= @movie_info[0] %>">
-		<img src="<%= @movie_info[3] %>" />
+	<a href="/movies/<%= @movie_hash['id'] %>">
+		<img src="<%= @movie_hash['poster_link'] %>" />
 	</a>
 	<p>
-		Title: <%= @movie_info[1] %> <br/>
-		Year: <%= @movie_info[2] %> <br/>
+		Title: <%= @movie_hash['title'] %> <br/>
+		Year: <%= @movie_hash['year'] %> <br/>
 	</p>
 </div>
 

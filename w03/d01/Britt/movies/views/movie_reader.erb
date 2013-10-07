@@ -7,18 +7,16 @@
 		to html thru erb
 	* makes the image a link to view the individual movie's info
 	-->
-<% @all_movies.each do |string| %>
-<% 	 movie_info = [] %>
-<% 	 movie_info = string.split(",") %>
-<div class="movie_info">
-	<a href="/movies/<%= movie_info[0] %>">
-		<img src="<%= movie_info[3] %>" />
-	</a>
-	<p>
-		Title: <%= movie_info[1] %> <br/>
-		Year: <%= movie_info[2] %> <br/>
-	</p>
-</div>
+<% @all_movies.each do |movie_hash| %>
+	<div class="movie_info">
+		<a href="/movies/<%= movie_hash['id'] %>">
+			<img src="<%= movie_hash['poster_link'] %>" />
+		</a>
+		<p>
+			Title: <%= movie_hash['title'] %> <br/>
+			Year: <%= movie_hash['year'] %> <br/>
+		</p>
+	</div>
 <% end %>
 
 <p><a href="/">Go home</a></p>

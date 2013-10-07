@@ -1,12 +1,15 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'httparty'
+require 'pg'
 require 'json'
 require 'pry'
 
 ##############################################
 #############      Movies      ###############
 ##############################################
+
+FILENAME = "movies"
 
 # root route that loads index
 get "/" do
@@ -38,80 +41,70 @@ post "/movies" do
 	response = HTTParty.get(url)
 	parsed = JSON(response)
 
-	# Creates movie_info, a blank array used to store API data
-	movie_info = []
-	movie_info << parsed["Title"]
-	movie_info << parsed["Year"]
-	movie_info << parsed["Poster"]
+	# Creates movie_info, a blank hash used to store API data
+	@movie_info = {}
+	@movie_info[:title] = parsed["Title"]
+	@movie_info[:year] = parsed["Year"]
+	@movie_info[:poster_link] = parsed["Poster"]
 
-	# Instantiates new read-only File object in order to
-	# determine the next unique ID
-	file = File.new("movies.txt", "r")
+	# opens the database connection stream
+	db_conn = PG.connect( dbname: FILENAME + "_db" )
 
-	# Iterates through each line of movies.txt: 
-	# 	* For each line, increases the iterator, functioning
-	# 		as a running count of lines in movies.txt
-	i = 0
-	file.each do |line|
-		i += 1
-		i
+	# creates a query string to format the attribute values
+	query_str = "INSERT INTO movies "
+	query_str += "(title, year, poster_link) VALUES "
+	query_str += "('#{@movie_info[:title]}', #{@movie_info[:year]}, '#{@movie_info[:poster_link]}');"
+
+	# adds the attribute values to the movies database table
+	db_conn.exec( query_str )
+	
+	# sets the array of attribute hashes to results
+	results = db_conn.exec( "SELECT * FROM movies;" )
+
+	# Enumerates through the database entries. For each line:
+	# 	* checks the title against the recently added movie title
+	# 	* when it finds a match, sets the id to an instance variable
+	results.each do |hash|
+		if hash['title'] == @movie_info[:title]
+			@id = hash['id']
+		end
 	end
 
-	# closes the instance of the File object
-	file.close
+	# selects the movie just added, and sets the id to an instance var
+	# results.last { |hash| @id = hash['id'] }[0] # will this work?
 
-	# Adds the ID calculated from movies.txt to the 
-	# front of the movie_info array; 
-	# * ID = total number of lines in txt + 1
-	# * joins the items into a string, and sets it to a var
-	id = i + 1
-	movie_info.unshift(id)
-	movie_string = movie_info.join(",")
-
-	# Instantiates new write-only File object that begins
-	# writing to the end of the file 
-	file = File.new("movies.txt", "a")
-	# Writes the movie string to movies.txt 
-	# & closes the instance of the File object
-	file.puts movie_string
-	file.close
+	# closes the database connection stream
+	db_conn.close
 	# Redirects the user to the appropriate page
-	redirect "/movies/#{id}"
+	redirect "/movies/#{@id}"
 end
 
 get "/movies" do
-	# Instantiates new read-only File object
-	file = File.new("movies.txt", "r")
+	# opens the database connection stream
+	db_conn = PG.connect( dbname: FILENAME + "_db" )
 
-	# Enumerates through movies.txt. For each line:
-	# 	* adds the string as a value in the array @all_movies
-	@all_movies = []
-	file.each do |line|
-		@all_movies << line
-	end
+	# sets the array of attribute hashes to an instance var
+	@all_movies = db_conn.exec( "SELECT * FROM #{FILENAME};" )
 
-	# closes the instance of the File object
-	file.close
+	# closes the database connection stream
+	db_conn.close
 
 	erb :movie_reader
 end
 
 get "/movies/:id" do
 	@id = params[:id]
-	# Instantiates new read-only File object
-	file = File.new("movies.txt", "r")
-	# Enumerates through movies.txt. For each line:
-	# * checks to see if the id matches the user-selected id
-	# * when it finds a match, it is added to an array
-	# * after checking the document, it returns the array
-	movie_string_array = file.select {|line| line.split(",")[0] == @id}
+	# opens the database connection stream
+	db_conn = PG.connect( dbname: FILENAME + "_db" )
 
-	# closes the instance of the File object
-	file.close
+	# sets the movie hash matching the user-chosen id to
+	# the instance variable @movie_hash
+	@movie_hash = db_conn.exec( "SELECT * FROM #{FILENAME}
+			WHERE id = #{@id}" )[0]
 
-	# creates an array separating each value of stored
-	# data from the OMDB API into its own index
-	@movie_info = movie_string_array[0].split(",")
+	# closes the database connection stream
+	db_conn.close
 
+	# loads the id_movie_reader view
 	erb :id_movie_reader
 end
