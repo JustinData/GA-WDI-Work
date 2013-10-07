@@ -1,0 +1,17 @@
+<div class= "upper"><h1>The Movie Monster</h1>
+<a class="top" href="/">Home</a>
+<a class="top" href="/movies">View All</a>
+<a class="top" href="/movies/search">Search</a>
+</div>
+<div>
+          <% @the_movie.each do |row| %>
+      <h4><%= @movie_title = "#{row['title']}" %></h4>
+      <h4><%= @year_released = "#{row['year']}"%></h4>
+      <img src="<%= @poster = "#{row['poster']}"%>" />
+      <% end %>
+      
+
+            <!-- <h4 class="title">Title:</h4><h2><%= @movie_title %></h2>
+            <h4 class="title">Year:</h4><h2><%= @year_released %></h2>
+            <img src="<%= @poster %>"/> --> 
+</div>
