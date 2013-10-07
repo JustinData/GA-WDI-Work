@@ -21,6 +21,7 @@ get ( "/" ) do
   #set instance variables
   #@name = name.sample
   @greeting = "What Uppppp!"
+  @name = name.sample
   @compliment = compliments.sample # .sample will give a random element from the compliments array.
   @color = colors.sample # same as above
   erb :compliment
@@ -29,7 +30,7 @@ end
 get ( "/:name" ) do
   @greeting = "Oh hey #{params[:name].capitalize}!"
   if params[:name] == "tea"
-    @compliment = "OMG Hapy Birthday"
+    @compliment = "OMG Happy Birthday"
   else 
     @compliment = compliments.sample
   end
