@@ -1,13 +1,3 @@
-GA,class,12,000
-apple,charger,50
-apple,charger,50
-apple,charger,50
-apple,charger,50
-gamestop,call of duty,58.79
-,,
-,,
-,,
-,,
 ,,
 ,,
 ,,

@@ -22,6 +22,9 @@ post "/receipts" do
   file.puts info.join(",")
   file.close
   erb :congrats
+  last_id = receipts.values.max
+  receipts[last_id + 1] = params[:receipts]
+
 end
 
 # Print out all the generated receipts
@@ -31,5 +34,5 @@ end
 
 # Show a particular receipt
 get "/receipts/:id"  do
-  params[:id]
+  id = params[:search].to_i
 end

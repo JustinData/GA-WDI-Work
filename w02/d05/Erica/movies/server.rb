@@ -55,7 +55,7 @@ get '/movies' do
 
 post '/movies/:id' do
   @id = params[:id].to_i
-  @info = []
+  @movies_array = []
   file = File.new("movies.txt", "a+")
   file.each do |line|
   if line.split(",") == params[:id]
