@@ -13,7 +13,6 @@ require "erb"
 #two methods for handling transfer of data from file on disk to in memory variable and back again.
 #expecting comma separated values separated by new line.  no UID is stored because program uses position
 #in array as identifier.
-
 def open_and_read_data(film_array)
 	my_file = File.new("movies.txt", 'r')
 	
@@ -45,12 +44,13 @@ all_films = open_and_read_data(all_films)
 
 #basic route - combine multiple erb's into one display string.
 get "/" do
-	display = erb :index
-	display += erb :form
-    display += erb :choices
+	display = erb :index, :layout => false
+	display += erb :form, :layout => false
+    display += erb :choices, :layout => false
 	
     #only final erb is returned.  i wish there was a more elegant way to do this.
-    #also this is a wreck - it renders layout.erb every time!  argh.  
+    #also this is a wreck - it renders layout.erb every time!  argh.  have to use layout => false 
+    #to override.
     erb display
 end
 
@@ -62,10 +62,10 @@ get "/movies/?" do
 	
 	all_films.each do |my_hash|
 		@display_hash = my_hash
-		@display_html += erb :movie
+		@display_html += erb :movie, :layout => false
 	end
 
-	@display_html
+	erb @display_html
 end
 
 #to show a particular film by id
