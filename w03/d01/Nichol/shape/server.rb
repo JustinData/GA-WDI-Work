@@ -14,5 +14,32 @@ end
 
 get "/multiple/?" do
     @number = params[:num].to_i
-    erb :square
+    @shape = params[:shape]
+
+    case @shape
+    when "circle"
+        erb :circle
+    when "square"
+        erb :square
+    else
+        raise error
+    end
+
+    rescue error
+        redirect "/error"
+    end
+
 end
+
+get "/circle/?" do
+
+    @number = 1
+    erb :circle
+
+end
+
+get "/error/?" do
+    erb :error
+end
+
+
