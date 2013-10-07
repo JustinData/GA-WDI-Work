@@ -1,0 +1,16 @@
+
+
+<%  @results.each do |row| %>
+  <div class="movies">
+    <ul>
+        <%= "<li>Title: #{row["title"]}</li>" %>
+        <%= "<li>Year: #{row["year"]}</li>" %>
+        <%= "<li><img src=\"#{row["poster"]}\" alt=></li>" %>
+    </ul>
+  </div>
+<% end %>
+
+
+
+
+
