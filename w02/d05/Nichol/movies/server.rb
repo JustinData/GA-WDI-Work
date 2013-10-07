@@ -1,14 +1,18 @@
+#Film Library
+
+#gems
 require "sinatra"
 require "sinatra/reloader"
-
 require "pry"
-
 require "httparty"
 require "json"
-
 require "erb"
 
-all_films = Array.new
+
+
+#two methods for handling transfer of data from file on disk to in memory variable and back again.
+#expecting comma separated values separated by new line.  no UID is stored because program uses position
+#in array as identifier.
 
 def open_and_read_data(film_array)
 	my_file = File.new("movies.txt", 'r')
@@ -22,34 +26,35 @@ def open_and_read_data(film_array)
 end
 
 def write_data(film_hash)
+    #open in append mode
     my_file = File.new("movies.txt", 'a+')
+    
+    #construct format - newline goes in front because of where file opens
     film_string = "\n#{film_hash[:title]},#{film_hash[:year]},#{film_hash[:poster]}"
 
     my_file << film_string
+    
     my_file.close
 
 
 end
 
-
+#initialize in memory variable
+all_films = Array.new
 all_films = open_and_read_data(all_films)
 
-# class MovieStore
-#   def push(movie_array)
-#   end
-
-#   def find(id)
-#   end
-# end
-
-# movie_store = MovieStore.new
-
+#basic route - combine multiple erb's into one display string.
 get "/" do
 	display = erb :index
 	display += erb :form
-	erb display
+    display += erb :choices
+	
+    #only final erb is returned.  i wish there was a more elegant way to do this.
+    #also this is a wreck - it renders layout.erb every time!  argh.  
+    erb display
 end
 
+#display all movies.  for each entry, add to the display string all of the html for that film.
 get "/movies/?" do
 
 	@display_html = String.new
@@ -63,6 +68,7 @@ get "/movies/?" do
 	@display_html
 end
 
+#to show a particular film by id
 get "/movies/:movie_index" do 
 
 	movie_index = params[:movie_index].to_i
@@ -76,51 +82,44 @@ get "/movies/:movie_index" do
 
 end
 
-
+#to find a new movie and add to data.
 get "/search_movie" do
 	name = params[:movie_title]
-	name = name.gsub(" ", "+")
+	
+    #formatting for api.
+    name = name.gsub(" ", "+")
 
 	url = "http://www.omdbapi.com/?t=#{name}"
+    response = HTTParty.get(url)
 
-	response = HTTParty.get(url)
+    #TODO catch no response for error
+
 	parsed = JSON(response)
 
 	film_title = parsed["Title"]
 	film_date = parsed["Year"]
 	film_poster = parsed["Poster"]
 
-	all_films << {:title => film_title, :year => film_date, :poster => film_poster}
+	#add to in memory hash
+    all_films << {:title => film_title, :year => film_date, :poster => film_poster}
 
     #write data to file here
     write_data({:title => film_title, :year => film_date, :poster => film_poster})
 
+    #display film
 	@display_hash = all_films.last
 	erb :movie
 end
 
+#random film selection made very easy by data structure!
 get "/random/?" do
-
     @display_hash = all_films.sample
     erb :movie
 end
 
-
+#simple error handling
 get "/error/?" do
-
     erb :error
 end
-
-
-
-
-
-
-
-# name = "the lion king".gsum(" ", "+")
-# url = "http://www.omdbapi.com/?t=#{name}"
-
-# response = HTTParty.get("url")
-# parsed = json(response)
 
 

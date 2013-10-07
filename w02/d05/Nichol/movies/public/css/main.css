@@ -1,9 +1,50 @@
-/*
+.index {
 
-classes to style:
+    font-size: 3em;
+    font-family: Helvetica;
+    margin: 0 auto;
+    width: 900px;
+    background-color: black;
+    color: white;
+}
 
-index
+.error {
+    font-size: 3em;
+    font-family: Courier;
+    font-style: bold;
+    color: black;
+    background-color: yellow;
+    border: 10px solid black;
+}
 
+.search-movie {
+    background-color: black;
+    width: 700px;
+    margin: 0 auto;
+    padding: 100px;
+}
 
+/* trying to select input form */
+/*input.search-movie {
+    height: 3em;
+}*/
 
-*/
+.movie-wrapper {
+    width: 800px;
+    margin: 0, auto;
+    border: 1px solid black;
+    display: block;
+}
+
+.poster {
+    margin: 0 auto;
+    width: 500px;
+    display: inline-block;
+    border: 1px solid black;
+}
+
+.information {
+    width: 200px;
+    border: 1px solid black;
+    display: inline-block;
+}
