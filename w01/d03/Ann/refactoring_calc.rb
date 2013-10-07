@@ -1,5 +1,5 @@
 #correct possible input for main menu 
-  good_input = ["b", "a", "q"]
+good_input = ["b", "a", "q"]
 
 #will work also 
 ok_input = {"basic" => "b", "advanced" => "a", "quit" => "q"}
