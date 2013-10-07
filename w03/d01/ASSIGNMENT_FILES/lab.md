@@ -2,6 +2,13 @@
 
 * Update your Sinatra Movies App from Friday to use a SQL database instead of reading/writing to a text file.
 
+### Workflow
+
+* Plan your schema
+* Create your DB
+* Test your DB (psql)
+* Refactor your code
+
 ##Bonus
 * Explore the other information that you can get back from the OMDB API. (Runtime, Director, Genre, etc)
 
