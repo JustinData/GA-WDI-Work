@@ -29,13 +29,14 @@ post "/movies" do
   title = parsed["Title"]
   year = parsed["Year"]
   poster = parsed["Poster"]
-
+  plot = parsed["Plot"]
+  binding.pry
   # count line.number in the file to assign incremental id for entry
   id_num = 0
   id_num += file.readlines.size
 
   # take that info and turn it into a string
-  movie_info = "#{id_num}, #{title}, #{year}, #{poster}"
+  movie_info = "#{id_num}, #{title}, #{year}, #{poster}, #{plot}"
 
   # adds entry as a CSV to movies.txt
   file.puts movie_info
