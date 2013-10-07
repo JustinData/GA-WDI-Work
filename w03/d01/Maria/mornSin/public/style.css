@@ -1,0 +1,14 @@
+.square {
+background-color: blue; 
+width:220px;
+height:220px;
+margin:20px;
+}
+
+.circle{
+ background-color: blue; 
+ width:1000px;
+ height:100px;
+ margin:20px;
+ border-radius: 50%;
+}
