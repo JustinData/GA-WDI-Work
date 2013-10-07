@@ -6,6 +6,7 @@ MTA = {
   :l_train => ['bedford', '1st ave'],
   :g_train => ['greenpoint', 'nassau'],
   :n_train => ['canal', '8th'],
+  :f_train => ['22nd', '2nd']
 }
 
 get "/" do 
@@ -13,6 +14,7 @@ get "/" do
 end
 
 get "/plan" do
+  @mta = MTA
   erb :plan
 end
 
