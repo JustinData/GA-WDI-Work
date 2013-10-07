@@ -1,5 +1,5 @@
 #MTA App
-
+n = [Times Square: 1, 34th: 2, 28th: 3, 23rd: 4, Union Sq: 5, 8th St: 6]
 ###Objectives:
 - Practice with array operations and working with arrays as values of a hash
 
