@@ -1,7 +1,7 @@
-# Office Hours (5:30pm - 8:30pm)
+# Office Hours (6:00pm - 8:30pm) @ 902 Broadway, 4th Floor
 
-###Jeff - Tuesday
+###PJ - Tuesday
 
-###PJ - Wednesday
+###Jeff - Wednesday
 
 ###Peter - Thursday
