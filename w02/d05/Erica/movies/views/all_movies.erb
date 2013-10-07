@@ -1,4 +1,11 @@
-<% @all_movies.each do |movies| %>
-  <% @movie_array = movies.split(",") %>
-  <%= erb :movies %>
-<% end %>
+<center><div class="movies">
+    <div class="movie">
+      <div class="poster">
+        <img src="<%= "#{@info[3]}" %>" />
+      </div>
+      <div class="info">
+        <p><strong>Title :</strong> <%= "#{@info[1]}" %></p>
+        <p><strong>Year :</strong> <%= "#{@info[2]}" %></p>
+        
+      </div>
+    </div> 

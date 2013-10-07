@@ -3,7 +3,6 @@ require 'json'
 require 'pry'
 require 'sinatra'
 require 'sinatra/reloader'
-require 'erb'
 
 # GET "/" => "Welcome to Movies.io", this page links to "/movies/search"
 get '/' do
@@ -49,26 +48,19 @@ post '/movies' do
   # You should redirect to movie/id after your information has been posted
   redirect to '/movies/:id'
   end
-
-  get '/movies/:id' do
-    @movie_array = []
-    file = File.new("movies.txt", "a+")
-    file.each do |line|
-    if line.split(",")[0] == params[:id]
-    @movie_array = line.split(",")
-    end
-  end
-  file.close
-    erb :movies
-    end
   
 get '/movies' do
-  @all_movies = []
+  erb :allmovies
+  end
+
+post '/movies/:id' do
+  @id = params[:id].to_i
+  @info = []
   file = File.new("movies.txt", "a+")
   file.each do |line|
-    @all_movies << line
-  file.close
-  erb :all_movies
+  if line.split(",") == params[:id]
+  @info = line.split(",")
   end
 end
-
+  erb :movies
+end 
