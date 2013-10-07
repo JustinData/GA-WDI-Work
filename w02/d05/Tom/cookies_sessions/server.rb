@@ -31,6 +31,10 @@ post "/sessions" do
   end
 end
 
+# log out
+delete "/sessions" do
+end
+
 get "/super_secret_info" do
   if session[:logged_in] == true
   erb :super_secret
