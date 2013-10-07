@@ -7,5 +7,6 @@
 7,Titanic,1997,http://ia.media-imdb.com/images/M/MV5BMjExNzM0NDM0N15BMl5BanBnXkFtZTcwMzkxOTUwNw@@._V1_SX300.jpg
 8,Finding Nemo,2003,http://ia.media-imdb.com/images/M/MV5BMTY1MTg1NDAxOV5BMl5BanBnXkFtZTcwMjg1MDI5Nw@@._V1_SX300.jpg
 9,,,
-10,,,
-11,Up,2009,http://ia.media-imdb.com/images/M/MV5BMTMwODg0NDY1Nl5BMl5BanBnXkFtZTcwMjkwNTgyMg@@._V1_SX300.jpg
+10,The Blind Side,2009,http://ia.media-imdb.com/images/M/MV5BMjEzOTE3ODM3OF5BMl5BanBnXkFtZTcwMzYyODI4Mg@@._V1_SX300.jpg
+11,The Devil Wears Prada,2006,http://ia.media-imdb.com/images/M/MV5BMTMyNjk4Njc3NV5BMl5BanBnXkFtZTcwNDkyMTEzMw@@._V1_SX300.jpg
+12,Nemo,1984,http://ia.media-imdb.com/images/M/MV5BMTY2NzIwMTgwN15BMl5BanBnXkFtZTcwMjIyMzMzMQ@@._V1_SX300.jpg
