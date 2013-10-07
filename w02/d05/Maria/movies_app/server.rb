@@ -12,6 +12,7 @@ get '/movies/search' do
 
   erb :search
 end
+
 post '/movies' do
   # Here will be the code to OMDB
   # get it and store it into a file
@@ -29,7 +30,6 @@ post '/movies' do
   file.each do |line|
     iterator += 1
   end
-  
   # => "id,title,year,poster"
 file.puts "#{iterator +1},#{movie_hash["Title"]},#{movie_hash["Year"]},#{movie_hash["Poster"]}" 
   # add one so we can start at 1 instead of 0
@@ -37,23 +37,31 @@ file.puts "#{iterator +1},#{movie_hash["Title"]},#{movie_hash["Year"]},#{movie_h
   # Did it write to movie.txt?YES!
   file.close  
  
-  redirect 'movies/'
+  redirect 'movies' #'movies/#{id}'
 end
 
 get '/movies' do
 
-  erb :movies_show
+@all_movies = []
+  file = File.new("movies.txt", "a+")
+  file.each do |line|
+    @all_movies << line
+  end
+  file.close
+  erb :all_movies
 end
 
 get "/movies/:id" do
-  file = File.new("receipts.txt", "a+")
+
+  file = File.new("movies.txt", "a+")
   file.each do |line|
+    line.split(",")
     if line.split(",")[0] == params[:id]
-      @movie_hash = line.split(",")
+      @receipt_array = line.split(",")
     end
-  end
   file.close
-  erb :movies_show
+  erb :movies
+  end
 end
 # Show the user all the previously searched for movies
 #get '/movies/' do
