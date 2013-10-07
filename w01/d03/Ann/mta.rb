@@ -26,10 +26,9 @@ puts "You have #{total_stops.abs} stops!"
 
 
 
-
+#Phase 2 
 
 n = ["times_sq", "34th", "28th", "23rd", "union_sq", "8th"]
-#n_hash = [times_sq: 1, 34th: 2, 28th: 3, 23rd: 4, union_sq: 5, 8th: 6]
 l = ["8th", "6th", "union_sq", "3rd", "1st"]
 s = ["Grand Central", "33rd St", "28th", "23rd", "union_sq", "astor_place"]
 
@@ -73,7 +72,6 @@ if line_switch == "n"
   start_station = gets.chomp.downcase 
 
   start_station_value = (mta[:"#{subway_line}"].index(start_station)) - (mta[:"#{subway_line}"].index("union_sq"))
-
   start_final = start_station_value.abs  
 
   puts "Please choose a subway line to end your ride. L, N, or S."
