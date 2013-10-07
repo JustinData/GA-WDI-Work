@@ -42,3 +42,7 @@ get "/super_secret_info" do
   end 
   erb :super_secret 
 end 
+
+#how to logout
+delete "/sessions" do 
+end 
