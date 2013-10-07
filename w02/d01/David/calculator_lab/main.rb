@@ -35,7 +35,7 @@ get "/calculator/:id" do
   end
 end
 
-post "/calculator/add/:num1/:num2" do
+post "/calculator/add" do
   last_id = calc_history.keys.max
   first_number = params[:num1].to_i
   second_number = params[:num2].to_i
