@@ -80,7 +80,7 @@ end
 
 get "/movies/:id" do
   file = File.new("movies.txt", "a+")
-  
+
 
    file.each do |line|
      if line.split(",")[0] == params[:id]
