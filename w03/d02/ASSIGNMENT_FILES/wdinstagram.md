@@ -17,9 +17,6 @@ Your Sinatara app should have the following controller actions:
 * New (Displays a form to create a new entry)
 * Create (Creates a new entry and saves it to the database)
 * Show (Displays one particular entry)
-* Edit (Displays a form to edit an existing entry)
-* Update (Updates an entry and saves it to the database)
-* Destroy (Deletes an entry)
 
 ## Instructions
 
