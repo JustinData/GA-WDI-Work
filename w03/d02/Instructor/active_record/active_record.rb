@@ -1,7 +1,7 @@
 require 'pry'
 require 'active_record'
 
-ActiveRecord::Base.logger = Logger.new("./log")
+ActiveRecord::Base.logger = Logger.new("./ar.log")
 
 ActiveRecord::Base.establish_connection(
   :adapter => "postgresql",
@@ -11,13 +11,13 @@ ActiveRecord::Base.establish_connection(
   :database => "sandbox"
 )
 
-class Movie < ActiveRecord::Base
+class Musical < ActiveRecord::Base
 end
 
-singin_rain = Movie.new({title: "Singing in the Rain", year: 1952})
+syracuse = Musical.new({title: "Boys from Syracuse", year: 1938, composer: "Rodgers"})
 
-#singin_rain.save
+syracuse.save
 
-Movie.find(1)
+Musical.find_by(title: "Boys from Syracuse")
 
 binding.pry

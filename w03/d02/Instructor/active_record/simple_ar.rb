@@ -22,10 +22,10 @@ class Table
   end
 end
 
-class Movies < Table
+class Musicals < Table
 end
 
 
-Movies.insert({:title => "The Sound of Music", :year => 1965})
+Musicals.insert({:title => "The Sound of Music", :year => 1959, :composer => "Rodgers"})
 
-Movies.find(1)
+Musicals.find(1)
