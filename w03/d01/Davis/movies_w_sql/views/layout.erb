@@ -12,6 +12,10 @@
 
 	<%= '<a href="/movies">List All Movies</a>' unless @h1 == "All Movies Below!" %>
 
+	<%= '<a href="/movies/recent">Recent Movies</a>' unless @h1 == "Recent Movies" %>
+	<%= '<a href="/movies/good">Good Movies</a>' unless @h1 == "Good Movies" %>
+	<%= '<a href="/movies/funny">Funny Movies</a>' unless @h1 == "Funny Movies" %>
+
 	<%= yield %>
 </body>
 </html>

@@ -1,4 +1,6 @@
 class MailItem
+	attr_reader :ship_to_address
+
 	def initialize(ship_to_address, stamp_value)
 		@ship_to_address = ship_to_address
 		@stamp_value = stamp_value
@@ -8,28 +10,35 @@ end
 class Postcard < MailItem
 	attr_reader :message
 
-	def initialize(message)
+	def initialize(ship_to_address, stamp_value, message)
+		super(ship_to_address, stamp_value)
 		@message = message
 	end
+
 end
 
 class Package < MailItem
-	attr_reader :content
+	attr_reader :content, :is_broken
 
-	def initialize(content = [], is_fragile = false, is_broken = false)
+	def initialize(ship_to_address, stamp_value, content = [], is_fragile = false, is_broken = false)
+		super(ship_to_address, stamp_value)
 		@content = content
 		@is_fragile = is_fragile
 		@is_broken = is_broken
 	end
 
 	def shake
-		is_broken = true if is_fragile == true
+		@is_broken = true if @is_fragile
 	end
 
 	def is_broken?
 		@is_broken
 	end
 end
+
+pack = Package.new(" ", 0, [], true, false)
+pack.shake
+p pack.is_broken
 
 class Mailbox
 	attr_reader :mail_items
