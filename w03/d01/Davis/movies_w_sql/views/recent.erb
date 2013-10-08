@@ -1,0 +1,14 @@
+<!-- write new w/ SQL -->
+<p>
+	<% @result.values.each do |array| %>
+		<% if array[2].to_i >= 2008 %>
+			<%= "ID: #{array[0]}" %>
+			<br>
+			<%= "Title: #{array[1]}" %>
+			<br>
+			<%= "Year: #{array[2]}" %>
+			<br>
+			<img src="<%="#{array[3]}"%>" alt="">
+		<% end %>
+	<% end %>
+</p>

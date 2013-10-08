@@ -51,20 +51,29 @@ post '/movies' do
 end
 
 get '/movies/:id' do 
-	@h1 = "Your Movie Below!"
-	
-	# connect to DB
 	get_data
 
-	erb :specific
+	if params[:id] == 'recent'
+		@h1 = "Recent Movies"
+		erb :recent	
+	else
+		@h1 = "Your Movie Below!"
+		erb :specific
+	end
 end
 
 get '/movies' do
 	@h1 = "All Movies Below!"
 
-	# connec to DB
 	get_data
 
 	erb :all
 end
 
+# get 'moves/good' do 
+
+# end
+
+# get 'movies/funny' do 
+
+# end
