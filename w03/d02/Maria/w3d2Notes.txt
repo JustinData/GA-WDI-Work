@@ -90,3 +90,23 @@ musicals = Musical.all
 musicals[0] will get the first instance or object in the array.
 
 Now code along.
+
+
+
+
+REST - resources via semantic urls, operate using HTTP verbs
+
+MVC - Model, View, Controller.
+
+Models holds the data.
+
+operating on recieiving and transforming data. using the APIetc. 
+
+Views- presenting data to the user (UI)
+
+Controller mediates between the view and the model.
+
+Controller Actions.
+
+index is for all the resources show is for one
+
