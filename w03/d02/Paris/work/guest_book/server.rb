@@ -15,31 +15,17 @@ ActiveRecord::Base.establish_connection(
 
 require_relative './models/entry'
 
-binding.pry
-
 # Create
 # Read
 # Update
 # Destroy
 # Guest Book entries
 
-guest_book = { 1 => "Jeff", 2 => "PJ", 3 => "Peter" }
-
 get "/guest_book" do
-  names = guest_book.values.join(", ")
-  "These people have registered: #{names}"
 end
 
 
 get "/guest_book/:id" do
-  id = params[:id].to_i
-  entry = guest_book[id]
-
-  if entry
-    entry
-  else
-    "NONE FOUND SILLY!"
-  end
 end
 
 # GET /guest_book/1
@@ -49,17 +35,11 @@ end
 # Each entry should have a unique id
 
 post "/guest_book" do
-  last_id = guest_book.keys.max
-  guest_book[last_id + 1] = params[:name]
 end
 
 # Expect params[:name] == new_name
 put "/guest_book/:id" do
-  id = params[:id].to_i
-  guest_book[id] = params[:name]
 end
 
 delete "/guest_book/:id" do
-  id = params[:id].to_i
-  guest_book.delete(id)
 end
