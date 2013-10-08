@@ -1,0 +1,2 @@
+-- entries in wdinstagram
+-- id, author, photo_url, date taken
