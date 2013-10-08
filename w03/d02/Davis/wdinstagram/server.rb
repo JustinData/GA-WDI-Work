@@ -21,12 +21,30 @@ ActiveRecord::Base.establish_connection(
 require_relative './models/insta_entry'
 
 get '/' do 
-	redirect('/all')
+	redirect('/show/all')
 end
 
-get '/all' do 
+get '/show/all' do 
 	@insta_entries = InstaEntry.all
 
 	erb :index
 end
 
+# create link to here for other pages
+# change to diff path???
+get '/new' do 
+	erb :new
+end
+
+post '/new' do
+	insta_entry = InstaEntry.new(author: params[:author], photo_url: params[:photo_url], date_taken: params[:date_taken])
+	insta_entry.save
+
+	redirect("/show/#{insta_entry.id}")
+end
+
+get '/show/:id' do 
+	@id = params[:id].to_i
+
+	erb :show
+end
