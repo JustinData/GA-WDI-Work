@@ -80,7 +80,7 @@ while true
 
       puts output_str
     end
-
+    @output_str = output_str
     #fs.close
     db_conn.close
     ###################################################################
