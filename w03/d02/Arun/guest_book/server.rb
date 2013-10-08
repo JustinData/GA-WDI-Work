@@ -5,7 +5,7 @@ require 'active_record'
 
 ActiveRecord::Base.establish_connection(
   :adapter => "postgresql",
-  :host => "locahost",
+  :host => "localhost",
   :username => "postgres",
   :password => "postgres",
   :database => "sandbox"
@@ -29,22 +29,19 @@ guest_book = { 1 => "Jeff", 2 => "PJ", 3 => "Peter" }
 # Index
 
 get "/guest_book" do
-  names = guest_book.values.join(", ")
-  "These people have registered: #{names}"
+  @entries = Entry.all
+  erb :index
+
 end
 
 # Show (just one entry)
 # I know the key (or the id)
 
 get "/guest_book/:id" do
-  id = params[:id].to_i
-  entry = guest_book[id]
+  @entry = Entry.find(params[:id])
 
-  if entry
-    entry
-  else
-    "NONE FOUND SILLY!"
-  end
+  erb :show
+
 end
 
 # GET /guest_book/1
@@ -54,17 +51,14 @@ end
 # Each entry should have a unique id
 
 post "/guest_book" do
-  last_id = guest_book.keys.max
-  guest_book[last_id + 1] = params[:name]
+
 end
 
 # Expect params[:name] == new_name
 put "/guest_book/:id" do
-  id = params[:id].to_i
-  guest_book[id] = params[:name]
+
 end
 
 delete "/guest_book/:id" do
-  id = params[:id].to_i
-  guest_book.delete(id)
+
 end
