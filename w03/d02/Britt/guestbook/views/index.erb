@@ -2,6 +2,10 @@
 
 <ul>
 	<% @entries.each do |entry| %>
-	<li>Name: <%= entry.name %></li>
+	<li>Name: 
+		<a href="/guest_book/<%= "#{entry.id}" %>">
+			<%= entry.name %>
+		</a>
+	</li>
 	<% end %>
 </ul>

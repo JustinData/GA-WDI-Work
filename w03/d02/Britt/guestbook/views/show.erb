@@ -1,4 +1,4 @@
-<h1><%= @entry.name %>:</h1>
+<h2><%= @entry.name %>:</h2>
 
 <% if @entry.comment.nil? %>
 	<p>
@@ -6,6 +6,6 @@
 	</p>
 <% else %>
 	<p>
-		<%= @entry.comment %>
+		<%= @entry.comment %></a>
 	</p>
 <% end %>
