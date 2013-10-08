@@ -14,7 +14,7 @@
         input_str = " #{input_str} " # wrap input in spaces
         spacing_width = MENU_WIDTH - input_str.length
      
-        # parrallel assignment, look it up!
+        # parallel assignment, look it up!
         front, back = (spacing_width / 2), (spacing_width / 2)
      
         # make sure that the final product is exactly aligned

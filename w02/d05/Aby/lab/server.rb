@@ -2,6 +2,7 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'httparty'
 require 'json'
+require 'pry'
 
 get '/' do
   erb :welcome
@@ -12,6 +13,7 @@ get '/movies/search' do
 end
 
 post '/movies/search' do
+
 
 	name = params[:title].gsub(" ", "+")
 
@@ -33,9 +35,9 @@ post '/movies/search' do
     # Create an array to hold the info we want to save
     info = []
     info << id
-    info << parsed[:title]
-    info << parsed[:year]
-    info << parsed[:poster]
+    info << parsed["Title"]
+    info << parsed["Year"]
+    info << parsed["Poster"]
 
     # Write the info to the csv
     file = File.new("movies.txt", "a+")

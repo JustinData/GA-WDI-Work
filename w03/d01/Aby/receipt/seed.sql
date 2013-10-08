@@ -1,33 +1,20 @@
-DROP TABLE IF EXISTS receipts;
+DROP TABLE IF EXISTS movies;
      
-CREATE TABLE receipts (
+CREATE TABLE movies (
   id serial PRIMARY KEY,
-  store varchar(50) NOT NULL,
-  item varchar(50) NOT NULL,
-  number_of_item integer DEFAULT 1,
-  price money NOT NULL,
-  buy_date date DEFAULT current_date
+  title varchar(50) NOT NULL,
+  year integer DEFAULT 1,
+  poster varchar(100) NOT NULL,
   );
+ 
      
-INSERT INTO receipts (store, item, number_of_item, price, buy_date) VALUES
-  ('Sears', 'VCR', 1, 180, 'December 21 1989'),
-  ('Toys R Us', 'Nintendo', 1, 150, 'December 21 1989'),
-  ('Toys R Us', 'Simon Says', 1, 25, 'December 21 1989'),
-  ('Toys R Us', 'Pound Puppy', 4, 12, 'December 21 1989'),
-  ('Sears', 'Legos Set', 1, 40, 'December 21 1989'),
-  ('Borders', 'Boxcar Children', 3, 12, 'December 21 1989'),
-  ('Borders', 'Babysitter''s Club', 2, 12, 'December 21 1989'),
-  ('Local Book Store', 'Bunnicula', 1, 14, 'December 21 1989'),
-  ('Macy''s', 'pink Izod top', 3, 28.50, 'December 22 1989'),
-  ('Express', 'scrunchies', 10, 6, 'December 22 1989'),
-  ('Express', 'overalls', 1, 40, 'December 22 1989'),
-  ('JC Penny''s', 'Keds', 1, 50, 'December 23 1989'),
-  ('JC Penny''s', 'tube socks', 3, 28, 'December 23 1989'),
-  ('JC Penny''s', 'Reeboks', 1, 60, 'December 23 1989'),
-  ('JC Penny''s', 'tights, Red', 1, 10.50, 'December 23 1989'),
-  ('JC Penny''s', 'Quicksilver t-shirt', 1, 20.75, 'December 23 1989'),
-  ('JC Penny''s', 'Ninja Turtles bedspread', 1, 20, 'December 23 1989'),
-  ('Sears', 'swatch watch', 1, 50, 'December 24 1989'),
-  ('Toys R Us', 'Trouble', 1, 25, 'December 24 1989'),
-  ('Sears', 'school supplies set', 5, 18.50, 'December 24 1989');
+INSERT INTO movies (title, year, poster) VALUES
+
+('Up', 2009, 'http://ia.media-imdb.com/images/M/MV5BMTMwODg0NDY1Nl5BMl5BanBnXkFtZTcwMjkwNTgyMg@@._V1_SX300.jpg')
+('Finding Nemo', 2003, 'http://ia.media-imdb.com/images/M/MV5BMTY1MTg1NDAxOV5BMl5BanBnXkFtZTcwMjg1MDI5Nw@@._V1_SX300.jpg')
+('Toy Story 3',2010, 'http://ia.media-imdb.com/images/M/MV5BMTgxOTY4Mjc0MF5BMl5BanBnXkFtZTcwNTA4MDQyMw@@._V1_SX300.jpg')
+('Scarface', 1983, 'http://ia.media-imdb.com/images/M/MV5BMjM1MDc3NDY2N15BMl5BanBnXkFtZTcwMTA0Njk3OA@@._V1_SX300.jpg')
+('Titanic', 1997, 'http://ia.media-imdb.com/images/M/MV5BMjExNzM0NDM0N15BMl5BanBnXkFtZTcwMzkxOTUwNw@@._V1_SX300.jpg')
+('The Lion King', 1994 , 'http://ia.media-imdb.com/images/M/MV5BMjEyMzgwNTUzMl5BMl5BanBnXkFtZTcwNTMxMzM3Ng@@._V1_SX300.jpg')
+
 
