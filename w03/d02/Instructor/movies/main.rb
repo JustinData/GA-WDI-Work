@@ -14,6 +14,7 @@ get '/movies/search' do
 end
 
 post '/movies' do
+
   if params[:title]
     name = params[:title].gsub(' ', '+')
     url = "http://www.omdbapi.com/?t=#{name}"
@@ -22,9 +23,8 @@ post '/movies' do
 
     db = PG.connect( dbname: 'movies_db', host: 'localhost' )
     r = db.exec( "INSERT INTO movies (title, year, poster) VALUES ( '#{hash['Title']}', '#{hash['Year']}', '#{hash['Poster']}' ) returning id;" )
-    id = r[0]['id'] # get the last serial (id) created
+    id = r[0]['id'] # get the last id created (using 'returning id' in the above SQL)
     db.close
-
   end
 
   redirect to("/movies/#{id}")
@@ -40,6 +40,7 @@ get '/movies' do
 end
 
 get "/movies/:id" do
+
   db = PG.connect( dbname: 'movies_db', host: 'localhost' )
   @all_movies = db.exec( "SELECT * FROM movies WHERE id = #{params[:id]};" )
   @movie_array = @all_movies[0]
