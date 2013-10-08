@@ -21,7 +21,7 @@ require_relative './models/entry'
 # Destroy
 # Guest Book entries
 
-guest_book = { 1 => "Jeff", 2 => "PJ", 3 => "Peter" }
+# guest_book = { 1 => "Jeff", 2 => "PJ", 3 => "Peter" }
 
 # GET /guest_book 
 # List of all people who have ever registered
@@ -32,14 +32,16 @@ guest_book = { 1 => "Jeff", 2 => "PJ", 3 => "Peter" }
 # Index
 
 get "/guest_book" do
-
+  @entries = Entry.all
+  erb :index
 end
 
 # Show (just one entry)
 # I know the key (or the id)
 
 get "/guest_book/:id" do
-
+  @entry = Entry.find(params[:id])
+  erb :show
 end
 
 # GET /guest_book/1
