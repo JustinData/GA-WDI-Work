@@ -21,3 +21,14 @@ require_relative './models/entry'
   get("/welcome/add") do
     erb :add
   end
+  
+  post("/welcome") do 
+    new_pic = Picture.new(author: params[:author], photo: params[:photo], date: params[:date])
+    new_pic.save
+    redirect("/welcome/#{new_pic.id}")
+  end
+
+  get("/welcome/:id") do 
+    @picture = Picture.find(params[:id])
+    erb :show
+  end
