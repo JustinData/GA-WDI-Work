@@ -1,0 +1,13 @@
+<h1>Welcome To Instagram.ly</h1>
+
+<h3>Here are our dope Pics</h3>
+
+<a href="/gram/new">Leave an Entry</a>
+
+<ul>
+<% @entries.each do |entry| %>
+  <li> Name: <a href="/gram/<%= entry.id %>"><%= entry.author %></a></li>
+  <li><img src="<%= entry.photos %>"></li>
+  <li><%= entry.my_date %></li>
+<% end %>    
+</ul>
