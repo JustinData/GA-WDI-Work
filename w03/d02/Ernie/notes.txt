@@ -1,0 +1,3 @@
+Active Record
+
+Active Record = ORM = Obeject Relation Mapper
