@@ -18,5 +18,6 @@ require_relative './models/entry'
     erb :index
   end
 
-  get("/welcome") do
- end
+  get("/welcome/add") do
+    erb :add
+  end
