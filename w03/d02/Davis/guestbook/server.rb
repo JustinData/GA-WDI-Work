@@ -56,6 +56,7 @@ end
 # Each entry should have a unique id
  
 post "/guest_book" do
+                    # implicit hash {name: params[:name], etc}
   entry = Entry.new(name: params[:name], comment: params[:comment])
 
   entry.save
