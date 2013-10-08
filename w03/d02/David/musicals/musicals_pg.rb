@@ -13,3 +13,5 @@ query_str += " VALUES ('Follies', '1971', 'Sondheim');"
 
 
 jellybeans.exec( query_str )
+
+jellybeans.close
