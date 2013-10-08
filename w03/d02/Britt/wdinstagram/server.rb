@@ -12,6 +12,8 @@ ActiveRecord::Base.establish_connection(
   :database => "wdinstagram"
 )
 
+require_relative './models/entry'
+
 # Displays all entries
 get "/?" do
 	erb :index
