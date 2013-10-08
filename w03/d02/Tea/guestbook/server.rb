@@ -21,11 +21,16 @@ get "/guest_book" do
 
   erb :index
 end
+
+get "/guest_book/new" do
+  erb :new
+end
+
  
 # Show (just one entry)
 get "/guest_book/:id" do
   @entry = Entry.find(params[:id])
-  
+
   erb :show
 end
  
@@ -36,6 +41,14 @@ end
 # Each entry should have a unique id
  
 post "/guest_book" do
+  #The ActiveRecord way
+  entry = Entry.new(comment: params[:comment], name: params[:name])
+  # entry.persisted?
+  # => false
+  entry.save
+  # entry.persisted?
+  # => true
+  redirect "/guest_book/#{entry.id}"
   
 end
  
