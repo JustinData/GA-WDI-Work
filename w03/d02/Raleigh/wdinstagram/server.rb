@@ -16,21 +16,28 @@ ActiveRecord::Base.establish_connection(
 require_relative "./models/entry"
 
 # Index Page (Displays all entries)
-get "/guest_book" do
+get "/insta" do
   @entries = Entry.all
 
   erb :index
 end
 
 # New Page (Displays a form to create a new entry)
-get "/guest_book/new" do
+get "/insta/new" do
   erb :new
 end
 
-Create (Creates a new entry and saves it to the database)
+# Create (Creates a new entry and saves it to the database)
+post "/insta/create" do
+   new_entry = Entry.new(author: params[:author], photo: params[:photo], date: params[:date])
+   # Save the entry to the table
+   new_entry.save
+
+   redirect "insta/#{new_entry.id}"
+end
 
 # Show Page (Displays one particular entry)
-get "/guest_book/:id" do
+get "/insta/:id" do
   @entry = Entry.find(params[:id])
 
   erb :show
