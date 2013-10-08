@@ -43,8 +43,6 @@ post "/movies" do
     new_movie[:rating] = parsed["imdbRating"] || "imdbRating"
     new_movie[:poster] = parsed["Poster"] || "Poster"
 
-    # binding.pry
-
     query = "INSERT INTO movie_info "
     query += "(title, year, genre, rating, poster) VALUES"
     query += "("
@@ -52,16 +50,15 @@ post "/movies" do
     query += ");"
     db_conn.exec(query)
 
-   #movie_string = db_conn.exec("SELECT * FROM movie_info;") where...
-
-    #@id = 
+    # Gets the most recent id
+    results = db_conn.exec( "SELECT lastval();")
+    id = results[0]["lastval"]
 
     # Close DB
     db_conn.close
 
-  # Redirect to the page that shows the movie searched
-  # redirect "/movie/#{@id}"
-  redirect "/movie/1"
+    # Redirect to the page that shows the movie searched
+    redirect "/movies/#{id}"
 end
 
 get "/movies" do
@@ -87,28 +84,28 @@ get "/movies" do
 end
 
 get "/movie/:id" do 
-   # file = File.new("movies.txt", "a+")
-   # file.each do |line|
-   #    if line.split(",")[0] == params[:id]
-   #       @movies_array = line.split(",")
-   #    end
-   # end
-   # file.close
+
+  user_id = params[:id]
+  @results =  db_conn.exec( "SELECT * FROM movies WHERE id == user_id")
 
    erb :movie
 end
 
 get "/movies/recent" do 
+  # @results = db_conn.exec("SELECT * FROM movies WHERE year >= '2008';")
 
   erb :recent
 end
 
 get "/movies/funny" do 
+  # genre.split(",")...
+  # @results = db_conn.exec("SELECT * FROM movies WHERE genre == 'Comedy';")
 
   erb :funny
 end
 
 get "/movies/good" do 
+  # @results = db_conn.exec("SELECT * FROM movies WHERE rating >= '8.0';")
 
   erb :good
 end
