@@ -33,23 +33,17 @@ require_relative './models/entry'
 
 
 # Index
-
 get "/guest_book" do
-
+  @entries = Entry.all
+  erb :index
 end
 
-
-
+# show 1 guest book entry
 get "/guest_book/:id" do
-
-
+  @entry = Entry.find(params[:id])
+  erb :show
 end
 
-# GET /guest_book/1
-
-# POST /guest_book
-# Create a new entry in the `guest_book` hash
-# Each entry should have a unique id
 
 post "/guest_book" do
 
@@ -57,7 +51,6 @@ end
 
 # Expect params[:name] == new_name
 put "/guest_book/:id" do
-
 
 end
 
