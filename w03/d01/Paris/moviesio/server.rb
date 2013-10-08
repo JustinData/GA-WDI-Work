@@ -49,7 +49,7 @@ post "/movies" do
 ##### HTTP PARTY!!!!!#####
 name = params[:title].gsub(" ", "+")
 url = "http://www.omdbapi.com/?t=#{name}"
-response = HTTParty.get(url)
+response = HTTParty.get(url) 
 parsed_movie_info = JSON(response)
 
 fs = File.new( "movies" + ".csv", "a+" )
@@ -58,7 +58,10 @@ fs = File.new( "movies" + ".csv", "a+" )
 
     @query_str = "INSERT INTO movies "
     @query_str += "( year, poster, title) VALUES "
-    @query_str += "( #{parsed_movie_info[:year]}, '#{parsed_movie_info[:poster]}', '#{parsed_movie_info[:title]}' );"
+    @query_str += "( #{parsed_movie_info[:year]}, '#{parsed_movie_info[:poster]}', '#{parsed_movie_info[:title]}' );" 
+
+    line_count = fs.count + 1 # increment past last line for unique id
+    fs.puts "#{line_count}:" + parsed_movie_info.values.to_a.join( ",")
 
     db_conn.close
 
