@@ -6,12 +6,11 @@
 <div>
        
         <% @the_movie.each do |row| %>
-        <% binding.pry %>
         <% if @id == nil%>
 
         <h4><%= @movie_title = "#{row['title']}" %></h4>
         <h4><%= @year_released = "#{row['year']}"%></h4>
-        <img src="<%= @poster = "#{row['poster']}"%>" />
+        <a href="movies/<%= @which = "#{row['id']}" %>"><img src="<%= @poster = "#{row['poster']}"%>" /></a>
 
         <% elsif @id == row['id'] %>
 
@@ -20,8 +19,5 @@
       <img src="<%= @poster = "#{row['poster']}"%>" />
       <% end %>
       <% end %>
-      
-      
-
-         
+       
 </div>

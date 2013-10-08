@@ -34,17 +34,15 @@ FILENAME = "movies"
     @year = data["Year"].to_i
     @poster = data["Poster"]
 
-
-    
     query_str = "INSERT INTO movies (title, year, poster) "
-    query_str+="VALUES ('#{@title}', #{@year}, '#{@poster}');"
+    query_str+="VALUES ('#{@title}', #{@year}, '#{@poster}') RETURNING id;"
     db_conn = PG.connect(dbname: FILENAME + "_db")
     db_conn.exec(query_str)
+    
+    locale = db_conn.exec( "SELECT lastval();")
+    actual = locale[0]["lastval"]
+    redirect("/movies/#{actual}")
     db_conn.close
-
-
-
-    # redirect("/movies/#{@id}")
     erb :movie_display
   end
   
@@ -58,15 +56,7 @@ FILENAME = "movies"
   get("/movies/:id") do 
     @id = params[:id]
     db_conn = PG.connect(dbname: FILENAME + "_db")
-    @the_movie = db_conn.exec( "SELECT * FROM movies")
-
-    
-    # @the_movie.each do |row|
-    #   @serial = "#{row['id'].to_s}"
-    #   @movie_title = "#{row['title']}"
-    #   @year_released = "#{row['year']}"
-    #   @poster = "#{row['poster']}"
-    # end
+    @the_movie = db_conn.exec( "SELECT * FROM movies;")
 
     db_conn.close
 
