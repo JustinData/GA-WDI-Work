@@ -38,6 +38,8 @@ end
 # I know the key (or the id)
  
 get "/guest_book/:id/?" do
+  @entry = Entry.find(params[:id])
+
   erb :show
 end
  
