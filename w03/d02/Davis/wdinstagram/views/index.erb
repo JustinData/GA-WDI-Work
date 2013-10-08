@@ -1,0 +1,10 @@
+<h1>Here are ALL your photos Daaaaaaaam</h1>
+
+<ul>
+	<% @insta_entries.each do |entry| %>
+	<li>ID: <%= entry.id %></li>
+	<li>Name: <%= entry.author %></li>
+	<li>Date: <%= entry.date_taken %></li>
+	<li><img src="<%= entry.photo_url %>"></li>
+	<% end %>
+</ul>
