@@ -1,4 +1,5 @@
 require 'sinatra'
+require "sinatra/reloader"
 require 'active_record'
 require 'pry'
 
@@ -22,6 +23,8 @@ require_relative './models/entry'
 # Guest Book entries
 
 get "/guest_book" do
+
+  erb :index
 end
 
 
