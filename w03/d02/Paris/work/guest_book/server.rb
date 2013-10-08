@@ -28,6 +28,12 @@ get "/guest_book" do
   erb :index
 end
 
+# this route needs to go above the :id route
+
+get "/guest_book/new" do
+
+  erb :new
+end
 
 get "/guest_book/:id" do
   @entry = Entry.find(params[:id])
@@ -42,6 +48,10 @@ end
 # Each entry should have a unique id
 
 post "/guest_book" do
+  entry = Entry.new(comment: params[:comment], name: params[:name])
+  entry.save
+
+  redirect "/guest_book/#{entry.id}"
 end
 
 # Expect params[:name] == new_name
@@ -50,3 +60,9 @@ end
 
 delete "/guest_book/:id" do
 end
+
+
+
+
+
+
