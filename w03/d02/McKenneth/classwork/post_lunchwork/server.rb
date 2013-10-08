@@ -32,7 +32,16 @@ get "/guestbook" do
   @entries = Entry.all
   erb :index
 end
- 
+
+get "/guestbook/new" do
+  erb :new
+end
+post "/guestbook" do
+  # takes form data --params-- then must use entry.save to save it to the database
+  entry = Entry.new(comment: params[:comment], name: params[:name])
+  entry.save
+  redirect("/guestbook/#{entry.id}")
+end 
 # Show (just one entry)
 # I know the key (or the id)
  
@@ -47,9 +56,7 @@ end
 # Create a new entry in the `guest_book` hash
 # Each entry should have a unique id
  
-post "/guestbook" do
-  
-end
+
  
 # Expect params[:name] == new_name
 put "/guestbook/:id" do
