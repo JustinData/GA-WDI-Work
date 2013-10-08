@@ -19,7 +19,7 @@ end
 
 # Displays a form to create a new entry
 get "/new/?" do
-erb :form
+	erb :form
 end
 
 # Creates a new entry & saves it to database
