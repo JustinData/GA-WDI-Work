@@ -33,10 +33,17 @@ while true
 
     # open file for writing ##########################################
     fs = File.new( FILENAME + ".csv", "a+" )
+    db_conn = PG.connect( dbname: FILENAME + "_db" )
+    
+    query_str = "INSERT INTO receipts () VALUES ();"
+    query_str += "(store, item, number_of_item, price, buy_date) VALUES "
+    query_str += "('#{new_receipt[:store]}','#{new_receipt[:item]}', #{new_receipt[:num]}, #{new_receipt[:price]},'#{new_receipt[:date]}'');"
 
+    db_conn.exec( "INSERT INTO")
     line_count = fs.count + 1 # increment past last line for unique id
     fs.puts "#{line_count}:" + new_receipt.values.to_a.join( "," )
 
+    db_conn.close
     fs.close
     ###################################################################
 
@@ -50,9 +57,14 @@ while true
     puts mp( "Receipts List", " " )
     puts mp( "", "*" ) + "\n"
 
-    # open file for reading ##########################################
+    # open file for reading 
+    ##########################################
     fs = File.new( FILENAME + ".csv", "r" )
+    db_conn = PG.connect( dbname: FILENAME + "_db" )
 
+    results = db_conn.exec( "SELECT * FROM receipts;")
+
+    binding.pry
     fs.each do |line|
       line_count, line = line.chomp.split(":")
       old_receipt[:store], old_receipt[:item], old_receipt[:num], old_receipt[:price], old_receipt[:date] = line.split(",")
@@ -63,6 +75,7 @@ while true
     end
 
     fs.close
+    db_conn.close 
     ###################################################################
 
     puts mp( "", "*" ) + "\n\n"
