@@ -41,45 +41,24 @@ post "/movies" do
 
 
 
-#enters info into db via info indexes
-   db_conn = PG.connect( dbname: FILENAME + "_db")
+#call db and write in key/value pairs
 
-    # query_str = "INSERT INTO movies "
-    # query_str += "(year, poster, title) VALUES"
-    # query_str += "( #{info[:year]}, '#{info[:poster]}', '#{info[:title]}');"
-    # db_conn.exec ( "INSERT INTO")
+  db_conn = PG.connect( dbname: FILENAME + "_db")
 
-    # db_conn.exec (query_str)
-    db_conn.exec( "INSERT INTO movies (year, poster, title) VALUES (#{info[:year]},'#{info[:poster]}','#{info[:title]}');" )
+  db_conn.exec( "INSERT INTO movies (year, poster, title) VALUES (#{info[:year]},'#{info[:poster]}','#{info[:title]}');" )
 
-     db_conn = PG.connect( dbname: FILENAME + "_db")
-
-    @results = db_conn.exec ("SELECT * FROM  movies;")
-
-  
-# start line counter at 0 and then add to it for each line of the text doc
-# stores in id
-   # rows_in_file = 0
-
-#   file = File.new("movies.txt", "a+")
-
-      # @results.each |row|
-      #    @id = row["id"]
-      # end
-    
+  @results = db_conn.exec ("SELECT * FROM  movies;")
 
 
-#   Write the info to the csv
 
-#   file.puts info.join(",")
-#   file.close
+
+ #id set to num of rows to route page
+  id = (@results.length) + 1
+  binding.pry
 
 
   redirect "/movies/#{id}"
   db_conn.close
-
- 
-
 end
 
 # GET "/movies" => Print out information for all the movies. 
@@ -113,7 +92,7 @@ get "/movies/:id" do
 
   db_conn = PG.connect( dbname: FILENAME + "_db")
 
-  results = db_conn.exec ("SELECT * FROM  movies;")
+  @results = db_conn.exec ("SELECT * FROM  movies;")
 
   # file = File.new("movies.txt", "a+")
 
