@@ -70,7 +70,7 @@ all_films = open_and_read_data(all_films)
 get "/" do
 	display = erb :index, :layout => false
 	display += erb :form, :layout => false
-    display += erb :choices, :layout => false
+    #display += erb :choices, :layout => false #-> moved into layout file
 	
     #only final erb is returned.  i wish there was a more elegant way to do this.
     #also this is a wreck - it renders layout.erb every time!  argh.  have to use layout => false 
