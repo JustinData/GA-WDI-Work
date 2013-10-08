@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'active_record'
 require 'pry'
+require 'sinatra/reloader'
 
 ActiveRecord::Base.establish_connection(
   :adapter => "postgresql", 
@@ -25,14 +26,16 @@ require_relative './models/entry'
 # Index
 
 get "/guest_book" do
- 
+  @entries = Entry.all
+  erb :index
 end
 
 # Show (just one entry)
 # I know the key (or the id)
 
 get "/guest_book/:id" do
-
+  @entry = Entry.find(params[:id])
+  erb :show 
 end
 
 # GET /guest_book/1
