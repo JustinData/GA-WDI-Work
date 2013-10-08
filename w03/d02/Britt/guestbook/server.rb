@@ -1,6 +1,19 @@
 require 'sinatra'
+require 'active_record'
 require 'pry'
- 
+
+ActiveRecord::Base.establish_connection(
+  :adapter => "postgresql",
+  :host => "localhost",
+  :username => "brittlewis",
+  :password => "",
+  :database => "sandbox"
+)
+
+require_relative './models/entry'
+
+binding.pry
+
 # Create
 # Read
 # Update
