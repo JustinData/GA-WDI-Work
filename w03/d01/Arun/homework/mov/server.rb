@@ -2,6 +2,7 @@ require "sinatra"
 require "sinatra/reloader"
 require "json"
 require "httparty"
+require "PG"
 
  
 get ("/") do 
