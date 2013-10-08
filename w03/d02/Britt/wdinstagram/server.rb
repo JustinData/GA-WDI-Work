@@ -24,8 +24,19 @@ get "/new/?" do
 	erb :form
 end
 
-# Creates a new entry & saves it to database
-post "/create/?" do; end
+# Creates a new entry, saves it to database
+# redirects user to single entry view
+post "/create/?" do
+	entry = Entry.new({ author: params[:author], photo_url: params[:photo_url], date_taken: params[:date_taken] })
+
+	entry.save
+
+	redirect "/show/#{entry.id}"
+end
 
 # Displays a particular entry
-get "/show/:id?" do; end
+get "/show/:id?" do
+	Entry.find(params[:id])
+
+	erb :show
+end

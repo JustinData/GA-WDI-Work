@@ -27,8 +27,10 @@ Your Sinatara app should have the following controller actions:
   	* Test your database using psql 
 	-->
 
-2. Set up your model using ActiveRecord
-  * Test your ActiveRecord class using pry (as with "active_record.rb" during class)
+<!-- DONE.
+	2. Set up your model using ActiveRecord
+	  * Test your ActiveRecord class using pry (as with "active_record.rb" during class)
+	-->
 
 3. Set up your controller & views
   * Tackle the actions one at a time!
