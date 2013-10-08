@@ -35,26 +35,20 @@ post "/movies" do
   poster = parsed["Poster"]
   plot = parsed["Plot"]
   plot_reformatted = plot.to_s.gsub("'",'\\\'')
-  # count line.number in the file to assign incremental id for entry
-  # id_num = 0
-  # id_num += file.readlines.size
 
-  # take that info and turn it into a string
-  # movie_info = "#{id_num}, #{title}, #{year}, #{poster}, #{plot}"
-  # Make query
   query = "INSERT INTO movie_list "
   query += "(title, date, poster, plot) VALUES"
   query += "("
   query += "'#{title}', '#{year}', '#{poster}', '#{plot_reformatted}'"
   query += ");"
+
+  # Error receieved here
   db_conn.exec( query )
 
 
-
-  # adds entry as a CSV to movies.txt
+  # file.close
   db_conn.close
   # file.puts movie_info
-  # file.close
 
   # redirect to ("movies/#{id_num}")
 
