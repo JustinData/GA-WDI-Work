@@ -25,6 +25,21 @@ get "/guest_book/?" do
   erb :index
 end
  
+
+get '/guest_book/new/?' do
+  erb :new  
+end
+
+post "/guest_book/?" do
+  
+  entry = Entry.new(comment: params[:comment], name: params[:name])
+  
+  entry.save
+
+  redirect "/guest_book/#{entry.id}"
+
+end
+
 # Show (just one entry)
 # I know the key (or the id)
  
