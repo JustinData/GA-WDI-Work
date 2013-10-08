@@ -32,7 +32,7 @@ end
 
 post "/wdi_instagram" do
 #   # everything in the parens is one argument
-  entry = Entry.new({author: params[:author], photo: params[:photo], day_taken: params[:day_taken]})
+  entry = Entry.new({author: params[:author], photo: params[:photo], date_taken: params[:date_taken]})
   entry.save
 
   redirect "/wdi_instagram/#{entry.id}"
