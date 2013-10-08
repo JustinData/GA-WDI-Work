@@ -15,8 +15,12 @@ require_relative './models/entry'
 
 get "/guest_book" do
   @entries = Entry.all
-  
+
   erb :index
+end
+
+get "/guest_book/new" do
+  erb :new
 end
 
 # Show (just one entry)
@@ -35,7 +39,10 @@ end
 # Each entry should have a unique id
 
 post "/guest_book" do
+  entry = Entry.new(comments: params[:comments], name: params[:name])
+  entry.save
 
+  redirect "/guest_book/#{entry.id}"
 end
 
 # Expect params[:name] == new_name
