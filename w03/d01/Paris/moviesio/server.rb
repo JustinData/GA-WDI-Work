@@ -18,10 +18,9 @@ end
 
 get "/movies" do
 
-fs = File.new( "movies" + ".csv", "r" )
-db_conn = PG.connect( dbname: "movies" + "_db"  )
-results = db_conn.exec( "SELECT * FROM movies;"  )
-results.each do |row|
+ db_conn = PG.connect( dbname: FILENAME + "_db" )
+result = db_conn.exec( "SELECT * FROM movies" )
+result.each do |row|
 @output_str = "Number #{row['id']}: #{row['year']} "
 @output_str += "#{row['poster']}, #{row['title']} )" 
 
@@ -32,13 +31,12 @@ db_conn.close
 end
 
 get "/movies/:id" do   
-fs = File.new( "movies" + ".csv", "r" )
-db_conn = PG.connect( dbname: "movies" + "_db"  )
-results = db_conn.exec( "SELECT * FROM movies;"  )
+ db_conn = PG.connect( dbname: FILENAME + "_db" )
+result = db_conn.exec( "SELECT * FROM movies"  )
 
 id = params[:id]
-results = "SELECT * FROM movies WHERE id=#{id}"
-@puts_movie = results
+result = "SELECT * FROM movies WHERE id=#{id}"
+@puts_movie = result
 db_conn.close
 
   erb :singlemovie
@@ -52,22 +50,16 @@ url = "http://www.omdbapi.com/?t=#{name}"
 response = HTTParty.get(url) 
 parsed_movie_info = JSON(response)
 
-fs = File.new( "movies" + ".csv", "a+" )
+ db_conn = PG.connect( dbname: FILENAME + "_db" )
 
- db_conn = PG.connect( dbname: "movies" + "_db"  )
-
-    @query_str = "INSERT INTO movies "
-    @query_str += "( year, poster, title) VALUES "
-    @query_str += "( #{parsed_movie_info[:year]}, '#{parsed_movie_info[:poster]}', '#{parsed_movie_info[:title]}' );" 
-
-    line_count = fs.count + 1 # increment past last line for unique id
-    fs.puts "#{line_count}:" + parsed_movie_info.values.to_a.join( ",")
-
+    query = "INSERT INTO movies"
+    query += "(year, poster, title) VALUES"
+    query += "(#{parsed_movie_info[:year]}, '#{parsed_movie_info[:poster]}', '#{parsed_movie_info[:title]}');" 
+    db_conn.exec( query )
     db_conn.close
 
   redirect to("/movies/#{"id"}")
 end
-
 
 # use the where clause to do id
 
