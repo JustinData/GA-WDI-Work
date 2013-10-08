@@ -37,6 +37,11 @@ get "/guest_book" do
   erb :index
 end
 
+# Add a new guest book entry
+get "/guest_book/new" do
+  erb :new
+end
+
 # GET /guest_book/id
 get "/guest_book/:id" do
   @entry = Entry.find(params[:id])
@@ -45,11 +50,12 @@ get "/guest_book/:id" do
 end
 
 # POST /guest_book
-# Create a new entry in the `guest_book` hash
-# Each entry should have a unique id
-
 post "/guest_book" do
- 
+  new_entry = Entry.new(name: params[:name], comment: params[:comment])
+  # Save the entry to the table
+  new_entry.save
+  
+  redirect "/guest_book/#{new_entry.id}"
 end
 
 delete "/guest_book/:id" do
