@@ -47,6 +47,7 @@ end
 
 
 post "/guest_book" do
+  # entry is an instance of the Entry class
   entry = Entry.new(comment: params[:comment], name: params[:name])
 
   entry.save
