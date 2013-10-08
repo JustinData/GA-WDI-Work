@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'sinatra/reloader'
 require 'pry'
 require 'active_record'
 
@@ -11,7 +12,6 @@ ActiveRecord::Base.establish_connection(
   )
 require_relative './models/entry'
 
-binding.pry
 # Create
 # Read
 # Update
