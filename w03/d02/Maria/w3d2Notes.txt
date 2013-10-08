@@ -1,0 +1,55 @@
+create database sandbox;
+\c - to connect
+psql -d sandbox -f schema.sql
+psql -d sandbox
+
+select * from musicals;
+\d
+title = gets.chomp(varchar not null)
+year = gets.chomp(varchar not null)
+composer = gets.chomp(varchar not null)
+comments = gets.chomp (optional)
+(maybe we have a txt columns that users) 
+
+managing the order of these things going n can get crazy
+
+the purpse is th get the data that is entered.
+its bout aqcuiring new musicals
+
+musicals is the tble with the title year and composer in the table.
+
+to insert query strings would get insane if yo have to make changes.
+
+tryong to use ruby to abstract
+
+psql -d sandbox
+psql (9.3.0)
+Type "help" for help.
+
+sandbox=# select * from musicals;
+ id |  title  | year | composer 
+----+---------+------+----------
+  1 | Follies | 1971 | Sondheim
+(1 row)
+
+sandbox=# select * from musicals where id = 1;
+ id |  title  | year | composer 
+----+---------+------+----------
+  1 | Follies | 1971 | Sondheim
+(1 row)
+
+ruby musicals_crude.rb
+{"id"=>"1", "title"=>"Follies", "year"=>"1971", "composer"=>"Sondheim"}
+an @@ variable is bound to the class itself. so subclasses will have access to it.
+setting up a convention to connect to the tables.
+name you class to the same name as the tabledb
+if you want to use this class this is how you do it
+class is musicals of classs taking it to-s to a string so you can use a class name to interact with a table in that db.
+
+the first module we will work with in Railss Active record. 
+active record is an object relational mapper (ORM)
+
+relational<-SQL
+object<-Ruby
+mapper abstracts out db management system and encapsuataes into convenient obj.s we can interact with.
+.insert method maps to table.
