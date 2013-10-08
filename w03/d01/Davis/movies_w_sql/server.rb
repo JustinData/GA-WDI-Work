@@ -33,6 +33,8 @@ post '/movies' do
 	# assign to variables
 	title = parsed["Title"]
 	year = parsed["Year"]
+	genre = parsed["Genre"]
+	imdb = parsed["imdbRating"]
 	poster = parsed["Poster"]
 
 	# connect to DB
@@ -41,9 +43,10 @@ post '/movies' do
 
 	#store id as usuable var
 	@id = result.values.last[0]
+	@id ||= 1
 
 	# write to DB
-	db_conn.exec( "INSERT INTO movies (title,year,poster_link) VALUES ('#{title}', #{year}, '#{poster}');" )
+	db_conn.exec( "INSERT INTO movies (title,year,genre,imdb,poster_link) VALUES ('#{title}', #{year}, '#{genre}', #{imdb}, '#{poster}');" )
 
 	db_conn.close
 
@@ -53,9 +56,17 @@ end
 get '/movies/:id' do 
 	get_data
 
+	# alter for usability
+		# change so dry aka yield if statement
 	if params[:id] == 'recent'
 		@h1 = "Recent Movies"
 		erb :recent	
+	elsif params[:id] == 'good'
+		@h1 = "Good Movies"
+		erb :good
+	elsif params[:id] == 'funny'
+		@h1 = "Funny Movies"
+		erb :funny
 	else
 		@h1 = "Your Movie Below!"
 		erb :specific
@@ -69,11 +80,3 @@ get '/movies' do
 
 	erb :all
 end
-
-# get 'moves/good' do 
-
-# end
-
-# get 'movies/funny' do 
-
-# end
