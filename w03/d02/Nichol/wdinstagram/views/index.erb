@@ -1,0 +1,15 @@
+<h1> Welcome to WDInstagram</h1>
+
+<h3>Here are the photos we have:</h3>
+
+<ul>
+    
+    <% @entries.each do |entry| %>
+        <li> 
+            <p>Name: <%= entry.author %> <p>
+            <p>Name: <%= entry.date_taken %> <p>
+            <p>Photo: <img src="<%= entry.photo %>"> <p>
+        </li>
+    <% end %>
+
+</ul>

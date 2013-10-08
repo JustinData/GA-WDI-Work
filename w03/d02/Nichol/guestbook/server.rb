@@ -9,7 +9,7 @@ ActiveRecord::Base.establish_connection(
   :username => "nichol",
   :password => "",
   :database => "sandbox_db"
-  )
+)
 
 require_relative './models/entry'
 
