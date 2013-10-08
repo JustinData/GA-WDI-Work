@@ -47,8 +47,10 @@ end
 # Create a new entry in the `guest_book` hash
 # Each entry should have a unique id
 
+# params is a Sinatra convention. Pulling/inputting comment and name out of a hash that lives in active record.
 post "/guest_book" do
-  entry = Entry.new(comment: params[:comment], name: params[:name])
+  # everything in the parens is one argument
+  entry = Entry.new({comment: params[:comment], name: params[:name]})
   entry.save
 
   redirect "/guest_book/#{entry.id}"
