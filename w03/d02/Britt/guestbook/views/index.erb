@@ -1,0 +1,9 @@
+<h1>Welcome to GuestBook.ly</h1>
+
+<h3>Here are the guests who've been here:</h3>
+
+<ul>
+	<% @entries.each do |entry| %>
+	<li>Name: <%= entry.name %></li>
+	<% end %>
+</ul>

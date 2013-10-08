@@ -27,31 +27,33 @@ require_relative './models/entry'
  
 # Index
  
-get "/guest_book" do
+get "/guest_book/?" do
+  @entries = Entry.all
 
+  erb :index
 end
 
 # GET /guest_book/1
 # Show (just one entry)
 # I know the key (or the id)
  
-get "/guest_book/:id" do
-  
+get "/guest_book/:id/?" do
+  erb :show
 end
  
 # POST /guest_book
 # Create a new entry in the `guest_book` hash
 # Each entry should have a unique id
  
-post "/guest_book" do
+post "/guest_book/?" do
   
 end
  
 # Expect params[:name] == new_name
-put "/guest_book/:id" do
+put "/guest_book/:id/?" do
   
 end
  
-delete "/guest_book/:id" do
+delete "/guest_book/:id/?" do
   
 end
