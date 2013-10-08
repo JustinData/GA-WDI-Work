@@ -5,6 +5,7 @@ require 'json'
 require 'pry'
 require "pg"
 
+# set variable for database
 FILENAME = "movie_list"
 
 get "/" do
@@ -16,8 +17,10 @@ get "/movies/search" do
 end
 
 post "/movies" do
-  # file = File.new("movies.txt", "a+")
+  # file
   db_conn = PG.connect( dbname: FILENAME + "_db", host: "localhost" )
+  
+  # params from form to search
   title = params[:title]
   title = title.gsub(" ", "+")
 
@@ -29,39 +32,41 @@ post "/movies" do
   # Fetches movie data from OMDB
   parsed = JSON(response)
 
-  # set variables for the title, year, and poster
-  title = parsed["Title"]
-  year = parsed["Year"].to_i
-  poster = parsed["Poster"]
+  # set variables for plot to escape quotations
   plot = parsed["Plot"]
   plot_reformatted = plot.to_s.gsub("'",'\\\'')
 
-  query = "INSERT INTO movie_list "
+  query = "INSERT INTO movie_list_db "
   query += "(title, date, poster, plot) VALUES"
   query += "("
-  query += "'#{title}', '#{year}', '#{poster}', '#{plot_reformatted}'"
+  query += "'#{parsed["Title"]}', '#{parsed["Year"].to_i}', '#{parsed["Poster"]}', '#{plot_reformatted}'"
   query += ");"
 
-  # Error receieved here
+  # Sends query to table
   db_conn.exec( query )
-
+ 
+  #finds ID of last entered movie and redirects to that page
+  results = db_conn.exec( "SELECT lastval();")
+  id = results[0]["lastval"]
+  redirect "/movies/#{id}"
 
   # file.close
   db_conn.close
-  # file.puts movie_info
-
-  # redirect to ("movies/#{id_num}")
 
 end
 
 # shows all movies
 get "/movies" do
+  db_conn = PG.connect( dbname: FILENAME + "_db" )
+  @result = db_conn.exec( "SELECT * FROM movie_list_db" )
   erb :display_movies
   
   # * Using a erb "partial" here for a single movie may help you here to keep your code DRY. You'll be able to render that same erb template for EACH movie that you have to display.
 end
 
 get "/movies/:id" do
+  db_conn = PG.connect( dbname: FILENAME + "_db" )
+  @result = db_conn.exec( "SELECT * FROM movie_list_db" )
 
   if params[:id].to_i.is_a? Fixnum
     @id_num = params[:id]
