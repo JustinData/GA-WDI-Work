@@ -36,6 +36,10 @@ get "/guest_book" do
   erb :index
 end
 
+get "/guest_book/new" do
+  erb :new
+end
+
 # Show (just one entry)
 # I know the key (or the id)
 
@@ -56,7 +60,12 @@ get "/guest_book/:id" do
 # Each entry should have a unique id
 
 post "/guest_book" do
+#puttin in ne entry in sql
+  entry = Entry.new(comment: params[:comment], name: params[:name])
   
+  entry.save
+
+  redirect "/guest_book/#{entry.id}"
 end
 
 # Expect params[:name] == new_name
