@@ -69,3 +69,10 @@ PSQL is a program that runs on the command line like pry
 if it starts with a \ the command line assumes its psql
 
 http://deveiate.org/code/pg/    
+
+
+For Homework
+PLAN Schema
+Create DB
+Test DB with (psql)
+Refactor Your Code

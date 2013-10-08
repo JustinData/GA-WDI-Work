@@ -94,4 +94,4 @@ def menu_gets( prompt_str, input_type )
       end
     end
   end
-end
+end   
