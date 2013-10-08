@@ -3,7 +3,7 @@
 
 CREATE TABLE entries (
   id serial PRIMARY KEY,
-  guest varchar(50) NOT NULL,
-   comment text
+  name varchar(50) NOT NULL,
+  comment text
 );
 
