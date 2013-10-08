@@ -31,11 +31,27 @@ require_relative './models/entry'
 # "These people have registered: Jeff, PJ, Peter"
 
 
+# Sinatra will read the routes in the order they are listed
+
 
 # Index
 get "/guest_book" do
   @entries = Entry.all
   erb :index
+end
+
+# New Guest Book entery from
+get "/guest_book/new" do
+  erb :new
+end
+
+
+post "/guest_book" do
+  entry = Entry.new(comment: params[:comment], name: params[:name])
+
+  entry.save
+
+  redirect "/guest_book/#{entry.id}"
 end
 
 # show 1 guest book entry
