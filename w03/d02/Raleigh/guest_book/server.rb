@@ -18,7 +18,7 @@ ActiveRecord::Base.establish_connection(
    )
 
 require_relative "./models/entry"
-binding.pry
+# binding.pry
 
 # Create
 # Read
@@ -29,26 +29,26 @@ binding.pry
 
 # GET /guest_book
 # List of all people who have ever registered
-# "These people have registered: Jeff, PJ, Peter"
 
 # Index
-
 get "/guest_book" do
-  
+  @entries = Entry.all
+
+  erb :index
 end
 
-# GET /guest_book/1
+# GET /guest_book/id
+get "/guest_book/:id" do
+  @entry = Entry.find(params[:id])
+
+  erb :show
+end
 
 # POST /guest_book
 # Create a new entry in the `guest_book` hash
 # Each entry should have a unique id
 
 post "/guest_book" do
- 
-end
-
-# Expect params[:name] == new_name
-put "/guest_book/:id" do
  
 end
 
