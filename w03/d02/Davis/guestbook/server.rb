@@ -36,10 +36,13 @@ get "/guest_book" do
   # show will be used for singular
   erb :index
 end
- 
-# Show (just one entry)
-# I know the key (or the id)
- 
+
+# put above /:id
+  # specify that its not param
+get '/guest_book/new' do 
+  erb :new
+end
+
 get "/guest_book/:id" do
   @entry = Entry.find(params[:id]) #SELECT * FROM entries where id = params[:id]
 
@@ -53,7 +56,11 @@ end
 # Each entry should have a unique id
  
 post "/guest_book" do
-  
+  entry = Entry.new(name: params[:name], comment: params[:comment])
+
+  entry.save
+
+  redirect("/guest_book/#{entry.id}")
 end
  
 # Expect params[:name] == new_name
