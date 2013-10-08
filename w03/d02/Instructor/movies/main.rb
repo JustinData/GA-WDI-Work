@@ -21,14 +21,10 @@ post '/movies' do
     hash = JSON(html)
 
     db = PG.connect( dbname: 'movies_db', host: 'localhost' )
-    r = db.exec( "INSERT INTO movies (title, year, poster) VALUES ( '#{hash['Title']}', '#{hash['Year']}', '#{hash['Poster']}' );" )
-
-    binding.pry
-
-    id = db.exec( "SELECT lastval();" )[0]['lastval'] # get the last serial (id) created
+    r = db.exec( "INSERT INTO movies (title, year, poster) VALUES ( '#{hash['Title']}', '#{hash['Year']}', '#{hash['Poster']}' ) returning id;" )
+    id = r[0]['id'] # get the last serial (id) created
     db.close
 
-    #binding.pry
   end
 
   redirect to("/movies/#{id}")
@@ -45,8 +41,10 @@ end
 
 get "/movies/:id" do
   db = PG.connect( dbname: 'movies_db', host: 'localhost' )
-  @movie_array = db.exec( "SELECT * FROM movies WHERE id = #{:id};" )
+  @all_movies = db.exec( "SELECT * FROM movies WHERE id = #{params[:id]};" )
+  @movie_array = @all_movies[0]
   db.close
+
   erb :movie
 end
 
