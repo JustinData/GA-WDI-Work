@@ -1,4 +1,5 @@
 require_relative "menu"
+require "pg" # DB !!!!!!
 require "pry"
 
 PROMPT = "Save (N)ew receipt, (L)ist receipts, (Q)uit"
@@ -32,13 +33,26 @@ while true
     new_receipt[:date] = "December 24 1989"
 
     # open file for writing ##########################################
-    fs = File.new( FILENAME + ".csv", "a+" )
+    #fs = File.new( FILENAME + ".csv", "a+" )
+    db_conn = PG.connect( dbname: FILENAME + "_db" )
 
-    line_count = fs.count + 1 # increment past last line for unique id
-    fs.puts "#{line_count}:" + new_receipt.values.to_a.join( "," )
 
-    fs.close
+    query_str = "INSERT INTO receipts "
+    query_str += "(store, item, number_of_item, price, buy_date) VALUES "
+    query_str += "('#{new_receipt[:store]}', '#{new_receipt[:item]}', #{new_receipt[:num]}, #{new_receipt[:price]}, '#{new_receipt[:date]}');"
+
+    #binding.pry
+
+    db_conn.exec( query_str )
+
+    #line_count = fs.count + 1 # increment past last line for unique id
+    #fs.puts "#{line_count}:" + new_receipt.values.to_a.join( "," )
+
+    db_conn.close
+    #fs.close
     ###################################################################
+
+    line_count = 'X'
 
     puts "\n" + mp( "New receipt written!", "*" )
     puts mp( "You now have #{line_count} receipts stored.", "*" ) + "\n\n"
@@ -51,18 +65,27 @@ while true
     puts mp( "", "*" ) + "\n"
 
     # open file for reading ##########################################
-    fs = File.new( FILENAME + ".csv", "r" )
+    #fs = File.new( FILENAME + ".csv", "r" )
+    db_conn = PG.connect( dbname: FILENAME + "_db" )
 
-    fs.each do |line|
-      line_count, line = line.chomp.split(":")
-      old_receipt[:store], old_receipt[:item], old_receipt[:num], old_receipt[:price], old_receipt[:date] = line.split(",")
-      output_str = "Number #{line_count}: #{old_receipt[:num]} "
-      output_str += "#{old_receipt[:item]}, from #{old_receipt[:store]} at "
-      output_str += "$#{old_receipt[:price]} each. (#{old_receipt[:date]})"
+    results = db_conn.exec( "SELECT * FROM receipts;" )
+
+    #binding.pry
+
+    results.each do |row|
+      # line_count, line = line.chomp.split(":")
+      # old_receipt[:store], old_receipt[:item], old_receipt[:num], old_receipt[:price], old_receipt[:date] = line.split(",")
+
+      #binding.pry
+
+      output_str = "Number #{row['id']}: #{row['number_of_item']} "
+      output_str += "#{row['item']}, from #{row['store']} at "
+      output_str += "#{row['price']} each. (#{row['buy_date']})"
       puts output_str
     end
 
-    fs.close
+    #fs.close
+    db_conn.close
     ###################################################################
 
     puts mp( "", "*" ) + "\n\n"
