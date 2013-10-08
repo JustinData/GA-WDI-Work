@@ -1,0 +1,9 @@
+<h1>Welcome to McKstagr.am</h1>
+<h3>The Hottest Gr.am on the Ne.tz</h3>
+
+<% @pictures.each do |picture|%>
+<h3><%= picture.author %></h3>
+<img src="<%= picture.photo %>">
+<h4><%= picture.date %></h4>
+<% end %>
+
