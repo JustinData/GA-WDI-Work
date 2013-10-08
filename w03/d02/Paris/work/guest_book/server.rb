@@ -23,12 +23,16 @@ require_relative './models/entry'
 # Guest Book entries
 
 get "/guest_book" do
-
+  # @entries is an array
+    @entries = Entry.all
   erb :index
 end
 
 
 get "/guest_book/:id" do
+  @entry = Entry.find(params[:id])
+
+  erb :show
 end
 
 # GET /guest_book/1
