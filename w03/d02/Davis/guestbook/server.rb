@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'sinatra/reloader'
 require 'active_record'
 require 'pry'
 
@@ -15,8 +16,6 @@ ActiveRecord::Base.establish_connection(
 
 require_relative './models/entry'
 
-binding.pry
-
 # Create
 # Read
 # Update
@@ -31,14 +30,20 @@ binding.pry
 # Index
  
 get "/guest_book" do
-  
+  @entries = Entry.all # aka SELECT * FROM in sql
+
+  # index used to show all resource
+  # show will be used for singular
+  erb :index
 end
  
 # Show (just one entry)
 # I know the key (or the id)
  
 get "/guest_book/:id" do
+  @entry = Entry.find(params[:id]) #SELECT * FROM entries where id = params[:id]
 
+  erb :show
 end
  
 # GET /guest_book/1
