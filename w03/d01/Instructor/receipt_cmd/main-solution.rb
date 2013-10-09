@@ -68,10 +68,6 @@ while true
     db_conn = PG.connect( dbname: FILENAME + "_db" )
     result = db_conn.exec( "SELECT * FROM receipts" )
 
-    # Saving the SELECTion that you get from the database table
-    # as the variable 'result' and then it pulls the info from
-    # result using .each method 
-
     #fs.each do |line|
     result.each do |row|
       #output_str = "Number #{line_count}: #{old_receipt[:num]} "
