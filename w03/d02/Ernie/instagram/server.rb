@@ -13,6 +13,10 @@ ActiveRecord::Base.establish_connection(
 
 require_relative './models/entry'
 
+get'/'do
+  erb :welcome
+end
+
 get '/gram'do 
   @entries = Entry.all
   erb :index
