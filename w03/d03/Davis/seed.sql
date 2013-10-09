@@ -30,3 +30,4 @@ INSERT INTO receipts (store, item, number_of_item, price, buy_date) VALUES
   ('Sears', 'swatch watch', 1, 50, 'December 24 1989'),
   ('Toys R Us', 'Trouble', 1, 25, 'December 24 1989'),
   ('Sears', 'school supplies set', 5, 18.50, 'December 24 1989');
+  
