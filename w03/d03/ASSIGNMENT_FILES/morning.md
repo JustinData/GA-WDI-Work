@@ -24,7 +24,7 @@ require 'faker'
 
 name = Faker::Name.name
 address = Faker::Address.street_address
-email_address = Faker::Internet.email_address
+email_address = Faker::Internet.email
 ```
 
 ###Part 2 - Creating a users database
@@ -39,3 +39,7 @@ email_address = Faker::Internet.email_address
   - Be sure to require id and name
 - Run your `schema.sql` file from your command line, adding the table to your `sandbox` database
 - Test your database to make sure your can INSERT and SELECT
+
+###Part 3 - Adding test data to our database
+- Write a ruby program that will connect to our database and insert 50 randomly generated entries into our users table
+- How can you make sure that they were added correctly?
