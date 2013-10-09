@@ -95,8 +95,23 @@ while true
     # RECEIPTS PER PARENT, AVERAGE COST PER PRESENT, SHOW PRESENTS IN #
     # DESCENDING ORDER, FOR EACH PARENT ###############################
 
+    db_conn = PG.connect( dbname: FILENAME + "_db" )
+    mom = db_conn.exec( "SELECT sum( number_of_item ) from receipts WHERE parent = 'Mom';")
+    mom_avg = db_conn.exec("SELECT AVG(price) from receipts where parent = 'Mom';")
+    mom_receipts = db_conn.exec("SELECT * from receipts where parent = 'Mom' ORDER BY price DESC;")
+    db_conn.close
 
+   # binding.pry
 
+    puts "MOM!"
+    puts "Number of items: #{mom[0]['sum']}"
+    puts "Average cost: $#{mom_avg[0]['avg'].to_f.round(2)} per item... NICE!"
+
+    mom_receipts.each do |row|
+      puts "Item: #{row['item']}, from store: #{row['store']}, of price: #{row['price']}"
+    end
+
+    #puts "Number of items: #{mom}"
 
     ###################################################################
 
@@ -105,7 +120,7 @@ while true
   when :u
     puts mp( "Receipts List", " " )
     puts mp( "", "*" ) + "\n"
-    list_receipts
+    puts list_receipts
     puts mp( "", "*" ) + "\n\n"
 
     id = menu_gets( "Enter id of receipt you want to change: ", "Integer")
@@ -113,6 +128,13 @@ while true
 
     # UPDATE SOME RECEIPT BASED ON COLUMN NAME AND ROW ID #############
 
+    print "New value: "
+    value = gets.chomp
+
+    db_conn = PG.connect( dbname: 'receipts_db' )
+    db_conn.exec( "UPDATE receipts SET #{column} = '#{value}' WHERE id = #{id}" )
+
+    db_conn.close
 
 
 
