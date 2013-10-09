@@ -56,6 +56,7 @@ while true
     fs.each do |line|
       line_count, line = line.chomp.split(":")
       old_receipt[:store], old_receipt[:item], old_receipt[:num], old_receipt[:price], old_receipt[:date] = line.split(",")
+
       output_str = "Number #{line_count}: #{old_receipt[:num]} "
       output_str += "#{old_receipt[:item]}, from #{old_receipt[:store]} at "
       output_str += "$#{old_receipt[:price]} each. (#{old_receipt[:date]})"
