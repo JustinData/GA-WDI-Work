@@ -1,3 +1,17 @@
+body {
+	background-color: #42b4e6;
+	text-align: center;
+}
+
 h1 {
-	color: red;
+	color: #fe4042;
+}
+
+ul {
+	list-style-type: none;
+}
+
+img {
+	/*box shadow*/
+	width: 30%;
 }

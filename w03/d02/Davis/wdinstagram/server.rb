@@ -1,5 +1,5 @@
-# add delete function, annoying entries
 # add styling
+# consolidate search function
 
 # Note: because I did not want to change already existing
 # Entry / entries, I used InstaEntry instead
@@ -56,13 +56,6 @@ get '/show/:id' do
 	erb :show
 end
 
-# get specific entry aka form / search
-# get '/searchby/:type' do 
-# 	@type = params[:type]
-
-# 	erb :specific
-# end
-
 get '/searchby/:type' do 
 	@type = params[:type]
 
@@ -73,7 +66,7 @@ get '/searchby/:type' do
 	else #by date
 		@h1 = "Search Photo by Date"
 	end
-	
+
 	erb :search
 end
 
@@ -87,9 +80,23 @@ get '/searchby/:type/view' do
 	if @author
 		erb :byauthor
 	elsif @date
-		# binding.pry
 		erb :bydate
 	else #id because @id holds value of 0???
 		erb :show
 	end
+end
+# consolidate via some variation of #find / #find_by method?
+
+get '/delete' do 
+	erb :delete
+	# binding.pry
+end
+
+post '/delete' do 
+	# take id as param
+	@delete_id = params[:delete_id].to_i #incase not num
+	# delete row associated w/ id
+	InstaEntry.all.delete(@delete_id)
+	# redirect to show all
+	redirect('/show/all')
 end
