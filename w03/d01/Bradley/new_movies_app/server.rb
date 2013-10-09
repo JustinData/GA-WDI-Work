@@ -1,8 +1,10 @@
 require 'sinatra'
-require 'sinatra/reloader'
+# require 'sinatra/reloader'
 require 'httparty'
 require 'json'
 require 'pg'
+
+Bundler.require
 
 get("/") do
   erb :index
