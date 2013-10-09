@@ -1,6 +1,8 @@
 
 
 <!-- @entries is an array, each entry is an instance of the entry class-->
+<body class="wrapper">
+<section>
 <ul>
   <% @entries.each do |entry| %>
   <li>Entry: <a href="/photos/<%= entry.id%>"><%= entry.author %></a></li>
@@ -8,5 +10,7 @@
   <li><%= entry.pdate %></li>
   <%end%>
 </ul>
+</section>
 <a href="/photos/new">Post a Photo</a>
 <a href="/photos">See all Photos</a>
+</body>

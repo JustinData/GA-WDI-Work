@@ -14,39 +14,31 @@ ActiveRecord::Base.establish_connection(
 
 require_relative './models/wdi_entry'
 
-
-# get "/guest_book" do
-#   @entries = Entry.all
-#   erb :index
-# end
+#set homepage to index
 get "/" do
   erb :index
 end
 
+#accesses each value of the entry object
 get "/photos" do
   @entries = Entry.all
   erb :photo
 end
 
-
+#routes to form
 get "/photos/new" do
   erb :new
 end
 
-
+#retrieves single line from the entry object
 get "/photos/:id" do
   @entry = Entry.find(params[:id])
   erb :show
 end
 
-# post "/guest_book" do
-#   entry = Entry.new(comment: params[:comment], name: params[:name])
-#   entry.save
-#   redirect "/guest_book/#{entry.id}"
-# end
+#passes in form params to create a new instance of the entry class
 post "/photos" do
    entry = Entry.new(author: params[:author], photo: params[:photo], pdate: params[:date])
    entry.save
-    binding.pry
    redirect "/photos/#{entry.id}"
 end
