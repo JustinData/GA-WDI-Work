@@ -8,7 +8,7 @@ ActiveRecord::Base.establish_connection(
   :host => "localhost",
   :username => "ezpawn",
   :password => "1234",
-  :database => "sandbox"
+  :database => "insta"
   )
 
 require_relative './models/entry'
