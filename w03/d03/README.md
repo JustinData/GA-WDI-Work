@@ -1,4 +1,4 @@
-# Week 03, Day 01: SQL Strikes Back
+# Week 03, Day 03: SQL Strikes Back
 
 * Data modeling
 
