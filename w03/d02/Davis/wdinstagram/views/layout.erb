@@ -5,6 +5,16 @@
 	<title>WDInstagram</title>
 </head>
 <body>
+	<nav>
+		<a href="/show/all" class="menu_link">Photo Stream</a>
+		<a href="/new" class="menu_link">New Upload</a>
+		<a href="/searchby/id" class="menu_link">Search by ID</a>
+		<a href="/searchby/author" class="menu_link">Search by Name</a>
+		<a href="/searchby/date" class="menu_link">Search by Date</a>
+	</nav>
+
+	<h1><%= @h1 %></h1>
+
 	<%= yield %>
 </body>
 </html>

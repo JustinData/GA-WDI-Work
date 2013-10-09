@@ -1,6 +1,6 @@
 <ul>
 	<% InstaEntry.all.each do |entry| %>
-		<% if entry.id == @id %>
+		<% if entry.author == @author %>
 			<li>ID: <%= entry.id %></li>
 			<li>Name: <%= entry.author %></li>
 			<li>Date: <%= entry.date_taken %></li>
