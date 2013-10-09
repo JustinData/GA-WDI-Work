@@ -1,12 +1,16 @@
 <!-- Displays all entries; home page -->
-<h1>STUFF</h1>
+<h1>WDInstagr.am</h1>
 
 <ul>
 	<% @entries.each do |entry| %>
 	<p>
-		<li><%= entry.author %></li>
+		<% if entry.author[0] == '@' %>
+			<li><a href="http://instagram.com/<%= entry.author[1..-1] %>"><%= entry.author %></a></li>
+		<% else %>
+			<li><%= entry.author %></li>
+		<% end %>
 		<li><%= entry.date_taken %></li>
-		<img src="<%= entry.photo_url %>"
+		<img src="<%= entry.photo_url %>">
 		<br/>
 	</p>
 	<% end %>

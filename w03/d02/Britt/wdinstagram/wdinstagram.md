@@ -32,7 +32,9 @@ Your Sinatara app should have the following controller actions:
 	  * Test your ActiveRecord class using pry (as with "active_record.rb" during class)
 	-->
 
-3. Set up your controller & views
-  * Tackle the actions one at a time!
+<!-- 
+	3. Set up your controller & views
+  	* Tackle the actions one at a time!
+  -->
 
 4. Update your views and add styling to make it look nice!
