@@ -17,6 +17,6 @@ end
 hash = {}
 
 (1..50).each do |n|
-	hash[n.to_s] = User.new(n, Faker::Name.name, Faker::Address.street_address, Faker::Internet.email)
+	hash[n] = User.new(n, Faker::Name.name, Faker::Address.street_address, Faker::Internet.email)
 end
 
