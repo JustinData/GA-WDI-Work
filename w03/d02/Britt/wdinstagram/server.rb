@@ -16,6 +16,8 @@ require_relative './models/entry'
 
 # Displays all entries
 get "/?" do
+	@entries = Entry.all
+
 	erb :index
 end
 
@@ -36,7 +38,7 @@ end
 
 # Displays a particular entry
 get "/show/:id?" do
-	Entry.find(params[:id])
+	@entry = Entry.find(params[:id])
 
 	erb :show
 end

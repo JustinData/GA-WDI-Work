@@ -1,1 +1,13 @@
 <!-- Displays all entries; home page -->
+<h1>STUFF</h1>
+
+<ul>
+	<% @entries.each do |entry| %>
+	<p>
+		<li><%= entry.author %></li>
+		<li><%= entry.date_taken %></li>
+		<img src="<%= entry.photo_url %>"
+		<br/>
+	</p>
+	<% end %>
+</ul>
