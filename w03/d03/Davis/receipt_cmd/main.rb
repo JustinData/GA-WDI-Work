@@ -27,6 +27,26 @@ def list_receipts
   output_str # implicit return
 end
 
+def list_stats(parent)
+  db_conn = PG.connect( dbname: FILENAME + "_db" )
+  receipts_per = db_conn.exec( "SELECT COUNT(*) FROM receipts WHERE parent = '#{parent}'" )[0]["count"]
+  avg_cost = db_conn.exec( "SELECT AVG(price) FROM receipts WHERE parent = '#{parent}'" )[0]["avg"]
+  receipts_desc = db_conn.exec( "SELECT * FROM receipts ORDER BY price DESC" ).values
+  db_conn.close
+
+  output = "#{parent}: #{receipts_per} presents and #{avg_cost} average cost per present."
+  output2 = ""
+  receipts_desc.each do |array|
+    output2 += array.join(" | ") + "\n"
+  end
+
+  output + "\n" + output2
+end
+
+def update
+  
+end
+
 # welcome message
 puts mp( "", "*" )
 puts mp( "WELCOME TO THE RECEIPT APP", "*" )
@@ -94,10 +114,8 @@ while true
 
     # RECEIPTS PER PARENT, AVERAGE COST PER PRESENT, SHOW PRESENTS IN #
     # DESCENDING ORDER, FOR EACH PARENT ###############################
-
-
-
-
+    puts list_stats("mom")
+    puts list_stats("dad")
     ###################################################################
 
     puts mp( "", "*" ) + "\n\n"
