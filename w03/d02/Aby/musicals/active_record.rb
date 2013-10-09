@@ -1,5 +1,5 @@
 require 'active_record'
-require 'pry'
+
 
 ActiveRecord::Base.establish_connection(
 	:adapter => "postgresql",
@@ -12,4 +12,3 @@ ActiveRecord::Base.establish_connection(
 class Musical < ActiveRecord::Base
 end
 
-binding.pry
