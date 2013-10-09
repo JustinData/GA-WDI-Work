@@ -3,7 +3,7 @@
 # menu by spacing each line correctly
 ########################
 
-MENU_WIDTH = 75
+MENU_WIDTH = 65
 
 def menu_print( input_str, spacing_char )
   if input_str.empty?
