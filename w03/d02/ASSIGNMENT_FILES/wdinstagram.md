@@ -31,4 +31,4 @@ Your Sinatara app should have the following controller actions:
 3. Set up your controller & views
   * Tackle the actions one at a time!
 
-4. Update your views and add styling to make it look nice!
+4. Update your views and add styling to make it look nice! 
