@@ -12,13 +12,13 @@ class User
 	end
 
 	def to_s
-		"Name:#{@name} \nEmail: #{@email} \nAddress: #{@address}."
+		"\nName:#{@name} \nEmail: #{@email} \nAddress: #{@address}"
 	end
 end
 
 @junk_data = {}
 
-50.times do |i|
+1.upto(50) do |i|
 	id = i
 	name = Faker::Name.name
 	address = Faker::Address.street_address
@@ -26,4 +26,8 @@ end
 
 	@junk_data[id] = User.new(id, name, address, email)
 	
+end
+
+@junk_data.each do |id, object|
+	puts object.to_s
 end
