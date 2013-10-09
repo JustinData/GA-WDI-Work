@@ -130,7 +130,7 @@ while true
     column = menu_gets( "Enter receipt attribute (store, item, price, number_of_item, parent): ", "String" )
 
     # UPDATE SOME RECEIPT BASED ON COLUMN NAME AND ROW ID #############
-
+    
 
 
 
