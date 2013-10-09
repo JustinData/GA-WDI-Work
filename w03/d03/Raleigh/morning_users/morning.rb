@@ -26,4 +26,4 @@ user_hash = Hash.new
    user_object = User.new(id, name, street, email)
    user_hash[id] = user_object
 end
-puts user_hash
+# puts user_hash
