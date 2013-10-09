@@ -1,3 +1,9 @@
+mornex.rb
+
+1. classmates_strings.map {|s| s.gsub(/,/, '|') }
+2. 
+
+
 #Morning Exercise - Nested collections & Enumeration
 
 ## Part 1 - Comma separated strings in an array
@@ -55,16 +61,6 @@ Tom's favorite food is Wings
 <li>tommyb67</li>
 </ul>
 
-
-
-**********  classmates_strings.each do |s|
-                  classmates = s.split(",") 
-                  puts "<ul>"
-                  classmate.each do |info|
-                    puts "<li>" #{info} </li>
-                  end 
-                    puts "</ul>"
-                  end
 ```
 
 ## Part 2 - Hashes in an array
@@ -95,9 +91,8 @@ McKenneth's favorite food is Duck confit
 Aby's favorite food is Sushi
 Marco's favorite food is Ceviche
 
-******classmates_hashes.each do |hash|
-            puts "#{hash[:name]}'s favorite food is #{hash[:food]}."
-          end
+
+ "#{classmates_hashes[0][:name]} + "'s" favorite food is #{classmates_hashes[0][:food]}
 
 
 
@@ -121,19 +116,6 @@ Marco's favorite food is Ceviche
 <li>Food: Ceviche</li>
 <li>Github: mpvazquez</li>
 </ul>
-
-********classmates_hashes.each do |hash|
-            puts "<ul>" 
-            classmates_hashes.each do |key, value| 
-              puts "<li> #{key}: #[value] </li>"
-            end
-            puts "</ul>"
-          end
-
-
-      instead of puts, use <%= and %> to print the return to the erbs.
-      use <% and %> to wrap the blocks and enumerators in the erb files. 
-
 ```
 
 ## Bonus
