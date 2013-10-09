@@ -39,6 +39,8 @@ post '/movies' do
 	year = parsed["Year"]
 	poster = parsed["Poster"]
 
+	# binding.pry
+
 	file = File.new("movies.txt", "a+")
 	file.puts "#{@id},#{title},#{year},#{poster}"	
 
