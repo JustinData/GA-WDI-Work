@@ -100,3 +100,10 @@ post '/delete' do
 	# redirect to show all
 	redirect('/show/all')
 end
+
+# sloppy but repair later
+get '/clicksearch/:name' do 
+	@author = params[:name]
+
+	erb :byauthor
+end
