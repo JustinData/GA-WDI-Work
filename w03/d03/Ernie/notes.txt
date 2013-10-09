@@ -1,0 +1,28 @@
+DATABASES
+Database server (DBMS/RDBMS)
+Postgres
+
+DB itself is one of many accessible thru DBMS
+
+clients that interface with postgres (PSQL & PG)
+
+PSQL is a command line tool
+
+While PG is a ruby gem
+
+Data modeling and DB arch
+
+Schema
+entities = tables
+attributes = coloums
+demons = data
+realations/mutilple tables
+
+SQL the language 
+CREATE/DROP tables
+INSERT new data (create) POST
+SELECT data (read) GET
+            (update)
+            (delete)
+Active Record - ORM object relation mapper = ruby framework
+coventions withn active_record
