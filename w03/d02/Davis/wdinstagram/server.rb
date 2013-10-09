@@ -73,6 +73,7 @@ get '/searchby/:type' do
 	else #by date
 		@h1 = "Search Photo by Date"
 	end
+	
 	erb :search
 end
 
