@@ -1,4 +1,7 @@
-#add delete function, annoying entries
+# add delete function, annoying entries
+# add links to pages
+# add styling
+# experiment instagram API??
 
 # Note: because I did not want to change already existing
 # Entry / entries, I used InstaEntry instead
@@ -48,3 +51,4 @@ get '/show/:id' do
 
 	erb :show
 end
+
