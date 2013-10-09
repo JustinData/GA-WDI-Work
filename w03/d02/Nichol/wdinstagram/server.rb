@@ -13,6 +13,9 @@ ActiveRecord::Base.establish_connection(
 
 require_relative './models/entry'
 
+after do
+  ActiveRecord::Base.connection.close
+end
 #index - display all pictures in the database
 get "/" do
     @entries = Entry.all 
@@ -27,7 +30,7 @@ end
 post "/photo_albumn/?" do
   
   entry = Entry.new(author: params[:author], photo: params[:photo], date_taken: params[:date_taken])
-  binding.pry
+  #binding.pry
   entry.save
 
   redirect "/photo_albumn/#{entry.id}"
