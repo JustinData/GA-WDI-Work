@@ -20,9 +20,9 @@ csv.each do |row|
     query_str = "INSERT INTO players "
     query_str += "(name, age, team, games, points) VALUES"
     query_str += "("
-    query_str += "'#{row['name'].gsub("'",'\\\'')}', '#{row['age'].to_i}',"
-    query_str += "'#{row['team']}', #{row['games'].to_i},"
-    query_str += "#{row['points'].to_i}"
+    query_str += "'#{row['name'].gsub("'",'\\\'')}', #{row['age']},"
+    query_str += "'#{row['team']}', #{row['games']},"
+    query_str += "#{row['points']}"
     query_str += ");"
 
     db_conn.exec( query_str)
