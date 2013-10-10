@@ -1,6 +1,7 @@
 CREATE TABLE artists (
 	id serial PRIMARY KEY,
 	name varchar(50) NOT NULL,
+	nationality varchar(5) NOT NUll,
 	birth_date date NOT NULL
 );
 
