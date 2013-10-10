@@ -19,11 +19,15 @@ csv = CSV.parse(csv_text, :headers => true)
   games = column['games']
   points = column['points']
  end
-#binding.pry
+
+
+binding.pry
+
+
 
 # take the results assign them to a variable.  The variable is set a an sql string
 # that will populate the players table in the sandbox database
-sql = "INSERT INTO players(name,age,team,games,points) VALUES('#{:name}',#{:age},'#{:team}',#{:games},#{:points})"
+sql = "INSERT INTO players(name, age, team, games, points) VALUES('#{:name}', #{:age}, '#{:team}', #{:games}, #{:points})"
 
 #binding.pry
 
