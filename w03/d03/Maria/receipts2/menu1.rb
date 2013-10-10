@@ -59,7 +59,7 @@ end
 # input from the user...
 ########################
 
-def menu_gets( prompt_str, input_type )
+def menu_gets( prompt_str, input _type )
   # go in to an infinite loop
   while true
     print( prompt_str )
