@@ -134,7 +134,7 @@ while true
     value = gets.chomp
 
     db_conn = PG.connect( dbname: 'receipts.db')
-    #example UPDATE customer SET name='Joe' WHERE customer_id=10;
+    #example UPDATE customer SET name='Joe' WHERE customer_id=10; 
     db_conn.exec( "UPDATE receipts SET #{column} = '#{value}' WHERE id = #{id}";)
     db_conn.close
 
