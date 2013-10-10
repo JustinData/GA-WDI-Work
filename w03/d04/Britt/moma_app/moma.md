@@ -26,11 +26,11 @@ A Painting has
 <!-- Populate your database (using ActiveRecord) with at least 3 Artists and 2 Paintings per artist (associated correctly!), including Vincent Van Gogh and Pablo Picasso. -->
 
 ###Part 3 - ActiveRecord Practice
-
+<!--
 Write the commands that you would enter in pry to do the following:
 Save the pry commands to a file called `ar_commands.txt`
 
-<!-- 1. Create a new Artist (Vincent Van Gogh) and save him to your database
+1. Create a new Artist (Vincent Van Gogh) and save him to your database
 2. Create a new Painting (Starry Night) and save it to your database
 
 3. Return all Artists
