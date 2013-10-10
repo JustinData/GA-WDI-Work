@@ -16,7 +16,7 @@ SELECT (points / games) AS points_per_game, name FROM players;
 
 5. The average age for all players
 
-SELECT (points / games) AS points_per_game, name FROM players GROUP BY name, points_per_game ORDER BY points_per_game DESC LIMIT 20;
+SELECT (points / games) AS points_per_game, name FROM players ORDER BY points_per_game DESC LIMIT 20;
 
 6. The average age for all players on the Oklahoma City Thunder (OKC)
 
