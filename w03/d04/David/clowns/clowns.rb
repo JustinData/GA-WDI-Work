@@ -39,7 +39,7 @@ class ClownCar < ActiveRecord::Base
 
   def at_capacity?
     self.clowns.count >= self.capacity
-  end
+  endcd
 
 end
 
