@@ -30,26 +30,26 @@ Populate your database (using ActiveRecord) with at least 3 Artists and 2 Painti
 Write the commands that you would enter in pry to do the following:
 Save the pry commands to a file called `ar_commands.txt`
 
-* Create a new Artist (Vincent Van Gogh) and save him to your database
-* Create a new Painting (Starry Night) and save it to your database
+1. Create a new Artist (Vincent Van Gogh) and save him to your database
+2. Create a new Painting (Starry Night) and save it to your database
 
-* Return all Artists
-* Return all Paintings
+3. Return all Artists
+4. Return all Paintings
 
-* Return the artist with an id of 2
-* Return the artist with a name of "Vincent Van Gogh"
-* Return all the artists from "Spain"
+5. Return the artist with an id of 2
+6. Return the artist with a name of "Vincent Van Gogh"
+7. Return all the artists from "Spain"
 
-* Return the painting with an id of 1
-* Return the painting with a name of "Guernica"
-* Return the image url for the painting with title "Starry Night"
+8. Return the painting with an id of 1
+9. Return the painting with a name of "Guernica"
+10. Return the image url for the painting with title "Starry Night"
 
-* Return all the paintings that "Pablo Picasso" painted
-* Return the image urls for all the paintings that "Pablo Picasso" painted in an array
-* Return the artist of "Guernica"
+11. Return all the paintings that "Pablo Picasso" painted
+12. Return the image urls for all the paintings that "Pablo Picasso" painted in an array
+13. Return the artist of "Guernica"
 
-* Change Vincent Van Gogh's nationality to USA
-* Change "Starry Night" to be one of Pablo Picasso's paintings
+14. Change Vincent Van Gogh's nationality to USA
+15. Change "Starry Night" to be one of Pablo Picasso's paintings
 
 ### Bonus
 
