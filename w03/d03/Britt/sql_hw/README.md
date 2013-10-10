@@ -6,11 +6,13 @@
   -->
 
 ### Part 2
-Write a Ruby program called `load_data.rb` that reads in the CSV information from the `data.txt` textfile and populates your database. The data is structured like the following:
+<!-- DONE.
+  Write a Ruby program called `load_data.rb` that reads in the CSV information from the `data.txt` textfile and populates your database. The data is structured like the following:
 
-`name,age,team,games,points`
+  `name,age,team,games,points`
 
-Where `games` is games played during the season and `points`is total points scored over the course of the season.
+  Where `games` is games played during the season and `points`is total points scored over the course of the season.
+  -->
 
 
 ### Part 3
