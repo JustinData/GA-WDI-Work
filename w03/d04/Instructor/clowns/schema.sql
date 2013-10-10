@@ -9,9 +9,3 @@ create table clowns (
   name varchar(50) not null,
   clown_car_id integer references clown_cars(id)
 );
-
--- Bozo, Pozo, and Dozo
-
--- Blue, 2
-
--- Bozo -> Blue clown car
