@@ -10,7 +10,7 @@ An Artist has
 A Painting has
 * title
 * year
-* image_url
+* image_urla
 
 ###First!
 <!-- Create a directory called `moma_app` to hold all of your files. -->
@@ -23,14 +23,14 @@ A Painting has
 
 <!-- Create a Ruby program (like we did with clown cars) that creates an ActiveRecord interface for interacting with the artists & paintings. Save this to a file called `moma.rb` -->
 
-Populate your database (using ActiveRecord) with at least 3 Artists and 2 Paintings per artist (associated correctly!), including Vincent Van Gogh and Pablo Picasso.
+<!-- Populate your database (using ActiveRecord) with at least 3 Artists and 2 Paintings per artist (associated correctly!), including Vincent Van Gogh and Pablo Picasso. -->
 
 ###Part 3 - ActiveRecord Practice
 
 Write the commands that you would enter in pry to do the following:
 Save the pry commands to a file called `ar_commands.txt`
 
-1. Create a new Artist (Vincent Van Gogh) and save him to your database
+<!-- 1. Create a new Artist (Vincent Van Gogh) and save him to your database
 2. Create a new Painting (Starry Night) and save it to your database
 
 3. Return all Artists
@@ -49,7 +49,7 @@ Save the pry commands to a file called `ar_commands.txt`
 13. Return the artist of "Guernica"
 
 14. Change Vincent Van Gogh's nationality to USA
-15. Change "Starry Night" to be one of Pablo Picasso's paintings
+15. Change "Starry Night" to be one of Pablo Picasso's paintings -->
 
 ### Bonus
 

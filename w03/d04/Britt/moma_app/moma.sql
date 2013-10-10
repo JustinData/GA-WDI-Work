@@ -1,11 +1,9 @@
-DROP TABLE IF EXISTS paintings;
-DROP TABLE IF EXISTS artists;
 
 CREATE TABLE artists (
   id serial primary key,
   name varchar(50) NOT NULL,
   nationality varchar(50) NOT NULL,
-  date_of_birth date NOT NULL
+  date_of_birth date NOT NULL,
 );
 
 CREATE TABLE paintings (

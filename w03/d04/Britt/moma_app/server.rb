@@ -1,3 +1,5 @@
+require 'sinatra'
+require 'sinatra/reloader'
 require 'active_record'
 require 'pry'
 
@@ -9,7 +11,7 @@ ActiveRecord::Base.establish_connection(
   database: "moma_db"
 )
 
-require_relative '/models/painting'
-require_relative '/models/artist'
+require_relative './models/painting'
+require_relative './models/artist'
 
 binding.pry
