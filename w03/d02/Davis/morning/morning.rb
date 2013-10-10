@@ -36,10 +36,6 @@ class Package < MailItem
 	end
 end
 
-pack = Package.new(" ", 0, [], true, false)
-pack.shake
-p pack.is_broken
-
 class Mailbox
 	attr_reader :mail_items
 
@@ -56,7 +52,8 @@ class Mailbox
 	end
 
 	def to_s
-		postcards_count = @mail_items.find_all { |e| e.class == Postcard }.count
+		# postcards_count = @mail_items.find_all { |e| e.class == Postcard }.count
+		postcards_count = @mail_items.count { |item| item.class == Postcard }
 
 		"The mailbox has #{postcards_count} postcards and #{@mail_items.count - postcards_count} packages."
 	end
