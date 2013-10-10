@@ -66,20 +66,41 @@ sn.image_url
 
 11. Return all the paintings that "Pablo Picasso" painted
 
+p = Artist.find_by(name: "Pablo Picasso")
+g = Painting.find_by(title: "Guernica")
+r = Painting.find_by(title: "Still Life with a Bottle of Rum")
+
+p .paintings << g
+p.paintings << r
 p.paintings
 
 12. Return the image urls for all the paintings that "Pablo Picasso" painted in an array
 
+picassospaintings = []
+picassospaintings << g.image_url
+picassospaintings << r.image_url
+picassospaintings
 
 
 13. Return the artist of "Guernica"
 
-
+g.artist_id
+Artist.find_by(id: 1)
 
 14. Change Vincent Van Gogh's nationality to USA
 
+[37] pry(main)> p.nationality = "USA"
+=> "USA"
+[38] pry(main)> p.save
+=> true
+[39] pry(main)> p.reload
 
 15. Change "Starry Night" to be one of Pablo Picasso's paintings
+
+s = Painting.find_by(title: "Starry Night")
+s.artist_id = 1
+s.save
+
 
 bonus
 sinata app
