@@ -2,7 +2,7 @@ require_relative "menu"
 require 'pg' #DB!
 require "pry"
 
-PROMPT = "Save (N)ew receipt, (L)ist receipts, (Q)uit"
+PROMPT = "Save (N)ew receipt, (L)ist receipts, (S)tats, (Q)uit"
 ACCEPTABLE_INPUT = [:n, :l, :q] # acceptable results for the menu
 FILENAME = "receipts"
 
@@ -61,7 +61,7 @@ while true
 
     # open file for reading ##########################################
     # fs = File.new( FILENAME + ".csv", "r" )
-    db_conn = PG.connect(dbname: FILENAME + "_db") 
+    db_conn = PG.connect(dbname: 'sandbox')
 
     results = db_conn.exec( "SELECT * FROM receipts;" )
 
@@ -78,6 +78,17 @@ while true
       output_str += "#{row['item']}, from #{row['store']} at "
       output_str += "$#{row['price']} each. (#{row['buy_date']})"
       puts output_str
+    
+    when :s
+      puts mp( "Receipts List", " " )
+      puts mp( "", "*" ) + "\n"
+      
+      db_conn = PG.connect(dbname: 'sandbox')
+
+      # parent names
+      output_str = "SELECT (parent) FROM receipts GROUP BY (parent);"
+      # num of presents per parent
+      mom_avg = "SELECT SUM(number_of_item) AS number_of_presents, (parent) FROM receipts GROUP BY (parent);"
     end
 
     # fs.close
@@ -98,16 +109,17 @@ puts mp( "", "*" )
 
 
 # 3) give a;; the stats ability
-# When Which Parent -parent name (each)
+# When stats
 
-  db_conn.exec("SELECT (parent) FROM receipts GROUP BY (parent);")
-
-
+# parent names
 
 
- #presents per parent
 
-SELECT SUM(number_of_item) AS number_of_presents, (parent) FROM receipts GROUP BY (parent);
+
+
+
+# num of presents per parent
+output_str = "SELECT SUM(number_of_item) AS number_of_presents, (parent) FROM receipts GROUP BY (parent);"
 
 #average cost per parent; dad
 
