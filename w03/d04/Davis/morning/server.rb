@@ -20,13 +20,17 @@ post '/vote/:vote' do
 	redirect('/')
 end
 
-get '/meow' do 
+# create links for below
+get '/:meow' do 
 	db_conn = PG.connect( dbname: "sandbox" )
 	query_str = "SELECT url FROM morning_kittens "
-	query_str += "WHERE is_meow = 'meow';"
+	
+	query_str += "WHERE is_meow = 'meow';" if params[:meow] == "meow"
+	query_str += "WHERE is_meow = 'not_meow';" if params[:meow] == "not_meow"
 
 	@urls = db_conn.exec( query_str )
 
 	db_conn.close
 	erb :meow
 end
+
