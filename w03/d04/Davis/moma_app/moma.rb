@@ -39,4 +39,14 @@ end
 # connect_painting("Rayograph", 1922, "http://artsearch.nga.gov.au/IMAGES/MED/88113.jpg", Artist.where(name: "Man Ray")[0].id)
 # connect_painting("Ridgefield Landscape", 1914, "http://www.terminartors.com/files/artworks/2/0/2/20258/Man_Ray-Ridgefield_Landscape.normal.jpg", Artist.where(name: "Man Ray")[0].id)
 
-binding.pry
+# NOTE: forgot about nationality in schema so just adding them in here
+van = Artist.where(name: "Vincent Van Gogh")[0]
+ray = Artist.where(name: "Man Ray")[0]
+picasso = Artist.where(name: "Pablo Picasso")[0]
+
+van.nationality = "Netherlands"
+van.save
+ray.nationality = "USA"
+ray.save
+picasso.nationality = "Spain"
+picasso.save
