@@ -4,8 +4,10 @@
 <ul>
 	<% @entries.each do |entry| %>
 	<p>
-		<% if entry.author[0] == '@' %>
-			<li><a href="http://instagram.com/<%= entry.author[1..-1] %>"><%= entry.author %></a></li>
+		<% if is_instagram_user?(entry.author) %>
+			<li>
+				<a href="http://instagram.com/<%= strip_at(entry.author) %>"><%= entry.author %></a>
+				<li>
 		<% else %>
 			<li><%= entry.author %></li>
 		<% end %>
