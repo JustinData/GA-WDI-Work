@@ -49,3 +49,9 @@ end
 puts ClownCar.all.pluck(:color)
 
 binding.pry
+
+
+
+
+
+
