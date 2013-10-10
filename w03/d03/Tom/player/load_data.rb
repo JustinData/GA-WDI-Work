@@ -12,6 +12,9 @@ db_conn = PG.connect( dbname: 'sandbox')
 # perform a loop on the data.txt file to parse the data
 csv_text = File.read("data.txt")
 csv = CSV.parse(csv_text, :headers => true)
+
+
+
 csv.each do |column|
   name = column['name']
   age = column['age']
@@ -19,10 +22,15 @@ csv.each do |column|
   games = column['games']
   points = column['points']
 
-  # take the results assign them to a variable.  The variable is set a an sql string
-# that will populate the players table in the sandbox database
-sql = "INSERT INTO players(name, age, team, games, points) VALUES('#{name}', '#{age}', '#{team}', '#{games}', '#{points}')"
+  #make sure to escape single quotes in names
+  name = name.gsub(/'/, "''")
 
+  # take the results assign them to a variable.  The variable is set a an sql string
+  # that will populate the players table in the sandbox database
+  sql = "INSERT INTO players(name, age, team, games, points) VALUES('#{name}', #{age}, '#{team}', #{games}, #{points})"
+
+
+  db_conn.exec(sql)
 end
 
 
@@ -35,7 +43,7 @@ end
 #binding.pry
 
 # execute the sql string
-db_conn.exec(sql)
+
 
 # close the connection to the database
 db_conn.close
