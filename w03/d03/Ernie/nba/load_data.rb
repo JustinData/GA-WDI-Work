@@ -17,11 +17,12 @@ CSV.foreach("data.csv", headers: true) do |row|
 end
 nba = rows_to_insert
 
-  
+nba = line.chomp.gsub("'","''")
+
 nba.each do |hash|
-query = "INSERT INTO players (name,age,team,games,points) 
-VALUES ( '#{hash["name"]}', '#{hash["age"]}','#{hash["team"]}','#{hash["games"]}','#{hash["points"]}');"
-db_conn.exec( query )
+  query = "INSERT INTO players (name,age,team,games,points) 
+  VALUES ( '#{hash["name"]}', '#{hash["age"]}','#{hash["team"]}','#{hash["games"]}','#{hash["points"]}');"
+  db_conn.exec( query )
 end
 
 db_conn.close
