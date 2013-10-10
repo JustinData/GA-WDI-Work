@@ -10,11 +10,17 @@ database: "moma_db"
 )
 
 class Painting < ActiveRecord::Base
+  belongs_to :artist
+  validates :title, :year, :image_url, presence: true
 end
 
 class Artist < ActiveRecord::Base
+  has_many :paintings
+  validates :name, :nationality, :dob, presence: true
 end
 
+
+binding.pry
 
 # #Artists
 # van_gogh = Artist.new(name: 'Vincent Van Gogh', nationality: 'Dutch', dob: 'March 30 1853')
