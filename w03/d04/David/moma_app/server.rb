@@ -6,12 +6,12 @@ require_relative 'painting'
 
 get "/" do
 
-  erb :index
+erb :index
 end
 
 get "/paintings" do
-  @artist = Artist.all
-  @painting = Painting.all
+  @artists = Artist.all
+  @paintings = Painting.all
   erb :paintings
 end
 
@@ -32,6 +32,7 @@ post "/paintings" do
   artist.save
 
   painting = Painting.new(title: "#{painting_title}", year: painting_year, image_url: "#{painting_url}")
+  binding.pry
   painting.artist_id = artist.id
   painting.save
 
@@ -42,6 +43,5 @@ get "/paintings/:id" do
 
   artist = Artist.find_by(id: "#{params[:id]}")
   @painting = Painting.find_by(artist_id: artist.id)
-
   erb :paintings
 end
