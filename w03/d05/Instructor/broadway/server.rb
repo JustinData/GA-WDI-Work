@@ -48,5 +48,5 @@ end
 
 # Shows just one song from the show
 
-get "/shows/:id/songs/:id" do
+get "/shows/:show_id/songs/:song_id" do
 end
