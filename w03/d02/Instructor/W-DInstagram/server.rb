@@ -30,7 +30,7 @@ get '/entries/new' do
 end
 
 #Create
-post '/entries/create' do
+post '/entries' do
   entry = Entry.new(params[:entry])
   entry.save
   redirect '/entries'
