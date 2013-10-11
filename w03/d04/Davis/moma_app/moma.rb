@@ -9,8 +9,8 @@ ActiveRecord::Base.establish_connection(
 	database: "moma_db"
 )
 
-def create_artist(name, nationality, birth_date)
-	artist = Artist.new(name: name, nationality: nationality, birth_date: birth_date)
+def create_artist(name, birth_date, nationality)
+	artist = Artist.new(name: name, birth_date: birth_date, nationality: nationality)
 	artist.save
 end
 
