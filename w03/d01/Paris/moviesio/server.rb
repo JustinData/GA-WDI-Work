@@ -50,11 +50,11 @@ url = "http://www.omdbapi.com/?t=#{name}"
 response = HTTParty.get(url) 
 parsed_movie_info = JSON(response)
 
- db_conn = PG.connect( dbname: FILENAME + "_db" )
+ db_conn = PG.connect( dbname: 'movies_db' )
 
     query = "INSERT INTO movies"
     query += "(year, poster, title) VALUES"
-    query += "(#{parsed_movie_info[:year]}, '#{parsed_movie_info[:poster]}', '#{parsed_movie_info[:title]}');" 
+    query += "(#{parsed_movie_info['year']}, '#{parsed_movie_info['poster']}', '#{parsed_movie_info['title']}');" 
     db_conn.exec( query )
     db_conn.close
 
