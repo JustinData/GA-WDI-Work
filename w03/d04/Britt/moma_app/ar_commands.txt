@@ -17,7 +17,7 @@
 => Artist.find_by(name: "Vincent van Gogh")
 
 7. return all artists from spain
-=> Artist.find_by(nationality: "Spanish")
+=> Artist.where(nationality: "Spanish")
 
 8. return painting w/ id #1
 => Painting.find(1)

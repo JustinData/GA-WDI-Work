@@ -16,24 +16,33 @@ require_relative './models/artist'
 
 binding.pry
 
+# Methods avail to views (sinatra feature)
 helpers do
-  # methods avail to views (sinatra feature)
+  
 end
 
+# Display all 
 get '/?' do
-  # home/show all
+  erb :index
 end
 
-get '/new/?' do
-  # display form
+# Display form
+get '/new/:kind?' do
+  if params[:kind] == "artist"
+    erb :artist_form
+  else
+    erb :painting_form
+  end
 end
 
 post '/new/:kind/?' do
-  # accept params, save to db
-  # ### OR ### #
-  # bump back to form with error *shudders*
+  # Accept params, save to db
+  #######    OR    #######
+  # Bump back to form with error *shudders*
+  redirect '/show/:kind/:id/?'
 end
 
+# Show particular painting/painter by id
 get '/show/:kind/:id/?' do
-  # show particular painting/painter by id
+  
 end
