@@ -11,8 +11,6 @@ ActiveRecord::Base.establish_connection(
 :database => 'moma_db'
 )
 
-
-
 # create the artist class, which will look for the artists table
 class Artist < ActiveRecord::Base
  has_many :paintings
@@ -24,3 +22,5 @@ class Painting < ActiveRecord::Base
   belongs_to :artist
 
 end
+
+binding.pry
