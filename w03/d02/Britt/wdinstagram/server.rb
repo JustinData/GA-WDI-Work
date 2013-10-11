@@ -14,6 +14,16 @@ ActiveRecord::Base.establish_connection(
 
 require_relative './models/entry'
 
+helpers do
+	def is_instagram_user?(author)
+		author[0] == "@"
+	end
+
+  def strip_at(author)
+		author[1..-1]
+	end
+end
+
 # Displays all entries
 get "/?" do
 	@entries = Entry.all
