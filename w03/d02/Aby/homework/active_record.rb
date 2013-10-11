@@ -9,5 +9,3 @@ ActiveRecord::Base.establish_connection(
 	:database => "insta"
 	)
 
-class Entry < ActiveRecord::Base
-end
