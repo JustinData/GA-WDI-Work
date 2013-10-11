@@ -43,9 +43,15 @@ van = Artist.find_by(:name => "Vincent Van Gogh")
 van.paintings
 
 #12
+Painting.all.map(&:image_url)
+Painting.pluck(:image_url)
 
-my_array = Array.new
-van.paintings.each
+#13
+#Return the artist of "Guernica"
 
-MAP
+Artist.find(3).paintings
+# Change Vincent Van Gogh's nationality to USA
+
+# Change "Starry Night" to be one of Pablo Picasso's paintings
+
 
