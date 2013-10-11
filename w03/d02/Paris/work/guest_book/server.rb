@@ -56,13 +56,6 @@ post "/guest_book" do
   redirect "/guest_book/#{entry.id}"
 end
 
-# Expect params[:name] == new_name
-put "/guest_book/:id" do
-end
-
-delete "/guest_book/:id" do
-end
-
 
 
 
