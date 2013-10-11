@@ -7,6 +7,7 @@ vg = Artist.new(name: "Vincent Van Gogh", nationality: "Dutch", dob: "1853-03-30
 2. Create a new Painting (Starry Night) and save it to your database
 
 sn = Painting.new(title: "Starry Night", image_url: "http://uploads2.wikipaintings.org/images/vincent-van-gogh/the-starry-night-1889(1).jpg", year: "1889-06-01")
+sn.save
 
 3. Return all Artists
 Artist.all
