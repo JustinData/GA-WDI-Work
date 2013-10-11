@@ -6,9 +6,10 @@ require_relative './moma.rb'
 # homepage
 
 # MENU:	
-# list all works
 # add artist to database
 	# via form
+# search for artist
+# search for specific work
 
 # Features:
 	# click artist to see works by that artist
@@ -41,3 +42,8 @@ get '/artist/:name' do
 	erb :artist_specific
 end
 
+get '/all_works' do 
+	@h1 = "All Works Below:"
+
+	erb :all_works
+end
