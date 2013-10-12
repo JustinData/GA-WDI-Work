@@ -21,5 +21,3 @@ class Show < ActiveRecord::Base
 
   validates :title, :year, :composer, :img_url, presence: true, uniqueness: true
 end
-
-binding.pry

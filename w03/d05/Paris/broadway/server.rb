@@ -2,6 +2,7 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'sinatra/reloader' if development?
 require 'pry'
+require_relative './models/broadway.rb'
 
 # Welcome to Broadway.ly!
 
@@ -14,6 +15,8 @@ end
 # with links to individual shows
 
 get "/shows" do
+  @shows = Show.all
+  erb :"shows/show_index"
 end
 
 # Form to create new show

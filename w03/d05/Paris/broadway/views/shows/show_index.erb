@@ -1,0 +1,11 @@
+<h3>Shows</h3>
+
+<ul>
+  <% @shows.each do |show| %>
+  <li>Show: <%= show.title.upcase %></li>
+  <li>Year: <%= show.year %></li>
+  <li>Composer: <%= show.composer %></li>
+  <li>img_url: <%= show.img_url %></li>
+
+    <% end %>
+</ul>
