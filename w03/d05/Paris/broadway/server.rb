@@ -52,6 +52,7 @@ end
 
 # Create action - new show - redirects to that
 # show
+# Form to create new songs
 
 post "/shows" do
  show = Show.new({title: params[:title], year: params[:year], composer: params[:composer], img_url: params[:img_url]})
@@ -59,8 +60,21 @@ post "/shows" do
   redirect "/shows/#{show.id}" 
 end
 
-# Form to create new songs
+# Lists all songs from the show
 
+get "/shows/:id/songs" do
+    @songs = Song.where(show_id: params[:id])
+    @show = Show.find(params[:id])
+
+  erb :"songs/song_index"
+end
+
+# Shows just one song from the show
+
+# get "/shows/:show_id/songs/:id" do
+#   @song_single = Song.where(show_id: params[:show_id]), id: params[:id])
+#     erb :"songs/song_show"
+# end
 
 get "/shows/:id/songs/new" do
 end
@@ -70,17 +84,6 @@ end
 
 post "/shows/:id/songs" do
 end
-
-# Lists all songs from the show
-
-get "/shows/:id/songs" do
-end
-
-# Shows just one song from the show
-
-get "/shows/:show_id/songs/:song_id" do
-end
-
 
 
 
