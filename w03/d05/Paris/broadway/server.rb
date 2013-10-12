@@ -1,10 +1,24 @@
 require 'sinatra'
 require 'sinatra/reloader'
-require 'sinatra/reloader' if development?
+# require 'sinatra/reloader' if development?
+require 'active_record'
 require 'pry'
-require_relative './models/broadway.rb'
+
+  require_relative './models/broadway.rb'
+
+  ActiveRecord::Base.establish_connection(
+  :adapter => "postgresql", 
+  :host => "localhost",
+  :username => "Paris",
+  :password => "",
+  :database => "broadway_db"
+  )
 
 # Welcome to Broadway.ly!
+
+# after do
+#   ActiveRecord::Base.clear_active_connections!
+# end
 
 get "/" do
   @greeting = "Welcome to Broadway.ly!"
@@ -22,12 +36,8 @@ end
 # Form to create new show
 
 get "/shows/new" do
-end
 
-# Create action - new show - redirects to that
-# show
-
-post "/shows" do
+  erb :"shows/show_new"
 end
 
 # Individual show page
@@ -35,9 +45,22 @@ end
 # and form to create new songs `/shows/:id/songs/new`
 
 get "/shows/:id" do
+  @show = Show.find(params[:id])
+
+  erb :"shows/show_show"
+end
+
+# Create action - new show - redirects to that
+# show
+
+post "/shows" do
+ show = Show.new({title: params[:title], year: params[:year], composer: params[:composer], img_url: params[:img_url]})
+ show.save
+  redirect "/shows/#{show.id}" 
 end
 
 # Form to create new songs
+
 
 get "/shows/:id/songs/new" do
 end
@@ -57,3 +80,8 @@ end
 
 get "/shows/:show_id/songs/:song_id" do
 end
+
+
+
+
+
