@@ -21,6 +21,4 @@ class Song < ActiveRecord::Base
   validates :song_title, :embed_url, presence: true, uniqueness: true
 end
 
-# binding.pry
-
 

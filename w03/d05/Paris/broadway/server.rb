@@ -46,7 +46,6 @@ end
 
 get "/shows/:id" do
   @show = Show.find(params[:id])
-
   erb :"shows/show_show"
 end
 
@@ -71,10 +70,11 @@ end
 
 # Shows just one song from the show
 
-# get "/shows/:show_id/songs/:id" do
-#   @song_single = Song.where(show_id: params[:show_id]), id: params[:id])
-#     erb :"songs/song_show"
-# end
+get "/shows/:show_id/songs/:song_id" do
+  @show_song = Song.where(show_id: params[:show_id], id: params[:song_id])
+  binding.pry
+    erb :"songs/song_show"
+end
 
 get "/shows/:id/songs/new" do
 end
