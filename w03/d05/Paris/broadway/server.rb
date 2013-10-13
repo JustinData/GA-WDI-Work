@@ -72,7 +72,7 @@ end
 
 get "/shows/:show_id/songs/:song_id" do
   @show_song = Song.where(show_id: params[:show_id], id: params[:song_id])
-  binding.pry
+
     erb :"songs/song_show"
 end
 
