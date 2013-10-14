@@ -61,10 +61,28 @@ end
 
 # Lists all songs from the show
 
-get "/shows/:id/songs" do
-    @songs = Song.where(show_id: params[:id])
-    @show = Show.find(params[:id])
+# # Create action - new songs for a show - redirects
+# # to that song
 
+get "/shows/:id/songs/new" do
+  erb :"songs/song_new"
+end
+
+post "/shows/:id/songs" do
+  @song = Song.new({song_title: params[:song_title], embed_url: params[:embed_url]})
+  @show = Show.find_by(id: params[:id])
+  @song.show_id = params[:id]
+  @song.save
+
+  redirect "/shows/#{@show.id}/songs/#{@song.id}" 
+end
+
+get "/shows/:id/songs" do
+  @songs = Song.where(show_id: params[:id])
+  youtube_url = @songs[0].embed_url
+  no_http = youtube_url.slice!("http:") 
+  @song_url = youtube_url.gsub!("watch?v=","embed/")
+  @show = Show.find(params[:id])
   erb :"songs/song_index"
 end
 
@@ -75,19 +93,9 @@ get "/shows/:show_id/songs/:song_id" do
   youtube_url = @show_song[0].embed_url
   no_http = youtube_url.slice!("http:") 
   @song_url = youtube_url.gsub!("watch?v=","embed/") 
-  binding.pry
-
-    erb :"songs/song_show"
+  erb :"songs/song_show"
 end
 
-get "/shows/:id/songs/new" do
-end
-
-# Create action - new songs for a show - redirects
-# to that song
-
-post "/shows/:id/songs" do
-end
 
 
 

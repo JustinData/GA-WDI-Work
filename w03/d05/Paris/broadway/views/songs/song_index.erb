@@ -3,6 +3,6 @@
 <ul>
   <% @songs.each do |song| %>
   <li>Song Title: <%= song.song_title %></li>
-  <li>: <%= song.embed_url %></li>
+  <li><iframe width="425" height="349" src="<%= @song_url %>" frameborder="0" allowfullscreen></iframe></li>
     <% end %>
 </ul>
