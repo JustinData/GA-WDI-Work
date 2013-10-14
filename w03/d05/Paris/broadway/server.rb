@@ -71,7 +71,11 @@ end
 # Shows just one song from the show
 
 get "/shows/:show_id/songs/:song_id" do
-  @show_song = Song.where(show_id: params[:show_id], id: params[:song_id])
+  @show_song  = Song.where(show_id: params[:show_id], id: params[:song_id])
+  youtube_url = @show_song[0].embed_url
+  no_http = youtube_url.slice!("http:") 
+  @song_url = youtube_url.gsub!("watch?v=","embed/") 
+  binding.pry
 
     erb :"songs/song_show"
 end
