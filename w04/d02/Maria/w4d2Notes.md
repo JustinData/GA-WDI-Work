@@ -53,6 +53,42 @@ get '/puppies/:id/edit' puppies#edit
 we could do as above or make it simple and just use
 resources :puppies
 
+rails generate migration add_actors
+then got to the db folder and find timestamped db
+and put in your schema like so:
+
+class AddActors < ActiveRecord::Migration
+  def up
+    create_table :actors do |t|
+      t.string :name
+      t.text :photo_url
+    end
+  end
+  
+  def down
+    drop_table :actors
+  end
+end
+then run  rake db:migrate
+rake db:migrate nameof db
+rake db:rollback to delete it
+
+rails generate migration add_birthdate_to_actors
+to add colums
+
+then you get this new file, change it to look like this:
+
+class AddBirthdateToActors < ActiveRecord::Migration
+  def up
+    add_column :actors, :birth_date, :date
+  end
+
+  def down
+    remove_column :actors, :birth_date
+  end
+end
+
+
 
 
 
