@@ -12,6 +12,7 @@ def translate(word)
 		@word += "w"
 	else
 		until vowels.include?(@word[0])
+			@word += @word.slice!(0..1) if @word[0] == "q"
 			@word += @word.slice!(0)
 			# stop if y
 			break if @word[0] == "y"
@@ -21,4 +22,4 @@ def translate(word)
 	@word += "ay"
 end
 
-puts translate("duck")
+puts translate("queen")
