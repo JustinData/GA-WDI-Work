@@ -5,11 +5,13 @@ MyFirstRailsApp::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'static#index'
 
-  get 'whoa' => 'static#whoa'
+  resource :actor, only: [:show]
 
-  get 'about' => 'static#about'
+  # get 'whoa' => 'static#whoa'
 
-  get 'film' => 'static#film'
+  # get 'about' => 'static#about'
+
+  # get 'film' => 'static#film'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
