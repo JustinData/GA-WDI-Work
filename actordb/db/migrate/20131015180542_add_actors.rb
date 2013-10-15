@@ -6,8 +6,8 @@ class AddActors < ActiveRecord::Migration
     end
   end
 
-def down
-  drop_table :actors
-end
+  def down
+    drop_table :actors
+  end
 end
 
