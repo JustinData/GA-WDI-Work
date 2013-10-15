@@ -1,4 +1,4 @@
-class ActorController < ApplicationController  
+class ActorsController < ApplicationController  
 
   def about 
     render :about  
