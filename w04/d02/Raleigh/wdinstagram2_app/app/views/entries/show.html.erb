@@ -1,5 +1,7 @@
-<h1>This Instagram</h1>
+<h1><%= @instagram.author %></h1>
 
-<img src="<%= @instagram.photo_url %>" />
-<h2><%= @instagram.author %></h2>
+<img src="<%= @instagram.photo_url %>" alt="Instagram taken by <%= @instagram.author %>" />
 <p><%= @instagram.date_taken %></p>
+
+
+<p><a href="/entries">Home</a></p>
