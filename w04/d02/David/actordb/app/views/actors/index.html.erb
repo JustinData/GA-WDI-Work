@@ -2,6 +2,8 @@
 
 <ul>
   <% @actors.each do |actor| %>
-  <li><%= actor.name %></li>
+  <a href="/actors/<%= actor.id %>"><li><%= actor.name %></li></a>
+  <li><img src="<%= actor.photo_url %>" alt=""></li>
+  <li><%=  actor.birth_date %></li>
   <% end %>
 </ul>
