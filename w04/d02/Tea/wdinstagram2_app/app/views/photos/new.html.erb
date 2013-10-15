@@ -1,21 +1,19 @@
-<h1>Post New Photo:</h1>
-
 <form action="/photos" method="post">
   <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-  <label>
+  <label class="author">
     Author
-    <input type="text" name="author" />
-  </label>
+    <input type="text" name="author" placeholder="Username"/>
+  </label class="author">
 
-  <label>
+  <label class="author">
     Photo Url
-    <input type="url" name="photo_url" />
-  </label>
+    <input type="url" name="photo_url" placeholder="http://"/>
+  </label class="author">
 
-  <label>
+  <label class="author">
     Date Taken
-    <input type="date" name="date_taken" />
-  </label>
+    <input type="date" name="date_taken"  />
+  </label class="author">
 
   <button>Upload</button>
 </form>
