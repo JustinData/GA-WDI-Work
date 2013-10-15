@@ -10,8 +10,7 @@ MyFirstRailsApp::Application.routes.draw do
   # get 'whoa' => 'static#whoa'
 
 
-resource :actor, only: [:show]
-resource :puppies
+  
   # get 'about' => 'actor#about'
   # get 'film' => 'actor#film'
 
