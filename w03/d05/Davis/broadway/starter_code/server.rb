@@ -18,19 +18,6 @@ ActiveRecord::Base.establish_connection(
 require_relative '../models/show'
 require_relative '../models/song'
 
-# Show.create(title: "Phanton of the Opera", year: 1988, composer: "Andrew Lloyd Webber", img_url: "http://upload.wikimedia.org/wikipedia/en/f/f8/Phantom.jpg")
-
-# show_id = Show.last.id
-
-# Song.create(title: "Think of Me", embed_url: "XfTgCPUJwRk", show_id: show_id)
-# Song.create(title: "", embed_url: "", show_id: "")
-# Song.create(title: "", embed_url: "", show_id: "")
-
-# Show.create()
-# Show.create()
-
-
-
 # Welcome to Broadway.ly!
 
 get "/" do
