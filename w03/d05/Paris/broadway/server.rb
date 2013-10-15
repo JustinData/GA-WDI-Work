@@ -6,13 +6,13 @@ require 'pry'
 require_relative 'config/environments'
 require_relative './models/broadway.rb'
 
-  # ActiveRecord::Base.establish_connection(
-  # :adapter => "postgresql", 
-  # :host => "localhost",
-  # :username => "Paris",
-  # :password => "",
-  # :database => "broadway_db"
-  # )
+  ActiveRecord::Base.establish_connection(
+  :adapter => "postgresql", 
+  :host => "localhost",
+  :username => "Paris",
+  :password => "",
+  :database => "broadway_db"
+  )
 
 after do
   ActiveRecord::Base.clear_active_connections!
@@ -68,6 +68,10 @@ end
 # # Create action - new songs for a show - redirects
 # # to that song
 
+get "/shows/:show_id/songs/new" do
+  erb :"songs/song_new"
+end
+
 get "/shows/:show_id/songs" do
   @songs = Song.where(show_id: params[:show_id])
   @show = Show.find(params[:show_id])
@@ -77,19 +81,23 @@ end
 # Shows just one song from the show
 
 get "/shows/:show_id/songs/:song_id" do
-  @show_song  = Song.where(show_id: params[:show_id], id: params[:song_id])
+  @single_song  = Song.where(show_id: params[:show_id], id: params[:song_id])
   erb :"songs/song_show"
 end
 
-get "/shows/:id/songs/new" do
-  erb :"songs/song_new"
+post "/shows/:id/songs" do
+  @new_song = Song.new({song_title: params[:song_title], embed_url: params[:embed_url]})
+  @show = Show.find_by(id: params[:id])
+  @new_song.show_id = params[:id]
+  @new_song.save
+  redirect "/shows/#{@show.id}/songs/#{@new_song.id}" 
 end
 
-post "/shows/:id/songs" do
-  @song = Song.new({song_title: params[:song_title], embed_url: params[:embed_url]})
-  @show = Show.find_by(id: params[:id])
-  @song.show_id = params[:id]
-  @song.save
-  redirect "/shows/#{@show.id}/songs/#{@song.id}" 
-end
+
+
+
+
+
+
+
 

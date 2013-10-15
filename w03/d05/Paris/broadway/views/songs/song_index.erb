@@ -2,6 +2,7 @@
 
 <ul>
   <% @songs.each do |song| %>
+  <li>Song id: <%= song.id %></li>
   <li>Song Title: <%= song.song_title %></li>
   <% song.embed_url.slice!("http:")  %>
   <% song.embed_url.gsub!("watch?v=","embed/") %>
