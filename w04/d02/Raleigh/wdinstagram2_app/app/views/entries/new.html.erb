@@ -1,5 +1,6 @@
 <h1>Add a New Instagram Entry</h1>
 
+<div class="content">
 <form action="/entries" method="POST">
   <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
   <p>Instagram author:
@@ -14,4 +15,5 @@
   <button>Save</button>
 </form>
 
-<p><a href="/entries">Home</a></p>
+<p class="right"><a href="/entries">Home</a></p>
+</div>

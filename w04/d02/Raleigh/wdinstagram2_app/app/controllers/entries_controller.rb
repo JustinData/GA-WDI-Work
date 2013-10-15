@@ -16,7 +16,7 @@ class EntriesController < ApplicationController
 
        new_gram.save
 
-       redirect_to "/entries"
+       redirect_to "/entries/#{new_gram.id}"
    end
 
    def show
