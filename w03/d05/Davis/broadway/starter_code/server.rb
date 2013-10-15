@@ -1,22 +1,16 @@
 require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'active_record'
-# API
-# require 'httparty'
-# require 'json'
 require 'pry'
 
-# setup active record
-ActiveRecord::Base.establish_connection(
-	adapter: "postgresql",
-	hostname: "localhost",
-	username: "daviskoh",
-	password: "",
-	database: "broadway_db"
-);
+require_relative 'config/environments'
 
 require_relative '../models/show'
 require_relative '../models/song'
+
+after do
+    ActiveRecord::Base.clear_active_connections!
+end
 
 # Welcome to Broadway.ly!
 
