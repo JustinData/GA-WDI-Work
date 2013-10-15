@@ -259,6 +259,7 @@ SELECT * FROM presents,parentsWHERE parent_id = parents.id;
 OR with different syntax
 SELECT * FROM presents INNER JOIN parents ON presents.parent_id = parents.id;
 
+
  
 
 

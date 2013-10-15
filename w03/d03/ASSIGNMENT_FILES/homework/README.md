@@ -27,3 +27,7 @@ Figure out the appropriate SQL commands to find out the following, and keep trac
 #####Bonus
 1. Age and the the average points per game for that age, ordered from youngest to oldest
 2. Team and the the number of players who have a scoring average (points per game) above 12 on that team, ordered from most to least
+
+
+
+
