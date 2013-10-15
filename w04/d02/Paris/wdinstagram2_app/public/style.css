@@ -47,6 +47,7 @@ input    {
 }
 
 #button {
+    margin: 0 auto;
     background: orange;
     font-size: 14px;
     color: white;
@@ -58,6 +59,7 @@ input    {
     -moz-border-radius: 50px;
     border-radius: 50px;
     border: 2px solid #999;
+    text-align: center;
 }
 
 h1 {
