@@ -22,7 +22,7 @@ FIRST - Work in your folder for today.
 
 1. Create a new rails app called wdinstagram2_app `rails new wdinstagram2_app -d postgresql`
 2. Configure your database.yml file (your username, and add localhost as a host)
-3. Create a database for your app using psql called `wdinstagram2_db`
+3. Create a database for your app using psql
 4. Create a migration file that will help you create your entries table
 5. Run rake db:migrate to actually create that table
 6. Create your entry model 
