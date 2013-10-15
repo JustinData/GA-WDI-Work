@@ -4,7 +4,6 @@
 
 def translate(word)
 	vowels = %w{a e i o u}
-	vowels2 = %w{a e i o}
 
 	@word = word
 
@@ -12,8 +11,8 @@ def translate(word)
 		@word += "w"
 	else
 		until vowels.include?(@word[0])
-			@word += @word.slice!(0..1) if @word[0] == "q"
-			@word += @word.slice!(0)
+			# adjust for "qu"
+			@word[0] == "q" ? @word += @word.slice!(0..1) : @word += @word.slice!(0)
 			# stop if y
 			break if @word[0] == "y"
 		end
@@ -22,4 +21,14 @@ def translate(word)
 	@word += "ay"
 end
 
+puts translate("happy")
+puts translate("glove")
+
+puts translate("egg")
+puts translate("eight")
+
+puts translate("yellow")
+puts translate("rhythm")
+
 puts translate("queen")
+puts translate("squeal")
