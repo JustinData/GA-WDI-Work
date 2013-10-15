@@ -6,3 +6,7 @@ New one,Good One,1
 Big fat daddy story,Big Product,.50
 Big fat daddy story,Big Product,.50
 ,,
+Newest Store,Newsest Product,10000
+store,hello,1
+store,big,1
+Barnes and Noble,DVD,100
