@@ -29,3 +29,4 @@ SELECT team, SUM(points) AS sum  FROM players GROUP BY team ORDER BY sum DESC;
 SELECT age, AVG(points / games) FROM players GROUP BY age ORDER BY age;
 
 2. Team and the the number of players who have a scoring average (points per game) above 12 on that team, ordered from most to least
+
