@@ -8,11 +8,13 @@
 </head>
 <body>
 	<nav>
-		<a href="/entries">Home</a>
-		<a href="/entries/new">Add New</a>
+		<a href="/entries" class="nav_button">Home</a>
+		<a href="/entries/new" class="nav_button">Add New</a>
 	</nav>
 
-<%= yield %>
+	<div id="content">
+		<%= yield %>
+	</div>
 
 </body>
 </html>
