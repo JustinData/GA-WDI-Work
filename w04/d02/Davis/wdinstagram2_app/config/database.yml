@@ -17,9 +17,9 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: WDInstagram2_development
+  database: wdinstagram2_app_development
   pool: 5
-  username: WDInstagram2
+  username: wdinstagram2_app
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -46,15 +46,15 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: WDInstagram2_test
+  database: wdinstagram2_app_test
   pool: 5
-  username: WDInstagram2
+  username: wdinstagram2_app
   password:
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: WDInstagram2_production
+  database: wdinstagram2_app_production
   pool: 5
-  username: WDInstagram2
+  username: wdinstagram2_app
   password:

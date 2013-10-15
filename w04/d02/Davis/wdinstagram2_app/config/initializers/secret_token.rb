@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-WDInstagram2::Application.config.secret_key_base = '838994fabfdf7e8899d4c955cf721e5d17bd15da44f490b9a5bd29456294d29c453f5879c946fd8d6e82aafcaf0e2dfea81948ce75c04da6dbee2b8fadab89e1'
+Wdinstagram2App::Application.config.secret_key_base = '11587ee6df4e2d3acf88ef31b9e05e623c4c8087663c5da0eb494452976ac927d2398a155e35d97d33cdd9987e7a3f872ac6e7c75837cdf0b40dfaac10db751c'

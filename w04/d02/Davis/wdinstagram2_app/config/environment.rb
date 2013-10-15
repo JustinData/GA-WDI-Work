@@ -2,4 +2,4 @@
 require File.expand_path('../application', __FILE__)
 
 # Initialize the Rails application.
-WDInstagram2::Application.initialize!
+Wdinstagram2App::Application.initialize!
