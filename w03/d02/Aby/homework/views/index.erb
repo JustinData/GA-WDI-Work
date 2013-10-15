@@ -6,6 +6,9 @@
 <ul>
 
   <% @entries.each do |entry| %>
-	<li><a href="/wdinstagram/<%= entry.id %>"> <%= entry.name %> <%= entry.url %> <%=entry.date_taken %></a></li>
+	<li><a href="<%= entry.id %>"> <%= entry.id %> </a> 
+		<a href="<%= entry.name %>"> <%= entry.name %> </a> 
+		<a href="<%= entry.url %>"> <%= entry.url %> </a>
+		<a href="<%= entry.date_taken %>"> <%= entry.date_taken %> </a></li>
   <% end %>
 </ul>
