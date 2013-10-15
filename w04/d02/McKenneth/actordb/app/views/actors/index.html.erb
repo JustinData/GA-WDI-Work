@@ -2,8 +2,8 @@
 
 <ul>
   <% for actors in @actor %>
-<li><%= actors.name %></li>
+<li><a href="/actors/<%= actors.id %>"><%= actors.name %></a></li>
 <% end %>
 </ul>
 
-<a href="/actors/first">push</a>
+<a href="/actors/new">NEW</a>
