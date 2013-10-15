@@ -7,9 +7,11 @@ MyFirstRailsApp::Application.routes.draw do
 
   get 'woah' => 'static#woah'
 
-  get 'about' => 'actor#about'
+  resource :actor, only: [:show]
 
-  get 'musical' => 'actor#musical'
+  # get 'about' => 'actor#about'
+
+  # get 'musical' => 'actor#musical'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
