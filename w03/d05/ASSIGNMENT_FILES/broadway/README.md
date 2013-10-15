@@ -26,7 +26,8 @@ Here's what the url looks like:
 Here's here you find the video_id:
 ![video_id](youtube_id.png)
 
-## FIRST - Copy the starter code into your folder for today.
+# *FIRST - Copy the starter code into ~~your folder for today~~ a new folder in your dev directory.*
+
 
 ## Part 1 - Database-ize
 * Start by setting up your database schema and creating your database. Test it to make sure it works!
@@ -46,6 +47,18 @@ Here's here you find the video_id:
 
 ## Part 5 - Internet-ize
 * Deploy your app to Heroku and share it with your friends & classmates!
+
+## Part 6 - Submission
+* Put your app on GitHub
+   * add a README.md file (using touch) to the base of your repo (it can be empty if you like)
+   * [Create a new GitHub repo](https://github.com/new)
+   * [Add a git remote for your project](https://help.github.com/articles/adding-a-remote)
+   * `git push origin master`! (ie follow the instructions once you create your github repo)
+* In your work folder (.../WDI_NYC_Array_Work/w03/d05/Yourname) add a file named "Broadwayly.md" that includes the URL for:
+   * Your app on Heroku
+   * Your GitHub repo
+   * push it to origin and send Peter a pull request
+* Pour yourself a nice Scotch, relax
 
 ## Bonus
 * Implement a "Search" feature where users can enter a show title into a form and they are displayed the "show page" for that show if it exists.
