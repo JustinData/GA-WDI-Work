@@ -5,7 +5,7 @@ We're going to create a one model Rails CRUD App from scratch. Our one model her
 
 An Entry has the following:
 
-* Author
+* Name
 * Photo_url
 * Date_Taken
 
@@ -25,10 +25,12 @@ FIRST - Work in your folder for today.
 3. Create a database for your app using psql
 4. Create a migration file that will help you create your entries table
 5. Run rake db:migrate to actually create that table
-6. Create your entry model 
+6. Create your entry model
 7. Create routes for your app using resources (make sure there are only routes for the actions that we need!)
 8. Create a controller with the required controller actions (listed above)
+
 9. Define the method for a controller action, then create any corresponding views for that action.
+
 10. Move on to the next controller action until you are done.
 11. Add styling to your app. A decent amount should be reusable from last week.
 12. Work on the typography for your site:
