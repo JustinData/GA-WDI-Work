@@ -16,7 +16,7 @@ class EntriesController < ApplicationController
   end
 
   def show
-    @Entry = Entry.find(params[:id])
+    @entry = Entry.find(params[:id])
     render :show
   end
 
