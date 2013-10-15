@@ -1,3 +1,4 @@
+require 'sintra
 require 'pry'
 require 'active_record'
 
@@ -8,16 +9,10 @@ ActiveRecord::Base.establish_connection(
   host: "localhost",
   username: "evobersi",
   password: "",
-  database: "moma_db"
+  database: "sandbox"
 )
 
-class Painting < ActiveRecord::Base
-  belongs_to :artist
-end
-
-class Artist < ActiveRecord::Base
-  has_many :paintings
+class Person < ActiveRecord::Base
 end
 
 binding.pry
-

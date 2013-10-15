@@ -10,7 +10,6 @@ Write a Ruby program called `load_data.rb` that reads in the CSV information fro
 
 Where `games` is games played during the season and `points`is total points scored over the course of the season.
 
-
 ### Part 3
 
 Figure out the appropriate SQL commands to find out the following, and keep track of them in a file called `sql_commands.txt`
