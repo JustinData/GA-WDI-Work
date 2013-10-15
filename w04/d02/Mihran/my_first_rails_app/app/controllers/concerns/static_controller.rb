@@ -3,8 +3,8 @@ require 'pry'
 class StaticController < ApplicationController
 
   def index
-    binding.pry
-    render :index
+      @year = params[:year]
+      render :index
   end
 end
 
