@@ -37,14 +37,16 @@ end
     erb :paintings
   end
 
-  post("/moma/artists/post") do 
+  post("/moma/artists") do 
     #need to remove lines 16 and 21
     @artist = params[:artist]
     @title = params[:title]
     @url = params[:url]
     @year = params[:year]
-    Artist.new(name: @artist)
-    Painting.new(title: '#{@title}', image_url: '#{@url}', year: '#{@year.to_i)}')
+    a = Artist.new(name: @artist)
+    b = Painting.new(title: '#{@title}', image_url: '#{@url}', year: '#{@year.to_i)}')
+    a.save
+    b.save
     redirect("/moma/artists")
     
   end
