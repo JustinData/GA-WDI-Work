@@ -3,12 +3,17 @@ MyFirstRailsApp::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+
   root 'static#index'
 
-  get 'whoa' => 'static#whoa'
 
-  get 'about' => 'actor#about'
-  get 'film' => 'actor#film'
+  # get 'whoa' => 'static#whoa'
+
+
+resource :actor, only: [:show]
+resource :puppies
+  # get 'about' => 'actor#about'
+  # get 'film' => 'actor#film'
 
 
 
