@@ -28,11 +28,11 @@ FIRST - Work in your folder for today.
 6. Create your entry model
 7. Create routes for your app using resources (make sure there are only routes for the actions that we need!)
 8. Create a controller with the required controller actions (listed above)
-
 9. Define the method for a controller action, then create any corresponding views for that action.
-
 10. Move on to the next controller action until you are done.
+
 11. Add styling to your app. A decent amount should be reusable from last week.
+
 12. Work on the typography for your site:
    * [Typography Essentials - A Getting Started Guide](http://freelancefolder.com/typography-essentials-a-getting-started-guide/)
    * [Choosing the Right Font: A Practical Guide to Typography on the Web](http://webdesign.tutsplus.com/articles/choosing-the-right-font-a-practical-guide-to-typography-on-the-web/)
