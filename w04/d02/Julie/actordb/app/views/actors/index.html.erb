@@ -2,6 +2,6 @@
 
 <%@actors.each do |actor|%>
 <ul>
-    <li><%= actor.name%></li>
+    <li><a href="actors/<%= actor.id %>"><%= actor.name%></a></li>
 </ul>
 <%end%>
