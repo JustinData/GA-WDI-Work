@@ -10,13 +10,11 @@ ActiveRecord::Base.establish_connection(
 )
 
 def create_artist(name, birth_date, nationality)
-	artist = Artist.new(name: name, birth_date: birth_date, nationality: nationality)
-	artist.save
+	artist = Artist.create(name: name, birth_date: birth_date, nationality: nationality)
 end
 
 def connect_painting(title, year, image_url, artist_id = nil)
-	painting = Painting.new(title: title, year: year, image_url: image_url, artist_id: artist_id)
-	painting.save
+	painting = Painting.create(title: title, year: year, image_url: image_url, artist_id: artist_id)
 end
 
 class Artist < ActiveRecord::Base
