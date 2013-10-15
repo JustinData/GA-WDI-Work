@@ -1,5 +1,7 @@
 <h3>Song: <%= @show_song[0].song_title %></h3>
 <ul>
-  <li><iframe width="425" height="349" src="<%= @song_url%>" frameborder="0" allowfullscreen></iframe></li>
+  <% @show_song[0].embed_url.slice!("http:")  %>
+  <% @show_song[0].embed_url.gsub!("watch?v=","embed/") %>
+  <li><iframe width="425" height="349" src="<%= @show_song[0].embed_url %>" frameborder="0" allowfullscreen></iframe></li>
 </ul>
 

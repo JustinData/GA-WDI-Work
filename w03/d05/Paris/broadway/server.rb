@@ -1,18 +1,22 @@
 require 'sinatra'
 require 'sinatra/reloader'
-# require 'sinatra/reloader' if development?
+require 'sinatra/reloader' if development?
 require 'active_record'
 require 'pry'
+require_relative 'config/environments'
+require_relative './models/broadway.rb'
 
-  require_relative './models/broadway.rb'
+  # ActiveRecord::Base.establish_connection(
+  # :adapter => "postgresql", 
+  # :host => "localhost",
+  # :username => "Paris",
+  # :password => "",
+  # :database => "broadway_db"
+  # )
 
-  ActiveRecord::Base.establish_connection(
-  :adapter => "postgresql", 
-  :host => "localhost",
-  :username => "Paris",
-  :password => "",
-  :database => "broadway_db"
-  )
+after do
+  ActiveRecord::Base.clear_active_connections!
+end
 
 # Welcome to Broadway.ly!
 
@@ -64,6 +68,19 @@ end
 # # Create action - new songs for a show - redirects
 # # to that song
 
+get "/shows/:show_id/songs" do
+  @songs = Song.where(show_id: params[:show_id])
+  @show = Show.find(params[:show_id])
+  erb :"songs/song_index"
+end
+
+# Shows just one song from the show
+
+get "/shows/:show_id/songs/:song_id" do
+  @show_song  = Song.where(show_id: params[:show_id], id: params[:song_id])
+  erb :"songs/song_show"
+end
+
 get "/shows/:id/songs/new" do
   erb :"songs/song_new"
 end
@@ -73,30 +90,6 @@ post "/shows/:id/songs" do
   @show = Show.find_by(id: params[:id])
   @song.show_id = params[:id]
   @song.save
-
   redirect "/shows/#{@show.id}/songs/#{@song.id}" 
 end
-
-get "/shows/:id/songs" do
-  @songs = Song.where(show_id: params[:id])
-  youtube_url = @songs[0].embed_url
-  no_http = youtube_url.slice!("http:") 
-  @song_url = youtube_url.gsub!("watch?v=","embed/")
-  @show = Show.find(params[:id])
-  erb :"songs/song_index"
-end
-
-# Shows just one song from the show
-
-get "/shows/:show_id/songs/:song_id" do
-  @show_song  = Song.where(show_id: params[:show_id], id: params[:song_id])
-  youtube_url = @show_song[0].embed_url
-  no_http = youtube_url.slice!("http:") 
-  @song_url = youtube_url.gsub!("watch?v=","embed/") 
-  erb :"songs/song_show"
-end
-
-
-
-
 

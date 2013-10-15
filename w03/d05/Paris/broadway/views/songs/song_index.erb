@@ -3,6 +3,8 @@
 <ul>
   <% @songs.each do |song| %>
   <li>Song Title: <%= song.song_title %></li>
-  <li><iframe width="425" height="349" src="<%= @song_url %>" frameborder="0" allowfullscreen></iframe></li>
+  <% song.embed_url.slice!("http:")  %>
+  <% song.embed_url.gsub!("watch?v=","embed/") %>
+  <li><iframe width="425" height="349" src="<%= song.embed_url %>" frameborder="0" allowfullscreen></iframe></li>
     <% end %>
 </ul>
