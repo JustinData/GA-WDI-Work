@@ -19,7 +19,7 @@ development:
   encoding: unicode
   database: wdinstagram2_app_development
   pool: 5
-  username: wdinstagram2_app
+  username: daviskoh
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
