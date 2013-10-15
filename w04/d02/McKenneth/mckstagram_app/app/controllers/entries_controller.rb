@@ -12,10 +12,10 @@ class EntriesController < ApplicationController
     image = params[:image]
     date = params[:date]
     new_entry = Entry.create(author: author, image: image, date: date)
-    redirect_to("/entries")
+    redirect_to("/entries/show")
   end
   def show
-    @entry = Entry.find(id: params[:id])
+    @entry = Entry.find(params[:id])
     render :show
   end
 end

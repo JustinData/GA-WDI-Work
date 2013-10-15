@@ -1,8 +1,11 @@
 <h1>Mckstagr.am V5.0.2.3.59</h1>
 
 <a href="/entries/new">Add Entry</a>
+
 <% for entry in @all %>
+ <div class="pics">
  <h1><%= entry.author %></h1>
 <h3><%= entry.date %></h3>
-<img src="<%= entry.image %>">
+<a href="/entries/<%= entry.id %>"><img src="<%= entry.image %>"></a>
+</div>
 <%end%>  
