@@ -19,7 +19,7 @@ development:
   encoding: unicode
   database: actordb_development
   pool: 5
-  username: julie
+  username: Julie
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
