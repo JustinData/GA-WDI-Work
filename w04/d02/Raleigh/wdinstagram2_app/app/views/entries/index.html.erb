@@ -1,0 +1,7 @@
+<h1>WDInstagram 2.0</h1>
+<h2>Past Instagram Entries:</h2>
+
+<% @instagrams.each do |gram| %>
+   <a href="gram/<%= gram.id %>"> <img src="<%= gram.photo_url %>" /></a>
+   <p><%= gram.author %></p>
+  <% end %>
