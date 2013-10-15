@@ -19,11 +19,27 @@ painting_campbell.save
 painting_cubism = Painting.new(title: 'cubism', year: '1907', image_url: 'http://pablo-picasso.paintings.name/images/picasso-femme-en-pleurs.jpg')
 painting_cubism.save
 
+painting_guernica = Painting.new(title: 'Guernica', year: '1907', image_url: 'http://www.pablopicasso.org/images/paintings/guernica.jpg')
+painting_guernica.save
+
 
 3. Artist.all
 4. Painter.all
 
 5. Artist.find_by(id: 2)
+6. Artist.find_by(name: "Vincent van Gogh")
+7. Artist.find_by(nationality: "Spanish")
+
+8. Painting.find_by(id: 1)
+9. Painting.find_by(title: "Guernica")
+10.
+11
+
+
+
+
+
+
 
 
 
