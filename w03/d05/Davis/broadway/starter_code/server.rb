@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'active_record'
+require './config/environments'
 require 'pry'
 
 require_relative 'config/environments'
