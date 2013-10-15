@@ -1,10 +1,9 @@
 require 'sinatra'
-require 'sinatra/reloader'
 require 'sinatra/reloader' if development?
 require 'active_record'
 require 'pry'
 require_relative 'config/environments'
-require_relative './models/broadway.rb'
+require_relative './models/broadway'
 
   ActiveRecord::Base.establish_connection(
   :adapter => "postgresql", 
@@ -65,12 +64,8 @@ end
 
 # Lists all songs from the show
 
-# # Create action - new songs for a show - redirects
-# # to that song
 
-get "/shows/:show_id/songs/new" do
-  erb :"songs/song_new"
-end
+
 
 get "/shows/:show_id/songs" do
   @songs = Song.where(show_id: params[:show_id])
@@ -85,13 +80,21 @@ get "/shows/:show_id/songs/:song_id" do
   erb :"songs/song_show"
 end
 
-post "/shows/:id/songs" do
-  @new_song = Song.new({song_title: params[:song_title], embed_url: params[:embed_url]})
-  @show = Show.find_by(id: params[:id])
-  @new_song.show_id = params[:id]
+get "/shows/:show_id/songs/new" do
+  erb :"songs/song_new"
+end
+
+# # Create action - new songs for a show - redirects
+# # to that song
+
+post "/shows/:show_id/songs" do
+  @new_song = Song.new(song_title: params[:song_title], embed_url: params[:embed_url])
+  @show = Show.find(show_id: params[:show_id])
+  @new_song.show_id = params[:show_id]
   @new_song.save
   redirect "/shows/#{@show.id}/songs/#{@new_song.id}" 
 end
+binding.pry
 
 
 
