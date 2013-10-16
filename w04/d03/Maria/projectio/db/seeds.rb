@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+# Student.create( name: "Albert Einstein", project_description: "Theory of relativity", github_url: "")
+# then do 
+#   rake db:seed
+#Student.destroy_all

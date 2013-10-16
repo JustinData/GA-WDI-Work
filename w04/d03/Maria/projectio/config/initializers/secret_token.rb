@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Projectio::Application.config.secret_key_base = '3e17507241c038c8d970134eb47275b3b0300d727da7816143f62d3e822f31f632363a768bca1fa9de5b601de573a9921fafba2ab0a6d74d79267424c36a0fe0'
+Projectio::Application.config.secret_key_base = 'b09b8a585e933f9946f96ad95f63eee90b45fdb3e89a5860f0cf9ff251ae4e332690ee35c526a383ce6d3ee3c9b654353e8e56871b0c2a529ed96b04e1ed29ac'
