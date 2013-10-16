@@ -5,13 +5,13 @@ require 'pry'
 require_relative 'config/environments'
 require_relative './models/broadway'
 
-  ActiveRecord::Base.establish_connection(
-  :adapter => "postgresql", 
-  :host => "localhost",
-  :username => "Paris",
-  :password => "",
-  :database => "broadway_db"
-  )
+  # ActiveRecord::Base.establish_connection(
+  # :adapter => "postgresql", 
+  # :host => "localhost",
+  # :username => "Paris",
+  # :password => "",
+  # :database => "broadway_db"
+  # )
 
 after do
   ActiveRecord::Base.clear_active_connections!
@@ -94,7 +94,6 @@ post "/shows/:show_id/songs" do
   @new_song.save
   redirect "/shows/#{@show.id}/songs/#{@new_song.id}" 
 end
-binding.pry
 
 
 
