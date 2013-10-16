@@ -1,12 +1,15 @@
+<div class="header">
+	<h1>WDINSTAGRAM</h1>
+	<h2><a href="/posts/new">NEW</a></h2>
+</div>
+
 <div class="container">
-	<h1>Instagrams</h1>
-	<h2><a href="/posts/new">Create a new Instagram</a></h2>
 
 	<% @posts.each do |post| %>
 	<section>
 		<h2><%= post.author %></h2>
 		<p><%= post.date_taken %></p>
-		<a href="/posts/<%= post.id %>"><img src="<%= post.photo_url %>"></a>
+		<a href="/posts/<%= post.id %>"><img src="<%= post.photo_url %>" width='400'></a>
 	<section>
 	<% end %>
 </div>
