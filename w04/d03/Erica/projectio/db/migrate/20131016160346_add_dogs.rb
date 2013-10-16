@@ -11,4 +11,6 @@ class AddDogs < ActiveRecord::Migration
     drop_table :dogs 
   end
 end
-end
+
+
+

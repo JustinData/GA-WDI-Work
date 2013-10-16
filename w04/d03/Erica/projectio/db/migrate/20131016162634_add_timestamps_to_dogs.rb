@@ -1,10 +1,13 @@
 class AddTimestampsToDogs < ActiveRecord::Migration
   def up
-    add_column :dogs, 
+    change_table :dogs do |t|
+      t.timestamps
   end
 
   def down
-
+    remove_column :dogs, :created_at
+    remove_column :dogs, :updated_at
   end
-
 end
+end
+
