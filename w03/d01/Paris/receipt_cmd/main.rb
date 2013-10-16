@@ -34,7 +34,7 @@ while true
 
     # open file for writing ##########################################
     # FILENAME is a constant so it's in caps. this will never change in the world of this app. 
-    # fs = File.new( FILENAME + ".csv", "a+" )
+    fs = File.new( FILENAME + ".csv", "a+" )
 
     db_conn = PG.connect( dbname: FILENAME + "_db" )
 
@@ -47,8 +47,8 @@ while true
     db_conn.exec ( "INSERT INTO" )
 
 
-    # line_count = fs.count + 1 # increment past last line for unique id
-    # fs.puts "#{line_count}:" + new_receipt.values.to_a.join( "," )
+    line_count = fs.count + 1 # increment past last line for unique id
+    fs.puts "#{line_count}:" + new_receipt.values.to_a.join( "," )
 
 
     db_conn.close
@@ -60,15 +60,15 @@ while true
 
   when :l
     # either declare or reset old receipt instance as an empty hash
-    old_receipt = {}
+    # old_receipt = {}
 
     puts mp( "Receipts List", " " )
     puts mp( "", "*" ) + "\n"
 
     # open file for reading ##########################################
-   #  fs = File.new( FILENAME + ".csv", "r" )
-   #  db_conn = PG.connect( dbname: FILENAME + "_db"  )
-   # results = db_conn.exec( "SELECT * FROM receipts;"  )
+   fs = File.new( FILENAME + ".csv", "r" )
+    db_conn = PG.connect( dbname: FILENAME + "_db"  )
+   results = db_conn.exec( "SELECT * FROM receipts;"  )
 
 
     results.each do |row|
