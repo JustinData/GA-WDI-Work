@@ -24,7 +24,7 @@ Testing our model and database:
    * pry-rails
    * meta_request
 
-##Building a two model app
+##Building a two-model app
 
 * Database migrations
 * Routes
