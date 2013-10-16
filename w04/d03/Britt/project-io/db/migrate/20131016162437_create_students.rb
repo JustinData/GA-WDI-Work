@@ -1,4 +1,4 @@
-class AddStudents < ActiveRecord::Migration
+class CreateStudents < ActiveRecord::Migration
   def up
     create_table :students do |t|
       t.string :name
@@ -10,4 +10,5 @@ class AddStudents < ActiveRecord::Migration
   def down
     drop_table :students
   end
+
 end
