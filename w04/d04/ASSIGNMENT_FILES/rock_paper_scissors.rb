@@ -5,8 +5,6 @@
       response = gets.chomp.downcase
    end
 
-comp_choice = ["r", "p", "s"].sample
-
 ### Definitions End, Program Begins ###
 
    response = menu
@@ -14,6 +12,7 @@ comp_choice = ["r", "p", "s"].sample
    while response !="q"
       puts "Choose (r)ock, (p)aper, or (s)cissors:"
       user_choice = gets.chomp.downcase
+      comp_choice = ["r", "p", "s"].sample
 
       if user_choice == comp_choice
          puts "It's a tie!"
