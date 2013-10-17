@@ -16,7 +16,7 @@ class ShowsController < ApplicationController
 
     show.save
 
-    redirect_to "/show/#{show.id}"
+    redirect_to "/shows/#{show.id}"
   end
 
   # def create
