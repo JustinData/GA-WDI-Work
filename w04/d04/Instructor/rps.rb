@@ -15,11 +15,11 @@ def game_result(game_throw, user_throw)
   end
 end
 
-puts "Choose one: #{throws.join(", ")}?"
-user_throw = gets.chomp
-
 throws = ['rock', 'paper', 'scissors']
 game_throw = throws.sample
+
+puts "Choose one: #{throws.join(", ")}?"
+user_throw = gets.chomp
 
 puts "The computer chose #{game_throw}"
 puts game_result(game_throw, user_throw)
