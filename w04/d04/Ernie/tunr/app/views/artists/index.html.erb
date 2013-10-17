@@ -1,8 +1,0 @@
-<h1>Welcome To Tunr</h1>
-
-<a href="/artist/show">List Our Artist!</a>
-<ul>
-<%= @artist.each do |artist| %>
-<li><a href="/artist/<%= artist.id %>"></a><%= artist.name %></li>
-<% end %>
-</ul>
