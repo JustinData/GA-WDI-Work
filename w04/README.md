@@ -17,3 +17,6 @@ Last week, we learned how to make data persist in our Sinatra apps by using SQL.
 
 ###What are we doing next week?
 First Rails Project!!!
+
+###Resources this week
+* [Basic Rails Workflow](https://gist.github.com/h4w5/7026308)
