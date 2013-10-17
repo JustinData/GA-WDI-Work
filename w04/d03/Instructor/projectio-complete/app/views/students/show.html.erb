@@ -14,9 +14,11 @@
 <% if @student.dependencies.empty? %>
   <p>None</p>
 <% else %>
+  <ul>
   <% @student.dependencies.each do |d| %>
-    <p><strong><a href="/students/<%= @student.id %>/dependencies/<%= d.id %>"><%= d.name %><%= d.is_gem ? " [Gem]" : "" %></a></strong></p>
+    <li><strong><a href="/students/<%= @student.id %>/dependencies/<%= d.id %>"><%= d.name %><%= d.is_gem ? " [Gem]" : "" %></a></strong></li>
   <% end %>
+  </ul>
 <% end %>
 
 
