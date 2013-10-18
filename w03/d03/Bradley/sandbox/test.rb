@@ -5,9 +5,26 @@ doc = Nokogiri::HTML(open("http://www.crunchbase.com/company/facebook")) do |con
   config.noblanks.strict
 end
 
-funding_col = doc.css("div.col1_content")[6]
+# funding_col = "<h2>No funding information found!</h2>"
 
-funding_hash = {}
+# i = 2
+
+while i < 8
+  funding_col = doc.css("div.col1_content")[i]
+   if funding_col.to_s.include?("FUNDING")
+    funding_col
+    i = 9
+  else
+    i +=1
+  end
+end
+
+funding_col = doc.css("div.col1_content")[6]
+ 
+
+
+
+# funding_hash = {}
 
 =begin
 
@@ -19,9 +36,9 @@ round_hash = { :investors => investors_array, :date => date, :amount = amount }
 
 =end
 
-rows = []
+# rows = []
 
-funding_col.css("tr").each do |row|
-  rows << row
-end
+# funding_col.css("tr").each do |row|
+#   rows << row
+# end
 

@@ -1,13 +1,13 @@
-require 'pry'
-require 'active_record'
+# require 'pry'
+# require 'active_record'
 
-ActiveRecord::Base.establish_connection(
-  :adapter => "postgresql", 
-  :host => "localhost",
-  :username => "Paris",
-  :password => "",
-  :database => "broadway_db"
-  )
+# ActiveRecord::Base.establish_connection(
+#   :adapter => "postgresql", 
+#   :host => "localhost",
+#   :username => "Paris",
+#   :password => "",
+#   :database => "broadway_db"
+#   )
 
 class Show < ActiveRecord::Base
   has_many :songs
