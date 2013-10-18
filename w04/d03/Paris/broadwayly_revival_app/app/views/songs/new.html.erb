@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>Add a song:</h1>
+  <div class="form">
+    <form action="/shows/<%= @show.id %>/songs" method="post">
+          <input name="authenticity_token" type="hidden" value="<%=  form_authenticity_token %>" />
+          <p><input type="textarea" name="song[song_title]" placeholder="song title" /></p>
+     <p><input type="textarea" name="song[embed_url]" placeholder="embed url" /></p>
+          <div id="button">
+            <button id="button">Go!</button>
+          </div>  
+    </form>
+  </div>  
+</div> 
