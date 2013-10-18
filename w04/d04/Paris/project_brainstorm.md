@@ -22,7 +22,7 @@
 *Voice commands for alerts.
 * **COMMERCE**
 
-*Address the issue of having bikes available during rush hour.
+* Address the issue of having bikes available during rush hour.
 * Feature: A user can request a bike and make a bid. 'I'm willing to pay $10 to have someone bring me a bike to x dock by x date/time.' Another user can accept the bid and carry out the task. When the task is finished, the task doer will receive the funds.
 * Ability to bid for someone to dock your bike for you so you don't have to hunt for a dock.   
 
