@@ -7,21 +7,21 @@
 
 ###How it works:
 
-1. User signs up by giving their telephone number.
+User signs up by giving their telephone number.
 
-2. User cliks a button starting procedure:
+User cliks a button starting procedure:
 
-   *App picks a random poem
+*App picks a random poem
         array of poems in DB?
         poem mp3 from soundcloud?
 
-   *App sends poem to user 
+*App sends poem to user 
         *using Tropo or Twilio?
 
 ###Possible APIs Libraries to use:
-    [Soundcloud](http://developers.soundcloud.com/) 
-    [Tropo](https://www.tropo.com/docs/webapi/quickstarts/making-call)
-    [Twilio](https://www.twilio.com/docs/api/rest/making-calls)
+[Soundcloud](http://developers.soundcloud.com/) 
+[Tropo](https://www.tropo.com/docs/webapi/quickstarts/making-call)
+[Twilio](https://www.twilio.com/docs/api/rest/making-calls)
 
 So far I have been able to try Tropo and get it so if I call a number it reads a JSON file on my server. You can call it: 347-343-2972. So far I think Tropo uses JSON and Twilio uses its own language, Twilio's docs seem outdated (from 2010). 
 
