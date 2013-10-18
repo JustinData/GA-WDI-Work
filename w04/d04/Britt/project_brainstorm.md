@@ -16,11 +16,17 @@ I have a LOT of ideas, but I want to keep it reasonably managable to begin with,
 
 ### What APIs or other resources might you use / do you plan on using?
 
+So far, I know I'm going to need to use Apple's Search API (I've learned the query string format that I need at least for software), and HTTParty to get that data (App ID, maybe the icon, and some other as-of-yet undefined data. There's a lot) from Apple's API; I'll use Nokogiri and SelectorGadget to scrape AppAnnie's App Store Data page for the historical release notes, which I'll zero in on using the unique app ID from Apple's search API.
 
 * **Models.** Your app should have at least 3 models. Make sure they are associated correctly.
-* **Views.** Use partials and view helpers to DRY up your views.
+   
+    * Users, Apps, Features? 
+    * An important question is how much data I want to store on my database -- do I want every app, every app that is searched for, or should I curate the apps I support to begin with? I need to explore this more and come up with the most viable solution for the purposes of this project, with the idea that this could become a bigger project...
+
 * **Handles invalid data.** Forms in your application should validate data on the backend (controllers & models) and handle incorrect inputs. Validate sign up information, verify necessary model fields are populated (not blank) for required fields, valid email addresses, etc.
-* **Heroku.** Deploy your code to Heroku with a PostgreSQL database.
-* **User Login.** Make sure you have a user model with basic authentication and authorization set up.
+
+    * This will be challenging for finding the correct app that the user is looking for, and showing enough search results without overwhelming.
+
 * **Styling** Make your app look nice. Think about color & typography and make sure everything is aligned properly.
-* **Use an API (Optional)** APIs add data and functionality to your app (some have gems!)
+  
+  * This will be an important challenge of this project, because it's one of my biggest opportunities as far as my skills are concerned.
