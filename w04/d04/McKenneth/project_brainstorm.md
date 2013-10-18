@@ -3,7 +3,7 @@
 > All restaurant inspection results are publicly posted
   and can be viewed within a few days of the inspection,
   but the information is presented in such generalized terms
-  that it is mostly useless in determining whether a restaurant is place you actually want to eat or whether you should give it a second thought. It's interface is also poorly designed and unintuitive. I want to make an app that would condense all of the restaurants down into 3 basic categories that would be color coded:
+  that it is mostly useless in determining whether a restaurant is place you actually want to eat at or whether you should give it a second thought. It's interface is also poorly designed and unintuitive. I want to make an app that would condense all of the restaurants down into 3 basic categories that would be color coded:
 
   * red -> DANGER
   * yellow -> CAUTION
