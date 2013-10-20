@@ -12,4 +12,7 @@ What do you think you can reasonably implement in 1 week?
 Schema/model user sign up authentication
 
 What APIs or other resources might you use / do you plan on using?
-send grid/ses
+send grid
+resque/delayed jobs
+csv
+gatling gun
