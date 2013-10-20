@@ -23,3 +23,7 @@ auth_token = 'myauth token'
   # Fetch instructions from this URL when the call connects
   :url => 'http://durganesh.com/recording1.mp3'
 )
+
+###Next Steps:
+
+begin to flesh out the models and controllers...
