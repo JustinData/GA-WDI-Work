@@ -3,31 +3,32 @@ require 'pry'
 
 # TO DO
   # explore diff b/t artistName and sellerName
-  # rename instance vars accordingly
-  # explore wrapperType vs kind
+  # diff b/t wrapperType vs kind
   # diff b/t artworkUrl100 & artworkUrl512
   # diff b/t trackContentRating & contentAdvisoryRating
+  # rename instance vars accordingly
 
 def app_search(search_term)
   query = search_term.gsub(" ","+")
   response = HTTParty.get("https://itunes.apple.com/search?term=#{query}&entity=software&limit=1")
 
-  unless response.nil?
-
+  if response["resultCount"] == 0
+    "No results found."
+  else 
     res = response["results"][0]
     @app_id = res["artistId"]
     @app_name = res["trackName"]
     @store_url = res["trackViewUrl"]
 
     @features = res["features"] # array, incl. Universal
-    @app_icon = res["artworkUrl512"]
+    @app_icon = res["artworkUrl512"] # artworkUrl100, artworkUrl60
     @developer = res["artistName"]
     @developer_company = res["sellerName"]
     @developer_company_website = res["sellerUrl"]
 
     @price = res["price"]
-    @currency = res["currency"]
-    @formatted_price = res["formattedPrice"]
+    @currency = res["currency"] # probably don't need
+    @formatted_price = res["formattedPrice"] # reports "Free" if 0.0
 
     @current_version = res["version"]
     @current_release_notes = res["releaseNotes"]
@@ -43,10 +44,13 @@ def app_search(search_term)
     @category_ids = res["genreIds"] # array of corresponding ids; not sure how I'd use, but could be useful?
     @primary_category = res["primaryGenreName"]
     @primary_category_id = res["primaryGenreId"]
+    @game_center_enabled = res["isGameCenterEnabled"] # Boolean
 
     @original_release_date = res["releaseDate"]
-    @supported_languages = res["languageCodesISO2A"]
+    @supported_languages = res["languageCodesISO2A"] # array of language codes
     @file_size_bytes = res["fileSizeBytes"]
+
+    @app_name
   end
 end
 
