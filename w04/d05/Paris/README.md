@@ -95,21 +95,33 @@
 
 ---
 
-#Wireframes: 
+#Wireframes for responsive design: 
 
 ---
 
-* [Homepage:](http://placekitten.com/200/400)   
- ![Homepage:](http://placekitten.com/200/400)
----
+* [Wireframes:](https://www.dropbox.com/sh/vrtdd3vlk0kkfgl/PmnYt6yubq)   
+ ![Wireframes:](app_index.png)
 
-* [New trip page:](http://placekitten.com/200/400)  
- ![New trip page:](http://placekitten.com/200/400)
 
----
 
-* [Trip history page:](http://placekitten.com/200/400)   
-  ![Trip history page:](http://placekitten.com/200/400)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
