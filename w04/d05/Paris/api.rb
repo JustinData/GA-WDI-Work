@@ -1,5 +1,6 @@
 require 'citibikenyc'
 require 'pry'
+require 'geocoder'
 
 # citibike api
 # https://rubygems.org/gems/citibikenyc
@@ -29,7 +30,11 @@ require 'pry'
 
 # work with the arrays of longs and lats to set numbers equal to instance variables @x, @x2, @y, @y2
 
-form_answer = user_coordinates
+form_answer = address
+ s = Geocoder.coordinates("5961 Chula Vista Way, Los Angeles, CA 9068")
+
+
+convert address into latitude, longitude = destination_coordinates
 
 lat = "Latitude: 40.6997024"
 long = "Longitude: -73.92961609999999"
