@@ -13,3 +13,6 @@ Schema/model user sign up authentication
 
 What APIs or other resources might you use / do you plan on using?
 send grid
+resque/delayed jobs
+csv
+gatling gun
