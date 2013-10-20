@@ -3,8 +3,10 @@ require 'open-uri'
 require 'httparty'
 require 'pry'
 
-def app_search (search_term)
-  query = search_term.gsub(" ","+")
+
+# searches for first result matching the search
+def app_search search_string
+  query = search_string.gsub(" ","+")
   response = HTTParty.get("https://itunes.apple.com/search?term=#{query}&entity=software&limit=1")
   res = response["results"][0]
   @app_id = res["artistId"]

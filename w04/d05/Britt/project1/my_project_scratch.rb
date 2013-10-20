@@ -8,22 +8,34 @@ require 'pry'
   # diff b/t trackContentRating & contentAdvisoryRating
   # rename instance vars accordingly
 
-def app_search(search_term)
-  query = search_term.gsub(" ","+")
+# In production, the following method would only run once a 
+# successful user search has been performed, and the
+# user has selected an app from the results. Then, 
+# using 'lookup' rather than 'search', the id from the
+# user-selected app would be passed, and the following
+# instance variables would be assigned.
+
+# searches for first result matching the search string
+# using Apple's iTunes Search API & HTTParty. Parses the
+# response into semantic instance variables.
+def app_search search_string
+  query = search_string.gsub(" ","+")
   response = HTTParty.get("https://itunes.apple.com/search?term=#{query}&entity=software&limit=1")
 
   if response["resultCount"] == 0
     "No results found."
   else 
     res = response["results"][0]
-    @app_id = res["artistId"]
+    @app_id = res["trackId"]
     @app_name = res["trackName"]
     @store_url = res["trackViewUrl"]
-
-    @features = res["features"] # array, incl. Universal
     @app_icon = res["artworkUrl512"] # artworkUrl100, artworkUrl60
+
+    @screenshots = res["screenshotUrls"]
+    @screenshots_ipad = res["ipadScreenshotUrls"]
+
     @developer = res["artistName"]
-    @developer_company = res["sellerName"]
+    @developer_company = res["sellerName"] # legal entity of software provider
     @developer_company_website = res["sellerUrl"]
 
     @price = res["price"]
@@ -46,8 +58,11 @@ def app_search(search_term)
     @primary_category_id = res["primaryGenreId"]
     @game_center_enabled = res["isGameCenterEnabled"] # Boolean
 
-    @original_release_date = res["releaseDate"]
-    @supported_languages = res["languageCodesISO2A"] # array of language codes
+    @launch_date = res["releaseDate"]
+    @supported_languages = res["languageCodesISO2A"] # array of ISO 639-1 two-character language codes
+
+    @features = res["features"] # array, incl. if Universal
+    @kind = res["kind"] # wrapperType
     @file_size_bytes = res["fileSizeBytes"]
 
     @app_name
