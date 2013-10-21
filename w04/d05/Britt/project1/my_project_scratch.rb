@@ -1,13 +1,6 @@
 require 'httparty'
 require 'pry'
 
-# TO DO
-  # explore diff b/t artistName and sellerName
-  # diff b/t wrapperType vs kind
-  # diff b/t artworkUrl100 & artworkUrl512
-  # diff b/t trackContentRating & contentAdvisoryRating
-  # rename instance vars accordingly
-
 # In production, the following method would only run once a 
 # successful user search has been performed, and the
 # user has selected an app from the results. Then, 
