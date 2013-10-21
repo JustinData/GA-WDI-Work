@@ -18,7 +18,10 @@ At first, I want to focus on receiving and interacting with app store data and u
 
 ## Resources
 
-So far, I know I'm going to need to use Apple's Search API (I've learned the query string format that I need at least for software), and HTTParty to get that data (App ID, maybe the icon, and some other as-of-yet undefined data. There's a lot) from Apple's API; I'll use Nokogiri and SelectorGadget to scrape AppAnnie's App Store Data page for the historical release notes, which I'll zero in on using the unique app ID from Apple's search API.
+* Apple's Search API, both search and lookup functionalities
+* HTTParty gem to provide data to my object models
+* If I get to it, OmniAuth for facebook login
+
 
 ## User Stories
 
