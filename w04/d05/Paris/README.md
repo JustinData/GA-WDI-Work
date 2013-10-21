@@ -99,7 +99,7 @@
 
 ---
 
-* [Wireframes:](https://www.dropbox.com/sh/vrtdd3vlk0kkfgl/PmnYt6yubq)   
+* User_index. [See All Wireframes.](https://www.dropbox.com/sh/vrtdd3vlk0kkfgl/PmnYt6yubq)   
  ![Wireframes:](app_index.png)
 
 
