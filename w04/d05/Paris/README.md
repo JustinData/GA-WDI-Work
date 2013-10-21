@@ -38,7 +38,7 @@
 
 ---
 
-#User Stories:
+#User stories:
 
 ---
 
@@ -47,7 +47,7 @@
 * **Problem:**
 * Turns out a lot of people in the financial district are commuting on citibikes and it's difficult for Jake to find an open dock. Because of this he's a) late for work (BAD for a new hire!) and b) incurring overage fees hunting for a dock at the end of his commute (Not cool!). 
 
-* **Awesome Citi App Solutions:**
+* **Awesome Citi app solutions:**
 * Jake wants an app that he can use during his Citibike commute so he opens up the Awesome Citi app on his smartphone. 
 * Jake wants to securely use the app so he creates a user login and creates a password.
 * Jake wants to know the closest available Citibike docks around his work around 8:15am so he opens the app in the morning, signs in and enters his work address. 
@@ -58,7 +58,7 @@
 * **Problem:**
 * Jake McFinancedude got a raise! Hooray. This means more money but -- golden handcuffs - Jake has to be at work a half hour earlier than he used to and available bikes and docks around the city are even more scarce at that hour. 
 
-* **Awesome Citi Solutions:**
+* **Awesome Citi app solutions:**
 * Jake wants to sleep in as late as possible and not waste time hunting for a citibike dock so he uses the Awesome Citi Buddy feature on the AC app where Jake can pay a fee to tag team an Awesome Citi Buddy at the end of his commute to open up a dock for him by checking out a bike at the same dock. 
 * Jake wants a Buddy who's available on the date/time of his commute so he enters that information into the 'buddy request' form.
 * Jake wants to be sure that they can find each other at the right dock, so he enters the appropriate 'destination dock' location in the 'buddy request' form.
@@ -76,7 +76,7 @@
 
 ---
   
-#Object Models: 
+#Object models: 
 
 ---
 
@@ -99,7 +99,7 @@
 
 ---
 
-* User_index. [See All Wireframes.](https://www.dropbox.com/sh/vrtdd3vlk0kkfgl/PmnYt6yubq)   
+* User_index. [See all wireframes.](https://www.dropbox.com/sh/vrtdd3vlk0kkfgl/PmnYt6yubq)   
  ![Wireframes:](app_index.png)
 
 
