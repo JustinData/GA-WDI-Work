@@ -13,6 +13,18 @@ Schema/model user sign up authentication
 
 What APIs or other resources might you use / do you plan on using?
 send grid
-resque/delayed jobs
+redis?
+sidekiq
+resque/delayed jobs?
 csv
 gatling gun
+tiny mce
+queue classic
+foundation
+http://railscasts.com/episodes/396-importing-csv-and-excel
+http://railscasts.com/episodes/344-queue-classic?autoplay=true
+http://railscasts.com/episodes/314-pretty-urls-with-friendlyid?autoplay=true
+http://railscasts.com/episodes/417-foundation?autoplay=true
+http://railscasts.com/episodes/343-full-text-search-in-postgresql
+
+$ curl -d 'to=ecasilla01@gmail.com&toname=Destination&subject=Example Subject&text=testingtextbody&from=info@domain.com&api_user=your_sendgrid_username&api_key=your_sendgrid_password' https://sendgrid.com/api/mail.send.json
