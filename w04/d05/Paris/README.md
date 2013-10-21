@@ -86,10 +86,10 @@
 
 ---
 
-* Smartphone notifications gem: [Push me up](http://rubygems.org/gems/pushmeup)
 * [Citibikenyc gem](https://github.com/edgar/citibikenyc)
 * [Geocoder gem](http://rubygems.org/gems/geocoder)
-* Facebook api: [Koala](https://github.com/arsduo/koala)
+* Smartphone notifications gem: [Push me up](http://rubygems.org/gems/pushmeup)
+* Facebook open graph: [Koala](https://github.com/arsduo/koala)
 * Payment gem: [ActiveMerchant](http://rubydoc.info/gems/activemerchant/1.40.0/frames)
 * Ratings/reviews gem: [acts as rateable](https://github.com/azabaj/acts_as_rateable)
 
