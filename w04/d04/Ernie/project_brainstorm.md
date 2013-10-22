@@ -3,8 +3,6 @@ So I want to create a app that would allow users to send marketing email to thei
 mange their newsletters and contacts 
 
 
-
-
 What will your app do / what features will it have?
 Contact Management and Email Marketing Material Management Also the ability to send emails to your entire contact list
 
@@ -15,4 +13,3 @@ What APIs or other resources might you use / do you plan on using?
 send grid
 resque/delayed jobs
 csv
-gatling gun
