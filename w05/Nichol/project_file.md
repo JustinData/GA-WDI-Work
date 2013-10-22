@@ -10,6 +10,7 @@ What I Did Yesterday -
 * Some elements of basic interface.
 * Authentication but NOT Authorization
 * Javascript HTML5 Geolocation script & how to access divs in Javascript
+* entered user stories into pivotal tracker and played with that and started getting some velocity!
 
 
 What I'm Doing Today -
