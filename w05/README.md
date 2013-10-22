@@ -1,23 +1,15 @@
-## TIMELINE
+# Week 5: Project 1
+
+###What did we do last week?
+Last week, we learned dove into Ruby on Rails for the first time began to learn about all of its intricacies and conventions.
+
+###What are we doing this week?
 
 |       | Monday    | Tuesday   |Wednesday  |Thursday   |  Friday  |
 |:----- |:-----     |:-----     |:-----     |:-----     |:-------- |
 | **Morning Exercise** | Scrum | Scrum | Scrum | Scrum | Scrum |
 | **Morning Deliverable** |Project plan | Data Model hosted on Heroku | Users can Sign in on Heroku | Core functionality complete, working styling| Complete project hosted on Heroku and GitHub |
-
-In the morning when you walk into class:
-
-* Monday - Project plan deliverables due including a project backlog.
-* Tuesday - Data model complete and hosted on Heroku; Project should also be hosted in a new repository under your own account on GitHub.  Update your `project_log.md` file to include these URLs.
-* Wednesday - Users can create an account and sign in on Heroku. Core functionality nearing completion (back-end rails stuff, api connectivity established and functional, etc.). Update your `project_log.md` file.
-* Thursday - Core functionality complete, working on front-end styling and layouts. Update your `project_log.md` file.
-* Friday - Completed project deliverables due.  Prepare presentation and succinct explanation of project, concepts, and defense of decisions.
-
-What happens on Friday?
-
-* In-class demos
-* Science fair
-* Retrospective:  What worked well?  Where could my project be improved?  How could my process be improved?
+|**New Material**|Many to Many Relationships & Tunr | Asset Pipeline & Responsive | Testing in Ruby with Rspec | Testing in Rails with Rspec
 
 #####Daily deliverables & updating your `project_log.md` file:
 
@@ -28,3 +20,7 @@ Summary in the format of a "daily scrum" and including:
 * Any obstacles/blocks for today's stories?
 
 Keep track of your user stories and progress in your `project_log.md` file
+
+
+###What are we doing next week?
+We're going to learn a new programming language, JavaScript. It will help us make our front-end more interactive.
