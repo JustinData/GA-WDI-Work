@@ -1,33 +1,39 @@
 require 'httparty'
 require 'pry'
 
-# TO DO
-  # explore diff b/t artistName and sellerName
-  # rename instance vars accordingly
-  # explore wrapperType vs kind
-  # diff b/t artworkUrl100 & artworkUrl512
-  # diff b/t trackContentRating & contentAdvisoryRating
+# In production, the following method would only run once a 
+# successful user search has been performed, and the
+# user has selected an app from the results. Then, 
+# using 'lookup' rather than 'search', the id from the
+# user-selected app would be passed, and the following
+# instance variables would be assigned.
 
-def app_search(search_term)
-  query = search_term.gsub(" ","+")
+# searches for first result matching the search string
+# using Apple's iTunes Search API & HTTParty. Parses the
+# response into semantic instance variables.
+def app_search search_string
+  query = search_string.gsub(" ","+")
   response = HTTParty.get("https://itunes.apple.com/search?term=#{query}&entity=software&limit=1")
 
-  unless response.nil?
-
+  if response["resultCount"] == 0
+    "No results found."
+  else 
     res = response["results"][0]
-    @app_id = res["artistId"]
+    @app_id = res["trackId"]
     @app_name = res["trackName"]
     @store_url = res["trackViewUrl"]
+    @app_icon = res["artworkUrl512"] # artworkUrl100, artworkUrl60
 
-    @features = res["features"] # array, incl. Universal
-    @app_icon = res["artworkUrl512"]
+    @screenshots = res["screenshotUrls"]
+    @screenshots_ipad = res["ipadScreenshotUrls"]
+
     @developer = res["artistName"]
-    @developer_company = res["sellerName"]
+    @developer_company = res["sellerName"] # legal entity of software provider
     @developer_company_website = res["sellerUrl"]
 
     @price = res["price"]
-    @currency = res["currency"]
-    @formatted_price = res["formattedPrice"]
+    @currency = res["currency"] # probably don't need
+    @formatted_price = res["formattedPrice"] # reports "Free" if 0.0
 
     @current_version = res["version"]
     @current_release_notes = res["releaseNotes"]
@@ -43,10 +49,16 @@ def app_search(search_term)
     @category_ids = res["genreIds"] # array of corresponding ids; not sure how I'd use, but could be useful?
     @primary_category = res["primaryGenreName"]
     @primary_category_id = res["primaryGenreId"]
+    @game_center_enabled = res["isGameCenterEnabled"] # Boolean
 
-    @original_release_date = res["releaseDate"]
-    @supported_languages = res["languageCodesISO2A"]
+    @launch_date = res["releaseDate"]
+    @supported_languages = res["languageCodesISO2A"] # array of ISO 639-1 two-character language codes
+
+    @features = res["features"] # array, incl. if Universal
+    @kind = res["kind"] # wrapperType
     @file_size_bytes = res["fileSizeBytes"]
+
+    @app_name
   end
 end
 
