@@ -34,30 +34,24 @@ I'm going to use the Flickr API. my api key is below
           253cfd46c8198db6
 #################
 
-Although the flickr API requests seem pretty straightforward, I'm going to  use a that I've installed, FlickRaw, to make the requests.
+Although the flickr API requests seem pretty straightforward, I'm going to use a gem that I've installed, FlickRaw, to make the requests.
 Notes on using tags with this gem can be found here : http://hanklords.github.io/flickraw/FlickRaw/Flickr/Tags.html
 
 I have worked out how to generate a link to a random JPG from flickr from a tag (although flickr seems to require a peculiar 'cluster-id' with three tags. I can probably work with this.)   
 
+               require 'flickraw'
 
-          require 'flickraw'
+               FlickRaw.api_key="063ffc55560d2a71d3d24c764979abd6"
+               FlickRaw.shared_secret="253cfd46c8198db6"
 
-          FlickRaw.api_key="063ffc55560d2a71d3d24c764979abd6"
-          FlickRaw.shared_secret="253cfd46c8198db6"
+               def keyword_to_img_url(keyword)
+                 
+                 list = flickr.tags.getClusterPhotos(:tag => "#{keyword.gsub(' ', '+')}",:cluster_id => 'food-food-food')
+                 id = list[rand(0..list.length)].id.to_i
+                 photo = flickr.photos.getInfo(photo_id: id)
+                 img_url = "http://farm#{photo.farm}.staticflickr.com/#{photo.server}/#{id}_#{photo.secret}.jpg"
 
-          list = flickr.tags.getClusterPhotos(:tag => 'pizza',:cluster_id => 'tomato-cheese-crust')
-          ##this returns an array of hashes
-
-
-          id = list[rand(0..list.length)].id.to_i  
-          ##random id from the array of hashes
-
-          photo = flickr.photos.getInfo(photo_id: id)
-
-          def photo_to_url (id)
-
-          img_url = http://farm#{photo.farm}.staticflickr.com/#{photo.server}/#{id}_#{photo.secret}.jpg
-
+               end
 
 I'm also going to embed YouTube videos, though I don't think I need to use an API for this.
 
