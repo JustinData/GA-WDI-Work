@@ -11,6 +11,7 @@ What I Did Yesterday -
 * Authentication but NOT Authorization
 * Javascript HTML5 Geolocation script & how to access divs in Javascript
 * entered user stories into pivotal tracker and played with that and started getting some velocity!
+* reviewed user stories and schema from project_plan.md (included in my pull request)
 
 
 What I'm Doing Today -
