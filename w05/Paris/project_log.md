@@ -1,3 +1,15 @@
+
+#WEDNESDAY
+
+#SCRUM
+
+*Yesterday: The user wants to search Citibike docks that are closest to their destination. The user wants to save searches to favorites.
+
+*Today: Refine search logic to exclude docks where no docks are available. Refine favorites to sort according to most recent on top. In possible, move on to push notifications implementation. Refine results page to return a suite of useful information including possibly a map. 
+
+*Potential obstacles: 1) Favorites functionality is working and saving to the database. The favorites index page functionality is interfering with search results page. 2) Need to spend time reading documentation on integrating Google maps. 3) Push notifications gem can't be set up until Apple Developer account is set up. Waiting on authentication. Come on Apple! Be cool! 
+
+
 #USER STORIES
 
 ---
