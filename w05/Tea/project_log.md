@@ -34,5 +34,27 @@ Obstacles
 
 *	Working with an API that has limited calls
 
+##Wednesday
+What I did Yesterday
+
+*   Accomplished "Display Dishes" user story. Users are now able to see foodz!
+*   Each Dish from index opens into its own show page. 
+*   Linked login/sign up to main page. User sign in/login and sessions are working.
+*   Created rake tasks to get data from API and save to my own database.
+*   Save objects from the API to my database.
+*   Deployed to Heroku.
+
+What I am doing Today
+
+*   Make user story "suggestions" happen (users get dish suggestions based on similar ingredients) 
+*   Allow users to "like" recipes.
+
+
+
+Obstacles
+
+*	Perhaps SQL or ActiveRecord issues regarding ingredients list and objects with many to many relationships. 
+
+
 
 
