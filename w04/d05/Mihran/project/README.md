@@ -47,7 +47,7 @@ I have worked out how to generate a link to a random JPG from flickr from a tag 
                def keyword_to_img_url(keyword)
                  
                  list = flickr.tags.getClusterPhotos(:tag => "#{keyword.gsub(' ', '+')}",:cluster_id => 'food-food-food')
-                 id = list[rand(0..list.length)].id.to_i
+                 id = list[rand(0..list.length-1)].id.to_i
                  photo = flickr.photos.getInfo(photo_id: id)
                  img_url = "http://farm#{photo.farm}.staticflickr.com/#{photo.server}/#{id}_#{photo.secret}.jpg"
 

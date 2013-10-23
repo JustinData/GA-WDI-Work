@@ -12,10 +12,10 @@ def keyword_to_img_url(keyword)
     photo = flickr.photos.getInfo(photo_id: id)
     img_url = "http://farm#{photo.farm}.staticflickr.com/#{photo.server}/#{id}_#{photo.secret}.jpg"
   rescue StandardError => e
-    binding.pry
+    puts e
   end
 
 end
 
-
+100.times {keyword_to_img_url("buffalo wings")}
 
