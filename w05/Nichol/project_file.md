@@ -1,6 +1,37 @@
 If I Was King
 ===
 
+##Day 3, Log
+---
+
+http://fast-cove-9348.herokuapp.com/
+
+What I Did Yesterday -
+
+* Got votes table built and inserted into active record.
+* Deployed to Heroku.
+* Spent lots of time banging my head against a wall trying to make Devise do something it can't and now I hate devise
+* Got voting working.
+* Figured out how to change fields in javascript so that I may be able to pass it back to controller see /maps
+* played more with pivotal tracker (listening to my github) and UserEcho
+
+What I'm Doing Today -
+
+* Have to get authorization working.
+* Need to figure out better UI flow
+* Build top menu.
+* Possibly create discussion tables?!
+* I'd really like to get the map working!
+* Starting to think about design.
+
+Obsticals I Expect -
+
+* Devise sucks.  CanCan?
+* Draw out UI - not sure I will have it all in my head.
+* Hidden form mechanisim for maps
+* Not sure where to start on design.
+
+
 ##Day 2, Log
 ---
 
