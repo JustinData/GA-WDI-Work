@@ -13,7 +13,7 @@ class Ordinalize
       "nd"
     elsif result[-1] == "3"
       "rd"
-    # everything else is th
+    # everything else is "th"
     else
       "th"
     end
