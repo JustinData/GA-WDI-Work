@@ -42,6 +42,7 @@ Obstacles:
 Scope: Build out features so that users can add friends and send messages to them.
 
 1.) User can find other users by name since email addresses can be obscure.
+2.) A user can see if they're signed in or not.
 
 
 
