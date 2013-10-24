@@ -43,6 +43,8 @@ Scope: Build out features so that users can add friends and send messages to the
 
 1.) User can find other users by name since email addresses can be obscure.
 2.) A user can see if they're signed in or not.
+3.) User creates a new account, and sees "User X has created a new account."
+
 
 
 

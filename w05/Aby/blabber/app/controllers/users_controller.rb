@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
       render :new
@@ -38,6 +39,7 @@ class UsersController < ApplicationController
 
   def destroy
     if @user.destroy
+      session[:user_id] = nil
       redirect_to new_user_path
     else
       render :edit
