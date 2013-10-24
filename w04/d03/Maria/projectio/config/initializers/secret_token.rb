@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Actordb::Application.config.secret_key_base = '26998e80c7e5041a5f48272fad3dd35ff48463a12d8e76335cdba6bdb2ffa69d4eb592f6b5f2f6cac4fe3a20abc4f389ece68ca22c7ba85edbe2797db53ee361'
+Projectio::Application.config.secret_key_base = 'b09b8a585e933f9946f96ad95f63eee90b45fdb3e89a5860f0cf9ff251ae4e332690ee35c526a383ce6d3ee3c9b654353e8e56871b0c2a529ed96b04e1ed29ac'
