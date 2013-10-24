@@ -1,5 +1,10 @@
 #PROJECT LOG#
 
+###Links 
+	
+	https://github.com/teabait/plumpantry
+	http://plumpantry.herokuapp.com/
+
 
 
 ##Monday
@@ -56,5 +61,26 @@ Obstacles
 *	Perhaps SQL or ActiveRecord issues regarding ingredients list and objects with many to many relationships. 
 
 
+##Thursday
+What I did Yesterday
+
+*   Recipes link to recipes with similar ingredients
+*   Users can lik recipes
+*	More Styling
+
+What I am doing Today
+
+*   Create grocery lists for users based on their pantry items
+*   Allow users to delete pantry items
+
+Obstacles
+
+*	SQL 
 
 
+What I ended up doing that I didn't know I'd have time to do
+
+*   Hacking the API image urls to get large images
+*   different requirements for items to be a suggestion based on recipe's ingredient count
+*   Suggestive Signup if visitor isn't logged in
+*   Refactoring
