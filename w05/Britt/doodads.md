@@ -2,4 +2,4 @@
 
 * github: github.com/brittlewis12
 
-* heroku: addadoodad.heroku.com
+* heroku: addadoodad.herokuapp.com
