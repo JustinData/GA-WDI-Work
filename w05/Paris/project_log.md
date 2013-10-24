@@ -1,3 +1,9 @@
+#THURSDAY  
+*Yesterday: Added functionality to exclude searches for bike stations that have 0 docks available. Tightened up routes and added link helpers. Created an Account erb for users to edit/delete their accounts. Refactored the core algorithm and pushed to heroku. 75% done with CSS. 
+
+*Today: Add bike search functionality and create necessary views and routes. Tighten up verbiage and finish CSS. 
+
+*Potential obstacle: Fighting the urge to add a bunch of crap that I don't need for tomorrow. 
 
 #WEDNESDAY
 
