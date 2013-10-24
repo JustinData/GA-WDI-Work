@@ -22,7 +22,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
+    #binding.pry
+    @user = current_user #assumes render :show
   end
 
   def edit
