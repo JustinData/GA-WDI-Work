@@ -8,7 +8,25 @@
 </head>
 <body>
 
-<%= yield %>
+	<%= yield %>
+
+	<br>
+	<% if @home.nil? %>
+		<%= link_to( "Home", root_path )  %><br>
+	<% end %>
 
 </body>
+<footer>
+
+<% if logged_in? #user is logged in %>
+
+	<%= "User #{current_user.email} is currently logged in." %>
+
+<% else %>
+
+	<%= "No user is currently logged in." %>
+
+<% end %>
+
+</footer>
 </html>

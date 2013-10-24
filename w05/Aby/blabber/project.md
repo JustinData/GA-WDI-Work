@@ -14,9 +14,10 @@ Obstacles:
 Scope: New project. Make a twitter clone for GA. Call it Blabber.
 
 User stories:
-1.) A user joins the site in order to send messages to friends in GA.
-2.) A user adds GA friends to message.
-3.) A user writes a "direct" message to one friend to keep it private.
+1.) A user can create an account.
+2.) A user can sign in to the website.
+3.) A user can sign out of the website.
+
 
 Obstacles: 
 
@@ -28,11 +29,26 @@ Scope: Cannot go home until something shows up on the screen.
 
 User stories: 
 
-1.) A user a "broadcast" message to all friends.
-2.) A user reads messages from friends.
-3.) A user can see their own old messages.
+1.) A user can create a post.
+2.) A user can delete their account.
+3.) A user can see their own old posts.
 
 Obstacles:
 
 1.) Overcoming fatigue.
+
+10/24/13
+
+Scope: Build out features so that users can add friends and send messages to them.
+
+1.) User can find other users by name since email addresses can be obscure.
+
+
+
+
+
+
+
+
+
 
