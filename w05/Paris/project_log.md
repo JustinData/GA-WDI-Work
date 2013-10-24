@@ -1,26 +1,26 @@
 #THURSDAY  
-*Yesterday: Added functionality to exclude searches for bike stations that have 0 docks available. Tightened up routes and added link helpers. Created an Account erb for users to edit/delete their accounts. Refactored the core algorithm and pushed to heroku. 75% done with CSS. 
+* Yesterday: Added functionality to exclude searches for bike stations that have 0 docks available. Tightened up routes and added link helpers. Created an Account erb for users to edit/delete their accounts. Refactored the core algorithm and pushed to heroku. 75% done with CSS. 
 
-*Today: Add bike search functionality and create necessary views and routes. Tighten up verbiage and finish CSS. 
+* Today: Add bike search functionality and create necessary views and routes. Tighten up verbiage and finish CSS. 
 
-*Potential obstacle: Fighting the urge to add a bunch of crap that I don't need for tomorrow. 
+* Potential obstacle: Fighting the urge to add a bunch of crap that I don't need for tomorrow. 
 
 #WEDNESDAY
 
 #SCRUM
 
-*Yesterday: The user wants to search Citibike docks that are closest to their destination. The user wants to save searches to favorites.
+* Yesterday: The user wants to search Citibike docks that are closest to their destination. The user wants to save searches to favorites.
 
-*Today: Refine search logic to exclude docks where no docks are available. Refine favorites to sort according to most recent on top. In possible, move on to push notifications implementation. Refine results page to return a suite of useful information including possibly a map. 
+* Today: Refine search logic to exclude docks where no docks are available. Refine favorites to sort according to most recent on top. In possible, move on to push notifications implementation. Refine results page to return a suite of useful information including possibly a map. 
 
-*Potential obstacles: 1) Favorites functionality is working and saving to the database. The favorites index page functionality is interfering with search results page. 2) Need to spend time reading documentation on integrating Google maps. 3) Push notifications gem can't be set up until Apple Developer account is set up. Waiting on authentication. Come on Apple! Be cool! 
+* Potential obstacles: 1) Favorites functionality is working and saving to the database. The favorites index page functionality is interfering with search results page. 2) Need to spend time reading documentation on integrating Google maps. 3) Push notifications gem can't be set up until Apple Developer account is set up. Waiting on authentication. Come on Apple! Be cool! 
 
 
 #USER STORIES
 
 ---
 
-*Jake McFinancedude has landed a job of his dreams in the financial district. He's decided to take control of his morning commute from Williamsburg  (and get some exercise!) by signing up for a 7-day membership with Citibike. He now has access to an unlimited number of 30 minute rides on a citibike (over 30 minutes incurs overage fees per minute) for one week. 
+* Jake McFinancedude has landed a job of his dreams in the financial district. He's decided to take control of his morning commute from Williamsburg  (and get some exercise!) by signing up for a 7-day membership with Citibike. He now has access to an unlimited number of 30 minute rides on a citibike (over 30 minutes incurs overage fees per minute) for one week. 
 
 * **Problem:**
 * Turns out a lot of people in the financial district are commuting on citibikes and it's difficult for Jake to find an open dock. Because of this he's a) late for work (BAD for a new hire!) and b) incurring overage fees hunting for a dock at the end of his commute (Not cool!). 
