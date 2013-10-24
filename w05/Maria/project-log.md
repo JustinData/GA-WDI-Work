@@ -1,4 +1,7 @@
 #Maria's Project log
+[Mechanical Bird](http://peaceful-thicket-7543.herokuapp.com/)
+
+
 
 ###SCRUM
 Tuesday:
@@ -30,3 +33,7 @@ finished user login and sessions, broke user session
 Today:
 
 fix sessions complete User flow story.
+fix figaro stuff
+
+Thursday:
+start to style, add static pages(about etc)
