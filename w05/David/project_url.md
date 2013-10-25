@@ -1,2 +1,2 @@
 [https://github.com/dtothefp/dylanthedog]
-[http://dylanthedog.herokuapp.com/]
+[http://dylan-the-dog.herokuapp.com/]
