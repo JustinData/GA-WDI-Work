@@ -23,4 +23,9 @@ class EntriesController < ApplicationController
        @instagram = Entry.find(params[:id])
        render :show
    end
+
+   # def search
+     
+   # end
+
 end
