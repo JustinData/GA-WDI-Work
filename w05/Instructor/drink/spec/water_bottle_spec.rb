@@ -26,12 +26,16 @@ describe WaterBottle do
 
     context "when full" do
       before do
-        # make bottle full
         bottle.fill
       end
 
       it "does allow you to drink" do
         expect(bottle.drink).to eq(:water)
+      end
+
+      it "becomes empty" do
+        bottle.drink
+        expect(bottle.empty?).to be_true
       end
     end
   end
