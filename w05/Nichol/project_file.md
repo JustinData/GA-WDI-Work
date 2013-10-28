@@ -1,6 +1,28 @@
 If I Was King
 ===
 
+##Day 4, Log
+---
+What I Did Yesterday -
+
+* cleaned up some code / refactored
+* did some authorization in the views
+* disquss
+* css
+* more javascript experiments
+* work with abby on user/post models for blabber
+
+What I'm Doing Today -
+
+* authorization in controllers and views
+* css & design.
+
+Obsticles - 
+
+* my sense of design
+* getting skeleton to help
+
+
 ##Day 3, Log
 ---
 
