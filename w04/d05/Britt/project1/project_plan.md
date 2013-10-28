@@ -11,3 +11,5 @@ You should include the following in a `README.md` file.
 * **Resources.** Gather the necessary resources and bookmark links to any documentation, references, APIs, gems, etc. you will be using in your project.  Add them to your `README.md` file in a section called "Resources." Make sure you actually practice pinging any APIs you plan to use to make sure they will work.
 
 * **User Stories.** Write user stories for the features you plan to implement. Think about how you want to prioritize these. Chances are you won't be able to implement everything you could possibly want in one week, so it's important to prioritize these. Put these in order in your `README.md` file.
+    * As; I want; so that.
+    * Role; goal; reason.
