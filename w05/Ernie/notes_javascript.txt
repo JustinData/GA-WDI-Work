@@ -39,3 +39,23 @@ growing on the server side    MEAN Stack
 Speed and robustness, tools
 V8 engine
 JSON
+
+________________________
+REPL
+
+READ 
+Evaluate
+Print
+Loop
+
+varibale names
+lower camelCase
+case-sensitive
+include numbers
+
+pareseInt is the opposite of to_s
+
+== non type safe
+=== type safe
+
+
