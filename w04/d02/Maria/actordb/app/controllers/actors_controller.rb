@@ -1,5 +1,5 @@
 class ActorsController < ApplicationController
-  
+
   def index
     @actors = Actor.all
     render :index
@@ -14,7 +14,9 @@ class ActorsController < ApplicationController
     actor.name = params[:name]
     actor.photo_url = params[:photo_url]
     actor.birth_date = params[:birth_date]
+
     actor.save
+
     redirect_to "/actors"
   end
 
@@ -22,4 +24,5 @@ class ActorsController < ApplicationController
     @actor = Actor.find(params[:id])
     render :show
   end
-end
+
+end 
