@@ -16,4 +16,5 @@ class WaterBottle
   def fill
     @empty = false
   end
+
 end
