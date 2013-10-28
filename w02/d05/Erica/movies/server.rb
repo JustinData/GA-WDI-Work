@@ -46,21 +46,33 @@ post '/movies' do
   file.close
 
   # You should redirect to movie/id after your information has been posted
-  redirect to '/movies/:id'
+  redirect to '/movies/#{id}'
   end
   
 get '/movies' do
   erb :allmovies
   end
 
-post '/movies/:id' do
-  @id = params[:id].to_i
-  @movies_array = []
-  file = File.new("movies.txt", "a+")
+
+get '/movies/:id' do
+  file = File.new("movies.txt", "r")
   file.each do |line|
-  if line.split(",") == params[:id]
-  @info = line.split(",")
+  if line.split(",")[0] == params[:id]
+  @movies_array = line.split(",")
   end
 end
+  file.close
   erb :movies
 end 
+
+# post '/movies' do
+#   @id = params[:id].to_i
+#   @movies_array = []
+#   file = File.new("movies.txt", "a+")
+#   file.each do |line|
+#   if line.split(",") == params[:id]
+#   @info = line.split(",")
+#   end
+# end
+#   erb :movies
+# end 
