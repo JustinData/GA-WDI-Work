@@ -9,6 +9,7 @@ class WaterBottle
 
   def drink
     raise "This bottle is empty!" if empty?
+    @empty = true
     :water
   end
 
