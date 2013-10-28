@@ -1,6 +1,6 @@
-require 'open-uri'
-require 'nokogiri'
+file = File.new("companies.txt", "a+")
+file[0..10].each do |line|
+  puts line
+end
 
-#http://www.crunchbase.com/companies
-
-companies = Nokogiri::HTML(open('http://www.crunchbase.com/companies'))
+file.close
