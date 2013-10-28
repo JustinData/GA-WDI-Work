@@ -3,7 +3,7 @@ class AddActors < ActiveRecord::Migration
   def up 
       create_table :actors do |t|
       t.string :name
-      t.text :photo_url
+      t.timestamps 
     end 
   end 
 
