@@ -1,6 +1,4 @@
-require 'pry'
 require 'Unirest'
-require 'countdownlatch'
 
 questions = []
 
