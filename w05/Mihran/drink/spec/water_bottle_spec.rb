@@ -32,12 +32,12 @@ describe WaterBottle do
       end
 
       it "does allow you to drink" do
-        expect (bottle.drink).to eq(:water)
+        expect(bottle.drink).to eq(:water)
       end
 
       it "becomes empty" do
         bottle.drink
-        expect (bottle.empty?).to be_true
+        expect(bottle.empty?).to be_true
       end
 
     end
