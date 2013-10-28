@@ -6,7 +6,8 @@ class WaterBottle
   end
 
   def drink
-    empty ? "Bottle is empty" : "MMMM, nice water"
+    # raise error
+    raise empty ? "This bottle is empty!" : "MMMM, nice water"
   end
 
   def fill
@@ -17,10 +18,3 @@ class WaterBottle
     empty
   end
 end
-
-
-water = WaterBottle.new(true)
-
-p water.drink
-p water.fill
-p water.drink
