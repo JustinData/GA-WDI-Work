@@ -9,17 +9,9 @@ end
 
 # i = 2
 
-while i < 8
-  funding_col = doc.css("div.col1_content")[i]
-   if funding_col.to_s.include?("FUNDING")
-    funding_col
-    i = 9
-  else
-    i +=1
-  end
-end
-
 funding_col = doc.css("div.col1_content")[6]
+
+puts funding_col
  
 
 

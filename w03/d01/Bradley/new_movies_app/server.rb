@@ -4,8 +4,6 @@ require 'httparty'
 require 'json'
 require 'pg'
 
-Bundler.require
-
 get("/") do
   erb :index
 end
