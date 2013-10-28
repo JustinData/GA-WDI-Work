@@ -1,3 +1,4 @@
+// Here's another example of the recursive factorial with more console logging
 // Copy and paste this into the JavaScript console in Chrome!
 
 function factorial(num)
