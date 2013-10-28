@@ -1,5 +1,4 @@
 class WaterBottle
-
   def initialize
     @empty = true
   end
@@ -9,12 +8,12 @@ class WaterBottle
   end
 
   def drink
-    raise "This bottle is empty"
+    raise "This bottle is empty!" if empty?
+    @empty = true
     :water
   end
 
   def fill
     @empty = false
   end
-
 end
