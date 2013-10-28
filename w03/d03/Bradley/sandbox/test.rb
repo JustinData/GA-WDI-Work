@@ -1,25 +1,16 @@
 require 'open-uri'
 require 'nokogiri'
 
-doc = Nokogiri::HTML(open("http://www.crunchbase.com/company/facebook")) do |config|
+
+
+doc = Nokogiri::HTML(open("http://www.crunchbase.com/companies")) do |config|
   config.noblanks.strict
 end
 
-# funding_col = "<h2>No funding information found!</h2>"
+puts doc.css("li")
 
-# i = 2
 
-while i < 8
-  funding_col = doc.css("div.col1_content")[i]
-   if funding_col.to_s.include?("FUNDING")
-    funding_col
-    i = 9
-  else
-    i +=1
-  end
-end
-
-funding_col = doc.css("div.col1_content")[6]
+# funding_col = doc.css("div.col1_content")[6]
  
 
 
