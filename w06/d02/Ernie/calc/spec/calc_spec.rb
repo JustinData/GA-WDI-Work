@@ -24,9 +24,15 @@ describe Calculator do
       expect(Calculator.new.sum([])).to eq(0)
     end
 
-    it "computes the sum of an array of one number"
-    it "computes the sum of an array of two numbers"
-    it "computes the sum of an array of many numbers"
+    it "computes the sum of an array of one number"do
+    expect(Calculator.new.sum([7])).to eq(7)
+  end
+    it "computes the sum of an array of two numbers"do
+    expect(Calculator.new.sum([7,11])).to eq(18)
+  end
+    it "computes the sum of an array of many numbers"do
+    expect(Calculator.new.sum([7,11,12,10])).to eq(40)
+   end
   end
 
 # Once the above tests pass, fill in the tests and code for the following:
