@@ -34,11 +34,11 @@ describe Calculator do
   describe "#multiply" do
 
     it "multiplies two numbers" do
-      expect(Calculator.new.multiply([12, 5])).to eq(60)
+      expect(Calculator.new.multiply(12, 5)).to eq(60)
     end
 
     it "multiplies several numbers" do
-      expect(Calculator.new.multiply([2,5,6])).to eq(60)
+      expect(Calculator.new.multiply(2,5,6)).to eq(60)
     end
 
   end
