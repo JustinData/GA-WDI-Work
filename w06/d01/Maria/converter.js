@@ -9,6 +9,6 @@ return us * gb;
 
 function poundsToDollars(us, gb){
 
-return us * gb;
+return us / gb;
 
 }
