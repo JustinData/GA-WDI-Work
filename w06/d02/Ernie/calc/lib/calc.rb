@@ -12,11 +12,18 @@ class Calculator
    num_array.reduce(0,:+) 
   end
 
-  def multiply(x,y)
-    x*y
+  def multiply(*numbers)
+    numbers.reduce(1,:*)
   end
 
-  def power(x)
-    
+  def power(base,exponet)
+    base**exponet
+  end
+
+  def factorial(number)
+   if number == 0
+    return 1
+   end
+   (1..number).reduce(:*)
   end
 end

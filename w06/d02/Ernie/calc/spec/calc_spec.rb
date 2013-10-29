@@ -39,22 +39,39 @@ describe Calculator do
 
   describe "#multiply" do
 
-    it "multiplies two numbers"
-    it "multiplies several numbers"
+    it "multiplies two numbers"do
+    expect(Calculator.new.multiply(10, 7)).to eq(70)
+  end
+    
+    it "multiplies several numbers"do
+    expect(Calculator.new.multiply(2,2,2,3)).to eq(24)
+  end
 
   end
 
   describe "#power" do
-    it "raises one number to the power of another number"
+    it "raises one number to the power of another number"do
+    expect(Calculator.new.power(3,3)).to eq(27)
+   end
   end
 
   # You can do this either using a loop or recursively
   describe "#factorial" do
-    it "computes the factorial of 0"
-    it "computes the factorial of 1"
-    it "computes the factorial of 2"
-    it "computes the factorial of 5"
-    it "computes the factorial of 10"
+    it "computes the factorial of 0"do
+    expect(Calculator.new.factorial(0)).to eq(1)
+  end
+    it "computes the factorial of 1"do
+    expect(Calculator.new.factorial(1)).to eq(1)
+  end
+    it "computes the factorial of 2"do
+    expect(Calculator.new.factorial(2)).to eq(2)
+  end
+    it "computes the factorial of 5"do
+    expect(Calculator.new.factorial(5)).to eq(120)
+  end
+    it "computes the factorial of 10"do
+    expect(Calculator.new.factorial(10)).to eq(3628800)
+   end
   end
 
 end
