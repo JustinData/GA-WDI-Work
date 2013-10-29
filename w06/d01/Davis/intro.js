@@ -38,10 +38,17 @@ function mod(val1,val2) {
 function srt( val ) {
   var i = 0;
 
-  for(var i=0; i <= val; i++) {
-    if(val / i === i) {
+  // for(var i=0; i <= val; i++) {
+  //   if(val / i === i) {
+  //     return i;
+  //   };
+  // };
+  while(i <= val) {
+    if( Math.round(val / i) === Math.round(i) ) {
       return i;
     };
+
+    i = i + 0.1
   };
 }
 
