@@ -1,7 +1,3 @@
-
-
------
-
 ## Part  1 - Currency Converter
 
 ##### Setup
