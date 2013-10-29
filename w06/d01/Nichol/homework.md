@@ -32,3 +32,4 @@ Read the first three chapters of [Eloquent JavaScript](http://eloquentjavascript
 1. [Introduction](http://eloquentjavascript.net/chapter1.html)
 2. [Basic JavaScript](http://eloquentjavascript.net/chapter2.html)
 3. [Functions](http://eloquentjavascript.net/chapter3.html)
+4. 
