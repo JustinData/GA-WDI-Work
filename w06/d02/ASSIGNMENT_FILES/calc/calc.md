@@ -25,3 +25,7 @@ Write the rest of the tests for the sum, multiply, and factorial methods. Once y
     * [Built in matchers with Rspec:](https://www.relishapp.com/rspec/rspec-expectations/v/2-14/docs/built-in-matchers)
 4. [What is that context thing again and when do we use it?](http://betterspecs.org/#contexts)
 5. Revisit the Water Bottle example from yesterday. What questions do you still have?
+
+#### Bonus
+
+Add functionality so that you can drink from your water bottle 5 times instead of just once after you fill it. What would you want to test for?
