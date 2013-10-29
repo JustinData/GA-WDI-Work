@@ -66,7 +66,7 @@ var colors = ["red", "blue", "green", "orange"];
  
 map(colors, function(color){
  if (color == "blue") {
-  return color + "is Awesome"
+  return color + "is Awesome";
 } else{
   return color + "Not so Great"
 };
