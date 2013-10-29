@@ -2,36 +2,37 @@ require 'spec_helper'
 require_relative '../lib/calc'
 
 describe Calculator do
+  calculator = Calculator.new
 
   describe "#add" do
     it "adds two positive numbers" do
-      expect(Calculator.new.add(2, 2)).to eq(4)
+      expect(calculator.add(2, 2)).to eq(4)
     end
 
     it "adds a negative and positive number" do
-      expect(Calculator.new.add(-1, 2)).to eq(1)
+      expect(calculator.add(-1, 2)).to eq(1)
     end
   end
 
   describe "#subtract" do
     it "subtracts numbers" do
-      expect(Calculator.new.subtract(11, 7)).to eq(4)
+      expect(calculator.subtract(11, 7)).to eq(4)
     end
   end
 
   describe "#sum" do
     it "computes the sum of an empty array" do
-      expect(Calculator.new.sum([])).to eq(0)
+      expect(calculator.sum([])).to eq(0)
     end
 
     it "computes the sum of an array of one number" do
-      expect(Calculator.new.sum([1])).to eq(1)
+      expect(calculator.sum([1])).to eq(1)
     end
     it "computes the sum of an array of two numbers" do
-      expect(Calculator.new.sum([1,3])).to eq(4)
+      expect(calculator.sum([1,3])).to eq(4)
     end
     it "computes the sum of an array of many numbers" do 
-      expect(Calculator.new.sum([1,3,5])).to eq(9)
+      expect(calculator.sum([1,3,5])).to eq(9)
     end
   end
 
@@ -40,36 +41,36 @@ describe Calculator do
   describe "#multiply" do
 
     it "multiplies two numbers" do 
-      expect(Calculator.new.multiply(2,3)).to eq(6)
+      expect(calculator.multiply(2,3)).to eq(6)
     end
     it "multiplies several numbers" do 
-      expect(Calculator.new.multiply(1,2,3,2)).to eq(12)
+      expect(calculator.multiply(1,2,3,2)).to eq(12)
     end
 
   end
 
   describe "#power" do
     it "raises one number to the power of another number" do
-      expect(Calculator.new.power(2,3)).to eq(8)
+      expect(calculator.power(2,3)).to eq(8)
     end
   end
 
   # You can do this either using a loop or recursively
   describe "#factorial" do
     it "computes the factorial of 0" do 
-      expect(Calculator.new.factorial(0)).to eq(1)
+      expect(calculator.factorial(0)).to eq(1)
     end
     it "computes the factorial of 1" do 
-      expect(Calculator.new.factorial(1)).to eq(1)
+      expect(calculator.factorial(1)).to eq(1)
     end
     it "computes the factorial of 2" do
-      expect(Calculator.new.factorial(2)).to eq(2)
+      expect(calculator.factorial(2)).to eq(2)
     end
     it "computes the factorial of 5" do
-      expect(Calculator.new.factorial(5)).to eq(120)
+      expect(calculator.factorial(5)).to eq(120)
     end
     it "computes the factorial of 10" do
-      expect(Calculator.new.factorial(10)).to eq(3628800)
+      expect(calculator.factorial(10)).to eq(3628800)
     end
   end
 
