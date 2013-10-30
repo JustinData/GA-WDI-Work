@@ -24,4 +24,9 @@ class CostumesController < ApplicationController
     render :show
   end
 
+  def edit
+     @costume = Costume.find(params[:id])
+     render :edit
+  end
+
 end

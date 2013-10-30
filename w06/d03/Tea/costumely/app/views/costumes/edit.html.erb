@@ -1,0 +1,23 @@
+<form action="/students/<%= @costume.id %>" method="POST">
+  <input type="hidden" name="_method" value="put" />
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+
+  <label>Name</label>
+  <input type="text" name="costume[name]" placeholder="costume name" value="<%= @costume.name %>"/>
+  <br>
+  <label>Project Description</label>
+  <br>
+  <textarea name="costume[image]" placeholder="My idea..."><%= @costume.image %></textarea>
+  <br>
+  <button>Update!</button>
+
+</form>
+
+<form action="/costumes/<%= @costume.id %>" method="POST">
+  <input type="hidden" name="_method" value="delete" />
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <input type="hidden" name="student_id" value="<%= @costume.id %>" />
+  <button>Delete!</button>
+</form>
+
+<p><a href="/costumes/<%= @costume.id %>">Return to costume</a></p>
