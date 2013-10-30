@@ -1,0 +1,7 @@
+<h1 style="font-family:Helvetica;font-size:60px;">Costumely</h1>
+
+
+<% for costume in @costumes do%>
+ <h3><%= costume.name %></h3>
+<img src="<%= costume.image %>"/>
+<%end%>
