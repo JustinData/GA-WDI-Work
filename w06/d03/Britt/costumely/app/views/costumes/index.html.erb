@@ -1,0 +1,8 @@
+<h1>My Costume Options!</h1>
+
+<% @costumes.each do |costume| %>
+  <div class="single-costume">
+    <h2><%= costume.name %></h2>
+    <img src="<%= costume.image %>">
+  </div>
+<% end %>

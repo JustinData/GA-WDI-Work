@@ -1,0 +1,35 @@
+class CostumesController < ApplicationController
+  def index
+    @costumes = Costume.all
+  end
+
+  def new
+    @costume = Costume.new
+  end
+
+  def create
+    @costume = Costume.new costume_params
+
+    if @costume.save
+      redirect_to costume_path @costume
+    else
+      render :new
+    end
+  end
+
+  def show
+    
+  end
+
+  def edit; end
+
+  def update; end
+
+  def destroy; end
+
+  private
+
+  def costume_params
+    params.require(:costume).permit(:name, :image)
+  end
+end
