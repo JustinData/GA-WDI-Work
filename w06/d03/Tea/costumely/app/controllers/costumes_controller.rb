@@ -12,9 +12,9 @@ class CostumesController < ApplicationController
 
   def create
     whitelisted = params.require(:costume).permit([:name, :image])
-    costume = Costume.new(whitelisted)
+    @costume = Costume.new(whitelisted)
 
-    costume.save
+    @costume.save
 
     redirect_to "/costumes/#{costume.id}"
   end
