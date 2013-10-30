@@ -12,6 +12,7 @@ window.onload = function() {
     element.style.backgroundImage = "url('http://placekitten.com/" + (Math.floor(Math.random() * (500 - 300)) + 300).toString() + "/" + (Math.floor(Math.random() * (500 - 300)) + 300).toString() + "')";
   };
 
-  buildbackground();
+  setInterval(buildbackground, 2000);
+  songs = document.getElementsByTagName("audio")
 };
 
