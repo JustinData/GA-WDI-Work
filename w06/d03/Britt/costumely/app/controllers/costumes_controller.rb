@@ -26,6 +26,8 @@ class CostumesController < ApplicationController
   end
 
   def update
+    @costume = Costume.find params[:id]
+
     if @costume.update_attributes costume_params
       redirect_to costume_path(@costume)
     else
