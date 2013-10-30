@@ -19,7 +19,7 @@ WDIToolKit.prototype.forEach = function(arr, action) {
     // when we define action we need to make sure that it has
     // and can manipulate that one parameter, ie function(e){...}
   }
-}
+};
 
 // aliasing is simple! (we are aliasing from the prototype object)
 WDIToolKit.prototype.each = WDIToolKit.prototype.forEach;
@@ -34,7 +34,7 @@ WDIToolKit.prototype.map = function(arr, action) {
   });
 
   return newArray;
-}
+};
 
 // return an element from arr at random, if any exist
 WDIToolKit.prototype.sample = function(arr) {
@@ -43,7 +43,7 @@ WDIToolKit.prototype.sample = function(arr) {
   } else {
     return false;
   }
-}
+};
 
 // return an array that is a subset of arr for which each element
 // exists in the returning array if and only if the function
@@ -70,7 +70,7 @@ WDIToolKit.prototype.exists = function(arr, action) {
   } else {
     return false;
   }
-}
+};
 
 // instantiate the prototype as an object named 'WTK'
 var WTK = new WDIToolKit();
