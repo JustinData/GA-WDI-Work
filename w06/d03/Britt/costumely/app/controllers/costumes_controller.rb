@@ -1,4 +1,7 @@
 class CostumesController < ApplicationController
+
+  before_action :find_costume, only: [:show, :edit, :update, :destroy]
+
   def index
     @costumes = Costume.all
   end
@@ -17,17 +20,11 @@ class CostumesController < ApplicationController
     end
   end
 
-  def show
-    @costume = Costume.find params[:id]
-  end
+  def show; end
 
-  def edit
-    @costume = Costume.find params[:id]
-  end
+  def edit; end
 
   def update
-    @costume = Costume.find params[:id]
-
     if @costume.update_attributes costume_params
       redirect_to costume_path(@costume)
     else
@@ -35,11 +32,21 @@ class CostumesController < ApplicationController
     end
   end
 
-  def destroy; end
+  def destroy
+    if @costume.destroy
+      redirect_to costumes_path
+    else
+      render :edit
+    end
+  end
 
   private
 
   def costume_params
     params.require(:costume).permit(:name, :image)
+  end
+
+  def find_costume
+    @costume = Costume.find params[:id]
   end
 end
