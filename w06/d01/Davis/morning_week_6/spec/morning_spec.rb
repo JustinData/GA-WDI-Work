@@ -36,6 +36,10 @@ describe WaterBottle do
       it "does allow you to drink" do
         expect(bottle.drink).to eq(:water)
       end
+
+      it "allows you to drink up to only 5 times" do
+        expect(bottle.drink).to eq()
+      end
     end
   end
 
