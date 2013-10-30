@@ -44,7 +44,11 @@ WDIToolKit.prototype.select = function(arr, condition) {
 }
 
 WDIToolKit.prototype.exists = function(arr, item) {
-  return arr.indexOf(item) != -1;
+  var selects_result = this.select(arr, action);
+
+  
+
+  return false;
 }
 
 WTK = new WDIToolKit;
