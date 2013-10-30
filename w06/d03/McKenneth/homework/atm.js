@@ -1,28 +1,48 @@
 window.onload = function(){
-var balance = 0;
-var deposit = document.getElementById("checking_deposit");
-var withdraw = document.getElementById("checking_withdraw");
-// var amount = document.getElementById("checking_amount").value;
-var displayedBalance = document.getElementById("checking_balance");
 
-deposit.onclick = function(){
+// CHECKING ACCOUNT
+  var checkingBalance = 0;
+  var depositChecking = document.getElementById("checking_deposit");
+  var withdrawChecking = document.getElementById("checking_withdraw");
+  var displayedChecking = document.getElementById("checking_balance");
+
+// Checking Buttons
+depositChecking.onclick = function(){
   var amount = document.getElementById("checking_amount").value;
-    balance += parseInt(amount);
-
-  // var displayedBalance = document.getElementById("checking_balance");
-  displayedBalance.innerHTML = balance;
+    checkingBalance += parseInt(amount);
+    displayedChecking.innerHTML = checkingBalance;
 };
 
-withdraw.onclick = function(){
+withdrawChecking.onclick = function(){
   var amount = document.getElementById("checking_amount").value;
-    if (amount <= balance ){
-    balance -= parseInt(amount);
+    if (amount <= checkingBalance ){
+    checkingBalance -= parseInt(amount);
     }
-  // var displayedBalance = document.getElementById("checking_balance");
-  displayedBalance.innerHTML = balance;
+    displayedChecking.innerHTML = checkingBalance;
 };
 
+// SAVINGS ACCOUNT
 
+var savingsBalance = 0;
+var depositSavings = document.getElementById("savings_deposit");
+var withdrawSavings = document.getElementById("savings_withdraw");
+var displayedSavings = document.getElementById("savings_balance");
+
+ // Savings Buttons 
+
+ depositSavings.onclick = function(){
+  var amount = document.getElementById("savings_amount").value;
+    savingsBalance += parseInt(amount);
+    displayedSavings.innerHTML = savingsBalance;
+ };
+
+ withdrawSavings.onclick = function(){
+  var amount = document.getElementById("savings_amount").value;
+  if (amount <= savingsBalance){
+  savingsBalance -= parseInt(amount);
+  }
+  displayedSavings.innerHTML = savingsBalance;
+ };
 
 
 
