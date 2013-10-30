@@ -13,10 +13,10 @@
 
 #### Getting Started - Remember how to build a Rails app?
 
-The first version of this app has just one model. A `Costume` has:
+<!-- The first version of this app has just one model. A `Costume` has:
 
 * name
-* image
+* image -->
 
 <!-- 1. Create a new rails app `rails new costumely -d postgresql` -->
 <!-- 2. Configure your database.yml file -->
@@ -26,13 +26,13 @@ The first version of this app has just one model. A `Costume` has:
 <!-- 6. Create your Costume model -->
 <!-- 7. Seed your database with some information using the seed file, run rake db:seed, and test it using the Rails console. (I included a seed file that you can use to save some time) -->
 
-Tackle the User Stories ONE AT A TIME. It will involve some combination of the following:
+<!-- Tackle the User Stories ONE AT A TIME. It will involve some combination of the following:
 
 1. Create the required route
 2. Create your controller and and the actions you need
 3. Define the method for a controller action, then create any corresponding views for that action.
 
-Commit after you implement each user story!
+Commit after you implement each user story! -->
 
 ## Part 2 - 2 Models
 

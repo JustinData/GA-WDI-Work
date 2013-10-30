@@ -25,7 +25,13 @@ class CostumesController < ApplicationController
     @costume = Costume.find params[:id]
   end
 
-  def update; end
+  def update
+    if @costume.update_attributes costume_params
+      redirect_to costume_path(@costume)
+    else
+      render :edit
+    end
+  end
 
   def destroy; end
 
