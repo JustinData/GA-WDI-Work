@@ -48,11 +48,11 @@ WDIToolKit.prototype.select = function( ary, action ) {
 };
 
 WDIToolKit.prototype.exists = function( ary, action ) {
-  var selects_result = this.select( arr, action );
+  var selects_result = this.select( ary, action );
 
   if ( selects_result.length > 0 ) {
     return selects_result[0];
-  } else {
+  } else{
     return false;
   };
 };
