@@ -1,0 +1,12 @@
+<h1>Costumely</h1>
+
+<h2>Add a Halloween costume:</h2>
+
+<%= form_tag costumes_path, :method => :post do %>
+   <%= label_tag :costume_name %>
+   <%= text_field_tag :name %><br />
+   <%= label_tag :costume_image %>
+   <%= text_field_tag :image %><br />
+ 
+   <%= submit_tag "Add" %>
+<% end %>
