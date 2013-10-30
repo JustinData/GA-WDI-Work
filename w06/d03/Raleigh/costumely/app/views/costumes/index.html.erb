@@ -2,6 +2,6 @@
 
 <h2>Here are your Halloween costume choices:</h2>
 <% @costumes.each do |costume| %>
-   <p><%= costume.name %></p>
+   <p><%= link_to costume.name, costume_path(costume) %></p>
    <img src="<%= costume.image %>" alt= "A <%= costume.name %> costume" />
 <% end %>
