@@ -1,5 +1,10 @@
 Costumely::Application.routes.draw do
-  resources :costumes
+  
+  
+  resources :costumes do
+    resources :notes  
+  end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
