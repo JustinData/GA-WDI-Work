@@ -19,31 +19,30 @@ var mta = {
 
 function tripPrompter() {
   var lineStart = prompt("What line are you starting at?\nfor N, type 'n'\nfor L, type 'l'\nfor 6, type 's'");
-
-  switch(lineStart) {
+  var choice1 = switch(lineStart) {
     case "l":
-      choice1 = mta.l;
+      return mta.l;
       break;
     case "n":
-      choice1 = mta.n;
+      return mta.n;
       break;
     case "s":
-      choice1 = mta.s;
+      return mta.s;
       break;
   };
 
   var stationStart = prompt("What station are you starting at?\n" + choice1.stops);
+  
   var lineEnd = prompt("What line are you getting off at?\nAgain, for N, type 'n'\nfor L, type 'l'\nfor 6, type 's'");
-
-  switch(lineEnd) {
+  var choice2 = switch(lineEnd) {
     case "l":
-      choice2 = mta.l;
+      return mta.l;
       break;
     case "n":
-      choice2 = mta.n;
+      return mta.n;
       break;
     case "s":
-      choice2 = mta.s;
+      return mta.s;
       break;
   };
   var stationEnd = prompt("What station are you getting off at?\n" + choice2.stops);
