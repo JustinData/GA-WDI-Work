@@ -32,16 +32,21 @@ WDIToolKit.prototype.select = function(arr, action){
   var newArray = [];
   this.each(arr, function(element){
     if (action(element) === true){
-      newArray.push(action(element));}
+      newArray.push(action(element));
+    }
   });
   return newArray;
 }
 
+WDIToolKit.prototype.exists = function(arr, action) {
+  var selects_result = this.select(arr, action);
 
-
-// WDIToolKit.prototype.exists = function(arr, action){
-// }
-
+  if (selects_result.length > 0) {
+    return selects_result[0];
+  } else {
+    return false;
+  }
+}
 
 
 
