@@ -72,19 +72,22 @@ Triangle.prototype.isIsosceles = function() {
 };
 
 
-Triangle.prototype.area = function() {
-  s = ((this.sideA + this.sideB + this.sideC) / 2);
-  return Math.sqrt(s(s-sideA)*(s-sideB)*(s-sideC));
-};
+// Triangle.prototype.area = function() {
+//   s = ((this.sideA + this.sideB + this.sideC) / 2);
+//   (Math.sqrt(s((s-sideA)(s-sideB)(s-sideC))));
+// } 
 
 
-Triangle.prototype.isObtuse = function() {
-  if ( this.sideA == this.sideB && this.sideA == this.sideC ) {
-    return "This is an equilateral triangle.";
-  } else { 
-    return "This is not an equilateral triangle;"
-  }
-};
+// Triangle.prototype.isObtuse = function() {
+//   length_array = [];
+//   length_array = [sideA, sideB, sideC];
+//   length_array.sort();
+//   if ( (length_array[2])**2 ) > ((length_array[1]) + (length_array[0]))**2) ) {
+//       return "This is an obtuse triangle.";
+//   } else { 
+//     return "This is not an obtuse triangle;"
+//   }
+// };
 
 
 
