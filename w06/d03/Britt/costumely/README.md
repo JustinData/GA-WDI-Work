@@ -1,6 +1,6 @@
 #Costume.ly #RailsRefresher #CamelCase
 
-AHHH I still don't know what to be for Halloween! Can you build me a Rails app to help me keep track of ideas?
+<!-- AHHH I still don't know what to be for Halloween! Can you build me a Rails app to help me keep track of ideas? -->
 
 ## Part 1 - 1 Model
 

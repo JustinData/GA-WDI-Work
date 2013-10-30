@@ -41,5 +41,8 @@ end
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
+# Use pry-rails
+gem 'pry-rails', group: [:development, :test]
+
 # Use debugger
 # gem 'debugger', group: [:development, :test]
