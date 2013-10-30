@@ -1,4 +1,7 @@
 <h1>Costumely</h1>
 
 <h2><%= @costume.name %></h2>
-<img src="<%= @costume.image %>" alt= "A <%= @costume.name %> costume" />
+<img src="<%= @costume.image %>" alt= "A <%= @costume.name %> costume" /><br />
+
+<%= link_to "Edit", edit_costume_path(@costume) %>
+<%= link_to "Delete", costume_path(@costume), :method => :delete %>
