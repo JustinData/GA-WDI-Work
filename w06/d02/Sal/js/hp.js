@@ -6,12 +6,6 @@ var potter = "\u201CAre you okay, Harry?\u201D Ginny asked quietly. \r\n\r\n\u20
 //split
 //indexof
 
-function forEach(arr, action) {
-  for (var i = 0; i < arr.length ; i++) {
-    action(arr[i]);
-  }
-}
-
 function countWords(text, findWord) {
   var words = text.split(" "); 
   var counter = 0; 
