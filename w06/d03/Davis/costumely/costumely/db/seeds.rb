@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Costume.destroy_all
+Costume.create(name: 'Tank', image_url: 'http://media.giphy.com/media/pum9EP2v4WTiU/giphy.gif')
+Costume.create(name: 'Princess', image_url: 'http://media.giphy.com/media/13yZC4GMF1busE/giphy.gif')
+Costume.create(name: 'Pac Man', image_url: 'http://media.giphy.com/media/DWqqMBCtlWQGA/giphy.gif')
+Costume.create(name: 'Mouse', image_url: 'http://media.giphy.com/media/PDc8rPhx1WLi8/giphy.gif')
+Costume.create(name: 'Panda', image_url: 'http://media1.giphy.com/media/XXIzFAQeME9IQ/giphy.gif')
