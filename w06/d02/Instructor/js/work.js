@@ -96,12 +96,4 @@ function favoriteColorTransformer(color) {
 // forEach numbers do |number|
 //   puts number
 // end
-
-
-
-
-
-
-
-
-
+// console.log(countWords("Hello", "Hello"));
