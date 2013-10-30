@@ -16,7 +16,7 @@ class CostumesController < ApplicationController
 
     costume.save
 
-    redirect_to "/"
+    redirect_to "/costumes/#{costume.id}"
   end
 
   def show
@@ -27,6 +27,19 @@ class CostumesController < ApplicationController
   def edit
      @costume = Costume.find(params[:id])
      render :edit
+  end
+
+  def update
+    whitelisted = params.require(:costume).permit([:name, :image])
+    @costume = Costume.find(params[:id])
+    @costume.update_attributes(whitelisted)
+
+    render :show
+  end
+
+  def destroy
+    Costume.destroy(params[:id])
+    redirect_to "/costumes/"
   end
 
 end
