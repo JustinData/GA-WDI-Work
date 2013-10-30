@@ -1,3 +1,3 @@
 Costumely::Application.routes.draw do
- resources :costumes, only: [:index, :show]
+ resources :costumes, only: [:index, :show, :new, :create]
 end
