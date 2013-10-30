@@ -48,7 +48,4 @@ WDIToolKit.prototype.exists = function(arr, action) {
   }
 }
 
-
-
-
 var WTK = new WDIToolKit();
