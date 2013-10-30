@@ -15,7 +15,7 @@ function displayStops (system,train) {
 
 ontrain = prompt ("What train do you want to get on? N L or S")
 
-puts "Which stop? #{display_stops(mta, on_train)}"
+alert ("Which stop? #{display_stops(mta, on_train)}")
 on_stop = gets.chomp
 
 # Ask the train and stop the user wants to get off, and store them in variables
