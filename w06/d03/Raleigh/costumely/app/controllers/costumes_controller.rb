@@ -36,6 +36,13 @@ class CostumesController < ApplicationController
    end
 
    def destroy
+      @costume = Costume.find(params[:id])
+      
+      if @costume.destroy
+         redirect_to new_costume_path
+      else
+         render :edit
+      end
    end
 
 end
