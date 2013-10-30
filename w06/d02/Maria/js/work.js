@@ -1,6 +1,6 @@
 window.onload = function() {
   console.log("LOADED!");
-}
+};
 
 /*
 var dwarrow = ["Doc", "grumpy", "happy", "Sneezy", "Dopey", "Sleepy", "Bashful"];
