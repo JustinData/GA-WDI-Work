@@ -40,12 +40,14 @@ Triangle.prototype.isIsosceles = function (triangle) {
   return " Your Triangle is NOT an Isosceles!";
  }
 };
-
+//s = (a + b + c) / 2 area = sqrt(s * (s - a) * (s - b) * (s - c))
 Triangle.prototype.area = function (triangle) {
-  //s = (a + b + c) / 2 area = sqrt(s * (s - a) * (s - b) * (s - c))
-  s = (sideA + sideB + sideC) / 2
-  return Math.sqrt(s*(s - sideA) * (s - sideB) * (s - sideC) );
+  sideA = prompt("please enter base");
+  sideB = prompt("please enter height");
+  s = (sideA * sideB) / 2
+  return s
 };
+
 
 Triangle.prototype.isObtuse = function (triangle) {
 // if one of the angles are greater than 90 obtuse == true
@@ -55,12 +57,4 @@ if (Math.pow(this.sideA,2) + Math.pow(this.sideB,2) < Math.pow(this.sideC,2)) {
 } else{
   return "Your Triangle is NOT obtuse!"
 };
-
-
-
-
-
-
-
-
 }
