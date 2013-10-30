@@ -1,15 +1,16 @@
 class CostumesController < ApplicationController
 
+  def index
+    @costumes = Costume.all
+    render :index
+  end
+
   def new
     @costume = Costume.new
   end
 
   def create
-     @costume = Costume.new
-  end
-
-  def index
-    @costumes = Costume.all
+    @costume = Costume.new
   end
 
   def edit
