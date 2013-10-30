@@ -19,6 +19,8 @@ function SubwaySystem(name) {
 
 var mta = new SubwaySystem("mta", ["n", "l", "six"]);
 
+//  prompting the user for their on/off stops and lines:
+
 SubwaySystem.prototype.takeTrip = function() {
   var onTrain = prompt("From which line would you like to onboard?");
   var onStop = prompt("From which station would you like to onboard?");
@@ -26,6 +28,8 @@ SubwaySystem.prototype.takeTrip = function() {
   var offStop = prompt("From which station would you like to get off?");
   Alert("Your trip will have " + totalTripLength + " stops.");
 }
+
+// Calculating the intersection point:
 
 function getTransferPoint(onTrain, offTrain) {
   var intersection = [];
@@ -39,6 +43,8 @@ function getTransferPoint(onTrain, offTrain) {
   }
   return intersection;
 }
+
+// calculating the distance with an if/else statement
 
 Line.prototype.distance = function(onStop, offStop) {
   if (onTrain != offTrain) {
@@ -66,9 +72,6 @@ Line.prototype.distance = function(onStop, offStop) {
 }
 
 
-
-// run program:
-// mta.takeTrip();
 
 
 
