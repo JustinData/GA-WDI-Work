@@ -6,8 +6,14 @@ class CostumesController < ApplicationController
   end
 
   def new
-    @costume = Costume.new(name, image)
+    @costume = Costume.new
     render :new
+  end
+
+  def create
+    # costume params grabs everything from the form
+    @costume = Costume.new(costume_params)
+    @costume.save
   end
 
   def show
