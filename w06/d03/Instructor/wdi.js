@@ -39,7 +39,7 @@ WDIToolKit.prototype.map = function(arr, action) {
 // return an element from arr at random, if any exist
 WDIToolKit.prototype.sample = function(arr) {
   if (arr.length > 0) {
-    return = arr[Math.floor(Math.random() * arr.length)];
+    return arr[Math.floor(Math.random() * arr.length)];
   } else {
     return false;
   }
