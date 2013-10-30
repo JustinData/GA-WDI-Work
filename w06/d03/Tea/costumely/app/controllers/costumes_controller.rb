@@ -19,4 +19,9 @@ class CostumesController < ApplicationController
     redirect_to "/"
   end
 
+  def show
+    @costume = Costume.find(params[:id])
+    render :show
+  end
+
 end
