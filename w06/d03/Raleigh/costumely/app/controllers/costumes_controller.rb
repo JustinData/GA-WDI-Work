@@ -14,6 +14,8 @@ class CostumesController < ApplicationController
       redirect_to costume_path(new_costume)
    end
 
-
+   def show
+      @costume = Costume.find(params[:id])
+   end
 
 end
