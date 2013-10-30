@@ -1,13 +1,5 @@
 <h1>Create a new Costume!</h1>
 
-<%= form_for @costume do |f| %>
-  <li><%= f.label :name %></li>
-  <li><%= f.text_field :name %></li>
+<%= render 'form'  %>
 
-  <li><%= f.label :image %></li>
-  <li><%= f.url_field :image %></li>
-
-  <li><%= f.submit %></li>
-<% end %>
-
-<%= link_to "Back to Costume list", costumes_path %>
+<p><%= link_to "Back to Costume list", costumes_path %></p>

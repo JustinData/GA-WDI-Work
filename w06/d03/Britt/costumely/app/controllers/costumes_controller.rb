@@ -21,7 +21,9 @@ class CostumesController < ApplicationController
     @costume = Costume.find params[:id]
   end
 
-  def edit; end
+  def edit
+    @costume = Costume.find params[:id]
+  end
 
   def update; end
 
