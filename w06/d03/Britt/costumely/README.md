@@ -6,8 +6,8 @@
 
 #### User Stories
 <!-- * As a user I want to be able to see a list of all the Costumes I've entered so I can try to decide between them -->
-* As a user I want to be able to add a new Costume so I can have more options
-* As a user I want to be able to look at an individual Costume to take a closer look
+<!-- * As a user I want to be able to add a new Costume so I can have more options -->
+<!-- * As a user I want to be able to look at an individual Costume to take a closer look -->
 * As a user I want to be able to edit a Costume in case I want to change it's name or image
 * As a user I want to be able to delete a Costume if I decide later that I don't like it
 

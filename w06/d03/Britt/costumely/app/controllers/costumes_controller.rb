@@ -18,7 +18,7 @@ class CostumesController < ApplicationController
   end
 
   def show
-    
+    @costume = Costume.find params[:id]
   end
 
   def edit; end
