@@ -56,12 +56,23 @@ function makeHobbits(hobbits) {
   shire.appendChild(ul);
 }
 
+function glowBabyGlow(thing){
+  // do this fun stuff to frodo that makes him glow
+
+  thing.classList.add("ring");
+  setTimeout(function(){
+     thing.classList.remove("ring");
+   }, 900);
+}
+
 function keepItSecretKeepItSafe() {
   var div = document.createElement("div");
   div.setAttribute("id", "the-ring");
 
   var frodo = document.querySelector("li.hobbit");
   frodo.appendChild(div);
+  frodo.setAttribute("id", "frodo");
+  glowBabyGlow(frodo);
 }
 
 function makeBuddies(friends) {
@@ -103,14 +114,14 @@ function forgeTheFellowShip() {
   each(hobbits, function(hobbit){
     div.appendChild(hobbit);
     hobbit = hobbit.innerHTML.split("<")[0]
-    alert(hobbit + " has joined your party!");
+    //alert(hobbit + " has joined your party!");
   });
 
   each(buddies, function(buddy){
     div.appendChild(buddy);
-    alert(buddy.innerHTML + " has joined your party!");
+    //alert(buddy.innerHTML + " has joined your party!");
   });
-  alert("LET'S GO DESTROY THAT FUCKIN' RING!!!!!!");
+ // alert("LET'S GO DESTROY THAT FUCKIN' RING!!!!!!");
 }
 
 // upon load
@@ -118,7 +129,7 @@ window.onload = function() {
   setTimeout(makeMiddleEarth, 2000, lands);
   setTimeout(makeHobbits, 4000, hobbits);
   setTimeout(keepItSecretKeepItSafe, 6000);
-  setTimeout(makeBuddies, 8000, buddies);
-  setTimeout(beautifulStranger, 10000);
-  setTimeout(forgeTheFellowShip, 12000);
+  setTimeout(makeBuddies, 10000, buddies);
+  setTimeout(beautifulStranger, 12000);
+  setTimeout(forgeTheFellowShip, 14000);
 }
