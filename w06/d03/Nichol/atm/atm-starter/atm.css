@@ -37,7 +37,12 @@
 .clear {
   clear: both;
 }
+
 .zero {
-  background-color: #F52F4F;
-  color: #FFFFFF;
+  font-family: 'Ruluko', sans-serif;
+  font-size: 50px;
+  padding: 25px 0px;
+  background-color: red;
+  border: 1px solid #676767;
 }
+

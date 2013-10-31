@@ -5,6 +5,91 @@ window.onload = function(){
   var checkingDebitButton = document.getElementById("checking_withdraw");
   var savingsDepositButton = document.getElementById("savings_deposit");
   var savingsDebitButton = document.getElementById("savings_withdraw");
+
+  checkingDepositButton.onclick = function(){
+    //get the value
+    value = document.getElementById('checking_amount').value;
+    value = parseInt(value);
+    //do the work
+    myChecking.deposit(value);
+    //update the display
+
+    //get the elementID
+    balanceElement = document.getElementById('checking_balance');
+    balanceElement.innerHTML = myChecking.balance;
+
+    //if not 0 update class
+    if(myChecking.balance > 0){
+      document.getElementById("checking_balance").className = "balance";
+      }
+    
+
+  };
+
+  checkingDebitButton.onclick = function(){
+    //get the value
+    value = document.getElementById('checking_amount').value;
+    value = parseInt(value);
+    //do the work
+    myChecking.debit(value, mySavings);
+    //update the display
+    balanceElement = document.getElementById('checking_balance');
+    balanceElement.innerHTML = myChecking.balance;
+    balanceElement = document.getElementById('savings_balance');
+    balanceElement.innerHTML = mySavings.balance;
+
+    //if 0 update class
+    if(myChecking.balance == 0){
+      document.getElementById("checking_balance").className = "zero";
+      }
+
+    if(mySavings.balance == 0){
+      document.getElementById("savings_balance").className = "zero";
+      }  
+  };
+
+  savingsDepositButton.onclick = function(){
+    //get the value
+    value = document.getElementById('savings_amount').value;
+    value = parseInt(value);
+    //do the work
+    mySavings.deposit(value);
+    //update the display
+
+    //get the elementID
+    balanceElement = document.getElementById('savings_balance');
+    balanceElement.innerHTML = mySavings.balance;
+
+    //if not 0 update class
+    if(mySavings.balance > 0){
+      document.getElementById("savings_balance").className = "balance";
+      }
+
+  };
+
+  savingsDebitButton.onclick = function(){
+    //get the value
+    value = document.getElementById('savings_amount').value;
+    value = parseInt(value);
+    //do the work
+    mySavings.debit(value, myChecking);
+    //update the display
+
+    //get the elementID
+    balanceElement = document.getElementById('checking_balance');
+    balanceElement.innerHTML = myChecking.balance;
+    balanceElement = document.getElementById('savings_balance');
+    balanceElement.innerHTML = mySavings.balance;
+  
+    //if 0 update class
+    if(mySavings.balance == 0){
+      document.getElementById("savings_balance").className = "zero";
+      }
+    if(myChecking.balance == 0){
+      document.getElementById("checking_balance").className = "zero";
+      }  
+  };
+
 }
 
 // Define Account Object
@@ -33,7 +118,7 @@ Account.prototype.debit = function(amount, otherAccount){
         otherAccount.balance += this.balance;
         this.balance = 0;
       } else {
-        console.log("YOU DONT HAVE ENOUGH MONEY");
+        alert("YOU DONT HAVE ENOUGH MONEY");
       }
     }
   return this.balance;
@@ -44,25 +129,9 @@ Account.prototype.debit = function(amount, otherAccount){
 myChecking = new Account("checking", 0);
 mySavings = new Account("savings", 0);
 
-myChecking.deposit(100);
-mySavings.deposit(100);
 
-
-
-
-
-// checkingDepositButton.onclick = function(){
-//   //take the value from the field box
-//   value = document.getElementById('checking_amount').value;
-//   myChecking.deposit(value); 
-// };
-
-// set up checking deposit on click to get amount from input id = checking amount and do checking.deposit
-// set up checking debit on click to get amount from input id = checking amount and do checking.debit
-
-//inside an infinite loop
-//  wait for onclicks do action
-//  update display
+myChecking.deposit(0);
+mySavings.deposit(0);
 
 
 
