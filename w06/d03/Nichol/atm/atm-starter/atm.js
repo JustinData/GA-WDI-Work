@@ -1,93 +1,34 @@
 window.onload = function(){
   console.log("loaded!");
-  // NOW DO THIS DOM SHIT
+  
+  // update to adjust 0 balance and allow for accounts with previous balances.
+  updateDisplay();
+
+  //create button elements.
   var checkingDepositButton = document.getElementById("checking_deposit");
   var checkingDebitButton = document.getElementById("checking_withdraw");
   var savingsDepositButton = document.getElementById("savings_deposit");
   var savingsDebitButton = document.getElementById("savings_withdraw");
 
   checkingDepositButton.onclick = function(){
-    //get the value
-    value = document.getElementById('checking_amount').value;
-    value = parseInt(value);
-    //do the work
-    myChecking.deposit(value);
-    //update the display
-
-    //get the elementID
-    balanceElement = document.getElementById('checking_balance');
-    balanceElement.innerHTML = myChecking.balance;
-
-    //if not 0 update class
-    if(myChecking.balance > 0){
-      document.getElementById("checking_balance").className = "balance";
-      }
+    myChecking.deposit(getValue('checking_amount'));
+    updateDisplay();
   };
 
   checkingDebitButton.onclick = function(){
-    //get the value
-    value = document.getElementById('checking_amount').value;
-    value = parseInt(value);
-    //do the work
-    myChecking.debit(value, mySavings);
-    //update the display
-    balanceElement = document.getElementById('checking_balance');
-    balanceElement.innerHTML = myChecking.balance;
-    balanceElement = document.getElementById('savings_balance');
-    balanceElement.innerHTML = mySavings.balance;
-
-    //if 0 update class
-    if(myChecking.balance == 0){
-      document.getElementById("checking_balance").className = "zero";
-      }
-
-    if(mySavings.balance == 0){
-      document.getElementById("savings_balance").className = "zero";
-      }  
+    myChecking.debit(getValue('checking_amount'), mySavings);
+    updateDisplay();
   };
 
   savingsDepositButton.onclick = function(){
-    //get the value
-    value = document.getElementById('savings_amount').value;
-    value = parseInt(value);
-    //do the work
-    mySavings.deposit(value);
-    //update the display
-
-    //get the elementID
-    balanceElement = document.getElementById('savings_balance');
-    balanceElement.innerHTML = mySavings.balance;
-
-    //if not 0 update class
-    if(mySavings.balance > 0){
-      document.getElementById("savings_balance").className = "balance";
-      }
-
+    mySavings.deposit(getValue('savings_amount'));
+    updateDisplay();
   };
 
   savingsDebitButton.onclick = function(){
-    //get the value
-    value = document.getElementById('savings_amount').value;
-    value = parseInt(value);
-    //do the work
-    mySavings.debit(value, myChecking);
-    //update the display
-
-    //get the elementID
-    balanceElement = document.getElementById('checking_balance');
-    balanceElement.innerHTML = myChecking.balance;
-    balanceElement = document.getElementById('savings_balance');
-    balanceElement.innerHTML = mySavings.balance;
-  
-    //if 0 update class
-    if(mySavings.balance == 0){
-      document.getElementById("savings_balance").className = "zero";
-      }
-    if(myChecking.balance == 0){
-      document.getElementById("checking_balance").className = "zero";
-      }  
+    mySavings.debit(getValue('savings_amount'), myChecking);
+    updateDisplay(); 
   };
-
 }
 
 // Define Account Object
@@ -104,8 +45,8 @@ Account.prototype.deposit = function(amount){
 }
 
 // Add Prototype to Debit from Account
-// can't go negative
-// overdraft protection
+// if able to debit from given account, execute, otherwise, 
+// check total balance, and withdraw appropriately.
 Account.prototype.debit = function(amount, otherAccount){
   if((this.balance - amount) >= 0){
     this.balance = this.balance - amount;  
@@ -122,18 +63,36 @@ Account.prototype.debit = function(amount, otherAccount){
   return this.balance;
 }
 
-
-//create the two accounts
+//instantiate the two accounts
 myChecking = new Account("checking", 0);
 mySavings = new Account("savings", 0);
 
 
-myChecking.deposit(0);
-mySavings.deposit(0);
+//helper functions
+function getValue(field){
+    return parseInt(value = document.getElementById(field).value);
+  }
 
+function updateDisplay(){
+  //update balance elements
+  balanceElement = document.getElementById('checking_balance');
+  balanceElement.innerHTML = myChecking.balance;
 
+  balanceElement = document.getElementById('savings_balance');
+  balanceElement.innerHTML = mySavings.balance;
 
-
+  //update classes
+  if(myChecking.balance > 0){
+      document.getElementById("checking_balance").className = "balance";
+      } else {
+        document.getElementById("checking_balance").className = "zero";
+      }
+  if(mySavings.balance > 0){
+      document.getElementById("savings_balance").className = "balance";
+      } else {
+        document.getElementById("savings_balance").className = "zero";
+      }
+}
 
 
 
