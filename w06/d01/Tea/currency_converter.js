@@ -10,4 +10,3 @@ function poundsToDollars(gbp){
   var dollars = (gbp / 1.6141).toFixed(2);
   return "£" + gbp + " is $" + dollars;
 }
-
