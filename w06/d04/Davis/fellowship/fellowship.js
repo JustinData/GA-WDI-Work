@@ -89,9 +89,10 @@ function forgeTheFellowShip() {
   var fellowship = document.createElement("div");
   fellowship.setAttribute("id", "the-fellowship");
 
+  // alert("ello");
   for(var i = 0; i < hobbits.length; i++) {
     fellowship.appendChild( hobbits[i] );
-    alert( hobbits[i] + " has joined the fellowship!" );
+    console.log( hobbits[i] + " has joined the fellowship!" );
   }
 
   for(var i = 0; i < buddies.length; i++) {
@@ -101,12 +102,11 @@ function forgeTheFellowShip() {
 }
 
 window.onload = function() {
-
+  makeMiddleEarth(lands);
+  makeHobbits(hobbits);
+  keepItSecretKeepItSafe();
+  makeBuddies(buddies);
+  beautifulStranger();
+  forgeTheFellowShip();
 }
 
-makeMiddleEarth(lands);
-makeHobbits(hobbits);
-keepItSecretKeepItSafe();
-makeBuddies(buddies);
-beautifulStranger();
-forgeTheFellowShip();
