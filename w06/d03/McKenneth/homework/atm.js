@@ -5,8 +5,9 @@ window.onload = function(){
   var depositChecking = document.getElementById("checking_deposit");
   var withdrawChecking = document.getElementById("checking_withdraw");
   var displayedChecking = document.getElementById("checking_balance");
-
+  var overdraft = 0;
 // Checking Buttons
+
 depositChecking.onclick = function(){
   var amount = document.getElementById("checking_amount").value;
     checkingBalance += parseInt(amount);
@@ -17,8 +18,12 @@ withdrawChecking.onclick = function(){
   var amount = document.getElementById("checking_amount").value;
     if (amount <= checkingBalance ){
     checkingBalance -= parseInt(amount);
+    }else if (amount > checkingBalance && savingsBalance >= (amount-checkingBalance)){
+      savingsBalance -= (parseInt(amount)-checkingBalance);
+      checkingBalance -= checkingBalance;
     }
     displayedChecking.innerHTML = checkingBalance;
+    displayedSavings.innerHTML = savingsBalance;
 };
 
 // SAVINGS ACCOUNT
