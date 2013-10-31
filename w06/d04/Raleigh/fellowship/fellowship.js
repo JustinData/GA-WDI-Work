@@ -62,18 +62,75 @@ function makeHobbits(hobbits) {
 }
 
 function keepItSecretKeepItSafe() {
+   // create a div with an id of 'the-ring'
+   var ring = document.createElement("div");
+   ring.setAttribute("id", "the-ring");
+
+   // add the ring as a child of Frodo
+   var frodo = document.querySelector("ul > li");
+
+   frodo.appendChild(ring);
 }
 
 function makeBuddies(buddies) {
+   // create an aside tag
+   var group = document.createElement("aside");
+
+   // create an unordered list of buddies in the aside
+   var friends = document.createElement("ul");
+
+   WTK.each(buddies, function(buddy){
+      var new_friend = document.createElement("li");
+
+      new_friend.setAttribute("class", "hobbit");
+      new_friend.innerHTML = buddy;
+      
+      friends.appendChild(new_friend);
+   });
+   group.appendChild(friends);
+
+   // insert your aside before rivendell
+   var rivendell = document.querySelector("article + article");
+   rivendell.insertBefore(group, rivendell.firstChild);
 }
 
 function beautifulStranger() {
+   var rivendell = document.querySelector("article + article");
+   var strider = rivendell.querySelector("li + li + li + li");
+   // change the buddy 'Strider' textnode to "Aragorn"
+   strider.innerHTML = "Aragorn";
 }
 
 function forgeTheFellowShip() {
+   // move the hobbits and the buddies to Rivendell
+   var rivendell = document.querySelector("article + article");
+
+   // create a new div called 'the-fellowship'
+   var fellowship = document.createElement("div");
+   fellowship.setAttribute("id", "the-fellowship");
+
+   rivendell.appendChild(fellowship);
+
+   // add each hobbit and buddy one at a time to 'the-fellowship'
+   var hobbits = document.querySelector("ul");
+   var group = document.querySelector("aside");
+
+
+   // fellowship.appendChild(...);
+
+
+   WTK.each([], function(hobbit) {
+      fellowship.appendChild(hobbit);
+   });
+   
+   // after each character is added make an alert that they have joined your party
 }
 
 window.onload = function() {
    makeMiddleEarth(lands);
    makeHobbits(hobbits);
+   keepItSecretKeepItSafe();
+   makeBuddies(buddies);
+   setTimeout(beautifulStranger, 3000);
+   setTimeout(forgeTheFellowShip, 5000);
 }
