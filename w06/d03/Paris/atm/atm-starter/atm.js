@@ -1,14 +1,5 @@
 
 window.onload = console.log( "Loaded!" );
-
-// checkingDebit = document.getElementById("checking_withdraw")
-// checkingBalance = document.getElementById("checking_balance")
-// checkingAmount = document.getElementById("checking_amount")
-// savingsDeposit = document.getElementById("savings_deposit")
-// savingsDebit = document.getElementById("savings_withdraw")
-// savingsBalance = document.getElementById("savings_balance")
-// savingsAmount = document.getElementById("savings_amount") 
-
 window.onload = function(){
 
 // Account object
@@ -37,17 +28,40 @@ Account.prototype.debit = function( val, otheraccount ){
 }
 
 // checking deposit button functionality
-// checkingDeposit = document.getElementById("checking_deposit");
-currentBalanceString = checking_balance.innerHTML;
-currentBalance = parseInt(currentBalanceString[1]);
-newBalance = checking.deposit() + currentBalance;
-updateAmount = function() {
-  checking_balance.innerHTML = "$" + newBalance;
-};
-document.getElementById("checking_deposit").onclick=function(){
-document.getElementById("checking_amount").value == checking.deposit()};
 
-updateAmount();
+// this is the checking deposit button
+checkingDeposit = document.getElementById("checking_deposit");
+
+// This is the 0 on the ATM console
+currentBalanceString = checking_balance.innerHTML;
+
+// parsed from the dollar sign and turned into an integer
+currentBalance = parseInt(currentBalanceString[1]);
+
+// this is the onclick function to edit the atm console with the new deposit amount.
+// I had a lot more variables set up but somehow I ended up with this mess:
+document.getElementById("checking_deposit").onclick=function(){checking_balance.innerHTML.appendChild(parseInt(document.getElementById("checking_amount").value)};
+== checking.deposit()
+
+
+// my plan was to write a block similar to the above for checking debit, savings deposit, savings debit. that's as far as I got!
+
+}; 
 
 }
+
+// checking deposit button code that got left in the dust:
+
+// checkingDebit = document.getElementById("checking_withdraw")
+// checkingBalance = document.getElementById("checking_balance")
+// checkingAmount = document.getElementById("checking_amount")
+// savingsDeposit = document.getElementById("savings_deposit")
+// savingsDebit = document.getElementById("savings_withdraw")
+// savingsBalance = document.getElementById("savings_balance")
+// savingsAmount = document.getElementById("savings_amount") 
+
+// newBalance = "$" + checking.deposit() + currentBalance;
+// updateAmount = function() {
+//   currentBalance + checking.deposit;
+// updateAmount();
 
