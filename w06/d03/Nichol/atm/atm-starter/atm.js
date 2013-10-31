@@ -22,8 +22,6 @@ window.onload = function(){
     if(myChecking.balance > 0){
       document.getElementById("checking_balance").className = "balance";
       }
-    
-
   };
 
   checkingDebitButton.onclick = function(){
