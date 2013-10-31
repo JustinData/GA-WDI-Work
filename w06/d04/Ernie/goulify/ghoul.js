@@ -8,9 +8,6 @@ GhoulContainer.prototype.push = function(ghoulName) {
 }
  
 var ghouls = new GhoulContainer();
- 
-ghouls.push("Jeff");
-ghouls.push("DrRobotMck");
 
 function appendLi(newContent,ul) {
   var li = document.createElement("li");
@@ -30,7 +27,13 @@ function appendGhouls(ghouls,ul) {
 window.onload = function() {
   var ul = document.querySelector("ul.containment-unit");
   var form = document.querySelector('form.add-ghouls');
-  console.log(form);
+  form.addEventListener('submit',function (e) {
+    e.preventDefault();
+    var input = (this.elements['ghoulName']);
+    addContent = input.value;
+    appendLi(addContent,ul);
+    input.value = "";
+  });
   appendGhouls(ghouls,ul);
 }
  
