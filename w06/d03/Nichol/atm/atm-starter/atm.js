@@ -13,24 +13,24 @@ window.onload = function(){
   //setup listener for each button.
   elCheckingDepositButton.addEventListener("click", function(){
     myChecking.deposit(getValue('checking_amount'));
-    updateDisplay();
   }, false);
 
   elCheckingDebitButton.addEventListener("click", function(){
     myChecking.debit(getValue('checking_amount'), mySavings);
-    updateDisplay();
   }, false);
 
   elSavingsDepositButton.addEventListener("click", function(){
     mySavings.deposit(getValue('savings_amount'));
-    updateDisplay();
   }, false);
 
   elSavingsDebitButton.addEventListener("click", function(){
     mySavings.debit(getValue('savings_amount'), myChecking);
-    updateDisplay();
   })
 
+  //setup listener for window to do updateDisplay() whenever there is a click.
+  window.addEventListener("click", function(){
+    updateDisplay();
+  }, false);
 }
 
 // Define Account Object
