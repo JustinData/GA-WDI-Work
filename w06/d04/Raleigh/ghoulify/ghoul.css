@@ -1,0 +1,12 @@
+body {
+   margin: 0 auto;
+   width: 90%;
+   background-color: orange;
+   padding: 20px;
+}
+
+h1 {
+   font-family: 'Creepster', cursive;
+   font-size: 3em;
+   text-align: center;
+}
