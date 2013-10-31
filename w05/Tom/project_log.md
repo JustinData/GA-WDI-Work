@@ -1,4 +1,26 @@
-Scrum
+Scrum (10/23)
+
+What I worked on yesterday
+* I worked on my routes.  They were rerouted from games/questions to user/games.  This added the user to the game, which is how my model is et up with a foreign key
+* I also worked on my form to display the category and question with a field for the user to supply an answer
+
+
+What will i work on today/Obstacles
+
+* I will continue to work on the form.  I am having issues updating the form.
+* I need to do the following:
+  - route the form properly, it is using a put action and is losing the user id when I hit the check answer button
+  - compare the user answer to the correct answer
+  - update the score, add 10 points if correct, add 0 is incorrect
+  - Display the correct answer and the upste score
+  - The game should finish after 5 questions
+  - It should then show the user the final score
+  - route back to the page to play again or log out
+
+  **** Major Issue - understanding the relationship between the controller and model *******
+
+
+Scrum (10/22)
 
 What did I work on yesterday
 
