@@ -114,14 +114,14 @@ function forgeTheFellowShip() {
   each(hobbits, function(hobbit){
     div.appendChild(hobbit);
     hobbit = hobbit.innerHTML.split("<")[0]
-    //alert(hobbit + " has joined your party!");
+    alert(hobbit + " has joined your party!");
   });
 
   each(buddies, function(buddy){
     div.appendChild(buddy);
-    //alert(buddy.innerHTML + " has joined your party!");
+    alert(buddy.innerHTML + " has joined your party!");
   });
- // alert("LET'S GO DESTROY THAT FUCKIN' RING!!!!!!");
+ alert("LET'S GO DESTROY THAT FUCKIN' RING!!!!!!");
 }
 
 // upon load
