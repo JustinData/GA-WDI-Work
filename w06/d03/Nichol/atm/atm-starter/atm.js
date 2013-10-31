@@ -4,31 +4,33 @@ window.onload = function(){
   // update to adjust 0 balance and allow for accounts with previous balances.
   updateDisplay();
 
-  //create button elements.
-  var checkingDepositButton = document.getElementById("checking_deposit");
-  var checkingDebitButton = document.getElementById("checking_withdraw");
-  var savingsDepositButton = document.getElementById("savings_deposit");
-  var savingsDebitButton = document.getElementById("savings_withdraw");
+  //create button elements for event listeners
+  var elCheckingDepositButton = document.getElementById("checking_deposit");
+  var elCheckingDebitButton = document.getElementById("checking_withdraw");
+  var elSavingsDepositButton = document.getElementById("savings_deposit");
+  var elSavingsDebitButton = document.getElementById("savings_withdraw");
 
-  checkingDepositButton.onclick = function(){
+  //setup listener for each button.
+  elCheckingDepositButton.addEventListener("click", function(){
     myChecking.deposit(getValue('checking_amount'));
     updateDisplay();
-  };
+  }, false);
 
-  checkingDebitButton.onclick = function(){
+  elCheckingDebitButton.addEventListener("click", function(){
     myChecking.debit(getValue('checking_amount'), mySavings);
     updateDisplay();
-  };
+  }, false);
 
-  savingsDepositButton.onclick = function(){
+  elSavingsDepositButton.addEventListener("click", function(){
     mySavings.deposit(getValue('savings_amount'));
     updateDisplay();
-  };
+  }, false);
 
-  savingsDebitButton.onclick = function(){
+  elSavingsDebitButton.addEventListener("click", function(){
     mySavings.debit(getValue('savings_amount'), myChecking);
-    updateDisplay(); 
-  };
+    updateDisplay();
+  })
+
 }
 
 // Define Account Object

@@ -34,16 +34,10 @@
   background-color: #E3E3E3;
   border: 1px solid #676767;
 }
-
 .clear {
   clear: both;
 }
-
 .zero {
-  background-color: red;
-  font-family: 'Ruluko', sans-serif;
-  font-size: 50px;
-  padding: 25px 0px;
-  border: 1px solid #676767;
+  background-color: #F52F4F;
+  color: #FFFFFF;
 }
-
