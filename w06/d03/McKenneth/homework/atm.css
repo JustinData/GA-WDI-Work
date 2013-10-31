@@ -27,7 +27,7 @@
   background-color: #6C9A74;
   width: 300px;
 }
-.balance {
+.checking, .savings {
   font-family: 'Ruluko', sans-serif;
   font-size: 50px;
   padding: 25px 0px;
@@ -37,7 +37,11 @@
 .clear {
   clear: both;
 }
-.zero {
+.czero, .szero {
+  font-family: 'Ruluko', sans-serif;
+  font-size: 50px;
   background-color: #F52F4F;
   color: #FFFFFF;
+  padding: 25px 0px;
+  border: 1px solid #295A33;
 }
