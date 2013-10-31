@@ -7,9 +7,10 @@ window.onload = function(){
   };
 
   var buildBackground = function(){
-    var element = document.getElementById("lightbox");
-    element.style.backgroundImage = "url('http://placekitten.com/" + (Math.floor(Math.random() * (500 - 300)) + 300).toString() + "/" + (Math.floor(Math.random() * (500 - 300)) + 300).toString() + "')";
+      var element = document.getElementById("lightbox");
+      element.style.backgroundImage = "url('http://placekitten.com/" + (Math.floor(Math.random() * (500 - 300)) + 300).toString() + "/" + (Math.floor(Math.random() * (500 - 300)) + 300).toString() + "')";
+    };
+    buildBackground();
   };
 
-  buildBackground();
-};
+  
