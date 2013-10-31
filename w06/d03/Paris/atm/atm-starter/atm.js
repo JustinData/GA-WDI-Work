@@ -23,7 +23,7 @@ savings = new Account("savings");
 
 // Account functions
 Account.prototype.deposit = function( val ){
-  return (this.balance += val);
+   return (this.balance += val);
 }
 
 Account.prototype.debit = function( val, otheraccount ){
@@ -37,13 +37,17 @@ Account.prototype.debit = function( val, otheraccount ){
 }
 
 // checking deposit button functionality
-checkingDeposit = document.getElementById("checking_deposit");
-checking.deposit = document.getElementById("checking_amount").value;
+// checkingDeposit = document.getElementById("checking_deposit");
 currentBalanceString = checking_balance.innerHTML;
 currentBalance = parseInt(currentBalanceString[1]);
-newBalance = checking.deposit + currentBalance;
-checkingDeposit.onclick = newBalance;
+newBalance = checking.deposit() + currentBalance;
+updateAmount = function() {
+  checking_balance.innerHTML = "$" + newBalance;
+};
+document.getElementById("checking_deposit").onclick=function(){
+document.getElementById("checking_amount").value == checking.deposit()};
 
+updateAmount();
 
-
+}
 
