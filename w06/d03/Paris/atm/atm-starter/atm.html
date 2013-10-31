@@ -1,6 +1,12 @@
 <!doctype html>
 <html>
   <head>
+        <script>
+      function load() {
+        alert("load event detected!");
+      }
+      window.onload = load;
+    </script>
     <title>ATM</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="atm.css">
@@ -20,7 +26,7 @@
         <input id="checking_withdraw" type="button" value="Withdraw" />
       </div>
       <div class="account" id="account2">
-        
+
         <h2>Savings</h2>
         <div class="balance" id="savings_balance">$0</div>
         <input id="savings_amount" type="text" placeholder="enter an amount" />
