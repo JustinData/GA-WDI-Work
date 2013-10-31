@@ -112,18 +112,14 @@ function forgeTheFellowShip() {
    rivendell.appendChild(fellowship);
 
    // add each hobbit and buddy one at a time to 'the-fellowship'
-   var hobbits = document.querySelector("ul");
-   var group = document.querySelector("aside");
+   var peeps = document.querySelectorAll("li");
 
+   WTK.each(peeps, function(person) {
+      fellowship.appendChild(person);
 
-   // fellowship.appendChild(...);
-
-
-   WTK.each([], function(hobbit) {
-      fellowship.appendChild(hobbit);
+      // after each character is added make an alert that they have joined your party
+      alert(person.innerHTML.split("<")[0] + " has joined your party.");
    });
-   
-   // after each character is added make an alert that they have joined your party
 }
 
 window.onload = function() {
