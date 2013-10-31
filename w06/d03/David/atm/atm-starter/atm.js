@@ -125,7 +125,6 @@ console.log("atm JS loaded!!!");
       this.balance = parseInt(displayValue);
     // if balance is less than amount requested, but combined balance isn't  
     } else if ( bank.totalBalance() >=  parseInt(amount) ) {
-      console.log("else if statment")
         WTK.each(bank.accounts, function(account){
          var balanceWindow = document.getElementById(account.name + "_balance");
          if ( account.balance >= parseInt(amount) ) {
