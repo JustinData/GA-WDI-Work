@@ -5,6 +5,7 @@ window.onload = function(){
   var depositChecking = document.getElementById("checking_deposit");
   var withdrawChecking = document.getElementById("checking_withdraw");
   var displayedChecking = document.getElementById("checking_balance");
+  var transfer = document.getElementById("transfer_button");
   var overdraft = 0;
   // SAVINGS ACCOUNT
 
@@ -42,13 +43,15 @@ window.onload = function(){
         }   
    });
 
-check();
-  // var color = document.getElementsByClassName("account");
-  // if (checkingBalance == 0 || savingsBalance == "0"){
-  //    for (var i = 0; i < color.length; i = 0) {
-  //      color[i].className = "zero";
-  //    };
-  // }
+  var zeroString = (function zeroCheck(){
+  if (amount == ""){
+    var amount = "0";
+  }
+  return amount;
+  });
+
+  check();
+ 
 
 
 
@@ -56,6 +59,9 @@ check();
 
 depositChecking.onclick = function(){
   var amount = document.getElementById("checking_amount").value;
+    if (amount == ""){
+    var amount = "0";
+  }
     checkingBalance += parseInt(amount);
     displayedChecking.innerHTML = checkingBalance;
     check();
@@ -63,7 +69,11 @@ depositChecking.onclick = function(){
 };
 
 withdrawChecking.onclick = function(){
+
   var amount = document.getElementById("checking_amount").value;
+    if (amount == ""){
+    var amount = "0";
+  }
     if (amount <= checkingBalance ){
     checkingBalance -= parseInt(amount);
     }else if (amount > checkingBalance && savingsBalance >= (amount-checkingBalance)){
@@ -85,6 +95,9 @@ var displayedSavings = document.getElementById("savings_balance");
 
  depositSavings.onclick = function(){
   var amount = document.getElementById("savings_amount").value;
+  if (amount == ""){
+    var amount = "0";
+  }
     savingsBalance += parseInt(amount);
     displayedSavings.innerHTML = savingsBalance;
     check();
@@ -92,12 +105,32 @@ var displayedSavings = document.getElementById("savings_balance");
 
  withdrawSavings.onclick = function(){
   var amount = document.getElementById("savings_amount").value;
+  if (amount == ""){
+    var amount = "0";
+  }
   if (amount <= savingsBalance){
   savingsBalance -= parseInt(amount);
   }
   displayedSavings.innerHTML = savingsBalance;
   check();
  };
+
+ // TRANSFER
+
+transfer.onclick = function(){
+  var amount = document.getElementById("transfer_amount").value;
+  if (amount == ""){
+    var amount = "0";
+  }
+  if (amount <= savingsBalance){
+    savingsBalance -= parseInt(amount);
+    checkingBalance += parseInt(amount);
+  }
+  displayedSavings.innerHTML = savingsBalance;
+  displayedChecking.innerHTML = checkingBalance;
+  check();
+} ;
+
 
 
 }
