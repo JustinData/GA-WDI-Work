@@ -23,7 +23,7 @@ class Clown < ActiveRecord::Base
   def clown_car_at_capacity
     if !self.clown_car.nil? && self.clown_car.at_capacity?
       errors.add(:clown_car, "This clown car is full")
-  end
+  end]p
 
   def speak
     "Hello, child - my name is #{self.name}"
