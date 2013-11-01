@@ -91,7 +91,9 @@ function forgeTheFellowShip() {
   div.appendChild(ul);
   rivendell.appendChild(div);
   for (var i = 0; i < fellowship.length; i++) {
-  ul.appendChild(fellowship[i])
+  ul.appendChild(fellowship[i]);
+  name = fellowship[i].innerHTML.split('<')[0];
+  alert(name + " has been added!");
   }
 }
 
