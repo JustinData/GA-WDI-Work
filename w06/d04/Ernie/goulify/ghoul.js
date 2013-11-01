@@ -22,8 +22,6 @@ function appendGhouls(ghouls,ul) {
   });
 }
  
-
-
 window.onload = function() {
   var ul = document.querySelector("ul.containment-unit");
   var form = document.querySelector('form.add-ghouls');
