@@ -34,15 +34,26 @@ Line.prototype.distance = function(on, off, line) {
 SubwaySystem.prototype.takeTrip = function(){
   var startLine = prompt("What train do you want to take?");
   var getOn = prompt("What stop do you want to get on?");
+  var stopLine = prompt("What train do you want to get off?");
   var getOff = prompt("What stop do you want to get off?");
-  if( startLine === 'l'){
+  if( startLine === 'l' || stopLine === 'l'){
     var i = 0;
-  }else if( startLine === 'n'){
+  }else if( startLine === 'n' || stopLine === 'n'){
     var i = 1;
-  }else{
+  }else if( startLine === 's' || stopLine === 's'){
     var i = 2;
   }
+  if( stopLine === 'l'){
+    var j = 0;
+  }else if( stopLine === 'n'){
+    var j = 1;
+  }else if( stopLine === 's'){
+    var j = 2;
+  }
+  if(startLine === stopLine){
   alert( "Your trip is: " + MTA.lines[i].distance(getOn,getOff,i)+ " stops.");
-
+  }else if (startLine != stopLine){
+    alert("Your trip is: " + (MTA.lines[i].distance(getOn,"Union Square",i) + MTA.lines[j].distance("Union Square",getOff,j)) + " stops.");
+  }
 }
 MTA.takeTrip();
