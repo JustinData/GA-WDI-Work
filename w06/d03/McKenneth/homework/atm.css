@@ -44,4 +44,14 @@
   color: #FFFFFF;
   padding: 25px 0px;
   border: 1px solid #295A33;
+  border-radius: 5px;
+}
+.transfer input, label{
+  font-family: 'Ruluko', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  width:200px;
+  height: 40px;
+  border: 1px dashed #295A33;
+
 }
