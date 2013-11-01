@@ -74,3 +74,5 @@ WDIToolKit.prototype.exists = function(arr, action) {
 
 // instantiate the prototype as an object named 'WTK'
 var WTK = new WDIToolKit();
+
+  
