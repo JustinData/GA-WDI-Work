@@ -59,4 +59,4 @@ starry_night.save
 
 
 
-
+<% show_id = @show.id%>
