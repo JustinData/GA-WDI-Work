@@ -30,13 +30,13 @@ function createBoard(){
 function winnerChecker(){
   // check horizontals, check verticals, check diagonals
   for (var i = 0; i < 3; i++){
-    if (play.board[0][i] == play.board[1][i] && play.board[1][i] == play.board[2][i]){
+    if (play.board[0][i] === play.board[1][i] && play.board[1][i] === play.board[2][i]){
       return true;
-    } else if (play.board[i][0] == play.board[i][1] && play.board[i][1] == play.board[i][2]){
+    } else if (play.board[i][0] === play.board[i][1] && play.board[i][1] === play.board[i][2]){
       return true;
-    } else if (play.board[0][0] == play.board[1][1] && play.board[1][1] == play.board[2][2]){
+    } else if (play.board[0][0] === play.board[1][1] && play.board[1][1] === play.board[2][2]){
       return true;
-    } else if (play.board[2][0] == play.board[1][1] && play.board[1][1] == play.board[2][2]){
+    } else if (play.board[2][0] === play.board[1][1] && play.board[1][1] === play.board[2][2]){
       return true;
     };
   };
@@ -68,7 +68,7 @@ Player.prototype.makeMove = function(tileClicked) {
     play.board[firstIndex][secondIndex] = this.name;
 
     if (winnerChecker() === true){
-      alert(this.name + " won! Refresh to play again.")
+      alert(this.name + " (" + this.color +") won! Refresh to play again.")
     }
 
     if (play.counter === 9 && (!winnerChecker())){
