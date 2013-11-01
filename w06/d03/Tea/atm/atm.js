@@ -45,6 +45,10 @@
 // 
 //      Bank.prototype.enough? ((totalAmount-dollarAmount) > 0)
 
+function Account () {
+  // Make account balance start with zero.
+  this.balance = 0;
+}
             
 function Bank() {
   this.accounts = {
@@ -73,12 +77,6 @@ Bank.prototype.withdraw = function (amount, account) {
   // If negative number, set this.accounts[account].balance = 0, 
   // abs = absolute value of remainder
   // this.OtherAccount.withdraw(abs);
-}
-
-
-function Account () {
-  // Make account balance start with zero.
-  this.balance = 0;
 }
 
 Account.prototype.withdraw = function (amount) {
