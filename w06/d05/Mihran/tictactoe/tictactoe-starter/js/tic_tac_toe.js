@@ -1,26 +1,28 @@
 var counter = 0;
 var player ;
 
-function returnPlayer(counter){
+function returnPlayer(){
   if(counter % 2 === 0) {
-    player = "Red"
+    player = "red";
   } else {
-    player = "Black";
+    player = "black";
   };
   return player;
 }
 
 var game = function(){
-  box = document.querySelector("tbody");
-  box.onclick = function(event) {
-  counter++ ;
-  // console.log(counter);
-  returnPlayer(counter);
-  };
+  cells = document.querySelectorAll("td");
+
+  _.each(cells, function(cell){
+    cell.addEventListener("click", function(){
+    var player = returnPlayer();
+    counter++ ;
+    this.className = "box_cell " + player;
+    });
+  });
 }
   
 window.onload = function(){ 
   alert("loaded")
   game();
 }
-
