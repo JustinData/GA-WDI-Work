@@ -37,9 +37,9 @@ function makeMiddleEarth(lands) {
   //add inner html to h1
         h1.innerHTML = lands;
   //append h1 to article      
-        h1.appendChild(article);
+        article.appendChild(h1);
   //append article to section      
-        article.appendChild(section);
+        section.appendChild(article);
   //closing loop:
       });
   //query select body    
