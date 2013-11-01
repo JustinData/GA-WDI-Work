@@ -15,14 +15,17 @@ var game = function(){
 
   _.each(cells, function(cell){
     cell.addEventListener("click", function(){
-    var player = returnPlayer();
-    counter++ ;
-    this.className = "box_cell " + player;
+      var player = returnPlayer();
+      if (this.className === "box_cell") {
+        counter++ ;
+        this.className = "box_cell " + player;
+      } else {
+        return;
+      };
     });
   });
 }
   
 window.onload = function(){ 
-  alert("loaded")
   game();
 }
