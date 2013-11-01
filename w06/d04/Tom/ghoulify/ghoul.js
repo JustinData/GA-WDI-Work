@@ -1,4 +1,3 @@
-
 function GhoulContainer() {
   this.containmentUnit = [];
 }
@@ -6,7 +5,7 @@ function GhoulContainer() {
 GhoulContainer.prototype.push = function(ghoulName) {
   // OOOOHHHHHH!
   this.containmentUnit.push(ghoulName);
-}
+} 
 
 function appendLi(newContent, ul) {
   var li = document.createElement("li");
@@ -32,13 +31,17 @@ function ourSweetLoadFunction() {
   var form = document.querySelector("form.add-ghouls");
   form.addEventListener("submit", function(e) {
     e.preventDefault();
-
-    console.log("Form Submitted");
-    console.log(this);
+    var input = this.elements["ghoulName"];
+    window.ghouls.push(input.value);
+    window.appendGhouls(window.ghouls, ul);
+    input.value = "";
   });
 
   window.appendGhouls(window.ghouls, ul);
 }
 
 window.onload = ourSweetLoadFunction;
+
+
+
 
