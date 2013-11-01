@@ -35,7 +35,7 @@ function makeMiddleEarth(lands) {
   //make h1 element
         var h1 = document.createElement("h1");
   //add inner html to h1
-        h1.innerHTML = lands;
+        h1.innerHTML = land;
   //append h1 to article      
         article.appendChild(h1);
   //append article to section      
@@ -43,7 +43,7 @@ function makeMiddleEarth(lands) {
   //closing loop:
       });
   //query select body    
-  var boo = document.querySelector("body");
+  var body = document.querySelector("body");
   //append section to body
   body.appendChild(section);
 }
