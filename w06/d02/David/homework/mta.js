@@ -1,3 +1,19 @@
+
+function forEach(arr, action) {
+  for (var i = 0; i < arr.length; i++) {
+    action(arr[i]);
+  }
+}
+
+function map(arra, action) {
+  var newArray = [];
+
+  forEach(arra, function(item){
+    newArray.push( action(item) );
+  });
+  return newArray;
+}
+
 //Create the Line Object
 function Line(name, stops) {
   this.name = name;
@@ -21,7 +37,7 @@ function Subway(line) {
 var mta = new Subway([n, l, s]);
 
 Subway.prototype.takeTrip = function() {
-  var lineOn = prompt("Which line would you like to get on: " + listLines(this.line) + "?");
+  var lineOn = prompt("Which line would you like to get on: " + this.listLines() + "?");
   var stopOn = prompt("Which stop would you like to get on: " + listStops(this.line, lineOn));
   transfer = prompt("Would you like to transer??");
   if ( transfer.toLowerCase() === "yes") {
@@ -35,6 +51,12 @@ Subway.prototype.takeTrip = function() {
     var numberStops = Math.abs(findStopsIndex(this.line, lineOn, stopOn) - findStopsIndex(this.line, lineOn, stopOff));
   } 
   alert("You traveled " + numberStops + " stops total:  from " + stopOn + " on the " + lineOn + " train, and got off the " + lineOff + " train at " + stopOff); 
+}
+
+Subway.prototype.listLines = function() {
+  return map(this.line, function(line) {
+    return line.name;
+  }).join(", ");
 }
 
 
