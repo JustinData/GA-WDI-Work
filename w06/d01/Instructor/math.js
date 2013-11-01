@@ -94,17 +94,21 @@ function modulo_sans_math( numerator, denominator ){
 
 /* square root without Math */
 function sqroot_sans_math( val ){
-  var result = val.toString().split('.');
-  if( !result[1] ){   //nothing after the decimal
-    result.push( 0 ); //add something after the decimal
+  var i = 1;
+
+  // because, according to wikipedia, this is the same
+  // question as: result^2 - val == 0, thus if:
+  //   the newton method is x_nplus1 = .5(x_n + val/x_n)
+  function newton( x_n, full_val ){
+    x_nplus1 = .5 * (x_n + full_val/x_n);
+    console.log( "Stack depth " + (i++) + ": x_n: " + x_n + ", x_nplus1: " + x_nplus1 );
+
+    if (((x_nplus1 * x_nplus1) - full_val) < 0.0000000001){
+      return x_nplus1;
+    } else {
+      return newton( x_nplus1, full_val );
+    }
   }
 
-  //find the precision of the current value
-  if( result[1].length > 15 ){
-    return result;
-  }
-
-
-
-  return result;
+  return newton(val, val);
 }
