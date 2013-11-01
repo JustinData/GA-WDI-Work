@@ -59,16 +59,19 @@ Subway.prototype.listLines = function() {
   }).join(", ");
 }
 
+Subway.prototype.listStops = function(line) {
+
+}
+
 
 /*********** HELPER FUNCTIONS *************/
 
 //Returns lines from the Subway Object
-function listLines(subway) {
-  var i;
+function listLines(subways) {
   var lines = [];
-  for (i=0; i < subway.length; i++) {
-    lines.push(subway[i].name);
-  };
+  forEach(subways, function(subway) {
+    lines.push(subway.name);
+  });
   return lines.toString();
 }
 
