@@ -90,8 +90,10 @@ function forgeTheFellowShip() {
 
   for(var i = 0; i < buds.length; i++){
     riv.appendChild(buds[i]);
+    window.alert(buds[i].innerHTML + " has joined your party");
     if (i < hobs.length){
         riv.appendChild(hobs[i]);
+        window.alert(hobs[i].innerHTML + " has joined your party");
       }
       console.log[i];
     
