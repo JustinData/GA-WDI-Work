@@ -58,11 +58,26 @@ var checkForWin = function(){
     win = true;
     winner = ticTacToeBoard[0][2];
   }
+
+  if (win == true) {
+    alert("there's a winner! and winner is " + winner);
+   }
 } 
   
 var makePlay = function(x,y,player){
   ticTacToeBoard[x][y] = player;
 }
+
+var currentPlayer = "x";
+
+var switchPlayer = function(current){
+  if(current=="x"){
+    currentPlayer = "o";
+  } else {
+    currentPlayer = "x";
+  }
+}
+
 
 
 window.onload = function(){
@@ -82,79 +97,127 @@ window.onload = function(){
   var elr2c2 = document.getElementById("r2c2");
 
   elr0c0.addEventListener("click", function(){
-   makePlay(0,0, "x");
+   makePlay(0,0, currentPlayer);
+
+   if(currentPlayer == "x"){
+    elr0c0.className += " red"; 
+   } else {
+    elr0c0.className += " black";
+   } 
+
+   switchPlayer(currentPlayer);
+
    checkForWin();
-   if (win == true) {
-    alert("there's a winner!")
-   }
+
   }, false);
 
   elr0c1.addEventListener("click", function(){
-   makePlay(0,1, "x");
+   makePlay(0,1, currentPlayer);
+
+   if(currentPlayer == "x"){
+      elr0c1.className += " red"; 
+     } else {
+      elr0c1.className += " black";
+     }
+
+   switchPlayer(currentPlayer);
    checkForWin();
-   if (win == true) {
-    alert("there's a winner!")
-   }
+  
   }, false);
 
   elr0c2.addEventListener("click", function(){
-   makePlay(0,2, "x");
+   makePlay(0,2, currentPlayer);
+   if(currentPlayer == "x"){
+      elr0c2.className += " red"; 
+     } else {
+      elr0c2.className += " black";
+     }
+
+   switchPlayer(currentPlayer);
    checkForWin();
-   if (win == true) {
-    alert("there's a winner!")
-   }
+
   }, false);
 
 
   //row 1
     elr1c0.addEventListener("click", function(){
-   makePlay(1,0, "x");
+   makePlay(1,0, currentPlayer);
+   if(currentPlayer == "x"){
+      elr1c0.className += " red"; 
+     } else {
+      elr1c0.className += " black";
+     }
+
+   switchPlayer(currentPlayer);
    checkForWin();
-   if (win == true) {
-    alert("there's a winner!")
-   }
+   
   }, false);
 
   elr1c1.addEventListener("click", function(){
-   makePlay(1,1, "x");
+   makePlay(1,1, currentPlayer);
+   if(currentPlayer == "x"){
+      elr1c1.className += " red"; 
+     } else {
+      elr1c1.className += " black";
+     }
+
+   switchPlayer(currentPlayer);
    checkForWin();
-   if (win == true) {
-    alert("there's a winner!")
-   }
+   
   }, false);
 
   elr1c2.addEventListener("click", function(){
-   makePlay(1,2, "x");
+   makePlay(1,2, currentPlayer);
+   if(currentPlayer == "x"){
+      elr1c2.className += " red"; 
+     } else {
+      elr1c2.className += " black";
+     }
+
+   switchPlayer(currentPlayer);
    checkForWin();
-   if (win == true) {
-    alert("there's a winner!")
-   }
+   
   }, false);
 
   //row 2
 
    elr2c0.addEventListener("click", function(){
-   makePlay(2,0, "x");
+   makePlay(2,0, currentPlayer);
+   if(currentPlayer == "x"){
+      elr2c0.className += " red"; 
+     } else {
+      elr2c0.className += " black";
+     }
+
+   switchPlayer(currentPlayer);
    checkForWin();
-   if (win == true) {
-    alert("there's a winner!")
-   }
+   
   }, false);
 
   elr2c1.addEventListener("click", function(){
-   makePlay(2,1, "x");
+   makePlay(2,1, currentPlayer);
+   if(currentPlayer == "x"){
+      elr2c1.className += " red"; 
+     } else {
+      elr2c1.className += " black";
+     }
+
+   switchPlayer(currentPlayer);
    checkForWin();
-   if (win == true) {
-    alert("there's a winner!")
-   }
+   
   }, false);
 
   elr2c2.addEventListener("click", function(){
-   makePlay(2,2, "x");
+   makePlay(2,2, currentPlayer);
+   if(currentPlayer == "x"){
+      elr2c2.className += " red"; 
+     } else {
+      elr2c2.className += " black";
+     }
+
+   switchPlayer(currentPlayer);
    checkForWin();
-   if (win == true) {
-    alert("there's a winner!")
-   }
+   
   }, false);
 
 

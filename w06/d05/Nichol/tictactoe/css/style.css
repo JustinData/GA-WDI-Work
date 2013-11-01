@@ -33,3 +33,11 @@ table {
   opacity: 0.5;
   transition: 500;
 }
+
+.red {
+  background-color: red;
+}
+
+.black {
+  background-color: black;
+}
