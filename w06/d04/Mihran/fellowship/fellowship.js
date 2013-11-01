@@ -60,20 +60,20 @@ function keepItSecretKeepItSafe() {
   frodo.appendChild(ring);
 }
 
-keepItSecretKeepItSafe();
+// keepItSecretKeepItSafe();
 
-function makeBuddies(buddies) {
-  aside = document.createElement("aside");
-  aside.innerHTML = "<ul> </ul>" ;
-  document.body.insertBefore(aside, //oldNode//)
+// function makeBuddies(buddies) {
+//   aside = document.createElement("aside");
+//   aside.innerHTML = "<ul> </ul>" ;
+//   document.body.insertBefore(aside, //oldNode//)
 
-  WTK.each (buddies, function(buddy){
-    li = document.createElement("li");
-    li.innerHTML = buddy;
-    aside = document.querySelector(""); //where is it?//
-    aside.append(li);
-  })
-}
+//   WTK.each (buddies, function(buddy){
+//     li = document.createElement("li");
+//     li.innerHTML = buddy;
+//     aside = document.querySelector(""); //where is it?//
+//     aside.append(li);
+//   })
+// }
 
 // makeBuddies();
 
