@@ -84,5 +84,12 @@ Triangle.prototype.area = function() {
 
 // isObtuse - Returns whether the triangle is obtuse or not
 Triangle.prototype.isObtuse = function() {
-  
+  isObtuse = false;
+
+  angle a
+
+  angle b
+
+  angle c 
+
 }
