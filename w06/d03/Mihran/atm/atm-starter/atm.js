@@ -40,19 +40,20 @@ Account.prototype.attachListeners = function() {
   this.depositButton.addEventListener('click', this.makeDeposit.bind(this));
 }
 
+
 window.onload = function() {
 
-  window.checking = new Account(5000); 
+  window.checking = new Account(0); 
   checking.balanceDisplay = document.getElementById("checking_balance"); 
-  // checking.amountInput = document.getElementById("checking_amount"); 
+  checking.amountInput = document.getElementById("checking_amount"); 
   checking.depositButton = document.getElementById("checking_deposit"); 
   checking.withdrawButton = document.getElementById("checking_withdraw");
   checking.attachListeners(); 
 
 
-  window.savings = new Account(2000);
+  window.savings = new Account(0);
   savings.balanceDisplay = document.getElementById("savings_balance"); 
-  // savings.amountInput = document.getElementById("savings_amount"); 
+  savings.amountInput = document.getElementById("savings_amount"); 
   savings.depositButton = document.getElementById("savings_deposit");  
   savings.withdrawButton = document.getElementById("savings_withdraw");
   savings.attachListeners(); 
