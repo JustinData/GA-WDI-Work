@@ -10,7 +10,7 @@ var player;
 
 
 function returnPlayer (clicks, item) {
-  var cells = document.querySelectorAll("box_cell");
+  var cells = document.querySelectorAll("td");
     if(clicks % 2 === 0){
       item.className = "box_cell red";
     } else {
@@ -27,3 +27,4 @@ var game = function(){
   };
 
 };
+
