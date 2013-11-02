@@ -1,29 +1,43 @@
+//  Fundamental Objects within Tic Tac Toe
 
-window.onload = function(){
-  alert("HELLO");
-  game();
-};
+function TicTacToe(){
+  this.players = 
+  this.board  
+  rules
+  clicks 
+}
 
-var clicks = 0;
-var player;
+function Board(){
+  var board = [];
+ 
+  var tiles = document.querySelectorAll("td");
+ 
+  _.each(tiles, function(tile){
+    board.push(tile.getAttribute("id"));
+  });
+ 
+  _.each(tiles, function(tile){
+    attachListener(tile);
+  });
+ 
+  var twodboard = [[board[0], board[1], board[2]], [board[3],board[4],board[5]], [board[6], board[7],board[8]]];
+ 
+  return twodboard;
+}
+
+function Cell(){
+  vacant?
+}
+
+function Player(){
+
+}
+
+//  Behaviors of different elements in Tic Tac Toe
 
 
+//  Bring them together
 
-function returnPlayer (clicks, item) {
-  var cells = document.querySelectorAll("box_cell");
-    if(clicks % 2 === 0){
-      item.className = "box_cell red";
-    } else {
-      item.className = "box_cell black";
-    };
-    return player;
-};
+function newGame(){
 
-
-var game = function(){
-  var board = document.querySelector("tbody");
-  board.onclick = function(event) {
-    clicks++;
-  };
-
-};
+}
