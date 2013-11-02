@@ -52,7 +52,7 @@ var winningSolutions = [
 for(i = 0; i < winningSolutions.length; i++){
   if(winningSolutions[i]===3){
     alert(this.color + " wins");
-  } else if (clicks === 9) {
+  } else if (clicks > 9) {
     alert("It's a tie!");
     clicks ++
   }
