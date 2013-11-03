@@ -174,6 +174,7 @@ function transaction(accountName, action, accountList) {
     var result = accountList[accountName].debit(amount);
     if (result === false) { // debit failed...
       alert( "Can't withdraw that much: balance insufficient!" );
+      return false;
     } else {
       for (var key in accountList) {
         account = accountList[key];
@@ -206,13 +207,15 @@ window.onload = function() { // once all DOM elements are loaded...
     checking: new Account( "checking" ),
     savings:  new Account( "savings" )
   };
+  accounts.checking.linkAccount( accounts.savings ); // bi-directional!
+
   //accounts.balance always runs as if it is a method on the accounts.checking object
   accounts.balance = Account.prototype.balance.bind( accounts.checking );
-  accounts.checking.linkAccount( accounts.savings ); // bi-directional!
 
   // test to see it worked! *********************** DEBUG ***********************
   console.log( accounts.checking.toString() );
   console.log( accounts.savings.toString() );
+  console.log( accounts.balance() );
   // ********************************************** DEBUG ***********************
 
   // call Array's slice method on the NodeList to return it as an array
