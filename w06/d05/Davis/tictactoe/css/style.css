@@ -1,6 +1,14 @@
 body {
 	width: 100%;
   background-image:url('../img/wavegrid.png');
+  text-align: center;
+}
+
+#new_game {
+  text-decoration: none;
+  color: black;
+  font-family: 'Finger Paint';
+  border: 2px solid black;
 }
 
 #main_container {
