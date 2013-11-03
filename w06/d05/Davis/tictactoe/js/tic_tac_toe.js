@@ -1,21 +1,10 @@
-// instantiate object
-  // inside array
-    // r0, r1, r2 arrays
-    // _.zip method
-      // c0, c1, c2
-    // check to see if all color
-      // r1[1] == color
-        // r0[0] == color && r2[2] == color || r2[0] == color && r0[2] == color
-
 function TicTacToe() {
   this.r0 = ["aaa", "aaa", "aaa"];
   this.r1 = ["aaa", "aaa", "aaa"];
   this.r2 = ["aaa", "aaa", "aaa"];
   this.allRows = [this.r0, this.r1, this.r2];
-  // this.allColumns = _.zip(this.allRows);
 
   this.currentColor = "black";
-
 }
 
 TicTacToe.prototype.allColumns = function() {
@@ -27,31 +16,56 @@ TicTacToe.prototype.setColor = function() {
   return this.currentColor;
 }
 
-var checkIfColor = function(item, color) {
-  return item === color;
-}
-
-var checkIfAllColor = function(row, color) {
-  _.every(row, function(coordinate) { checkIfColor(coordinate, color); });
-}
-
 TicTacToe.prototype.makeMove = function(rowNum, columnNum) {
-  if ( this.allRows[rowNum][columnNum] != "aaa" ) { alert("Spot already taken!") };
+  if ( this.allRows[rowNum][columnNum] === "aaa" ) {
+    this.allRows[rowNum][columnNum] = this.setColor();
+  } else {
+    alert("Spot already taken!");
+  }
   
+  if ( this.checkWinner() ) {
+    alert( this.currentColor + " wins!" );
+  } else if ( this.checkTie() ) {
+    alert( "A tie!" );
+  }
 }
 
-// var anyThreeInARow = function
+TicTacToe.prototype.isCurrentColor = function(item) {
+  return item === this.currentColor;
+}
 
-TicTacToe.prototype.checkWinner = function(color) {
-  _.any(this.allRows, function(row) {
-    // check if every coordinate is color
-    checkIfAllColor(row, color);
+TicTacToe.prototype.isEntireRowCurrentColor = function(row) {
+  // because "this" inside _ refers to scope defined at function creation
+  var game = this;
+  return _.every(row, function(e) { return e === game.currentColor; })
+}
+
+TicTacToe.prototype.anyThreeInRow = function(allRowsOrColumns) {
+  var game = this;
+  return _.some(allRowsOrColumns, function(e) {
+    return game.isEntireRowCurrentColor(e);
   })
+}
 
-  _.any(this.allColumns, function(row) {
-    // check if every coordinate is color
-    if ( checkIfAllColor(row, color) ) { alert( color + " wins!" ); }
+TicTacToe.prototype.checkDiagonalCombo = function() {
+  var diag1 = [this.r0[0], this.r2[2]];
+  var diag2 = [this.r0[2], this.r2[0]];
+
+  if ( this.r1[1] === this.currentColor ) {
+    return this.isEntireRowCurrentColor(diag1) || this.isEntireRowCurrentColor(diag2);
+  }
+}
+
+TicTacToe.prototype.checkWinner = function() {
+  return this.anyThreeInRow(this.allRows) || this.anyThreeInRow(this.allColumns()) || this.checkDiagonalCombo();
+}
+
+TicTacToe.prototype.checkTie = function() {
+  var game = this;
+  return _.every(this.allRows, function(row) {
+    return _.every(row, function(coordinate) { return coordinate != "aaa"; })
   })
 }
 
 var tic = new TicTacToe;
+
