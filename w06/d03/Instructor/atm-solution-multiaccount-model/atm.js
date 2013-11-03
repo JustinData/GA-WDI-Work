@@ -1,4 +1,3 @@
-
 /********************** DEFINE THE CHECKING ACCOUNT MODEL **********************/
 
 function Account( accountName ) { // be careful with the var "name", it's overloaded by js
@@ -147,6 +146,7 @@ Account.prototype.toString = function() {
 };
 
 /********************** DEFINE TRANSACTION EVENT LISTENER **********************/
+// ie the controller
 
 // define a transaction
 function transaction(accountName, action, accountList) {
@@ -198,6 +198,8 @@ function transaction(accountName, action, accountList) {
 }
 
 /******** INSTANTIATE  ACCOUNTS AND ATTACH LISTENERS TO DOM OBJECTS *********/
+// ie, the view...
+
 var accounts;
 
 window.onload = function() { // once all DOM elements are loaded...
