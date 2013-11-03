@@ -2,8 +2,9 @@ var counter = 0;
 var player ;
 
 function winningConditions(){
- if  ((rows() === true) || (columns() === true) || (diagonals() === true))
-    return true;
+  if ((rows() === true) || (columns() === true) || (diagonals() === true))
+    return true; 
+  else {return false};
 } 
 
 function rows(){
@@ -16,7 +17,7 @@ function columns(){
 
 function diagonals(){
   return ( (document.getElementById("r0c0").className === document.getElementById("r1c1").className && document.getElementById("r1c1").className === document.getElementById("r2c2").className) || (document.getElementById("r0c2").className === document.getElementById("r1c1").className && document.getElementById("r1c1").className === document.getElementById("r2c0").className) )
-}
+} 
 
 function newGame(){
   counter = 0;
@@ -54,7 +55,7 @@ var game = function(){
         newGame();
       } 
 
-      if (counter === 9 && winningConditions === false) {
+      if (counter === 9 && winningConditions() === false) {
         alert("It's a tie.");
         newGame();
       }
