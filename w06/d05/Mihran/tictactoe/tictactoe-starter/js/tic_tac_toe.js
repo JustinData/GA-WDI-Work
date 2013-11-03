@@ -1,6 +1,26 @@
 var counter = 0;
 var player ;
 
+function winningConditions(){
+
+if (  document.getElementById("r0c0").className === document.getElementById("r0c1").className && document.getElementById("r0c1").className === document.getElementById("r0c2").className
+  ) return true 
+  ;
+}
+
+//  || (document.getElementById("r1c0").className === document.getElementById("r1c1").className === document.getElementById("r1c2").className ||  (document.getElementById("r2c0").className === document.getElementById("r2c1").className === document.getElementById("r2c2").className )
+// );}
+
+
+
+function newGame(){
+  counter = 0;
+  cells = document.querySelectorAll("td");
+  _.each(cells, function(cell){
+    cell.className = "box_cell";
+  })
+}
+
 function returnPlayer(){
   if(counter % 2 === 0) {
     player = "red";
@@ -22,6 +42,17 @@ var game = function(){
       } else {
         return;
       };
+
+      if (counter >= 5 && winningConditions() === true) {
+        returnPlayer();
+        alert("Game over! " + player + " has won!");
+        newGame();
+      } 
+
+      if (counter === 9 && winningConditions === false) {
+        alert("It's a tie.")
+      }
+
     });
   });
 }
