@@ -213,7 +213,8 @@ window.onload = function() { // once all DOM elements are loaded...
 
   //accounts.balance always runs as if it is a method on the accounts.checking object
   accounts.balance = Account.prototype.balance.bind( accounts.checking );
-
+  accounts.linkAccount = Account.prototype.linkAccount.bind( accounts.checking );
+  
   // test to see it worked! *********************** DEBUG ***********************
   console.log( accounts.checking.toString() );
   console.log( accounts.savings.toString() );
