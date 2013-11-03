@@ -2,16 +2,21 @@ var counter = 0;
 var player ;
 
 function winningConditions(){
+ if  ((rows() === true) || (columns() === true) || (diagonals() === true))
+    return true;
+} 
 
-if (  document.getElementById("r0c0").className === document.getElementById("r0c1").className && document.getElementById("r0c1").className === document.getElementById("r0c2").className
-  ) return true 
-  ;
+function rows(){
+  return ( ( document.getElementById("r0c0").className === document.getElementById("r0c1").className && document.getElementById("r0c1").className === document.getElementById("r0c2").className && document.getElementById("r0c2").className != "box_cell" || (document.getElementById("r1c0").className === document.getElementById("r1c1").className && document.getElementById("r1c1").className === document.getElementById("r1c2").className) && document.getElementById("r1c2").className != "box_cell" || (document.getElementById("r2c0").className === document.getElementById("r2c1").className && document.getElementById("r2c1").className === document.getElementById("r2c2").className) && document.getElementById("r2c2").className != "box_cell" ) )
 }
 
-//  || (document.getElementById("r1c0").className === document.getElementById("r1c1").className === document.getElementById("r1c2").className ||  (document.getElementById("r2c0").className === document.getElementById("r2c1").className === document.getElementById("r2c2").className )
-// );}
+function columns(){
+  return ( ( document.getElementById("r0c0").className === document.getElementById("r1c0").className && document.getElementById("r1c0").className === document.getElementById("r2c0").className && document.getElementById("r2c0").className != "box_cell" || (document.getElementById("r0c1").className === document.getElementById("r1c1").className && document.getElementById("r1c1").className === document.getElementById("r2c1").className) && document.getElementById("r2c1").className != "box_cell" || (document.getElementById("r0c2").className === document.getElementById("r1c2").className && document.getElementById("r1c2").className === document.getElementById("r2c2").className) && document.getElementById("r2c2").className != "box_cell" ) ) 
+}
 
-
+function diagonals(){
+  return ( (document.getElementById("r0c0").className === document.getElementById("r1c1").className && document.getElementById("r1c1").className === document.getElementById("r2c2").className) || (document.getElementById("r0c2").className === document.getElementById("r1c1").className && document.getElementById("r1c1").className === document.getElementById("r2c0").className) )
+}
 
 function newGame(){
   counter = 0;
@@ -50,7 +55,8 @@ var game = function(){
       } 
 
       if (counter === 9 && winningConditions === false) {
-        alert("It's a tie.")
+        alert("It's a tie.");
+        newGame();
       }
 
     });
