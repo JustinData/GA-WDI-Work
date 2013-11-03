@@ -1,4 +1,3 @@
-
 board = [[0,0],[0,1],[0,2],[1,0],[1,1],[1,2],[2,0],[2,1],[2,2]];
 
 rows = [[board[0],board[1],board[2]], [board[3], board[4], board[5]], [board[6], board[7], board[8]]];
@@ -16,7 +15,7 @@ turnCount = 0
 function checkRowforWin(row){
   if(_.reduce(row, function(b, entry){ return (b && entry.indexOf(turn) > -1)}, true)){
 
-    alert( turn + "  has won");
+    // alert( turn + "  has won");
     isGameWon = true;
   }
   else return null;
@@ -54,6 +53,13 @@ for (var j = columns.length - 1; j >= 0; j--) {
 for (var g = diagonals.length - 1; g >= 0; g--) {
   checkRowforWin(diagonals[g]);
 };
+
+if(isGameWon == true){
+  alert( turn + "  has won");
+}
+else{
+  return false;
+}
 }
 
 
@@ -80,6 +86,7 @@ function makeMove(index){
   }
   turnCount ++;
   checkIfTied();
+  return true;
 }
 
 // function checkRow(row){
@@ -97,34 +104,48 @@ function makeMove(index){
 
 
 
+function addEvent(elem, index){
+
+elem.addEventListener("click", function(){
+  if(checkIfWon() == false){
+    if (makeMove(index)){
+     if(turn == "X"){
+      elem.setAttribute("style","background-color: red;"); 
+     } else {
+      elem.setAttribute("style","background-color: black;");
+     }
+   }
+ }
+ })
+
+}
+
+
+
 window.onload = function() {
-  var elr0c0 = document.getElementById("r0c0");
-  var elr0c1 = document.getElementById("r0c1");
-  var elr0c2 = document.getElementById("r0c2");
+
+
+ elr0c0 = document.getElementById("r0c0");
+ elr0c1 = document.getElementById("r0c1");
+ elr0c2 = document.getElementById("r0c2");
   
-  var elr1c0 = document.getElementById("r1c0");
-  var elr1c1 = document.getElementById("r1c1");
-  var elr1c2 = document.getElementById("r1c2");
+ elr1c0 = document.getElementById("r1c0");
+ elr1c1 = document.getElementById("r1c1");
+ elr1c2 = document.getElementById("r1c2");
 
-  var elr2c0 = document.getElementById("r2c0");
-  var elr2c1 = document.getElementById("r2c1");
-  var elr2c2 = document.getElementById("r2c2");
+ elr2c0 = document.getElementById("r2c0");
+ elr2c1 = document.getElementById("r2c1");
+ elr2c2 = document.getElementById("r2c2");
 
-  
-  elr0c0.addEventListener("click", function(){
-   makePlay(0,0, currentPlayer);
-
-   if(currentPlayer == "x"){
-    elr0c0.className += " red"; 
-   } else {
-    elr0c0.className += " black";
-   } 
-
-   switchPlayer(currentPlayer);
-
-   checkForWin();
-
-  }, false);
+addEvent(elr0c0,0);
+addEvent(elr0c1,1);
+addEvent(elr0c2,2);
+addEvent(elr1c0,3);
+addEvent(elr1c1,4);
+addEvent(elr1c2,5);
+addEvent(elr2c0,6);
+addEvent(elr2c1,7);
+addEvent(elr2c2,8);
 
 }
 
