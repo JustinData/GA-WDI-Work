@@ -20,10 +20,10 @@ table {
 
 .box_cell {
   border: 2px solid black;
-  width: 150px;
-  height: 150px;
+  width: 175px;
+  height: 175px;
   border-radius: 75px;
-  opacity: .75;
+  opacity: .85;
   box-shadow: 2px 2px 0px #888888;
   background-color: #aaa;
   transition: 500;
@@ -35,8 +35,12 @@ table {
 }
 
 .black{
-  background-color: black;
+  box-shadow: 2px 2px 0px black;
+  background: url("http://25.media.tumblr.com/d186e6fe2fa1c39a0ba3d7b5980fd598/tumblr_ml1d4eUJFj1s7itpyo1_400.gif");
+  background-size: 130%;
 }
 .red{
-  background-color: red;
+  box-shadow: 2px 2px 0px red;
+  background: url("http://media.tumblr.com/tumblr_lvcm3ftozF1qbunx5.gif");
+  background-size: 130%;
 }
