@@ -54,6 +54,11 @@ p {
   color:#aaaaaa;
 }
 
+#finished button.complete {
+  display: none;
+}
+
+
 .actions {
   float:right;
 }
