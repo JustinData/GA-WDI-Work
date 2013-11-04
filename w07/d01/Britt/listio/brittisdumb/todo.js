@@ -31,9 +31,10 @@ ToDoList.prototype.completedItem = function( item, completedList ) {
   var completedOrderedList = document.getElementById( "completed-items" );
   var index = this.list.indexOf( item );
   if ( index !== -1 ) {
-    this.list.splice( index, 1 );
-    completedList.addItem( item );
+    console.log(completedList);
+    completedList.addItem( item.name );
     completedList.createAndAppendListElement( item, "items", completedOrderedList );
+    this.list.splice( index, 1 );
   };
 };
 
@@ -75,7 +76,7 @@ ToDoList.prototype.createAndAppendListElement = function( itemObject, elementCla
     completedButton.classList.add( "completed" );
 
     completedButton.addEventListener( 'click', function(){
-      self.completedItem( itemObject, window.todo );
+      self.completedItem( itemObject, window.done );
       li.parentNode.removeChild( li );
     } );
   } else {
