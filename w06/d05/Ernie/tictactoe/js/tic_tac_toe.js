@@ -36,7 +36,7 @@ Board.prototype.checkWin = function() {
    }else if (
           (2 == this.game[0][0]) && (2 == this.game[0][1]) && (2 == this.game[0][2])||
           (2 == this.game[1][0]) && (2 == this.game[1][1]) && (2 == this.game[1][2]) ||
-         (2 == this.game[2][0]) && (2 == this.game[2][1]) && (2 == this.game[2][2]) 
+         (2 == this.game[2][0])  && (2 == this.game[2][1]) && (2 == this.game[2][2]) 
       )
   {
   }
