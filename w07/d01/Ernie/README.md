@@ -1,6 +1,6 @@
-# List.io
+# Hangman
 
-To help clarify and cement into place the JavaScript concepts that we learned last week, today we'll be working on a To Do Application. 
+We're going to tackle another lab to continue to solidy JavaScript concepts. This one should be a lot of fun since it is a game you can play once you are done :)
 
 ####Key concepts you will need to apply today:
 
@@ -9,24 +9,29 @@ To help clarify and cement into place the JavaScript concepts that we learned la
 * Use window.onload to run JavaScript after the DOM has loaded.
 * [Write JavaScript that responds to events using listeners.](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget.addEventListener) (ATM & TicTacToe are good examples of this)
 
-## User Stories
-
-To help stay focused and organized, use user stories to guide how you work through this assignment. Here are the ones that I came up with:
-
-* As a user, I want to be able to enter a To Do item and add it on my To Do List
-* As a user, I want to be able to delete an item from my ToDo List
-* As a user, I want to be able to move a To Do item to my completed tasks list
-* As a user, I want to be able to delete an item from my completed tasks list
-* As a user, I want to validate my to do items to make sure i don't accidentally enter a blank item
-* As a user, I want to be able to create To Do items by pressing "enter" on my keyboard so I don't have to click the button every time
-
-####Bonus:
-
-* As a user, I want to be able to see what date a To Do item was created on
-* As a user, I want to be able to see what date a Completed To Do item was completed on
-
-
 ## Other tips and things to consider:
-* Play with the working version and inspect it. That should help you see what DOM elements are created for each To Do Item
+* Tackle user stories one at a time
+* Play with the working version and inspect it. That should help you see what DOM elements are created where
 * How can we design this in an object oriented way / How might we model our objects?
 * As you implement each user story, look back at the code you wrote. Is there a way to refactor it to make it DRYer or more clear?
+
+#### Word List Array:
+
+```
+['ruby', 'rails', 'javascript', 'array', 'hash', 'underscore', 'sinatra', 'model', 'controller', 'view', 'devise', 'authentication', 'capybara', 'jasmine', 'cache', 'sublime', 'terminal', 'system', 'twitter', 'facebook', 'function', 'google', 'amazon', 'development', 'data', 'design', 'inheritance', 'prototype', 'gist', 'github', 'agile', 'fizzbuzz', 'route', 'gem', 'deployment', 'database'],
+```
+
+## User Stories
+
+#### Tonight
+* As a user I would like to input a letter
+* As a user I would like to see the letters I've guessed already
+* As a user I would like to See the number of incorrect guesses I have left
+
+#### Tomorrow
+* As a user I would like to get a random word for the game
+* As a user I would like to see the number of letters in the word
+* As a user I would like see the letters I've guessed correctly filled in
+* As a user I would like to be able to give up
+* As a user I would like to be able to reset the game
+* As a user I would like to be congratulated when I win

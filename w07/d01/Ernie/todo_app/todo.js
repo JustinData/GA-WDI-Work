@@ -32,7 +32,6 @@ function appendDiv(newItem, ol) {
   var span = document.createElement('span');
   span.className = 'meta-data';
   
-
   var deleteButton = document.createElement('button');
   deleteButton.className = 'delete';
   deleteButton.innerHTML = "delete";
@@ -68,13 +67,9 @@ function appendDiv(newItem, ol) {
   });
   });
   divAction.appendChild(completedButton);
-  
   divAction.appendChild(span);
-  
   div.appendChild(divAction);
-
   li.appendChild(div);
-
   ol.appendChild(li);
 }
 
