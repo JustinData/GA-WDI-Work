@@ -20,7 +20,7 @@ p {
   padding: 10px;
   border:none;
   vertical-align: top;
-  width:789px;
+  width:500px;
   margin: 0 0 0 40px;
   border-radius: 2px;
 }
@@ -63,6 +63,7 @@ button {
   border: none;
   font-family: Vollkorn, Serif;
   border-radius: 2px;
+  margin-right: 10px;
 }
 
 .delete {
@@ -71,6 +72,8 @@ button {
 
 .complete {
   background:#eeeeee;
+  margin-top: 5px;
+  float: right;
 }
 
 #add-item {
@@ -88,6 +91,19 @@ button {
 
 #add-item:hover {
   background:#4040ff;
+}
+.listed{
+  width:700px;
+  height:30px;
+  background-color: goldenrod;
+}
+.delete{
+  margin-top: 5px;
+  float: right;
+}
+.comp_delete{
+  margin-top: 5px;
+  float:right;
 }
 
 li {
