@@ -4,6 +4,18 @@ function Board() {
 
 board = new Board();
 
+var wAlert = alert;
+window.winnerAlert = function(player) { //override default alert
+    wAlert(player + ' WINS!!!');
+    location.reload();
+}
+
+var tAlert = alert;
+window.tieAlert = function(player) { //override default alert
+    tAlert('IT\'S A TIE!!!!');
+    location.reload();
+}
+
 function playerCounter(){
     if ( counter%2 === 0 ) {
         return "X";
@@ -12,19 +24,23 @@ function playerCounter(){
     }
   }
 
+
 function checkWinner(boardArr){
   for (var i=0; i < 3; i++) {
   // check columns for winner
    if ( boardArr[0][i] == boardArr[1][i] && boardArr[1][i] == boardArr[2][i] ) {
-    if(!alert( playerCounter() + " WINS!!!")){window.location.reload();}     
+    console.log("columns winner checker")
+    winnerAlert(playerCounter());
   // check rows for winner
    } else if ( boardArr[i][0] == boardArr[i][1] && boardArr[i][1] == boardArr[i][2] ) {
-    if(!alert( playerCounter() + " WINS!!!")){window.location.reload();}
+    console.log("rows winner checker")
+    winnerAlert(playerCounter());
    }
   }
   //check diagonals
   if ( (boardArr[0][0] == boardArr[1][1] && boardArr[1][1] == boardArr[2][2]) || (boardArr[2][0] == boardArr[1][1] && boardArr[1][1] == boardArr[0][2]) ) {
-    if(!alert( playerCounter() + " WINS!!!")){window.location.reload();}
+    console.log("diagonals winner checker")
+    winnerAlert(playerCounter());
   } else {
     return false;
   }
@@ -55,7 +71,7 @@ Board.prototype.move = function(cell){
     counter +=1;
     console.log("counter: " + counter);
       if (counter === 9 && checkWinner(this.position) === false) {
-        if(!alert( "YOU GUYS SUCK...IT'S A TIE!!!" )){window.location.reload();}
+        tieAlert();
       }
   } 
   else {
