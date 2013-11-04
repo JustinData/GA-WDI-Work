@@ -98,17 +98,8 @@ window.onload = function(){
 
   elr0c0.addEventListener("click", function(){
    makePlay(0,0, currentPlayer);
-
-   if(currentPlayer == "x"){
-    elr0c0.className += " red"; 
-   } else {
-    elr0c0.className += " black";
-   } 
-
    switchPlayer(currentPlayer);
-
    checkForWin();
-
   }, false);
 
   elr0c1.addEventListener("click", function(){
