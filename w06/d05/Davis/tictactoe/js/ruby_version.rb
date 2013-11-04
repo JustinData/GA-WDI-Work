@@ -3,6 +3,7 @@ class TicTacToe
 
   def initialize
     @current_color = "black"
+    @move_counter = 0
 
     @row0 = [nil, nil, nil]
     @row1 = [nil, nil, nil]
@@ -11,7 +12,7 @@ class TicTacToe
   end
 
   def all_columns
-    @row0.zip(@row1, @row2)
+    @all_columns = @row0.zip(@row1, @row2)
   end
 
   def make_move(row_num, column_num)
@@ -23,7 +24,7 @@ class TicTacToe
     elsif check_tie
       puts "A tie!"
     else
-      nil
+      @move_counter += 1
     end
   end
 
@@ -37,33 +38,26 @@ class TicTacToe
     array.all? { |c| c == @current_color }
   end
 
-  def any_three_in_a_row?(array)
-    array.any? do |row|
-      entire_row_current_color?(row)
-    end
-  end
-
   def diagonal_combo?
-    diag1 = [@row0[0], @row2[2]]
-    diag2 = [@row0[2], @row2[0]]
-    
-    if @row1[1] == current_color
-      entire_row_current_color?(diag1) || entire_row_current_color?(diag2)
+    diags = [[@row0[0], @row1[1], @row2[2]], [@row0[2], @row1[1], @row2[0]]]
+  
+    diags.any? do |diag|
+      diag.all? { |coordinate| coordinate == @current_color }
     end
   end
 
-  def check_winner  
-    all_columns = @row0.zip(@row1, @row2)
-    any_three_in_a_row?(@all_rows) || any_three_in_a_row?(all_columns) || diagonal_combo?
+  def check_winner
+    all_columns
+    (0..2).any? do |i|
+      entire_row_current_color?([@all_rows[i][0], @all_rows[i][1], @all_rows[i][2]]) || entire_row_current_color?([@all_columns[i][0], @all_columns[i][1], @all_columns[i][2]]) || diagonal_combo?
+    end
   end
 
   def check_tie
-    @all_rows.all? do |row|
-      row.all? { |c| c != nil }
-    end
+    @all_rows.flatten.all? { |coordinate| coordinate != nil }
   end
 end
 
 game = TicTacToe.new
-game.make_move(2, 1)
+
 p game.all_rows
