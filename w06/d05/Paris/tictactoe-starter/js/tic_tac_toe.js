@@ -5,7 +5,6 @@ var name2;
 // clear the board at start
 function Start()
 {
-
     count = 1;
     document.getElementById("r0c0").className="box_cell";
     document.getElementById("r0c1").className="box_cell";
