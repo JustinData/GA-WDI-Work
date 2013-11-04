@@ -21,17 +21,15 @@ function appendItems(newItem, ol) {
 }
 
 todo = new TodoItem();
-todo.push("eat");
-todo.push("sleep");
+
 
 
 function loadFunction() {
   console.log("Loaded");
   var ol = document.querySelector("ol#todo-items");
-  var input = document.querySelector("input#new-task-field");
-    input.addEventListener("submit", function(e) {
-      e.preventDefault();
-      var input = this.elements["todo-item"];
+  var button = document.getElementById('add-item');
+    button.addEventListener("click", function(e) {
+      var input = document.getElementById('new-task-field');
       todo.push(input.value);
     appendItems(todo, ol);
     input.value = "";
