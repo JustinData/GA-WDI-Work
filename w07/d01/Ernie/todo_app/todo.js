@@ -7,21 +7,49 @@ TodoItem.prototype.push = function(item) {
 };
 
 
-function appendLi(newItem, ol) {
-  var li = document.createElement("li");
-  li.innerHTML = newItem;
+function appendDiv(newItem, ol) {
+  var span = document.createElement('span');
+  span.className = 'meta-data';
+
+  var deleteButton = document.createElement('button');
+  deleteButton.className = 'delete';
+
+  var completedButton = document.createElement('button');
+  completedButton.className = 'complete';
+
+  var divAction = document.createElement("div");
+  divAction.className = "actions";
+  divAction.appendChild(deleteButton);
+  divAction.appendChild(completedButton);
+  divAction.appendChild(span);
+
+  var li = document.createElement('li');
+  var div = document.createElement("div");
+  div.className = "items";
+  div.appendChild(divAction);
+  div.innerHTML = newItem;
+  li.appendChild(div);
   ol.appendChild(li);
+
 }
 
 function appendItems(newItem, ol) {
   ol.innerHTML = "";
   WTK.each(newItem.itemContainer, function(item) {
-    appendLi(item, ol);
-  });
+    appendDiv(item, ol);
+ });
 }
 
 todo = new TodoItem();
 
+
+function removeItems (div, ol) {
+  var deleteButton = document.createElement("button");
+  deleteButton.className = "delete";
+    deleteButton.addEventListener("click", function() {
+  ol.parentNode.removeChild(ol);
+  });
+}
 
 
 function loadFunction() {
