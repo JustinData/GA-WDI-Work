@@ -5,17 +5,26 @@
     <title>javascript</title>
   </head>
   <body>
-    <h1>Listio</h1>
     <link rel="stylesheet" type="text/css" href="todo.css">
     <script type="text/javascript" src="wtk.js"></script>
-<!--     // <script type="text/javascript" src="../../../lib/underscore.js"></script> -->
     <script type="text/javascript" src="todo.js"></script>
-        <h1>Make a to do list.</h1>
-    <form class="add-todo">
-      <input type="text" name="listItem" placeholder="enter your to do item">
-      <button>Add to the list</button>
-    </form>  
-    <ul class="todo-list">    
-    </ul>
+      <h1>List.io</h1>
+      <p>To Do Items:</p>
+      <div id="unfinished">  
+        <form class="add-todo">
+          <input type="text" name="listItem" placeholder="enter your to do item">
+          <button>Add to the list</button>
+        </form>  
+        <ol class="todo-list"> 
+        </ol> 
+      </div> 
+        <hr>
+        <p>Completed Items:</p>
+      <div id="finished">
+        <ul id="completed-items"></ul>
+      </div>  
+
   </body>
 </html>
+
+
