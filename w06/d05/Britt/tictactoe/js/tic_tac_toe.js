@@ -51,7 +51,7 @@ function Player(name, color){
 
 Player.prototype.makeMove = function(tileClicked) {
   var nonos = ["Das cute... NO.", "Don't embarrass yourself.", "Nice try, SUCKA"]
-  // make sure tile isn't already clicked; if already clicked, alert STOP THAT
+  
   if (tileClicked.getAttribute("class") === "clicked") {
     return alert(_.sample(nonos));
   } else {
@@ -73,7 +73,7 @@ Player.prototype.makeMove = function(tileClicked) {
 
     if (play.counter === 9 && (!winnerChecker())){
       // this will eventually be a confirm popup
-      var response = alert(/*check who won, and say that they did*/ "Looks like you tied. Sorry! Refresh to try again.");
+      var response = alert("Looks like you tied. Sorry! Refresh to try again.");
       // if (response){
       //   window.play = new Game();
       // };
