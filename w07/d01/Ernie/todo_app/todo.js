@@ -6,29 +6,50 @@ TodoItem.prototype.push = function(item) {
   this.itemContainer.push(item);
 };
 
+TodoItem.prototype.pop = function(item) {
+  var index = this.itemContainer.indexOf(item);
+  if (index !== -1) {
+    this.itemContainer.splice
+  } else{
+    return "No Item Found"
+  };
+  return item;
+};
 
 function appendDiv(newItem, ol) {
+ var li = document.createElement('li');
+  var div = document.createElement("div");
+  div.className = "items";
+  div.innerHTML = newItem;
+ 
+  var divAction = document.createElement("div");
+  divAction.className = "actions";
+
   var span = document.createElement('span');
   span.className = 'meta-data';
+  
 
   var deleteButton = document.createElement('button');
   deleteButton.className = 'delete';
+  deleteButton.innerHTML = "delete";
 
   var completedButton = document.createElement('button');
   completedButton.className = 'complete';
+  completedButton.innerHTML = 'complete';
 
-  var divAction = document.createElement("div");
-  divAction.className = "actions";
   divAction.appendChild(deleteButton);
+   deleteButton.addEventListener("click", function() {
+  ol.removeChild(li);
+   });
+
+
   divAction.appendChild(completedButton);
   divAction.appendChild(span);
-
-  var li = document.createElement('li');
-  var div = document.createElement("div");
-  div.className = "items";
+  
   div.appendChild(divAction);
-  div.innerHTML = newItem;
+
   li.appendChild(div);
+
   ol.appendChild(li);
 
 }
@@ -43,12 +64,11 @@ function appendItems(newItem, ol) {
 todo = new TodoItem();
 
 
-function removeItems (div, ol) {
+function removeItems (div, ol,item) {
   var deleteButton = document.createElement("button");
   deleteButton.className = "delete";
-    deleteButton.addEventListener("click", function() {
-  ol.parentNode.removeChild(ol);
-  });
+  item.pop(item);
+ 
 }
 
 
