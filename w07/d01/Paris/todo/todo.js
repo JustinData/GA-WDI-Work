@@ -23,6 +23,7 @@ function appendTodo(newContent, ol) {
 
     // move to complete list
   var ul = document.querySelector("ul");
+  ul.className = "completed-items";
   var buttonMove = document.createElement("button");
   buttonMove.innerHTML = "Move to complete";
   buttonMove.className = "button-move";
@@ -30,19 +31,22 @@ function appendTodo(newContent, ol) {
   buttonMove.addEventListener("click", function() {
   // ol.removeChild(li);
   ul.appendChild(li);
-  // console.log(newList);
-  // console.log(li);
   var string = li.textContent;
-  var index = string.replace('DeleteMove to complete','');
-  console.log(index);
+  var editString = string.replace('DeleteMove to complete','');
+  var index = newList.todoList.indexOf(editString);
   if (index > -1) {
-   var x = newList.todoList.splice(index, 1);
-   console.log(x);
+  newList.todoList.splice(index, 1);
   }
+  // var buttonDelete = document.querySelector("button");
+  // var ulLi = document.querySelector("li");
+  buttonDelete.addEventListener("click", function() {
+  ul.removeChild(li);
 
   });
-}
 
+  });
+
+}
 
 
 function appendOl(listItem, ol) {
@@ -57,7 +61,8 @@ window.newList = new ListContainer();
 
 function ourSweetLoadFunction() {
   console.log("Loaded");
-  var ol = document.querySelector("ol.todo-list");
+  var ol = document.querySelector("ol");
+  ol.className = "todo-list";
   var form = document.querySelector("form.add-todo");
   form.addEventListener("submit", function(e) {
     e.preventDefault();
