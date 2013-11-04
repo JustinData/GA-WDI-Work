@@ -6,7 +6,6 @@ GhoulContainer.prototype.push = function(ghoulName) {
   // OOOOHHHHHH!
   this.containmentUnit.push(ghoulName);
 } 
-
 function appendLi(newContent, ul) {
   var li = document.createElement("li");
   li.innerHTML = newContent;

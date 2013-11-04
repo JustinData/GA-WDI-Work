@@ -44,6 +44,10 @@ class Game
       return "Game over!"
     end 
 
+    def check_status
+
+    end 
+
   end 
 end 
 
