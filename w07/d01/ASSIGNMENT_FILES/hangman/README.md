@@ -10,7 +10,7 @@ We're going to tackle another lab to continue to solidy JavaScript concepts. Thi
 * [Write JavaScript that responds to events using listeners.](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget.addEventListener) (ATM & TicTacToe are good examples of this)
 
 ## Other tips and things to consider:
-* Write user stories FIRST and tackle them one at a time
+* Tackle user stories one at a time
 * Play with the working version and inspect it. That should help you see what DOM elements are created where
 * How can we design this in an object oriented way / How might we model our objects?
 * As you implement each user story, look back at the code you wrote. Is there a way to refactor it to make it DRYer or more clear?
@@ -20,3 +20,18 @@ We're going to tackle another lab to continue to solidy JavaScript concepts. Thi
 ```
 ['ruby', 'rails', 'javascript', 'array', 'hash', 'underscore', 'sinatra', 'model', 'controller', 'view', 'devise', 'authentication', 'capybara', 'jasmine', 'cache', 'sublime', 'terminal', 'system', 'twitter', 'facebook', 'function', 'google', 'amazon', 'development', 'data', 'design', 'inheritance', 'prototype', 'gist', 'github', 'agile', 'fizzbuzz', 'route', 'gem', 'deployment', 'database'],
 ```
+
+## User Stories
+
+#### Tonight
+* As a user I would like to input a letter
+* As a user I would like to see the letters I've guessed already
+* As a user I would like to See the number of incorrect guesses I have left
+
+#### Tomorrow
+* As a user I would like to get a random word for the game
+* As a user I would like to see the number of letters in the word
+* As a user I would like see the letters I've guessed correctly filled in
+* As a user I would like to be able to give up
+* As a user I would like to be able to reset the game
+* As a user I would like to be congratulated when I win
