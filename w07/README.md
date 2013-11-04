@@ -6,7 +6,7 @@ We started learning a new programming language, JavaScript. We learned the basic
 ###What are we doing this week?
 |Monday         | Tuesday         |Wednesday        |Thursday         |  Friday
 |:-----           |:-----           |:-----           |:-------- |:-------- |
-| Comprehensive JavaScript Lab | Intro to AJAX | jQuery | Comprehensive JavaScript & Rails Lab | Project Management Tools & Project Planning
+| Comprehensive JavaScript Lab | Intro to AJAX, Job Prep Session 1 | jQuery | Comprehensive JavaScript & Rails Lab | Project Management Tools & Project Planning
 
 ###What are we doing next week?
 * We will be building projects in groups to tie together everything that we've learned up until this point!
