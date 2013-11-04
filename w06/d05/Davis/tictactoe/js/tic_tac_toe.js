@@ -77,47 +77,11 @@ TicTacToe.prototype.setDiv = function(id) {
 window.onload = function() {
   var tic = new TicTacToe;
 
-  var play = function(div) {
-    tic.setDiv(div.id);
-    tic.makeMove(div.id[1], div.id[3]);
-  }
-
-  r0c0 = document.getElementById("r0c0");
-  r0c0.addEventListener('click', function() {
-    play(r0c0);
-  })
-  r0c1 = document.getElementById("r0c1");
-  r0c1.addEventListener('click', function() {
-    play(r0c1);
-  })
-  r0c2 = document.getElementById("r0c2");
-  r0c2.addEventListener('click', function() {
-    play(r0c2);
-  })
-
-  r1c0 = document.getElementById("r1c0");
-  r1c0.addEventListener('click', function() {
-    play(r1c0);
-  })
-  r1c1 = document.getElementById("r1c1");
-  r1c1.addEventListener('click', function() {
-    play(r1c1);
-  })
-  r1c2 = document.getElementById("r1c2");
-  r1c2.addEventListener('click', function() {
-    play(r1c2);
-  })
-
-  r2c0 = document.getElementById("r2c0");
-  r2c0.addEventListener('click', function() {
-    play(r2c0);
-  })
-  r2c1 = document.getElementById("r2c1");
-  r2c1.addEventListener('click', function() {
-    play(r2c1);
-  })
-  r2c2 = document.getElementById("r2c2");
-  r2c2.addEventListener('click', function() {
-    play(r2c2);
+  var divs = document.getElementsByClassName("box_cell");
+    _.each(divs, function(div) {
+      div.addEventListener('click', function() {
+      tic.setDiv(div.id);
+      tic.makeMove(div.id[1], div.id[3]);
+    })
   })
 }
