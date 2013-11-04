@@ -31,8 +31,7 @@ ToDoList.prototype.completedItem = function( item, completedList ) {
   var completedOrderedList = document.getElementById( "completed-items" );
   var index = this.list.indexOf( item );
   if ( index !== -1 ) {
-    console.log(completedList);
-    completedList.addItem( item.name );
+    completedList.list.push( item );
     completedList.createAndAppendListElement( item, "items", completedOrderedList );
     this.list.splice( index, 1 );
   };
@@ -70,18 +69,14 @@ ToDoList.prototype.createAndAppendListElement = function( itemObject, elementCla
   metaDataSpan.innerHTML = "Created on " + itemObject.dateCreated;
   metaDataSpan.classList.add( "meta-data" );
 
-  if (self.name != "Completed") {
-    var completedButton = document.createElement( "button" );
-    completedButton.innerHTML = "completed";
-    completedButton.classList.add( "completed" );
+  var completedButton = document.createElement( "button" );
+  completedButton.innerHTML = "completed";
+  completedButton.classList.add( "completed" );
 
-    completedButton.addEventListener( 'click', function(){
-      self.completedItem( itemObject, window.done );
-      li.parentNode.removeChild( li );
-    } );
-  } else {
-    return undefined;
-  };
+  completedButton.addEventListener( 'click', function(){
+    self.completedItem( itemObject, window.done );
+    li.parentNode.removeChild( li );
+  } );
 
   var deleteButton = document.createElement( "button" );
   deleteButton.innerHTML = "delete";
@@ -93,15 +88,15 @@ ToDoList.prototype.createAndAppendListElement = function( itemObject, elementCla
   } );
 
   actionsDiv.appendChild( metaDataSpan );
-  if (self.name != "Completed") {
-    actionsDiv.appendChild( completedButton );
-  } else {
-    return undefined;
-  };
+  actionsDiv.appendChild( completedButton );
   actionsDiv.appendChild( deleteButton );
   itemsDiv.appendChild( actionsDiv );
   li.appendChild( itemsDiv );
   parentElement.appendChild( li );
+
+  if (self.name === "Completed") {
+    actionsDiv.removeChild( completedButton );
+  };
 };
 
 // helper functions
