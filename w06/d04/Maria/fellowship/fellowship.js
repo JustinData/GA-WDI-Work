@@ -19,7 +19,7 @@ var buddies = [
   "Boromir"
 ];
 
-//********* Here is my try. Did not fucking work ********
+//********* Finally works ********
 
 var lands = ["The Shire", "Rivendell", "Mordor"];
 
@@ -48,44 +48,39 @@ function makeMiddleEarth(lands) {
   body.appendChild(section);
 }
 
-//****** In Console I wrote: 
-//makeMiddleEarth(lands);
-
-//****** I got error:
-//ReferenceError: body is not defined
-
-
-//***************** SCRATCH PAD ************************
-//I made separate functions but then was told to put it all in
-//the makeMiddleEarth function...
-
-
-//no- h1.appendChild(document.querySelector("lands");
-
-//make section function and add the id to it:
-        // function makeSection(lands, section) {
-        //   var section = document.createElement("section");
-        //   section.setAttribute("id", "middle-earth");
-        // }
-//make article section:
-        // function makeArticle(lands, article){
-        //   var article = document.createElement("article");
-        // }
-//append article to section        
-        // function appendToArticle(lands, article) {
-        //   var article = document.createElement("article");
-        //   article.innerHTML = newContent;
-        //   section.appendChild(article);
-        // }
-// add each land as an article tag
-// inside each article tag include an h1 with the name of the land
-// append middle-earth to your document body
-
-
 function makeHobbits(hobbits) {
+//make ul element
+  var ul = document.createElement("ul");
+//begin loop to create li and class and iterate all hobbits.
+  WTK.each(hobbits, function(hobbit){
+    var li = document.createElement("li");
+    li.setAttribute("class", "hobbit");
+//add hobbit to each li (innerHTML)
+    li.innerHTML = hobbit;
+//append li child to ul parent
+    ul.appendChild(li);
+//end loop
+  });
+//query select body
+  var body = document.querySelector("body");
+//append ul to body
+  body.appendChild(ul);
 }
 
 function keepItSecretKeepItSafe() {
+   // create a div with an id of 'the-ring'
+  var ring = document.createElement('div');
+  ring.id = "the-ring";
+  // add the ring as a child of Frodo
+  var frodo = document.getElementsByClassName('hobbit')[0];
+  frodo.appendChild(ring);
+  // var div = document.createElement("div");//create div
+  // div.setAttribute("id", "the-ring");//add id
+  // var ul = get.elementById("the-ring");//get the id
+  // var li = document.createElement("li");
+  // li.appendChild(document.createTextNode("Your list item text"));
+  // ul.insertBefore(li, document.getElementById("list_item_id"));
+  // ul.appendChild(ul)//add this new ul as child to frodo li.
 }
 
 function makeBuddies(buddies) {

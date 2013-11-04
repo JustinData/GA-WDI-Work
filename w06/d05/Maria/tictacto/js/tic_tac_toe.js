@@ -36,9 +36,6 @@ var checkForWin = function(){
     if((ticTacToeBoard[row][col]==ticTacToeBoard[row+1][col]) && (ticTacToeBoard[row][col]==ticTacToeBoard[row+2][col])){
       win = true;
       winner = ticTacToeBoard[row][col];
-      if( win = true ){
-        alert("you won!");
-      }
     }
   }
 
@@ -55,9 +52,7 @@ var checkForWin = function(){
   if((ticTacToeBoard[0][0] == ticTacToeBoard [1][1]) && (ticTacToeBoard[0][0] == ticTacToeBoard [2][2])){
     win = true;
     winner = ticTacToeBoard[0][0];
-    if( win = true ){
-        alert("you won!");
-      }
+
   }
 
   //check other diag
