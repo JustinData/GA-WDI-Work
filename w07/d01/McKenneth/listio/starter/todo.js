@@ -19,8 +19,7 @@ window.onload = function(){
     
     var item = toDoList.childNodes;
     var spot = document.getElementById(this.id);
-    var b = spot.childNodes[0].childNodes[0];
-    spot.childNodes[0].removeChild(b);
+    var b = spot.childNodes[0].childNodes[2].remove();
     completeList.appendChild(spot);
     
   };
