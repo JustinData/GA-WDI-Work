@@ -85,6 +85,6 @@ WDIToolkit.prototype.exists = function(arr, action){
 //WTK.exists(["Eeny", "Meeny", "Miny"])
 //var listItems = WTK.select( document.all, function(element) {return element.tagName =="li"; });
 //WTK.exists( document.all, function(e){ return e.tagName =="IMG";});
-
+//var title = WTK.exists document.all, fucntion(e){reutrn e.tagName == "H1";}); 
 
 
