@@ -54,7 +54,6 @@ post "/movies" do
 
  #id set to num of rows to route page
   id = (@results.length) + 1
-  binding.pry
 
 
   redirect "/movies/#{id}"
