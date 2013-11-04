@@ -6,13 +6,13 @@ window.onload = function(){
 
   
   var removeThis = function(){
-    if (removeItem.className = "compdelete"){
-      var spot = document.getElementById(this.id);
-      spot.childNodes[0].remove();
+    if (removeItem.className == "compdelete"){
+      var completely = document.getElementById(this.id);
+      completely.childNodes[0].remove();
     }else{
     var item = toDoList.childNodes;
     var spot = document.getElementById(this.id);
-    toDoList.removeChild(spot);
+    toDoList.childNodes[0].remove();
     }
   };
   
