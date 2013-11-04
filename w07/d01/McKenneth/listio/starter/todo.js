@@ -6,8 +6,9 @@ window.onload = function(){
 
   
   var removeThis = function(){
-    if (removeItem.className === "comp_delete"){
-
+    if (removeItem.className = "compdelete"){
+      var spot = document.getElementById(this.id);
+      spot.childNodes[0].remove();
     }else{
     var item = toDoList.childNodes;
     var spot = document.getElementById(this.id);
@@ -19,6 +20,7 @@ window.onload = function(){
     
     var item = toDoList.childNodes;
     var spot = document.getElementById(this.id);
+    spot.childNodes[0].childNodes[1].className = "compdelete";
     var b = spot.childNodes[0].childNodes[2].remove();
     completeList.appendChild(spot);
     
