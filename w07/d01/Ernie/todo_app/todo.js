@@ -1,15 +1,19 @@
 function TodoItem(){
-  this.itemContainer = [];
+  this.pendingTask = [];
+  this.completedTask = [];
 }
 
 TodoItem.prototype.push = function(item) {
-  this.itemContainer.push(item);
+  this.pendingTask.push(item);
+  this.completedTask.push(item);
 };
 
+
+
 TodoItem.prototype.pop = function(item) {
-  var index = this.itemContainer.indexOf(item);
+  var index = this.pendingTask.indexOf(item);
   if (index !== -1) {
-    this.itemContainer.splice
+    this.pendingTask.splice
   } else{
     return "No Item Found"
   };
@@ -40,10 +44,31 @@ function appendDiv(newItem, ol) {
   divAction.appendChild(deleteButton);
    deleteButton.addEventListener("click", function() {
   ol.removeChild(li);
-   });
+});
 
+// move to complete list
+  var ul = document.querySelector("ul");
+  ul.className = "completed-items";
+  var buttonMove = document.createElement("button");
+  buttonMove.innerHTML = "Move to complete";
+  buttonMove.className = "button-move";
+  li.appendChild(buttonMove);
+  buttonMove.addEventListener("click", function() {
+  // ol.removeChild(li);
+  ul.appendChild(li);
+  var string = li.textContent;
+  var editString = string.replace('DeleteMove to complete','');
+  var index = newList.todoList.indexOf(editString);
+  if (index > -1) {
+  newList.todoList.splice(index, 1);
+  }
+  buttonDelete.addEventListener("click", function() {
+  ul.removeChild(li);
 
+  });
+  });
   divAction.appendChild(completedButton);
+  
   divAction.appendChild(span);
   
   div.appendChild(divAction);
@@ -51,7 +76,6 @@ function appendDiv(newItem, ol) {
   li.appendChild(div);
 
   ol.appendChild(li);
-
 }
 
 function appendItems(newItem, ol) {
@@ -60,6 +84,7 @@ function appendItems(newItem, ol) {
     appendDiv(item, ol);
  });
 }
+
 
 todo = new TodoItem();
 
