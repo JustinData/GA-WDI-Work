@@ -1,8 +1,8 @@
-//div class "brush"
 window.onload = function(){
 var inputField = document.getElementById("color-field");
 var button = document.getElementById("set-color");
 var brush = document.querySelector("div.brush");
+var color;
 
 function setColor(){
   color = inputField.value;
@@ -19,15 +19,23 @@ inputField.addEventListener("keypress", function(e){
    setColor();
    }
  });
-
   
- for (var i = 0; i < 20; i++){
-  var twentyDivs = document.createElement('div');
-  twentyDivs.className = "square";
-  twentyDivs.addEventListener("click", function(){
-  this.style.background = color;
+ // for (var i = 0; i < 20; i++){
+ //  var twentyDivs = document.createElement('div');
+ //  twentyDivs.className = "square";
+ //  twentyDivs.addEventListener("click", function(){
+ //  this.style.background = color;
+ //  });
+ //  document.body.appendChild(twentyDivs);
+ // }
+
+ for (var i = 0; i<8000; i++){
+  var box = document.createElement("div");
+  box.className = "square";
+  box.addEventListener("mouseover", function() {
+    this.style.background = color;
   });
-  document.body.appendChild(twentyDivs);
+  document.body.appendChild(box);
  }
 };
 
