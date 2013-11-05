@@ -83,7 +83,7 @@ window.onload = function(){
   var button = document.getElementById("add-item");
   var newTaskField = document.getElementById("new-task-field");
   
-  newTaskField.addEventListener('keypress', function(event){
+  newTaskField.addEventListener('keyup', function(event){
     if (event.which == 13 || event.keyCode == 13) {
       addItem(newTaskField);
       newTaskField.value = "";
