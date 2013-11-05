@@ -10,13 +10,11 @@ function attachListener() {
   var colorButton = document.getElementById("set-color");
   colorButton.addEventListener('click', function(){
     setColor(colorDiv);
-    colorField.value = "";
   });
 
   colorField.addEventListener('keyup', function(event){
     if (event.keyCode == 13){
-      setColor();
-      colorField.value = "";
+      setColor(colorDiv);
     };
   });
 };
