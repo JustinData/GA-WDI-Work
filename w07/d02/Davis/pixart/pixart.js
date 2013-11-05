@@ -21,14 +21,19 @@ window.onload = function() {
     }
   });
 
-  for (var i=0; i<20; i++) {
+  for (var i=0; i<8000; i++) {
     var box = document.createElement("div");
     box.className = "square";
 
-    box.addEventListener('click', function() {
+    box.addEventListener('mouseover', function() {
       this.style.backgroundColor = userInput.value;
     })
 
     document.querySelector("body").appendChild(box);
   }
+
+  var reloadButton = document.querySelector("#reload");
+  reloadButton.addEventListener('click', function() {
+    location.reload();
+  })
 }
