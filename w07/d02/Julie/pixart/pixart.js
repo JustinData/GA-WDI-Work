@@ -3,7 +3,7 @@ window.onload = function() {
  var inputField = document.getElementById("color-field");
  var button = document.getElementById("set-color");
  var brush  = document.querySelector(".brush");
- var body = document.querySelector("body");
+ // var square = document.querySelector(".square");
 
 
  function setColor(){
@@ -34,8 +34,13 @@ function makeDiv(){
   var div = document.createElement("div");
   div.setAttribute("class", "square");
   document.body.appendChild(div);
+  div.addEventListener("click", function(){
+    this.style.background = "green";
+  })
   count ++;
   }
 
 }
+
+
 
