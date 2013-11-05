@@ -1,12 +1,34 @@
 window.onload = function() {
   var button = document.getElementById("set-color");
-  // var form = document.querySelector("#form");
   var userInput = document.querySelector("input#color-field");
   var div = document.querySelector("div.brush");
 
+  function setColor() {
+    div.style.backgroundColor = userInput.value;
+    // userInput.value = "";
+  }
+
   button.addEventListener('click', function(e) {
     e.preventDefault();
-    div.style.backgroundColor = userInput.value;
-    userInput.value = "";
+    setColor();
   })
+
+  userInput.addEventListener('keypress', function(e) {
+    var key = e.which || e.keycode;
+    // keycode 13 is Enter key
+    if (key===13) {
+      setColor();
+    }
+  });
+
+  for (var i=0; i<20; i++) {
+    var box = document.createElement("div");
+    box.className = "square";
+
+    box.addEventListener('click', function() {
+      this.style.backgroundColor = userInput.value;
+    })
+
+    document.querySelector("body").appendChild(box);
+  }
 }
