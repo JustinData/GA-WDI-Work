@@ -25,5 +25,9 @@ function moarSquares(){
     div.className = "square";
     var squareBox = document.querySelector(".controls");
     squareBox.appendChild(div);
+    div.addEventListener('click', function(e){
+      e.preventDefault();
+      changeColor(this,"green");
+    });
   }
 }
