@@ -29,6 +29,7 @@ Warmup to help nail down Event Listeners
 * Change the event that changes your box colors from 'click' to 'mouseover'
 * Paint a picture!
 
+
 ## Bonus
 
 * Add a color swatch. You should have 3 boxes with the most recent 3 colors used. When you click on each of those boxes, it should set the current brush color back to that color.
