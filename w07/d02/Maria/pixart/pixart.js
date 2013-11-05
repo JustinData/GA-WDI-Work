@@ -5,7 +5,7 @@ var button = document.getElementById("set-color");
 var brush = document.querySelector("div.brush");
 
 function setColor(){
-  var color = inputField.value;
+  color = inputField.value;
   brush.style.background = color;
 }
 
@@ -24,10 +24,10 @@ inputField.addEventListener("keypress", function(e){
  for (var i = 0; i < 20; i++){
   var twentyDivs = document.createElement('div');
   twentyDivs.className = "square";
-  document.body.appendChild(twentyDivs);
   twentyDivs.addEventListener("click", function(){
-  this.style.background = "green";
+  this.style.background = color;
   });
+  document.body.appendChild(twentyDivs);
  }
 };
 
