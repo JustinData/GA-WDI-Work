@@ -12,6 +12,18 @@ window.onload = function(){
   var swatch3 = document.querySelector(".swatch3");
   var counter = 1;
 
+  swatch1.addEventListener("click", function(){
+    brush.style.background = swatch1.style.background;
+  });
+
+  swatch2.addEventListener("click", function(){
+    brush.style.background = swatch2.style.background;
+  });
+
+  swatch3.addEventListener("click", function(){
+    brush.style.background = swatch3.style.background;
+  });
+
   var changeBrushHandler = function(){
     var value = colorField.value;
     brush.style.background = value;
@@ -43,7 +55,7 @@ window.onload = function(){
     }
   });
 
-  for(var i=0; i<10000000; i++){
+  for(var i=0; i<8000; i++){
     var newDiv = document.createElement("div");
     newDiv.className = "square";
     
