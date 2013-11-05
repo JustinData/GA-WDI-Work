@@ -1,11 +1,13 @@
 window.onload = function(){
   var setColorButton = document.getElementById('set-color');
+  var colorField = document.getElementById("color-field");
+  var brushBox = document.querySelector(".brush");
+  var colorSwatch = new Array;
   
   setColorButton.addEventListener('click', function(e){
     e.preventDefault();
-    var colorField = document.getElementById("color-field");
-    var brushBox = document.querySelector(".brush");
     changeColor(brushBox,colorField.value);
+    alert(colorSwatch)
     colorField.value = null;
   });
   
@@ -14,17 +16,20 @@ window.onload = function(){
   }
 
   function moarSquares(){
-    for(i = 0; i < 8001; i ++) {
+    for(i = 0; i < 20001; i ++) {
       var div = window.document.createElement("div");
       div.className = "square";
       var squareBox = document.querySelector(".controls");
       squareBox.appendChild(div);
       div.addEventListener('mouseover', function(e){
         e.preventDefault();
-        var colorField = document.getElementById("color-field");
         changeColor(this, colorField.value);
       });
     }
+  }
+
+  function addToSwatch(){
+    colorSwatch.push(colorField.value);
   }
   moarSquares();
 }
