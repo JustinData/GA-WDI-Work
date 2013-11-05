@@ -8,7 +8,7 @@ window.onload = function(){
 
   var changeBrushHandler = function(){
     var value = colorField.value;
-    brush.style.backgroundColor = value;
+    brush.style.background = value;
   }
 
   elSetColor.addEventListener("click", function(){
@@ -25,10 +25,14 @@ window.onload = function(){
     var newDiv = document.createElement("div");
     newDiv.className = "square";
     newDiv.addEventListener("click", function(){
-      this.style.backgroundColor = "green";
+      var color = document.querySelector(".brush").style.background;
+      this.style.background = color;
+    
     });
 
     document.getElementsByTagName("body")[0].appendChild(newDiv);
+
+
 
   }
 
