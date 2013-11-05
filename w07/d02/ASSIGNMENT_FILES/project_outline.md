@@ -62,18 +62,18 @@ You are a member of a team. We have created teams that we feel allow you to work
 
 ####This Week:
 |Tuesday ([D-10](http://en.wikipedia.org/wiki/D-Day_(military_term%29))|Thursday (D-9) & Friday (D-8)| Friday (D-8) Afternoon|
-|---|
-|Teams are named, and this project outline is distributed.|Team '*1 : Many*'-s with an instructor. Application proposals are presented and discussed.| In class planning begins. Create a project repo on GitHub.|
+|:---|
+|Teams are named, and this project outline is distributed.|Team '*1 : Many*'-s with an instructor. Application proposals are presented and discussed.| In class planning begins. Create a project repo on GitHub.
 
 ####Next Week:
 |Monday (D-5)|Wednesday (D-2) | Thursday (D-1) midnight | Friday (D-Day)
-|---|
-|Begin coding.|DEADLINE: Initial website deployment to Heroku.|Coding ends.|Presentations and science fair.|
+|:---|
+|Begin coding.|DEADLINE: Initial website deployment to Heroku.|Coding ends.|Presentations and science fair.
 
 #### Daily Schedule:
 
 ||Daily Schedule|
-|---|
+|:---|
 |9 AM|SCRUM & SCRUM write-up
 |Morning | Exercises & New Material
 |Lunch
