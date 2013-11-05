@@ -13,6 +13,7 @@ Art.prototype.initialize = function() {
   this.form.addEventListener('submit', function(event) {
     event.preventDefault();
     self.changeColor( self.valueWindow.value );
+    self.createDiv( self.valueWindow.value );
   });
   /******** Alternative method for submiting with return or click *********/
   // this.valueWindow.addEventListener('keypress' function(e){
@@ -27,22 +28,22 @@ Art.prototype.changeColor = function( colorStr ) {
  this.colorBox.style.background = colorStr;
 }
 
-Art.prototype.createDiv = function() {
+Art.prototype.createDiv = function( colorStr ) {
   console.log("create div function");
+  console.log("chosen color" + colorStr);
   for (var i = 0; i < 20; i++) {
     var body = document.querySelector("body");
     var divSquare = document.createElement("div");
     divSquare.className = "square";
-    body.appendChild(divSquare);
-    // must use this inside the listener because the divSquare variable changes every time through the loop
-    divSquare.addEventListener('click', function() {
-      this.style.background = "green";
+    //must use this inside the listener because the divSquare variable changes every time through the loop
+    divSquare.addEventListener('click', function(color) {
+      this.style.background = colorStr;
     });
+    body.appendChild(divSquare);
   }
 }
   
 window.onload = function() {
   console.log("loaded!!");
   newGame.initialize();
-  newGame.createDiv();
 }
