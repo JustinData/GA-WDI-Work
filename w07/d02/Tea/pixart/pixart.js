@@ -14,16 +14,15 @@ window.onload = function(){
   }
 
   function moarSquares(){
-    for(i = 0; i < 21; i ++) {
+    for(i = 0; i < 8001; i ++) {
       var div = window.document.createElement("div");
       div.className = "square";
       var squareBox = document.querySelector(".controls");
       squareBox.appendChild(div);
-      div.addEventListener('click', function(e){
+      div.addEventListener('mouseover', function(e){
         e.preventDefault();
         var colorField = document.getElementById("color-field");
         changeColor(this, colorField.value);
-        colorField.value = null;
       });
     }
   }
