@@ -1,18 +1,23 @@
-listItems =[];
+var listItems =[];
 
 function makeElem(list){//(list)is just empty intil we call make element and pass it the listItems array on line 37.
-  li = document.createElement("li");//creating li
+  var li = document.createElement("li");//creating li
 
-  itemDiv = document.createElement("div");//creating div
+  var itemDiv = document.createElement("div");//creating div
   itemDiv.setAttribute("class", "items");//creating the class name
   itemDiv.innerHTML = list[list.length -1];//put inside div the last thing in array
 
-  completeButton = document.createElement("button");//create button
+  var actionDiv = document.createElement("div");
+  actionDiv.setAttribute("class", "actions");
+
+  var completeButton = document.createElement("button");//create button
   completeButton.setAttribute("id", "complete");//give button the complete attribute
   completeButton.innerHTML = "complete"; //label the button 'complete'
   completeButton.addEventListener("click", function(){
-    completeTasks.appendChild(li);
+    console.log(actionDiv);
+    console.log(completeButton);
     actionDiv.removeChild(completeButton);
+    completeTasks.appendChild(li);
   });
 
   deleteButton = document.createElement("button");
@@ -22,10 +27,8 @@ function makeElem(list){//(list)is just empty intil we call make element and pas
     li.parentElement.removeChild(li);
   });
 
-  actionDiv = document.createElement("div");
-  actionDiv.setAttribute("class", "actions");
-
-  timeSpan = document.createElement("span");
+  
+  var timeSpan = document.createElement("span");
   timeSpan.innerHTML = new Date();
   
   actionDiv.appendChild(timeSpan);
@@ -34,7 +37,7 @@ function makeElem(list){//(list)is just empty intil we call make element and pas
 
   //give todoitems the buttons
 
-  todoItems = document.getElementById("todo-items");//get the id todo-items
+  var todoItems = document.getElementById("todo-items");//get the id todo-items
   todoItems.appendChild(li);
   li.appendChild(itemDiv);
 
