@@ -1,35 +1,26 @@
-window.onload = function () {
-  console.log("loaded");
+window.onload = function(){
+
 }
 
-function getMovie(movie,callback) {
-window.httpRequest = new XMLHttpRequest();
+function getMovie(movie, callback){
+  // set window. to make it accessible within console
+  window.httpRequest = new XMLHttpRequest();
 
-console.log('Before Request');
-console.log(httpRequest.responseText);
+  // listens to Load event before doing this
+  httpRequest.addEventListener("load", function(){
+      callback(JSON.parse(httpRequest.responseText));
+  });
 
-httpRequest.addEventListener('load', function () {
-  console.log('After Load');
-  console.log(httpRequest.responseText);
-  callback(JSON.parse(httpRequest.responseText));
-});
-
-httpRequest.open("GET", "http://www.omdbapi.com/?t=" + movie);
-httpRequest.send();
-
-console.log('After Request');
-console.log(httpRequest.responseText);
+  httpRequest.open("GET", "http://www.omdbapi.com/?t=" + movie);
+  httpRequest.send();
 }
 
-function displayMovie(movieTitle) {
-  var movieObj = JSON.parse(movieTitle);
-  var img = document.createElement('img');
-  img.src = movieObj.Poster;
+function displayMovie(movie){
+  var img = document.createElement("img");
+  img.src = movie.Poster;
   document.body.appendChild(img);
-
 }
 
-function alertYear (item) {
-  var movie = JSON.parse(item);
-  alert(movie.Title + "was made in" + movie.Year)
+function alertYear(movie) {
+  alert(movie.Title + " was made in " + movie.Year);
 }
