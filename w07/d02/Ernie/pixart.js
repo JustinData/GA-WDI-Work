@@ -25,7 +25,7 @@ window.onload = function () {
   for (var i = 0; i < 8000; i++) {
     var box = document.createElement('div');
     box.className = 'square';
-    box.addEventListener('click',function(){
+    box.addEventListener('mouseover',function(){
    this.style.background = color;
     });
     document.body.appendChild(box);
