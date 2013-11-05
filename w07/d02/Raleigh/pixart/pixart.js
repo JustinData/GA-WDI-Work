@@ -17,20 +17,15 @@ function changeColor() {
       }
    });
 
-   addSquares();
-}
-
-
-function addSquares() {
-   var body = document.querySelector("body");
-   for(i=0; i<=25; i++) {
+   for(i=0; i<=8000; i++) {
       var square = document.createElement("div");
       square.setAttribute("class", "square");
       // square.className = "square";
-      square.addEventListener('click', function(){
-         this.style.background = "MediumSpringGreen";
+
+      square.addEventListener('mouseover', function(){
+         this.style.background = brush.style.background;
       });
-      body.appendChild(square);
+      document.body.appendChild(square);
    }
 }
 
