@@ -1,8 +1,7 @@
-function setColor(){
+function setColor(elem){
   var colorField = document.getElementById("color-field");
-  var colorDiv = document.querySelector("div.brush");
   var newColor = colorField.value;
-  colorDiv.style.background = newColor;
+  elem.style.background = newColor;
   colorField.value = "";
 }
 
@@ -11,7 +10,7 @@ function attachListener() {
   var colorField = document.getElementById("color-field");
   var colorButton = document.getElementById("set-color");
   colorButton.addEventListener('click', function(){
-    setColor();
+    setColor(colorDiv);
   });
 
   colorField.addEventListener('keyup', function(event){
@@ -27,7 +26,7 @@ function create20Divs(){
     var div = document.createElement("div");
     div.classList.add("square");
     div.addEventListener('click', function(){
-      this.style.background = "green";
+      setColor(this)
     });
     body.appendChild(div);
   };
