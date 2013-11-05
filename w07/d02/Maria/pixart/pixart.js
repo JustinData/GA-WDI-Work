@@ -4,10 +4,33 @@ var inputField = document.getElementById("color-field");
 var button = document.getElementById("set-color");
 var brush = document.querySelector("div.brush");
 
-button.addEventListener(click, function(){
+function setColor(){
   var color = inputField.value;
   brush.style.background = color;
+}
+
+button.addEventListener("click", function() {
+  setColor();
+  });
+
+inputField.addEventListener("keypress", function(e){
+  var key = e.which|| e.keyCode;
+   if(key === 13){
+   setColor();
+   }
  });
+
+
+var twenyDivs = document.createElement('div');
+
 };
 
 
+
+
+
+// var enterInputField = document.getElementById("set-color");
+//   enterInputField.addEventListener("keypress", function(event){
+//     if (event.which == 13 || event.keyCode == 13) {
+//     }
+//   });
