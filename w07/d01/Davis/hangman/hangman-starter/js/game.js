@@ -67,14 +67,16 @@ Game.prototype.alterDisplayWord = function(letter) {
   // check if currentWordLetters includes letter
   var index = this.currentWordLetters.indexOf(letter);
   var game = this;
-  if ( index != -1) {
-    for(var i=0; i < this.currentWordLetters.length; i++) {
-      if (game.currentWordLetters[i] === letter) { game.displayWordLetters[i] = letter };
-    }
+  if ( this.displayWordLetters.indexOf(letter) === -1 ) {
+    if ( index != -1) {
+      for(var i=0; i < this.currentWordLetters.length; i++) {
+        if (game.currentWordLetters[i] === letter) { game.displayWordLetters[i] = letter };
+      }
 
-    return true;
-  } else {
-    return false;
+      return true;
+    } else {
+      return false;
+    }
   }
 }
 
@@ -95,7 +97,8 @@ Game.prototype.makeGuess = function(letter) {
       this.addToLettersGuessed(letter);
       this.renderLettersGuessed();
 
-      if ( !this.alterDisplayWord(letter) && this.currentWordLetters.indexOf(letter) != -1 ) { this.guessesLeft--; }
+      if ( !this.alterDisplayWord(letter)) { this.guessesLeft--; }
+
       this.renderDisplayWord();
 
       this.renderGuessesLeft();
@@ -106,8 +109,14 @@ Game.prototype.makeGuess = function(letter) {
     alert("Letters not phrases you retarded bitch");
   }
 
+
   var inputBox = document.getElementById("letter_field");
   inputBox.value = "";
+}
+
+Game.prototype.giveUp = function() {
+  this.displayWordLetters = this.currentWordLetters;
+  this.renderDisplayWord();
 }
 
 window.onload = function() {
@@ -120,5 +129,16 @@ window.onload = function() {
     // keystroke is captured by chr
     var chr = String.fromCharCode(e.keyCode);
     game.makeGuess(chr);
+    game.checkWin();
+  });
+
+  var giveUpButton = document.getElementById("give_up_button");
+  giveUpButton.addEventListener('click', function() {
+    game.giveUp();
+  });
+
+  var resetButton = document.getElementById("reset_button");
+  resetButton.addEventListener('click', function() {
+    window.location.reload();
   });
 }
