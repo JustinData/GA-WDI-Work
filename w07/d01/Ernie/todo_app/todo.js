@@ -8,8 +8,6 @@ TodoItem.prototype.push = function(item) {
   this.completedTask.push(item);
 };
 
-
-
 TodoItem.prototype.pop = function(item) {
   var index = this.pendingTask.indexOf(item);
   if (index !== -1) {
@@ -48,24 +46,12 @@ function appendDiv(newItem, ol) {
 // move to complete list
   var ul = document.querySelector("ul");
   ul.className = "completed-items";
-  var buttonMove = document.createElement("button");
-  buttonMove.innerHTML = "Move to complete";
-  buttonMove.className = "button-move";
-  li.appendChild(buttonMove);
-  buttonMove.addEventListener("click", function() {
-  // ol.removeChild(li);
-  ul.appendChild(li);
-  var string = li.textContent;
-  var editString = string.replace('DeleteMove to complete','');
-  var index = newList.todoList.indexOf(editString);
-  if (index > -1) {
-  newList.todoList.splice(index, 1);
-  }
+
   buttonDelete.addEventListener("click", function() {
   ul.removeChild(li);
 
   });
-  });
+ 
   divAction.appendChild(completedButton);
   divAction.appendChild(span);
   div.appendChild(divAction);
