@@ -2,10 +2,11 @@ window.onload = function(){
   var inputField = document.getElementById("color-field");
   var button = document.getElementById("set-color");
   var brush = document.querySelector(".brush");
+  var color = "#1B437";
 
 
 function setColor(){
-  var color = inputField.value;
+  color = inputField.value;
   brush.style.background = color;
 }
 
@@ -20,15 +21,14 @@ function setColor(){
     }
   });
 
-  for (var i = 0; i < 20; i++){
+  for (var i = 0; i < 8000; i++){
     var box = document.createElement("div");
     box.className = "square";
-    box.addEventListener("click", function() {
-      this.style.background = "green";
+    box.addEventListener("mouseover", function() {
+      this.style.background = color;
     });
       document.body.appendChild(box);
   }
-
 }
 
 
