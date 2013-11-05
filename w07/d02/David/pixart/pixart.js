@@ -20,7 +20,18 @@ Art.prototype.changeColor = function( colorStr ) {
  this.colorBox.style.background = colorStr;
 }
 
+Art.prototype.createDiv = function() {
+  console.log("create div function");
+  for (var i = 0; i < 20; i++) {
+    var body = document.querySelector("body");
+    var divSquare = document.createElement("div");
+    divSquare.className = "square";
+    body.appendChild(divSquare);
+  }
+}
+  
 window.onload = function() {
   console.log("loaded!!");
   newGame.initialize();
+  newGame.createDiv();
 }
