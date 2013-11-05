@@ -35,7 +35,7 @@ Art.prototype.createDiv = function( ) {
   // console.log("create div function");
   // console.log("chosen color" + this.color);
   var self = this;
-  for (var i = 0; i < 8000; i++) {
+  for (var i = 0; i < 20000; i++) {
     var body = document.querySelector("body");
     var divSquare = document.createElement("div");
     divSquare.className = "square";
