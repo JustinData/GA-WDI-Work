@@ -102,13 +102,19 @@ function forgeTheFellowShip() {
   var div = document.createElement("div");
   div.id = "the-fellowship";
   rivendellArticle.appendChild(div);
-  // var numberOfHobbits = hobbits.length;
+  var numberOfHobbits = hobbits.length;
   for( var i = 0; i < numberOfHobbits; i++ ){
+    console.log("number of hobbits: " + numberOfHobbits);
+    console.log("hobbit HTML: " + hobbits[i].innerHTML);
+    console.log("hobbit LI: " + hobbits[i]);
     div.appendChild(hobbits[i]);
     alert( hobbits[i].innerHTML + " has joined the party!!!" );
   }
   var numberOfBuddies = buddies.length;
   for( var i = 0; i < numberOfBuddies; i++ ){
+    console.log("number of buddies: " + numberOfBuddies);
+    console.log("buddy HTML: " + buddies[i].innerHTML);
+    console.log("buddy LI: " + buddies[i]);
     div.appendChild(buddies[i]);
     alert( buddies[i].innerHTML + " has joined the party!!!" );
   }
@@ -121,18 +127,18 @@ window.onload = function(){
   makeMiddleEarth(lands);
 
   // Make Hobbits
-  setTimeout(function(){makeHobbits(hobbits)},2000);
+  setTimeout(function(){makeHobbits(hobbits)},1000);
 
   // Make the ring DIV and add it as a child of Frodo's li element
-  setTimeout(keepItSecretKeepItSafe,4000);
+  setTimeout(keepItSecretKeepItSafe,2000);
 
   // Make Buddies
-  setTimeout(function(){makeBuddies(buddies)},6000);
+  setTimeout(function(){makeBuddies(buddies)},3000);
 
   // Change Strider to Aragon
-  setTimeout(beautifulStranger,8000);
+  setTimeout(beautifulStranger,4000);
 
   // Move hobbits and buddies into Rivendell and then the fellowship DIV
-  setTimeout(forgeTheFellowShip,10000);
+  // setTimeout(forgeTheFellowShip,10000);
 
 }
