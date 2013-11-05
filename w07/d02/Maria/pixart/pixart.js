@@ -20,9 +20,15 @@ inputField.addEventListener("keypress", function(e){
    }
  });
 
-
-var twenyDivs = document.createElement('div');
-
+  
+ for (var i = 0; i < 20; i++){
+  var twentyDivs = document.createElement('div');
+  twentyDivs.className = "square";
+  document.body.appendChild(twentyDivs);
+  twentyDivs.addEventListener("click", function(){
+  this.style.background = "green";
+  });
+ }
 };
 
 
