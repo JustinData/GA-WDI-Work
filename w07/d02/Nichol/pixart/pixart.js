@@ -1,5 +1,10 @@
 window.onload = function(){
   
+  var changeBrushHandler = function(){
+    value = colorField.value;
+    brush[0].style.backgroundColor = value;
+  }
+
   console.log("ready to draw");
 
   elSetColor = document.getElementById("set-color");
@@ -7,10 +12,13 @@ window.onload = function(){
   brush = document.getElementsByClassName("brush");
 
   elSetColor.addEventListener("click", function(){
-    //get the value
-    value = colorField.value
-    brush[0].style.backgroundColor = value;
+    changeBrushHandler();
+  });
 
-    console.log("you clicked");
+  colorField.addEventListener("keypress", function(event){
+    if (event.which == 13 || event.keyCode == 13) {
+     changeBrushHandler();
+    }
   });
 }
+
