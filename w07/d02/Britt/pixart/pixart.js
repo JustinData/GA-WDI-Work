@@ -4,7 +4,16 @@ function attachListener() {
   var colorButton = document.getElementById("set-color");
   colorButton.addEventListener('click', function(){
     newColor = colorField.value;
-    colorDiv.setAttribute("style", "background-color: " + newColor + ";");
+    colorDiv.style.background = newColor;
+    colorField.value = "";
+  });
+
+  colorField.addEventListener('keyup', function(event){
+    if (event.keyCode == 13){
+      newColor = colorField.value;
+      colorDiv.style.background = newColor;
+      colorField.value = "";
+    };
   });
 };
 
