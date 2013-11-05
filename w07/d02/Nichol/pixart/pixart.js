@@ -24,7 +24,12 @@ window.onload = function(){
   for(var i=0; i<20; i++){
     var newDiv = document.createElement("div");
     newDiv.className = "square";
+    newDiv.addEventListener("click", function(){
+      this.style.backgroundColor = "green";
+    });
+
     document.getElementsByTagName("body")[0].appendChild(newDiv);
+
   }
 
 }
