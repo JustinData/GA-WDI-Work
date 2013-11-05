@@ -2,7 +2,6 @@ function setColor(elem){
   var colorField = document.getElementById("color-field");
   var newColor = colorField.value;
   elem.style.background = newColor;
-  colorField.value = "";
 }
 
 function attachListener() {
@@ -11,21 +10,23 @@ function attachListener() {
   var colorButton = document.getElementById("set-color");
   colorButton.addEventListener('click', function(){
     setColor(colorDiv);
+    colorField.value = "";
   });
 
   colorField.addEventListener('keyup', function(event){
     if (event.keyCode == 13){
       setColor();
+      colorField.value = "";
     };
   });
 };
 
-function create20Divs(){
+function create8000Divs(){
   var body = document.querySelector("body");
-  for (i = 0; i < 20; i++) {
+  for (i = 0; i < 8000; i++) {
     var div = document.createElement("div");
     div.classList.add("square");
-    div.addEventListener('click', function(){
+    div.addEventListener('mouseover', function(){
       setColor(this)
     });
     body.appendChild(div);
@@ -34,5 +35,5 @@ function create20Divs(){
 
 window.onload = function(){
   attachListener();
-  create20Divs();
+  create8000Divs();
 };
