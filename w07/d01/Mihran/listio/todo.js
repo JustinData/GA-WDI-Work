@@ -58,10 +58,18 @@ function createNewTask(){
     actions.appendChild(completeButton);
 
     completeButton.addEventListener("click", function(){
-      var id = this.id.split("_")[1];
+      _.each(toDoListArray, function(li,i){
+        li.getElementsByClassName("delete")[0].id="db_" + i ;
+        li.getElementsByClassName("complete")[0].id="cb_" + i ;
+      });
+
+      var id = parseInt(this.id.split("_")[1]);
       completedListArray.push(toDoListArray[id]);
       completedItems.appendChild(toDoListArray[id]);
-      toDoListArray = toDoListArray.slice(id)
+
+      toDoListArray.splice(id, 1);
+      i--;
+      l++; 
     });
 
     deleteButton = document.createElement("button");
@@ -71,9 +79,12 @@ function createNewTask(){
     actions.appendChild(deleteButton);
 
     deleteButton.addEventListener("click", function(){
-      var id = this.id.split("_")[1];
+      var id = parseInt( this.id.split("_")[1] );
+      console.log(id);
       toDoItems.removeChild( toDoListArray[id]);
-      toDoListArray = toDoListArray.slice(id);
+      //console.log("BEFORE SPLICE: " + toDoListArray);
+      toDoListArray.splice(id, 1);
+      //console.log("AFTER SPLICE: " + toDoListArray);
 
       _.each(toDoListArray, function(li,i){
         li.getElementsByClassName("delete")[0].id="db_" + i ;
@@ -81,12 +92,11 @@ function createNewTask(){
       });
       i-- ;
     });
-  
-  field.value = null;
 
-  i++ ;
-
-  }
-
-
+    i++ ;
+    field.value = null;
+  } 
 }
+
+
+// if the id of the ul is 'completed', change the functionality
