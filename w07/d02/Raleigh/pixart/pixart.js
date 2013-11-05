@@ -16,6 +16,19 @@ function changeColor() {
          input.value = "";
       }
    });
+
+   addSquares();
 }
+
+
+function addSquares() {
+   var body = document.querySelector("body");
+   for(i=0; i<=20; i++) {
+      var square = document.createElement("div");
+      square.setAttribute("class", "square");
+      body.appendChild(square);
+   }
+}
+
 
 window.onload = changeColor;
