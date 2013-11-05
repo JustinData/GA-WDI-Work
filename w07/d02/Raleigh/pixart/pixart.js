@@ -1,12 +1,20 @@
 function changeColor() {
    var button = document.getElementById("set-color");
-   
-   button.addEventListener("click", function(user_color){
-      var input = document.getElementById("color-field");
-      var brush = document.querySelector("div.brush");
+   var input = document.getElementById("color-field");
+   var brush = document.querySelector("div.brush");
 
-      brush.setAttribute("style", "background: " + input.value + ";");
+   button.addEventListener('click', function(){
+      // brush.setAttribute("style", "background: " + input.value + ";");
+      brush.style.background = input.value;
       input.value = "";
+   });
+
+   input.addEventListener('keypress', function(e) {
+      var key = e.which || e.keyCode;
+      if(key === 13) { // 13 is enter
+         brush.style.background = input.value;
+         input.value = "";
+      }
    });
 }
 
