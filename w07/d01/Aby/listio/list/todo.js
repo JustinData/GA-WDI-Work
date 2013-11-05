@@ -43,6 +43,10 @@ function addToDo(user_item, ordered_list){
 
 		unordered_list.appendChild(parentLi);
 		div.removeChild(com_button);
+
+		span.innerHTML = "Completed on " + today + " ";
+		div.appendChild(span);
+		div.appendChild(del_button);
 	});
 
   var del_button = document.createElement("button"); // Create delete item button
