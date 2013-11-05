@@ -28,22 +28,39 @@ function addLetter() {
     guessedLetters.innerHTML += letterField.value + " ";
     letterField.value = "";
     window.guesses.push(guessedLetters.innerHTML);
+<<<<<<< HEAD
 } 
+=======
+    counter();
+    } 
+>>>>>>> w07d02
 
 function counter() {
   var unique = _.uniq(guesses.containmentUnit);
   var currentGuesses = _.compact(unique);
   count = currentGuesses.length;
   var guessesLeft = document.querySelector("div#hangman_area");
+<<<<<<< HEAD
   var self = guessesLeft.textContent;
   guessesLeft.textContent = self + " " + (8-count)
   // decrement per each guess:
+=======
+  // var counterDiv = document.createElement("div");
+  // counterDiv.className = "counter-div" 
+  // guessesLeft.appendChild(counterDiv)
+  var counterText = guessesLeft.textContent;
+
+  // decrement per each guess:
+  for (var i = 0; i < 8; i++){
+    guessesLeft.textContent = counterText + " " + (8-count)
+    // guessesLeft.textContent = ""
+  };
+>>>>>>> w07d02
 }
 
 function onLoadFunction() {
   console.log("Loaded");
   addLetter();
-  counter();
 }
 
 window.onload = onLoadFunction;
