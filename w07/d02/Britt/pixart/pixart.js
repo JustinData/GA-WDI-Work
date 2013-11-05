@@ -17,6 +17,16 @@ function attachListener() {
   });
 };
 
+function create20Divs(){
+  var body = document.querySelector("body");
+  for (i = 0; i < 20; i++) {
+    var div = document.createElement("div");
+    div.classList.add("square");
+    body.appendChild(div);
+  };
+};
+
 window.onload = function(){
   attachListener();
-}
+  create20Divs();
+};
