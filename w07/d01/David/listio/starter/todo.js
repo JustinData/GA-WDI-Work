@@ -77,19 +77,34 @@ List.prototype.addToCompleted = function( taskIndex ){
   actionsDivElement.removeChild(actionsDivElement.childNodes[1]);
 
   this.finishedTasksUl.appendChild(completedTask);
-  // this.completed.push(completedTask);
-  // this.tasks.splice( taskIndex ,1);
+  this.completed.push(completedTask);
+  this.tasks.splice( taskIndex ,1);
+  // Add listener
+  deleteBtn.addEventListener('click', function(event){
+    self.deleteTask( tasksIndex );
+  });
 }
 
 List.prototype.deleteTask = function( taskIndex ){
   console.log("delete function: ");
-  console.log("index of post" + taskIndex );
+  console.log(event);
   var deletedTask = this.tasks[taskIndex];
   if (deletedTask.parentNode) {
     deletedTask.parentNode.removeChild(deletedTask);
   }
   this.tasks.splice( taskIndex ,1);
 }
+
+List.prototype.deleteCompletedTask = function( taskIndex ){
+  console.log("delete function: ");
+  console.log(event);
+  var deletedTask = this.tasks[taskIndex];
+  if (deletedTask.parentNode) {
+    deletedTask.parentNode.removeChild(deletedTask);
+  }
+  this.tasks.splice( taskIndex ,1);
+}
+
 
 function currentDate(){
   var today = new Date();

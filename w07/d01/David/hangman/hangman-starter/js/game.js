@@ -26,6 +26,7 @@ HangMan.prototype.initialize = function() {
     console.log(String.fromCharCode(e.keyCode));
     console.log("hello i'm a listener");
     console.log(self);
+    console.log(e);
     self.playGame(String.fromCharCode(e.keyCode));
     self.letterInput.value = "";
   }, this);
