@@ -14,6 +14,13 @@ Art.prototype.initialize = function() {
     event.preventDefault();
     self.changeColor( self.valueWindow.value );
   });
+  /******** Alternative method for submiting with return or click *********/
+  // this.valueWindow.addEventListener('keypress' function(e){
+  //   var key = e.which || e.keycode;
+  //   if (key === 13){
+  //     self.changeColor( self.valueWindow.value );
+  //   }
+  // });
 }
 
 Art.prototype.changeColor = function( colorStr ) {
@@ -27,6 +34,10 @@ Art.prototype.createDiv = function() {
     var divSquare = document.createElement("div");
     divSquare.className = "square";
     body.appendChild(divSquare);
+    // must use this inside the listener because the divSquare variable changes every time through the loop
+    divSquare.addEventListener('click', function() {
+      this.style.background = "green";
+    });
   }
 }
   
