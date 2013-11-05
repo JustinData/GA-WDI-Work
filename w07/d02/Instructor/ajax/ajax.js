@@ -1,21 +1,34 @@
-window.onload = function() {
-  console.log("Loaded!");
+window.onload = function(){
+
 }
 
-function getMovie(movie) {
+function getMovie(movie, callback){
+  // set window. to make it accessible within console
   window.httpRequest = new XMLHttpRequest();
 
-  console.log("Before request.");
-  console.log(httpRequest.responseText);
-
+  // listens to Load event before doing this
   httpRequest.addEventListener("load", function(){
-    console.log("After Load.");
-    console.log(httpRequest.responseText);
+      callback(JSON.parse(httpRequest.responseText));
   });
 
   httpRequest.open("GET", "http://www.omdbapi.com/?t=" + movie);
   httpRequest.send();
-
-  console.log("After request.");
-  console.log(httpRequest.responseText);
 }
+
+function displayMovie(movie){
+  var img = document.createElement("img");
+  img.src = movie.Poster;
+  document.body.appendChild(img);
+}
+
+function alertYear(movie) {
+  alert(movie.Title + " was made in " + movie.Year);
+}
+
+
+
+
+
+
+
+
