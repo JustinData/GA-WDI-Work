@@ -126,6 +126,7 @@ window.onload = function() {
 
   var inputBox = document.getElementById("letter_field");
   inputBox.addEventListener('keypress', function keyUpEvent(e) {
+    e.preventDefault();
     // keystroke is captured by chr
     var chr = String.fromCharCode(e.keyCode);
     game.makeGuess(chr);
