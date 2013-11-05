@@ -28,14 +28,15 @@ inputField.addEventListener('keyup', function(event){
 function makeDiv(){
   
   var count = 0
-  while(count <= 20){
+  while(count <= 8000){
   var div = document.createElement("div");
   div.setAttribute("class", "square");
-  document.body.appendChild(div);
-  div.addEventListener("click", function(){
+  // document.body.appendChild(div);
+  div.addEventListener("mouseover", function(){
     var color = inputField.value;
     this.style.background = color;
   })
+  document.body.appendChild(div);
   count ++;
   }
 
@@ -46,21 +47,7 @@ makeDiv();
 
 }
 
-// function makeDiv(){
-  
-//   var count = 0
-//   while(count <= 20){
-//   var div = document.createElement("div");
-//   div.setAttribute("class", "square");
-//   document.body.appendChild(div);
-//   div.addEventListener("click", function(){
-//     var color = inputField.value;
-//     this.style.background = color;
-//   })
-//   count ++;
-//   }
 
-// }
 
 
 
