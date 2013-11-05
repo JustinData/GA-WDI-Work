@@ -20,12 +20,15 @@ function setColor(){
     }
   });
 
-
   for (var i = 0; i < 20; i++){
     var box = document.createElement("div");
     box.className = "square";
-    document.body.appendChild(box);
+    box.addEventListener("click", function() {
+      this.style.background = "green";
+    });
+      document.body.appendChild(box);
   }
+
 }
 
 
