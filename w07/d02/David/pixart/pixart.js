@@ -8,8 +8,10 @@ Art.prototype.initialize = function() {
   this.valueWindow = document.getElementById("color-field");
   this.submitButton = document.getElementById("set-color");
   this.colorBox = document.querySelector("div.brush");
+  this.form = document.getElementById("color-form");
   var self = this;
-  this.submitButton.addEventListener('click', function(event) {
+  this.form.addEventListener('submit', function(event) {
+    event.preventDefault();
     self.changeColor( self.valueWindow.value );
   });
 }
