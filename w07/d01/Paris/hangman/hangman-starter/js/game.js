@@ -12,6 +12,8 @@
 
 function GuessContainer() {
   this.containmentUnit = [];
+  this.word_array = ["hash", "array", "ajax", "javascript"]
+
 }
 
 GuessContainer.prototype.push = function(guess) {
@@ -23,26 +25,19 @@ window.guesses = new GuessContainer();
 function addLetter() {
   var guessedLetters = document.querySelector("div#guessed_letters");
   var letterField = document.querySelector("input#letter_field")
-    guessedLetters.innerHTML = letterField.value;
+    guessedLetters.innerHTML += letterField.value + " ";
+    letterField.value = "";
     window.guesses.push(guessedLetters.innerHTML);
-    } 
+} 
 
 function counter() {
   var unique = _.uniq(guesses.containmentUnit);
   var currentGuesses = _.compact(unique);
   count = currentGuesses.length;
-  // counter = (8 - count);
   var guessesLeft = document.querySelector("div#hangman_area");
-  // var counterDiv = document.createElement("div");
-  // counterDiv.className = "counter-div" 
-  // guessesLeft.appendChild(counterDiv)
   var self = guessesLeft.textContent;
   guessesLeft.textContent = self + " " + (8-count)
   // decrement per each guess:
-  _.each(guesses.containmentUnit, function(count){
-    self + " " + (8-count)
-  });
-
 }
 
 function onLoadFunction() {
