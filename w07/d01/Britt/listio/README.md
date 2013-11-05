@@ -15,8 +15,8 @@ To help stay focused and organized, use user stories to guide how you work throu
 
 <!-- * As a user, I want to be able to enter a To Do item and add it on my To Do List -->
 <!-- * As a user, I want to be able to delete an item from my ToDo List -->
-* As a user, I want to be able to move a To Do item to my completed tasks list
-* As a user, I want to be able to delete an item from my completed tasks list
+<!-- * As a user, I want to be able to move a To Do item to my completed tasks list -->
+<!-- * As a user, I want to be able to delete an item from my completed tasks list -->
 * As a user, I want to validate my to do items to make sure i don't accidentally enter a blank item
 * As a user, I want to be able to create To Do items by pressing "enter" on my keyboard so I don't have to click the button every time
 

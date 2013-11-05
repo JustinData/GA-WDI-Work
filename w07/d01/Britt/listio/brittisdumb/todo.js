@@ -2,7 +2,6 @@
 function ListItem( taskString ) {
   this.task = taskString;
   this.dateCreated = getTodaysDate();
-  // this.dateCompleted = new Date("IDK");
 };
 
 // List Object constructor
@@ -96,6 +95,8 @@ ToDoList.prototype.createAndAppendListElement = function( itemObject, elementCla
 
   if (self.name === "Completed") {
     actionsDiv.removeChild( completedButton );
+    itemObject.dateCompleted = getTodaysDate();
+    metaDataSpan.innerHTML = "Completed on " + itemObject.dateCompleted;
   };
 };
 
