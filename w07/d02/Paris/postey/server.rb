@@ -8,5 +8,8 @@ end
 
 
 post "/" do
+  # accept JSON or
+  # accept XML or
+  
   binding.pry
 end

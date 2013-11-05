@@ -25,6 +25,7 @@ function addLetter() {
   var letterField = document.querySelector("input#letter_field")
     guessedLetters.innerHTML = letterField.value;
     window.guesses.push(guessedLetters.innerHTML);
+    counter();
     } 
 
 function counter() {
@@ -36,19 +37,18 @@ function counter() {
   // var counterDiv = document.createElement("div");
   // counterDiv.className = "counter-div" 
   // guessesLeft.appendChild(counterDiv)
-  var self = guessesLeft.textContent;
-  guessesLeft.textContent = self + " " + (8-count)
-  // decrement per each guess:
-  _.each(guesses.containmentUnit, function(count){
-    self + " " + (8-count)
-  });
+  var counterText = guessesLeft.textContent;
 
+  // decrement per each guess:
+  for (var i = 0; i < 8; i++){
+    guessesLeft.textContent = counterText + " " + (8-count)
+    // guessesLeft.textContent = ""
+  };
 }
 
 function onLoadFunction() {
   console.log("Loaded");
   addLetter();
-  counter();
 }
 
 window.onload = onLoadFunction;
