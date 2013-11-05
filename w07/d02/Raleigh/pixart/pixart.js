@@ -23,9 +23,13 @@ function changeColor() {
 
 function addSquares() {
    var body = document.querySelector("body");
-   for(i=0; i<=20; i++) {
+   for(i=0; i<=25; i++) {
       var square = document.createElement("div");
       square.setAttribute("class", "square");
+      // square.className = "square";
+      square.addEventListener('click', function(){
+         this.style.background = "MediumSpringGreen";
+      });
       body.appendChild(square);
    }
 }
