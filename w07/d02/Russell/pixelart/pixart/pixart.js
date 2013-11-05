@@ -25,8 +25,8 @@ window.onload = function() {
       box.className = 'square';
       document.body.appendChild(box);
       box.addEventListener('click', function(){
-      var boxcolor = "green";
-      this.style.background = boxcolor;
+      var color = inputField.value
+      this.style.background = color;
       })
     }
 
