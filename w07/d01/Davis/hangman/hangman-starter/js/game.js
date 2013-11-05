@@ -103,10 +103,10 @@ Game.prototype.makeGuess = function(letter) {
 
       this.renderGuessesLeft();
     } else {
-      alert("Sorry, no guesses left you fucker");
+      alert("Sorry, no guesses.");
     }
   } else {
-    alert("Letters not phrases you retarded bitch");
+    alert("Letters not phrases please.");
   }
 
 
