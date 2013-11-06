@@ -72,10 +72,24 @@ function onLoadFunction() {
   sp.innerHTML = "8";
   addUnderscores();
 
-  button = document.getElementById("give_up_button");
-  button.addEventListener('click', function() {
+  buttonGiveUp = document.getElementById("give_up_button");
+  buttonGiveUp.addEventListener('click', function() {
   console.log("button's working!")
   spaces.innerHTML = word
+  }); 
+
+  buttonRestart = document.getElementById("reset_button");
+  buttonRestart.addEventListener('click', function() {
+  var guessedLetters = document.querySelector("div#guessed_letters");
+  var letterField = document.querySelector("input#letter_field")
+  console.log("button's working!")
+  sp.innerHTML = "8";
+  // letterField.value = "";
+  spaces.innerHTML = "";
+  addUnderscores();
+  guessedLetters.innerHTML = ""
+  game.containmentUnit = []
+
   }); 
 }
 
