@@ -1,15 +1,20 @@
+// Create a game object called GuessContainer
 function GuessContainer() {
   this.containmentUnit = [];
   this.wordArray = []
 }
 
+// Create a method on our game object to 'save' guessed letters in an array.
 GuessContainer.prototype.push = function(guess) {
   this.containmentUnit.push(guess);
 }
 
+// Create an instance of the game object called Game
 window.game = new GuessContainer();
+// Create an array of words on the Game object.
 window.game.wordArray =  ["hash", "array", "ajax", "javascript", "object", "attributes"]
 
+// Grab the letter from the input field and add to the guessed letter field.
 function addLetter() {
   var guessedLetters = document.querySelector("div#guessed_letters");
   var letterField = document.querySelector("input#letter_field")
@@ -17,21 +22,16 @@ function addLetter() {
   console.log( "INPUT TO EVENT LISTENER: '" + letterField.value + "'" )
 
   if ((letterField.value === '') || (game.containmentUnit.indexOf(letterField.value) > -1 )){
+    
     //do nothing!
-  } else { // WE GET HERE IF INPUT IS NEW LETTER!
 
-    // if  {  
-    // ADDING LETTER TO GUESSED LETTER, SETTING INNERHTML OF GUESSED LETTERS, AND EMPTYING THE LETTER INPUT
+  } else { // We get here if the input is a new letter
     window.game.push(letterField.value);
     guessedLetters.innerHTML = game.containmentUnit.join(" ");
 
-    // } else if {
-    //ELSE IF CORRECT GUESS WE...  
-    //if input letter does belong to the word, fill the blanks where that letter is
+    // We match correct letters to the underline spaces:
     currentWordArray = _.toArray(word);
-    console.log(currentWordArray)
     if (currentWordArray.indexOf(letterField.value) > -1) {
-      console.log("found it!");
       _.each(currentWordArray, function(e, i) {
         if ( e == letterField.value) {
           textArr = spaces.innerHTML.split("")
@@ -40,17 +40,22 @@ function addLetter() {
         }
       });
     }
+    // Clear the input field after a lettered is entered.
     letterField.value = "";
   } // -------------------------------------------
 
-    // REGARDLESS OF INPUT, WE SET THE INNERHTML OF GUESSES LEFT...
-    var sp = document.getElementById("guesses_left");
-    // console.log(sp);
-    // console.log( letterField.value + " ");
-    sp.innerHTML = 8 - game.containmentUnit.length; 
+    // Set the counter to decrement from 8.
+    if (currentWordArray.indexOf(letterField.value) > -1) {
+      // do nothing
+    } else {
+      var sp = document.getElementById("guesses_left");
+      sp.innerHTML = 8 - game.containmentUnit.length; 
+    };  
   });
+
 } 
 
+// add underscores to the game play space
 function addUnderscores() {
   wordArray = game.wordArray;
   word = _.sample(wordArray);
@@ -65,19 +70,20 @@ function addUnderscores() {
 
 }
 
+
 function onLoadFunction() {
   console.log("Loaded");
   addLetter();
   var sp = document.getElementById("guesses_left");
   sp.innerHTML = "8";
   addUnderscores();
-
+ // load Give Up button 
   buttonGiveUp = document.getElementById("give_up_button");
   buttonGiveUp.addEventListener('click', function() {
   console.log("button's working!")
   spaces.innerHTML = word
   }); 
-
+  // load Restart button 
   buttonRestart = document.getElementById("reset_button");
   buttonRestart.addEventListener('click', function() {
   var guessedLetters = document.querySelector("div#guessed_letters");
