@@ -20,12 +20,17 @@ function getUser(handle){
 
 function displayUser(handle){
    var div = document.createElement("div");
+   div.className = "user";
    var image = document.createElement("img");
    image.src = handle["avatar_url"];
    var h2 = document.createElement("h2");
    var link = document.createElement("a");
    link.href = handle["html_url"];
-   link.innerHTML = handle["login"];
+   link.textContent = handle["login"];
+
+   image.addEventListener("dblclick", function(){
+      document.body.removeChild(this.parentNode);
+   });
 
    h2.appendChild(link);
    div.appendChild(image);
