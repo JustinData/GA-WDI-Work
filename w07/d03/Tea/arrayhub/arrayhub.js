@@ -27,10 +27,22 @@ function createUserDiv(username){
   var div = window.document.createElement("div");
   div.className = "user";
   document.body.appendChild(div);
+
   // user image
   var img = window.document.createElement("img");
   img.src = username.avatar_url;
   div.appendChild(img);
+
+  //add listener to Div to make it removable on two clicks
+  img.addEventListener("dblclick", function(){
+    document.body.removeChild(this.parentNode);
+  });
+
+  //image rollover effect
+  img.addEventListener("mouseover", function(){
+    console.log(username.name);
+  })
+
   //user name & link to Github
   var h2 = window.document.createElement("h2");
   var a = window.document.createElement("a");
