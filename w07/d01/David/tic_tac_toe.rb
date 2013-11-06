@@ -74,6 +74,8 @@ class Board
     @win = true if @board[2][2] == @board[1][1] && @board[1][1] == @board[0][2] && !@board[2][2].nil?
   end
 
+
+  #### optimized solution
   def player
     @player = -(@player)
   end

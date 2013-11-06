@@ -24,8 +24,6 @@ window.onload = function() {
   // ADD EVENT LISTENER TO FORM TO SUBMIT UPON ENTER
   inputField.addEventListener("keypress", function(e) {
     var key = e.which || e.keycode
-    if (key === 13) {
-      setColor(); 
     }
   });
 
