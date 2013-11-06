@@ -22,16 +22,12 @@ function startGame() {
         $(cardBox).append(card);
       };
     });
-    // get card ID and set it to a shuffled letter
+    // Code that runs when you click on a card
     $(cardBox).on( "click", "div", function(){
-      console.log(shuffled[this.id]);
+      var letter = shuffled[this.id]
+      console.log(letter);
+      // display letter to viewer
+      $(this).html(letter);
     });
   }
 
-
-// //Code that runs when you click on a card
-function cardClick(lala) {
-
-    alert(shuffled[lala.id]);
-
-}
