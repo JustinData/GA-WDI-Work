@@ -34,7 +34,7 @@ function createTask(){
       span.className = "meta-data"; 
       completeButton.className = "complete"; 
       deleteButton.className = "delete"; 
-
+`
       completeButton.innerHTML = "complete"; 
       deleteButton.innerHTML = "delete";
       li.innerHTML = newTaskField.value;
