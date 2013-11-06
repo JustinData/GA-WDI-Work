@@ -9,19 +9,29 @@ function HangMan(){
 var newGame = new HangMan();
 
 HangMan.prototype.initialize = function() {
+
+  // alias commonly accessed DOM elements
   this.letterInput = document.getElementById("letter_field");
   this.guessedLettersWindow = document.getElementById("guessed_letters");
   this.remainingGuessesElement = document.getElementById("guesses_left");
   this.giveUpBtn = document.getElementById("give_up_button");
   this.resetBtn = document.getElementById("reset_button");
   this.wordDisplay = document.getElementById("word_string");
+
+  // get random word from wordlist
   this.randomIndex = _.random(0, this.wordList.length);
   this.randomWord = this.wordList[this.randomIndex];
   this.randomWordLength = this.randomWord.length;
   // this.remainingGuesses = this.randomWordLength;
+
+  // inititalize remaining guesses span
   this.remainingGuessesElement.innerHTML = this.remainingGuesses;
+
+  // makes an array equal to the length of the random word, and display on page
   _(this.randomWordLength).times(function(){ this.correctLetterArray.push("_"); }, this);
   this.wordDisplay.innerHTML = this.correctLetterArray.join(" ");
+
+  // add event listeners to this object (aliased as self for simplicity's sake)
   var self = this;
   this.letterInput.addEventListener('keyup', function(e) {
     self.playGame((String.fromCharCode(e.keyCode)).toLowerCase());
@@ -33,6 +43,7 @@ HangMan.prototype.initialize = function() {
   this.resetBtn.addEventListener('click', function(){
     location.reload();
   });
+
 }
 
 HangMan.prototype.playGame = function(key) {
@@ -65,7 +76,7 @@ HangMan.prototype.playGame = function(key) {
   }
 }
 
-HangMan.prototype.giveUp = function(key){
+HangMan.prototype.giveUp = function(){
   this.wordDisplay.innerHTML = this.randomWord;
 }
 
