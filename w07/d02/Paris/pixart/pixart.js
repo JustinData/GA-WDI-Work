@@ -5,9 +5,10 @@ window.onload = function() {
   var button = document.getElementById("set-color");
   // square color
   var brush = document.querySelector(".brush");
+  var color = "#1B4370"
 
 function setColor(){
-  var color = inputField.value;
+  color = inputField.value;
   // set the background to the input value 
   brush.style.background = color;
 }
@@ -27,24 +28,31 @@ inputField.addEventListener('keypress', function(e){
 });
 
 // make 20 square divs
-for (var i = 0; i < 20; i++){
+for (var i = 0; i < 8000; i++){
   var body = document.querySelector("body");
   var box = document.createElement("div");
   box.className = "square";
-
   // turn box green when you click on the box
-  box.addEventListener('click', function(){
-  this.style.background = "green";
+  box.addEventListener('mouseover', function(){
+    this.style.background = color;
   });
   document.body.appendChild(box);
+}
 
 }
 
+// 
 
+function Swatch() {
+  this.colorList = [];
 }
 
+// BONUS
+// Swatch.prototype.push = function (color){
+//   this.colorList.push(color);
+// }
 
-
+// create three new divs called .swatch 
 
 
 
