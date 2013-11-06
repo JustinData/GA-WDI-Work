@@ -50,6 +50,10 @@ function appendGithub(account){
     document.body.removeChild(thisAccount);
   });
 
+  img.addEventListener("mouseover", function(){
+    console.log(account.name)
+  });
+
   h2.appendChild(a);
   div.appendChild(img);
   div.appendChild(h2);
