@@ -12,10 +12,6 @@ function attachListeners(){
     var handle = searchBar.value;
     displayGithub(handle);
   });
-
-  // add event listener to search bar for enter keyup event
-
-  // both: grab input, check value, and pass to getGithub(handle)
 };
 
 function getGithub(handle, callback){
@@ -33,26 +29,27 @@ function getGithub(handle, callback){
 
 function appendGithub(account){
   var div = document.createElement("div");
-  var img = document.createElement("img");
-  var h2 = document.createElement("h2");
-  var a = document.createElement("a");
-
   div.class = "user";
   div.id = account.login;
-  img.src = account.avatar_url;
-  a.href = account.html_url;
-  a.target = "_blank"
-  a.innerHTML = account.login;
 
-  // addEventListener to img tag, "dblclick", to removeChild from body
+  var img = document.createElement("img");
+  img.src = account.avatar_url;
+  
   img.addEventListener("dblclick", function(){
     var thisAccount = document.querySelector("div#" + account.login);
     document.body.removeChild(thisAccount);
   });
 
   img.addEventListener("mouseover", function(){
-    console.log(account.name)
+    console.log(account.name);
   });
+
+  var h2 = document.createElement("h2");
+
+  var a = document.createElement("a");
+  a.href = account.html_url;
+  a.target = "_blank";
+  a.innerHTML = account.login;
 
   h2.appendChild(a);
   div.appendChild(img);
