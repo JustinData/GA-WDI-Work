@@ -7,8 +7,8 @@ GuessContainer.prototype.push = function(guess) {
   this.containmentUnit.push(guess);
 }
 
-window.guesses = new GuessContainer();
-window.guesses.wordArray =  ["hash", "array", "ajax", "javascript", "object", "attributes"]
+window.game = new GuessContainer();
+window.game.wordArray =  ["hash", "array", "ajax", "javascript", "object", "attributes"]
 
 function addLetter() {
   var guessedLetters = document.querySelector("div#guessed_letters");
@@ -16,14 +16,14 @@ function addLetter() {
   letterField.addEventListener("keypress", function(event) {
   console.log( "INPUT TO EVENT LISTENER: '" + letterField.value + "'" )
 
-  if ((letterField.value === '') || (guesses.containmentUnit.indexOf(letterField.value) > -1 )){
+  if ((letterField.value === '') || (game.containmentUnit.indexOf(letterField.value) > -1 )){
     //do nothing!
   } else { // WE GET HERE IF INPUT IS NEW LETTER!
 
     // if  {  
     // ADDING LETTER TO GUESSED LETTER, SETTING INNERHTML OF GUESSED LETTERS, AND EMPTYING THE LETTER INPUT
-    window.guesses.push(letterField.value);
-    guessedLetters.innerHTML = guesses.containmentUnit.join(" ");
+    window.game.push(letterField.value);
+    guessedLetters.innerHTML = game.containmentUnit.join(" ");
 
     // } else if {
     //ELSE IF CORRECT GUESS WE...  
@@ -47,12 +47,12 @@ function addLetter() {
     var sp = document.getElementById("guesses_left");
     // console.log(sp);
     // console.log( letterField.value + " ");
-    sp.innerHTML = 8 - guesses.containmentUnit.length; 
+    sp.innerHTML = 8 - game.containmentUnit.length; 
   });
 } 
 
 function addUnderscores() {
-  wordArray = guesses.wordArray;
+  wordArray = game.wordArray;
   word = _.sample(wordArray);
   console.log(word);
   numberOfCharacters = word.length;
@@ -71,6 +71,12 @@ function onLoadFunction() {
   var sp = document.getElementById("guesses_left");
   sp.innerHTML = "8";
   addUnderscores();
+
+  button = document.getElementById("give_up_button");
+  button.addEventListener('click', function() {
+  console.log("button's working!")
+  spaces.innerHTML = word
+  }); 
 }
 
 window.onload = onLoadFunction;
