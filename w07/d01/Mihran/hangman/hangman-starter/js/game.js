@@ -49,11 +49,12 @@ window.onload = function(){
 
   giveUpButton = document.getElementById("give_up_button");
   giveUpButton.addEventListener("click", function(){
-    underscores.innerHTML = currentWordArray
+    underscores.innerHTML = currentWord
   })
   resetButton = document.getElementById("reset_button");
   resetButton.addEventListener("click", function(){
-    underscores.innerHTML = ""
+    guessedLetters.innerHTML = null;
+    underscores.innerHTML = null
     newGame();
   })
 }
