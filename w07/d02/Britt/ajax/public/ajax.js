@@ -20,4 +20,9 @@ function postData(formElem){
 
   var serializedData = new FormData(formElem);
   httpRequest.send(serializedData);
+
+  httpRequest.addEventListener("load", function(){
+    window.response = this.responseText;
+  });
 };
+
