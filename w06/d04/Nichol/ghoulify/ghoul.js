@@ -60,3 +60,26 @@ function appendLi (string){
 
 var prompt = ["get em!", "who's next?!", "on your right!", "containify, god damn it!", "ghoul.ly ghoul.ly", "eat your brains!", "zombie!"];
 
+/*
+
+function(e){
+  e.preventDefault();
+} 
+
+(overrides the action of the form)
+
+
+//experiment on getting values out by using different getElement statements
+
+test = document.getElementsByName("ghoulName");
+test2 = document.querySelector("form.add-ghouls");
+test3 = document.getElementsByClassName("add-ghouls");
+
+test[0].value
+test2.elements["ghoulName"].value;
+test3[0].elements[0].value
+
+
+
+
+*/
