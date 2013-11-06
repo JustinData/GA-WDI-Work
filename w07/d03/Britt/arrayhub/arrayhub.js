@@ -18,6 +18,23 @@ function getGithub(handle){
   var httpReq = new XMLHttpRequest();
   httpReq.open(apiAddress);
   httpReq.send();
-  var parsed = JSON.parse(httpReq.responseText);
-  return parsed
+  var account = JSON.parse(httpReq.responseText);
+  return account
+};
+
+function displayGithub(account){
+  var div = document.createElement("div");
+  var img = document.createElement("img");
+  var h2 = document.createElement("h2");
+  var a = document.createElement("a");
+
+  div.class = "user";
+  img.src = account.avatar_url;
+  a.href = account.url;
+  a.innerHTML = account.login;
+
+  h2.appendChild(a);
+  div.appendChild(img);
+  div.appendChild(h2);
+  document.body.appendChild(div);
 };
