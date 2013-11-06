@@ -33,3 +33,17 @@ table {
   opacity: 0.5;
   transition: 500;
 }
+
+.black{
+  background-color: black;
+}
+
+.red{
+  background-color: red;
+}
+
+onclick will:
+- change counter 
+- will change class 
+- 
+
