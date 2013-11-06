@@ -11,3 +11,11 @@
   </label>
   <button>Save</button>
 </form>
+
+<h4>Posts</h4>
+<ul>
+  <% @posts.each do |post| %>
+    <li>Title: <%= post[:title] %></li>
+    <br>
+  <% end %>
+</ul>
