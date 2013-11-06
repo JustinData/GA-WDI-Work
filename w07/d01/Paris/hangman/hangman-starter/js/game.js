@@ -25,25 +25,31 @@ window.guesses = new GuessContainer();
 function addLetter() {
   var guessedLetters = document.querySelector("div#guessed_letters");
   var letterField = document.querySelector("input#letter_field")
-    guessedLetters.innerHTML += letterField.value + " ";
-    letterField.value = "";
-    window.guesses.push(guessedLetters.innerHTML);
+  letterField.addEventListener("keypress", function(event) {
+    console.log( "INPUT TO EVENT LISTENER: '" + letterField.value + "'" )
+
+    if ((letterField.value === '') || (guesses.containmentUnit.indexOf(letterField.value) > -1 )){
+      //do nothing!
+    } else {
+      window.guesses.push(letterField.value);
+      //console.log( guesses.containmentUnit );
+      guessedLetters.innerHTML = guesses.containmentUnit.join(" ");
+      letterField.value = "";
+    }
+    var sp = document.getElementById("guesses_left");
+    console.log(sp);
+    console.log( letterField.value + " ")
+    sp.innerHTML = 8 - guesses.containmentUnit.length; 
+  });
 } 
 
 
-function counter() {
-  var unique = _.uniq(guesses.containmentUnit);
-  var currentGuesses = _.compact(unique);
-  count = currentGuesses.length;
-  var guessesLeft = document.querySelector("div#hangman_area");
-  var self = guessesLeft.textContent;
-  guessesLeft.textContent = self + " " + (8-count)
-  // decrement per each guess:
-}
 
 function onLoadFunction() {
   console.log("Loaded");
   addLetter();
+  var sp = document.getElementById("guesses_left");
+  sp.innerHTML = "8";
 }
 
 window.onload = onLoadFunction;
