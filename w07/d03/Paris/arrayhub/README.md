@@ -56,3 +56,7 @@ Warmup to practice AJAX using XMLHttpRequest & review JavaScript
 ###Bonus
 
 * When I mouse over on the image of a user, console log what their name is. (ie mine would be "Peter Lai" NOT "peterylai")
+
+
+
+
