@@ -26,9 +26,6 @@ function postData(formElement) {
       li.innerHTML = "Title " + posts[i].title + " " + "Content " + posts[i].content;
       ul.appendChild(li);
     }
-
-    
-
   });
 
   httpRequest.open("POST", "/");
