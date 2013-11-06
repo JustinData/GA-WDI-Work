@@ -8,17 +8,23 @@ function submitForm(formElement) {
     event.preventDefault();
     console.log("FORM SUBMITTED!");
     postData(this);
+    this.reset();
   });
 }
 
 function postData(formElement) {
   var httpRequest = new XMLHttpRequest();
 
-  //httpRequest.addEventListener("load", callback);
+  httpRequest.addEventListener("load", function(){
+  window.response = this.responseText;
+  
+  //getsresponse from server
+    //console.log(this.responseText);
+  });
 
   httpRequest.open("POST", "/");
 
   var serializedData = new FormData(formElement);
   httpRequest.send(serializedData);
-}
 
+}
