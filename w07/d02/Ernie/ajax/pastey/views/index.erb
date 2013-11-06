@@ -7,3 +7,12 @@
 <textarea name="content"  cols="30" rows="10"></textarea>
 <button>SAVE!</button>
 </form>
+
+<h4>Posts</h4>
+<ul>
+
+  <% @posts.each do |post| %>
+  <li>Title:<%= post[:title] %>, Content: <%= post[:content] %></li>
+  <% end %> 
+
+</ul>

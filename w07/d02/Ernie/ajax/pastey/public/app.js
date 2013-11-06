@@ -1,5 +1,6 @@
 window.onload = function () {
   console.log('loaded');
+  submitForm(document.querySelector('form'));
 }
 
 function submitForm (formElement) {
@@ -7,13 +8,17 @@ function submitForm (formElement) {
     event.preventDefault();
     console.log('Form Submitted');
     postData(this);
+    this.reset();
   });
 }
 
 function postData (formElement) {
   var httpRequest = new XMLHttpRequest();
 
-  //httpRequest.addEventListener('load', callback );
+httpRequest.addEventListener('load', function(){
+  window.response = this.responseText;
+  console.log(this.responseText);
+});
 
   httpRequest.open("POST", '/');
 
