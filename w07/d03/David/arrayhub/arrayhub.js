@@ -35,5 +35,9 @@ function displayUser(handleObj){
   h2.appendChild(userLink);
   userDiv.appendChild(h2)
   document.body.appendChild(userDiv);
+
+  userImg.addEventListener("dblclick", function(){
+    userDiv.remove();
+  });
 }
 
