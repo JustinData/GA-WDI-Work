@@ -20,11 +20,11 @@ function startGame() {
       for(var i=0; i < 10; i ++){
         var card = $("<div>").attr("id", i).attr("class", "column");
         $(cardBox).append(card);
-        cardObj = $(".column");
       };
     });
+    // get card ID and set it to a shuffled letter
     $(cardBox).on( "click", "div", function(){
-      console.log(this.id);
+      console.log(shuffled[this.id]);
     });
   }
 
@@ -32,6 +32,6 @@ function startGame() {
 // //Code that runs when you click on a card
 function cardClick(lala) {
 
-    alert(this.id);
+    alert(shuffled[lala.id]);
 
 }
