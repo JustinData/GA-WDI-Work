@@ -3,10 +3,11 @@ window.onload = function() {
   var button = document.getElementById("set-color");
   var brush= document.querySelector(".brush");
   var square = document.querySelector(".square");
-
+  var color = '#184370';
+  
 
   function setColor(){
-      var color = inputField.value;
+      color = inputField.value
       brush.style.background = color;
   }
   button.addEventListener('click', function(){
@@ -20,12 +21,11 @@ window.onload = function() {
       setColor();
     }
       });
-    for (var i = 0; i<20; i++){
+    for (var i = 0; i<8000; i++){
       var box = document.createElement('div');
       box.className = 'square';
       document.body.appendChild(box);
-      box.addEventListener('click', function(){
-      var color = inputField.value
+      box.addEventListener('mouseover', function(){
       this.style.background = color;
       })
     }
