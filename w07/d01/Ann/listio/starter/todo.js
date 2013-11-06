@@ -9,7 +9,12 @@ window.onload = function() {
   var completedItems = document.querySelector("completed_items");
   var counter = 0;
 
-  
+  newTaskField.addEventListener('keypress', function (e) {
+    var key = e.which || e.keyCode;
+    if (key == 13) { createTask();
+    newTaskField.value = null;
+    }
+  });
 
 function createTask(){
 
