@@ -6,7 +6,7 @@ require 'pry'
 posts =  [{title: "First Post", content: "OMG"}]
 
 get '/' do 
-  @posts = posts
+  # @posts = posts
   erb :index
 end
 
