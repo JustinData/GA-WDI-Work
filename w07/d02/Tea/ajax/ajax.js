@@ -16,11 +16,19 @@ function getMovie(movie, callback){
 }
 
 function displayMovie(movie){
-  var img = window.document.createElement("img");
+  var img = document.createElement("img");
   img.src = movie.Poster;
   document.body.appendChild(img);
 }
 
-function alertYear(movie){
+function alertYear(movie) {
   alert(movie.Title + " was made in " + movie.Year);
 }
+
+
+
+
+
+
+
+
