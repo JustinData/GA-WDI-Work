@@ -38,12 +38,17 @@ function appendGithub(account){
   var a = document.createElement("a");
 
   div.class = "user";
+  div.id = account.login;
   img.src = account.avatar_url;
   a.href = account.html_url;
   a.target = "_blank"
   a.innerHTML = account.login;
 
   // addEventListener to img tag, "dblclick", to removeChild from body
+  img.addEventListener("dblclick", function(){
+    var thisAccount = document.querySelector("div#" + account.login);
+    document.body.removeChild(thisAccount);
+  });
 
   h2.appendChild(a);
   div.appendChild(img);
