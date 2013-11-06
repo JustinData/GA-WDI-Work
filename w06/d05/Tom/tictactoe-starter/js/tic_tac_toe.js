@@ -10,17 +10,12 @@ function Game() {
 function setColor() {
   var cells = document.getElementsByClassName("box_cell");
     var toggleColor = function() {
-      if(turn%2==0){
-          this.style.backgroundColor = "red";
-        } else {
-          this.style.backgroundColor = "black";
-        }
-      }
-        _.each(cells, function(cell) {
+      this.style.backgroundColor = "red";
+    }
+      _.each(cells, function(cell) {
         cell.addEventListener("click", toggleColor);
       });
 }
-
 
   // check to see if there is a winner.  Horizontal, vertical and diaganol
 function checkWinner() {
