@@ -14,14 +14,10 @@ $( function(){
 
     var topCat = ev.pageY / 6;
     var leftCat = ev.pageX / 6;
-
     var topDog = ev.pageY / 6;
     var leftDog = ev.pageX / 9;
-
     var topPanda = ev.pageY / 6;
     var leftPanda = ev.pageX / 13;
-
-
 
     $("img.cat").css( {"margin-top": topCat, "margin-left": leftCat} );
     $("img.dog").css( {"margin-top": topDog, "margin-left": leftDog} );
@@ -30,5 +26,9 @@ $( function(){
 
   $("img").mouseleave( function(){
     $("h1#coords").text("Coordinates?");
+  } );
+
+  $("img").click( function(){
+    $(this).toggleClass("border");
   } );
 } )
