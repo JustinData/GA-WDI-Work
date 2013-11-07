@@ -11,8 +11,10 @@ $(function(){
 var letters = ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E' ];
 var shuffled = _.shuffle(letters);
 //Id of the last card you clicked on.
-var lastCardId = ''
-var clicks = 0;
+var lastCardId = '';
+var lastCardLetter = '';
+var lastCard;
+var score = 0;
 // Code that runs to set up the game
 function startGame() {
     var cardBox = $(document.body.querySelector("#game"));
@@ -24,23 +26,42 @@ function startGame() {
     });
     // Code that runs when you click on a card
     cardBox.on( "click", "div", function(){
+      console.log("last card Id" + lastCardId);
       var letterId = this.id
       var letter = shuffled[letterId]
       console.log(letter);
       // display letter to viewer
-      lastCard = $(this);
-      lastCard.html(letter);
-      var lastCard = $(document.getElementById(lastCardId));
-      lastCardId = letterId;
-      console.log(lastCardId);
-      clicks++;
-      console.log(lastCard);
-      console.log("clicks = " + clicks);
+      thisCard = $(this);
+      thisCard.html(letter);
+      thisCardId = letterId;
+      console.log(thisCardId);
+      console.log(thisCard);
+
+      // setting all divs.innerHTML to nothing so that the letter doesn't show up
       var divs = document.body.getElementsByClassName("column");
       for(var i=0; i < divs.length; i ++){
-        if (divs[i].id != lastCardId) {
+        if (divs[i].id != thisCardId && divs[i].className != "column found") {
           divs[i].innerHTML = "";
-        }
+        };
+      };
+
+      // check to see if cards are the same by checking letters & mark if they are;
+      if (lastCardLetter === letter){
+        thisCard.attr("class", "column found");
+        lastCard.attr("class", "column found");
+        thisCard.html(letter);
+        lastCard.html(letter);
+        score ++;
+      };
+
+      // set what I just clicked to be 'last card' to compare for next time
+      lastCardLetter = letter;
+      lastCard = thisCard;
+      console.log(score === 5);
+      if(score === 5){
+        for(var i=0; i < divs.length; i ++){
+          divs[i].className = "column won";
+        };
       };
     });
   }
