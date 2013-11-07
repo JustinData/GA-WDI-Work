@@ -8,4 +8,8 @@ $( function(){
   cat.appendTo( $("body") );
   dog.appendTo( $("body") );
   panda.appendTo( $("body") );
+
+  $("img").mousemove( function(ev){
+      console.log("x: " + ev.pageX + ", y: " + ev.pageY);
+  } );
 } )
