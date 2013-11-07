@@ -10,7 +10,7 @@ function checkIt(){
       var todoId = $(this).parent().data("todo-id");
       var completed = $(this).is(":checked");
 
-      $ajax({
+      $.ajax({
          url: "/todos/" + todoId,
          type: "POST",
          data: {todo: {completed: completed}, _method: 'put'},

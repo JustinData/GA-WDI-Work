@@ -1,12 +1,12 @@
 class TodosController < ApplicationController
    def index
-      @todos = Todo.all
+      @todos = Todo.order("created_at ASC").all
    end
 
    def update
       @todo = Todo.find_by(id: params[:id])
 
-      if @todo.update(todo.params)
+      if @todo.update(todo_params)
          render json: @todo
       else
          render status: 400, nothing: true
