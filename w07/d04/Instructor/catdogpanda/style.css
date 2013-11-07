@@ -19,12 +19,12 @@ img{
   height: 200px;
   width: 200px;
   border-radius: 50%;
-  border: 5px solid black;
+  border: 5px solid red;
   transition-property: border;
   transition-duration: 1s;
 } 
 
-.border {
+.blue-border {
   border: 8px solid DodgerBlue ;
   transition-property: border;
   transition-duration: 1s;
