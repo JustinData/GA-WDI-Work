@@ -3,21 +3,17 @@ class TodosController < ApplicationController
     @todos = Todo.all
   end
 
-  def new
-  end
-
-  def create
-  end
-
-  def show
-  end
-
-  def edit
-  end
-
   def update
+    @todo = Todo.find(params[:id])
+
+    if @todo.update(todo_params)
+      render json: @todo
+    else
+      render status: 400, nothing: true
+    end
   end
 
-  def destroy
+  def todo_params
+    params.require(:todo).permit(:task, :completed)
   end
 end
