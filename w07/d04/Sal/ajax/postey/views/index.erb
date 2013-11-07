@@ -3,20 +3,20 @@
 <form method="POST">
   <label>
     Title:
-  <input name='title' type='text /'>
+    <input name="title" type="text" />
   </label>
 
   <label>
     Content:
-  <textarea name='content'></textarea>
+    <textarea name="content"></textarea>
   </label>
 
-  <button> Save </button>
+  <button>Save</button>
 </form>
 
 <h4>Posts</h4>
 <ul>
   <% @posts.each do |post| %>
-    <li>Title:<%=post[:title] %>, Content: <%=post[:content] %></li>
+    <li>Title: <%= post[:title] %>, Content: <%= post[:content] %></li>
   <% end %>
 </ul>
