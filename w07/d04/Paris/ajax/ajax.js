@@ -1,10 +1,18 @@
+
+/**************************XHR**********************/
 function getMovie(movie, actionFunction){
 
-  jQuery.getJSON("http://www.omdbapi.com/?t=" + movie, function(data){ actionFunction(data); 
-  });
+  /*jQuery.ajax({
+    url: "http://www.omdbapi.com/?t=" + movie,
+    type: "GET",
+    dataType: "json",
+    success: function(data){ actionFunction(data); }
+  });*/
 
+  jQuery.getJSON( "http://www.omdbapi.com/?t=" + movie, function(data){ actionFunction(data); });
+
+  //jQuery.get( "http://www.omdbapi.com/?t=" + movie, function(data){ actionFunction(JSON.parse(data)); });
 }
-
 
 function displayMovie(movie){
   var img = document.createElement("img");
@@ -15,50 +23,50 @@ function displayMovie(movie){
 function alertYear(movie) {
   alert(movie.Title + " was made in " + movie.Year);
 }
+/******************************************************/
+
+jQuery.prototype.cljq = function(){
+  console.log(this);
+  return this;
+}
 
 window.onload = function(){
+  $("<h1>").text("Find a Film!").appendTo( $("body") );
 
-// console.log the jQuery object
-// jQuery.protoype.cljq = function(){
-//   console.log(this);
-//   return this;
-// }
+  var form = $("<form>").appendTo( $("body") );
 
-// Form
-var h1 = $("<h1>").text("Find a film").appendTo($("body"));
-var form = $("<form>").appendTo($("body"));
-form.append( $("<label>").text("Movie Title"));
-form.append( $("<input>")
-              .attr({"name":"movieTitle", "type":"text"})
-              .css({
-                "width":"30em",
-                "height":"1.2em",
-                "display":"block",
-                "background-color":"lightblue"
-                  })
-            );
-form.append( $("<label>").text("Action!") );
-form.append( $("<select>")
-              .attr("name","action")
-              .css({
-                "width":"10em",
-                "height":"2em",
-                "display":"block"
-                  })
-            );
-form.append( $("<button>")
-              .text("Submit!")
-              .css({
-                "height":"2em",
-                "width":"5em",
-                "margin-top":"10px"})
-            );
+  form.append( $("<label>").text("Movie Title").cljq() );
+  form.append( $("<input>").cljq()
+                .attr({"name":"movieTitle", "type":"text"})
+                .css({
+                  "width":"30em",
+                  "height":"1.2em",
+                  "display":"block",
+                  "background-color":"lightblue"
+                     })
+              );
+  form.append( $("<label>").text("Action!").css("margin-top","10px") );
+  form.append( $("<select>")
+                .attr("name","typeOfAction")
+                .css({
+                  "width":"10em",
+                  "height":"2em",
+                  "display":"block"
+                     })
+              );
+  $("select").append( $("<option>").attr("value", "none").html("Pick One:") );
+  $("select").append( $("<option>").attr("value","displayMovie").html("Show me!") );
+  $("select").append( $("<option>").attr("value","alertYear").html("Alert me!") );
+  $("select").val("none"); // sets select tags default value to "none"
+  form.append( $("<button>")
+                .text("Submit!")
+                .css({
+                  "height":"2em",
+                  "width":"5em",
+                  "margin-top":"10px"})
+              );
 
-$("select").append($("<option>").attr("value", "none").html("Pck One:") );
-$("select").append($("<option>").attr("value", "none").html("Show Me:") );
-$("select").append($("<option>").attr("value", "none").html("Alert Me:") );
-
-function validate(e) {
+  function validate(e) {
     e.preventDefault();
 
     if ($(this.movieTitle).val() === ""){
@@ -75,12 +83,8 @@ function validate(e) {
     }
   }
 
-
-// using submit instead of eventListener
-form.submit( validate );
-
+  $("form").submit( validate );
 }
-
 
 
 
