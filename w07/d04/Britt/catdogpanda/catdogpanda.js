@@ -10,6 +10,10 @@ $( function(){
   panda.appendTo( $("body") );
 
   $("img").mousemove( function(ev){
-      console.log("x: " + ev.pageX + ", y: " + ev.pageY);
+    $("h1#coords").text("x: " + ev.pageX + ", y: " + ev.pageY);
   } );
+
+  $("img").mouseleave( function(){
+    $("h1#coords").text("Coordinates?");
+  })
 } )
