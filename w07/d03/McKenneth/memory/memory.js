@@ -31,22 +31,29 @@ function cardClick() {
   function checkWin(){
     if ($(".column"+".found").length === 10 ){
         $(".column"+".found").removeClass("found").addClass("won");
+        setTimeout(function() {alert("Do You want to play again?");window.location.reload(startGame());}, 7000);
+        
       }
     }
       
   for(var i = 0; i< letters.length; i++){
     $(".column")[i].addEventListener("click", function(){
 
-      if(mixedUp[lastCardId] === mixedUp[this.id]){
+
+      if(this.className === "column" && this.id === lastCardId){
+        this.innerText = "";
+        lastCardId = this.id;
+      }
+      else if(mixedUp[lastCardId] === mixedUp[this.id]){
        this.innerText = mixedUp[this.id]
         $("div#"+lastCardId).addClass("found");
         $("div#"+this.id).addClass("found");
         lastCardId = '';
         checkWin();
       }
-      else if(this.className == "column found"){
-        this.innerText = mixedUp[this.id];
-        lastCardId = '';
+      else if(this.className === "column" && this.id === lastCardId){
+        this.innerText = "";
+        lastCardId = this.id;
       }
       else if(lastCardId === ''){
       this.innerText = mixedUp[this.id];
