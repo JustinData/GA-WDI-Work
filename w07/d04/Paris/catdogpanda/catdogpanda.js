@@ -1,8 +1,5 @@
 $(function() {
 
-
-
-
   var cat = $("<img class='cat' src= 'http://placekitten.com/300/400'/>");
   $("body").append(cat);
   var dog = $("<img class='dog' src= 'http://placedog.com/400/300'/>");

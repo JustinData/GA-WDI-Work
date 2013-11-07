@@ -3,10 +3,7 @@
 // // If you don't like this approach feel free to throw this code out and write your own :)
 
 // //Code In Here gets executed once code is ready. This is like window.onload.
-// $(function() 
-// // {
-//   // document.getElementByTagName("Start Game").addEventListener('click', startGame());
-// // });
+$(function() {
 
 // //array of letters in the game
 // var letters = ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E' ];
@@ -15,14 +12,16 @@
 // var lastCardId = ''
 
 // // Code that runs to set up the game
-// function startGame() 
-// // {
-// //   // for (var i = 0; i < 11; i++){
-// //   // // $(“<div>”).appendTo( $("#game") );
-// //   // // card.attr("id",i);
-// //   // // card.attr("class","column");
-// //   // };
-// // }
+// function startGame() {
+  // for (var i = 0; i < 11; i++){
+  var div = $("<div>");
+  $("#game").append( $(div) );
+  // div.attr("id",i);
+  div.attr("class","column");
+  // };
+// }
+
+// function startGame();
 
 
 // //Code that runs when you click on a card
@@ -40,7 +39,7 @@
 //   // set the css to x of this and that on click to new card. 
 // //   });
 
-// // }
+});
 
 
 
