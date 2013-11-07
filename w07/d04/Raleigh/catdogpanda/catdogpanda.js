@@ -14,5 +14,11 @@ $(document).ready(function(){
    $("body").on('mousemove', function(e){
       var msg = "(" + event.pageX + ", " + event.pageY + ")";
       $("h1#coords").text(msg);
+
+      $(".cat").css({"margin-left": event.pageX/3, "margin-top": event.pageY/3});
+
+      $(".dog").css({"margin-left": event.pageX/6, "margin-top": event.pageY/6});
+
+      $(".panda").css({"margin-left": event.pageX/5, "margin-top": event.pageY/5});
    })
 });
