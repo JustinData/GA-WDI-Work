@@ -14,14 +14,24 @@ $(function() {
 
     // factor
       // cat = 6, dog = 11, panda = 16
-    $(".cat").css("margin-left", e.pageX / 6);
-    $(".cat").css("margin-top", e.pageY / 6);
+    $(".cat").css({"margin-left": e.pageX / 4, "margin-top": e.pageY / 4});
+    
 
-    $(".dog").css("margin-left", e.pageX / 11);
-    $(".dog").css("margin-top", e.pageY / 11);
+    $(".dog").css({"margin-left": e.pageX / 6, "margin-top": e.pageY / 6});
 
-    $(".panda").css("margin-left", e.pageX / 16);
-    $(".panda").css("margin-top", e.pageY / 16);    
+    $(".panda").css({"margin-left": e.pageX / 8, "margin-top": e.pageY / 8});
   });
+
+  $("img").click(function(e) {
+    // register click event for current, but not register click
+    //  features of parent
+    e.stopPropagation();
+    $(this).toggleClass("border");
+  })
+
+  $("body").click(function() {
+    $("body").off("mousemove");
+    // .toggle for one-time clicks?
+  })
 })
 
