@@ -5,7 +5,7 @@ window.onload = function() {
 function getMovie(movieTitle, callback) {
 	var httpRequest = new XMLHttpRequest();
 	httpRequest.addEventListener("load", function(){
-		callback(httpRequest.responseText);
+		callback(JSON.parse(httpRequest.responseText));
 	});
 		httpRequest.open("GET", "http://www.omdbapi.com/?t=" + movieTitle);
 		httpRequest.send();
