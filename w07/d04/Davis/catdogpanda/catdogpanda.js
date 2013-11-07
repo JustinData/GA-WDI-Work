@@ -11,6 +11,17 @@ $(function() {
   $("body").mousemove(function(e) {
     console.log(e.pageX, e.pageY);
     $("h1").text(e.pageX + ',' + e.pageY);
+
+    // factor
+      // cat = 6, dog = 11, panda = 16
+    $(".cat").css("margin-left", e.pageX / 6);
+    $(".cat").css("margin-top", e.pageY / 6);
+
+    $(".dog").css("margin-left", e.pageX / 11);
+    $(".dog").css("margin-top", e.pageY / 11);
+
+    $(".panda").css("margin-left", e.pageX / 16);
+    $(".panda").css("margin-top", e.pageY / 16);    
   });
 })
 
