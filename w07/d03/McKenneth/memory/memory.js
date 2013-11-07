@@ -31,6 +31,7 @@ function cardClick() {
   function checkWin(){
     if ($(".column"+".found").length === 10 ){
         $(".column"+".found").removeClass("found").addClass("won");
+        $("body").addClass("won");
         setTimeout(function() {alert("Do You want to play again?");window.location.reload(startGame());}, 7000);
         
       }
