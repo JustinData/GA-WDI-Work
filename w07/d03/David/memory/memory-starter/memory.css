@@ -24,6 +24,7 @@ button {
 }
 
 .column {
+  box-sizing:border-box;
   border: 1px solid #595139;
   float: left;
   font-family: 'Londrina Shadow', cursive;
@@ -32,7 +33,7 @@ button {
   margin: 5px;
   text-align: center;
   vertical-align: middle;
-  width: 50px;
+  width: 15%;
 }
 
 .column:hover {
@@ -57,7 +58,8 @@ button {
   font-size: 20px;
 }
 
-.money {
+div.money {
   background: url('http://mindmillion.com/images/money/animated-dollar-gold.gif') no-repeat center center;
   background-size: cover;
+  border: none;
 }
