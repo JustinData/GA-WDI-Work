@@ -7,8 +7,9 @@ function submitForm(formElement){
   formElement.addEventListener("submit", function(event){
     event.preventDefault(); 
     //saying DON'T submit form yet 
-    console.log("FORM SUBMITTED"); 
+    console.log("form submitted"); 
     postData(this); 
+    this.reset(); 
     //the value of this will be the form element itself 
   }); 
 }
@@ -16,10 +17,30 @@ function submitForm(formElement){
 function postData(formElement){
   var httpRequest = new XMLHttpRequest(); 
 
-  //httpRequest.addEventListener("load", callback); 
+  httpRequest.addEventListener("load", function(){
+    window.response = this.responseText; 
+    var posts = JSON.parse(window.response); 
+    //var lastPost = posts[posts.length - 1] 
+
+    var ul = document.querySelector("ul"); 
+    ul.innerHTML = ""; 
+   
+
+    for (var i = 0; i < posts.length; i++){
+      var li = document.createElement("li"); 
+      li.innerHTML = "Title " + posts[i].title + " " + posts[i].content; 
+      ul.appendChild(li); 
+    }
+
+
+  }); 
 
   httpRequest.open("POST", "/"); 
 
   var serializedData = new FormData(formElement); 
   httpRequest.send(serializedData); 
 }
+
+
+
+
