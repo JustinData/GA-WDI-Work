@@ -1,7 +1,7 @@
 <h1>ToDoLy!</h1>
 <ol>
   <% @todos.each do |todo| %>
-  <li class= " <%= todo.completed ? "completed" : "" %>">
+  <li data-todo-id="<%= todo.id %>" class= " <%= todo.completed ? "completed" : "" %>">
   <%= todo.task%>
   <%= check_box_tag :completed, 'yes', todo.completed %>
   </li>
