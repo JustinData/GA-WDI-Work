@@ -18,7 +18,20 @@ $(function() {
   $("body").mousemove(function(event){
 
     $("h1").html(event.pageX + " " + event.pageY);
-    console.log(event.pageX + " " + event.pageY);
+
+    var newx = event.pageX/1.2;
+    var newy = event.pageY/1.2;
+
+    var dogx = event.pageX/1.4;
+    var dogy = event.pageX/1.4;
+
+    var pandax = event.pageX/1.9;
+    var panday = event.pageY/1.9;
+
+    $(".cat").css({"margin-left": newx, "margin-top": newy});
+    $(".dog").css({"margin-left": dogx, "margin-top": dogy});
+    $(".panda").css({"margin-left": pandax, "margin-top": panday});
+
   });
 
 
