@@ -1,28 +1,17 @@
 <h1>Listing todos</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Task</th>
-      <th>Completed</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<% @todos.each do |todo| %>
+  <li class="<%= todo.completed ? "completed" : "" %>">
 
-  <tbody>
-    <% @todos.each do |todo| %>
-      <tr>
-        <td><%= todo.task %></td>
-        <td><%= todo.completed %></td>
-        <td><%= link_to 'Show', todo %></td>
-        <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
-        <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <%= todo.task %>
+    <%= todo.completed %>
+    <%= check_box_tag :completed, 'yes', todo.completed%>
+
+     
+  </li>
+<% end %>
+  
+
 
 <br>
 
