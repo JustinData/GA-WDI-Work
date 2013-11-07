@@ -2,6 +2,7 @@
 $(function() {
   
   var cat = $("<img class='cat' src='http://placekitten.com/200/200' />");
+  
   $("body").append(cat);
 
   var dog = $("<img class='dog' src='http://placedog.com/200/200' />");
@@ -19,14 +20,14 @@ $(function() {
 
     $("h1").html(event.pageX + " " + event.pageY);
 
-    var newx = event.pageX/1.2;
-    var newy = event.pageY/1.2;
+    var newx = event.pageX/20;
+    var newy = event.pageY/20;
 
-    var dogx = event.pageX/1.4;
-    var dogy = event.pageX/1.4;
+    var dogx = event.pageX/40;
+    var dogy = event.pageY/40;
 
-    var pandax = event.pageX/1.9;
-    var panday = event.pageY/1.9;
+    var pandax = event.pageX/100;
+    var panday = event.pageY/100;
 
     $(".cat").css({"margin-left": newx, "margin-top": newy});
     $(".dog").css({"margin-left": dogx, "margin-top": dogy});
@@ -34,5 +35,8 @@ $(function() {
 
   });
 
+$('img').on('click', function(){
+  $(this).toggleClass("border");
+});
 
 });
