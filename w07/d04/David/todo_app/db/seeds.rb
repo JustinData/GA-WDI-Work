@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+    Todo.destroy_all
+
+    Todo.create(task: 'Learn to make a seed file')
+    Todo.create(task: 'Make JS and Ruby play together in my brain')
