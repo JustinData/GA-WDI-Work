@@ -4,7 +4,7 @@ $(function(){
     addDog(body, 500, 600);
     addPanda(body);
 
-    body.mousemove(function( event ) {
+    body.on('mousemove',function(event) {
       var coords = "( " + event.pageX + ", " + event.pageY + " )";
       $( "h1" ).text( coords );
       kitten.css("left", event.pageX);
@@ -14,7 +14,11 @@ $(function(){
     });
 
     $('img').on('click', function(){
-    $(this).toggleClass("border");
+    $(this).toggleClass("blue-border");
+
+    body.on('click', function(){
+      body.off("mousemove");
+    })
   })
 });
 

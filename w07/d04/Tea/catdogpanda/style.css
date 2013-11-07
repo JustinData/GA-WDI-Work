@@ -24,7 +24,7 @@ img{
   transition-duration: 1s;
 } 
 
-.border {
+.blue-border {
   border: 8px solid DodgerBlue ;
   transition-property: border;
   transition-duration: 1s;
