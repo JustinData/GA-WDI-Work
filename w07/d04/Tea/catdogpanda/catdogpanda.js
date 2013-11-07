@@ -7,23 +7,31 @@ $(function(){
     body.mousemove(function( event ) {
       var coords = "( " + event.pageX + ", " + event.pageY + " )";
       $( "h1" ).text( coords );
+      kitten.css("left", event.pageX);
+      puppy.css("top", event.pageY).css("left", event.pageX/2);
+      panda.css("top", event.pageX/2).css("left", event.pageX);
+
     });
+
+    $('img').on('click', function(){
+    $(this).toggleClass("border");
+  })
 });
 
 function addCat(parent, width, height){
   var kittenURL = "http://placekitten.com/" + width +"/"+ height; 
-  var kitten = $("<img>").attr("src", kittenURL).attr("class", "cat");
+  kitten = $("<img>").attr("src", kittenURL).attr("class", "cat");
   parent.append(kitten);
 }
 
 function addDog(parent){
   var puppyURL = "http://distilleryimage10.s3.amazonaws.com/5878d0fa43bd11e3869422000a1deb63_6.jpg"
-  var puppy = $("<img>").attr("src", puppyURL).attr("class", "dog");
+  puppy = $("<img>").attr("src", puppyURL).attr("class", "dog");
   parent.append(puppy);
 }
 
 function addPanda(parent){
   var pandaURL = "http://www.pbh2.com/wordpress/wp-content/uploads/2013/04/cutest-panda-gifs-rocking-horse.gif"; 
-  var panda = $("<img>").attr("src", pandaURL).attr("class", "panda");
+  panda = $("<img>").attr("src", pandaURL).attr("class", "panda");
   parent.append(panda);
 }
