@@ -7,10 +7,23 @@ function addAnimals(){
   var doggy = $("<img>").attr("src", "http://upload.wikimedia.org/wikipedia/en/4/45/DJ_Dog.gif").addClass("dog").appendTo($("body"));
   var panda = $("<img>").attr("src", "http://www.pbh2.com/wordpress/wp-content/uploads/2013/04/cutest-panda-gifs-babies.gif").addClass("panda").appendTo($("body")); 
 
-  $("body").mousemove(function(event){
+  function moveIt(){
+    $("body").on("mousemove", function(event){
     $("h1#coords").html("X: " + event.pageX +" | Y: " + event.pageY);
     kitty.css("margin-left", (event.pageX / 2) ).css("margin-top", (event.pageY / 8) );
     panda.css("margin-left", (event.pageX / 4) ).css("margin-top", (event.pageY / 10) );
     doggy.css("margin-left", (event.pageX / 8 ) ).css("margin-top", (event.pageY / 4) );
   });
+  };
+
+  moveIt();
+  $("body").on("click", function(){
+    console.log("poop");
+    $("body").off("mousemove");
+  });
+  $("body").on("dblclick", function(){
+    moveIt();
+  });
+
+
 }
