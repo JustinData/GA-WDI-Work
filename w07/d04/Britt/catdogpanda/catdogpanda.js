@@ -14,21 +14,23 @@ $( function(){
 
     var topCat = ev.pageY / 6;
     var leftCat = ev.pageX / 6;
-    var topDog = ev.pageY / 6;
-    var leftDog = ev.pageX / 9;
+    var topDog = -(ev.pageY / 6);
+    var leftDog = -(ev.pageX / 9);
     var topPanda = ev.pageY / 6;
-    var leftPanda = ev.pageX / 13;
+    var leftPanda = -(ev.pageX / 8);
 
     $("img.cat").css( {"margin-top": topCat, "margin-left": leftCat} );
     $("img.dog").css( {"margin-top": topDog, "margin-left": leftDog} );
     $("img.panda").css( {"margin-top": topPanda, "margin-left": leftPanda} );
   } );
 
-  $("img").mouseleave( function(){
-    $("h1#coords").text("Coordinates?");
-  } );
-
-  $("img").click( function(){
+  $("img").click( function(ev){
+    ev.stopPropagation();
     $(this).toggleClass("border");
   } );
+
+  $("body").click( function(){
+    $(this).off("mousemove");
+  } );
+
 } )
