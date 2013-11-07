@@ -10,19 +10,21 @@ function addAnimals(){
   function moveIt(){
     $("body").on("mousemove", function(event){
     $("h1#coords").html("X: " + event.pageX +" | Y: " + event.pageY);
-    kitty.css("margin-left", (event.pageX / 2) ).css("margin-top", (event.pageY / 8) );
-    panda.css("margin-left", (event.pageX / 4) ).css("margin-top", (event.pageY / 10) );
-    doggy.css("margin-left", (event.pageX / 8 ) ).css("margin-top", (event.pageY / 4) );
+    kitty.css("margin-left", (event.pageX / 3) ).css("margin-top", (event.pageY / 3) );
+    panda.css({"margin-left": (event.pageX / 3), "margin-top":(event.pageY/ 3)} );
+    doggy.css("margin-left", (event.pageX / 4 ) ).css("margin-top", (event.pageY / 4) );
   });
   };
 
   moveIt();
-  $("body").on("click", function(){
-    console.log("poop");
-    $("body").off("mousemove");
+  $("img").on("click", function(){
+    event.stopPropogation;
+    $(this).toggleClass("border");
+    
   });
   $("body").on("dblclick", function(){
-    moveIt();
+    $(this).css("background", "url('http://fc09.deviantart.net/fs70/f/2012/168/a/1/nyan_cat__troll__gif__by_lookincool45-d53v8j8.gif')");
+    $(this).off()
   });
 
 
