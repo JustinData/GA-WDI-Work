@@ -19,5 +19,6 @@ $(function(){
  $(' body').mousemove(function(event){
   console.log("X Coordinate: " + event.pageX);
   console.log("Y Coordinate: " + event.pageY);
+  $('h1').text("X: " + event.pageX + " Y: " + event.pageY)
  });
 });
