@@ -16,14 +16,20 @@ var lastCardLetter = '';
 var lastCard;
 var score = 0;
 // Code that runs to set up the game
-function startGame() {
-    var cardBox = $(document.body.querySelector("#game"));
+
+function startGame(){
+    cardBox = $(document.body.querySelector("#game"));
     $('button').click(function(){
       for(var i=0; i < 10; i ++){
         var card = $("<div>").attr("id", i).attr("class", "column");
         cardBox.append(card);
+        $('button').attr("style", "display: none;");
       };
     });
+    playGame();
+}
+
+function playGame() {
     // Code that runs when you click on a card
     cardBox.on( "click", "div", function(){
       console.log("last card Id" + lastCardId);
@@ -44,19 +50,23 @@ function startGame() {
           divs[i].innerHTML = "";
         };
       };
+      console.log(lastCardId + "hi " + thisCardId);
 
       // check to see if cards are the same by checking letters & mark if they are;
-      if (lastCardLetter === letter){
+      // also makes sure it's not the same card twice
+      if (lastCardLetter === letter && (lastCardId != thisCardId)){
         thisCard.attr("class", "column found");
         lastCard.attr("class", "column found");
         thisCard.html(letter);
         lastCard.html(letter);
         score ++;
+        console.log("score is =" + score);
       };
 
       // set what I just clicked to be 'last card' to compare for next time
       lastCardLetter = letter;
       lastCard = thisCard;
+      lastCardId = thisCardId;
       console.log(score === 5);
       if(score === 5){
         for(var i=0; i < divs.length; i ++){

@@ -47,7 +47,7 @@ button {
 
 /* apply to every card when the user wins */
 .won {
-  background-color: #F2F0CE;
+  background-color: green;
   border: 1px solid #83A603;
   color: #83A603;
 }
