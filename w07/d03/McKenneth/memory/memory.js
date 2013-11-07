@@ -37,8 +37,6 @@ function cardClick() {
   for(var i = 0; i< letters.length; i++){
     $(".column")[i].addEventListener("click", function(){
 
-      
-      
       if(mixedUp[lastCardId] === mixedUp[this.id]){
        this.innerText = mixedUp[this.id]
         $("div#"+lastCardId).addClass("found");
