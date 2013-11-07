@@ -12,12 +12,12 @@ $( function(){
   $("body").mousemove( function(ev){
     $("h1#coords").text("x: " + ev.pageX + ", y: " + ev.pageY);
 
-    var topCat = ev.pageY / 6;
-    var leftCat = ev.pageX / 6;
-    var topDog = -(ev.pageY / 6);
-    var leftDog = -(ev.pageX / 9);
-    var topPanda = ev.pageY / 6;
-    var leftPanda = -(ev.pageX / 8);
+    var topCat = ev.pageY / 3;
+    var leftCat = ev.pageX / 3;
+    var topDog = -(ev.pageY / 2);
+    var leftDog = -(ev.pageX / 7);
+    var topPanda = ev.pageY / 2;
+    var leftPanda = -(ev.pageX / 2);
 
     $("img.cat").css( {"margin-top": topCat, "margin-left": leftCat} );
     $("img.dog").css( {"margin-top": topDog, "margin-left": leftDog} );
