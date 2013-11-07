@@ -16,6 +16,8 @@ $(function() {
 
 
   $("body").mousemove(function(event){
+
+    $("h1").html(event.pageX + " " + event.pageY);
     console.log(event.pageX + " " + event.pageY);
   });
 
