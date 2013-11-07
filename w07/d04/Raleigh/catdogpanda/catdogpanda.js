@@ -13,7 +13,7 @@ $(document).ready(function(){
 
    $("body").on('mousemove', function(e){
       var msg = "(" + event.pageX + ", " + event.pageY + ")";
-      $("h1#coords").text(msg);
+      $("h2#coords").text(msg);
 
       $(".cat").css({"margin-left": event.pageX/3, "margin-top": event.pageY/3});
 
@@ -21,4 +21,9 @@ $(document).ready(function(){
 
       $(".panda").css({"margin-left": event.pageX/5, "margin-top": event.pageY/5});
    })
+
+   $('img').on('click', function(){
+      $(this).toggleClass("border");
+   })
+
 });
