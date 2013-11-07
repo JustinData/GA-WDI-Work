@@ -3,7 +3,7 @@
 
 #content {
   margin: 0 auto;
-  width: 360px;
+  width: 600px;
 }
 
 #header {
@@ -28,11 +28,12 @@ button {
   float: left;
   font-family: 'Londrina Shadow', cursive;
   font-size: 50px;
-  height: 65px;
+  height: 100px;
   margin: 5px;
   text-align: center;
   vertical-align: middle;
-  width: 50px;
+  width: 100px;
+  padding-top: 25px;
 }
 
 .column:hover {
@@ -47,8 +48,10 @@ button {
 
 /* apply to every card when the user wins */
 .won {
-  background-color: #F2F0CE;
+  background: url('http://www.pbh2.com/wordpress/wp-content/uploads/2013/05/cutest-cat-gifs-cutest-kitten.gif');
+  background-size:165%;
   border: 1px solid #83A603;
+  border-radius: 100%;
   color: #83A603;
 }
 

@@ -4,7 +4,9 @@
 
 //Code In Here gets executed once code is ready. This is like window.onload.
 $(function() {
-  startGame();
+  $("button").on('click', function(){
+    startGame();
+  });
 });
 
 //array of letters in the game
@@ -26,27 +28,39 @@ function startGame() {
 //Code that runs when you click on a card
 function cardClick() {
 
+  function checkWin(){
+    if ($(".column"+".found").length === 10 ){
+        $(".column"+".found").removeClass("found").addClass("won");
+      }
+    }
+      
   for(var i = 0; i< letters.length; i++){
     $(".column")[i].addEventListener("click", function(){
 
-      if ($(".column found"))
+      
       
       if(mixedUp[lastCardId] === mixedUp[this.id]){
        this.innerText = mixedUp[this.id]
-
-        // var set = document.querySelector("this.id");
-        // set.className = "column found";
+        $("div#"+lastCardId).addClass("found");
+        $("div#"+this.id).addClass("found");
         lastCardId = '';
-       }
+        checkWin();
+      }
+      else if(this.className == "column found"){
+        this.innerText = mixedUp[this.id];
+        lastCardId = '';
+      }
       else if(lastCardId === ''){
       this.innerText = mixedUp[this.id];
       lastCardId = this.id;
+      checkWin();
       }
       else if(mixedUp[lastCardId] != mixedUp[this.id]){
         this.innerText = mixedUp[this.id];
         var reset = document.getElementById(lastCardId);
         reset.innerText = "";
         lastCardId = this.id;
+        checkWin();
       }
     })
   }
