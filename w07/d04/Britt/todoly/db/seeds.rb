@@ -1,3 +1,5 @@
-Todo.new(task: "Pick a restaurant for dinner")
-Todo.new(task: "Buy a birthday present for Jarrett")
-Todo.new(task: "!! Buy a bus ticket home for the Redskins game")
+Todo.destroy_all
+
+Todo.create(task: "Pick a restaurant for dinner")
+Todo.create(task: "Buy a birthday present for Jarrett")
+Todo.create(task: "!! Buy a bus ticket home for the Redskins game")

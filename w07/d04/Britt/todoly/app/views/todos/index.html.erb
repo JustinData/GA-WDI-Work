@@ -1,6 +1,5 @@
-<% @todos.each do |todo| %>
-  <ol>
+<ol>
+  <% @todos.each do |todo| %>
     <li><%= todo.task %></li>
-    <li><%= todo.completed %></li>
-  </ol>
-<% end %>
+  <% end %>
+</ol>

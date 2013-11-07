@@ -1,4 +1,4 @@
 Todoly::Application.routes.draw do
   root 'todos#index'
-  resources :todos
+  resources :todos, only: [:index]
 end
