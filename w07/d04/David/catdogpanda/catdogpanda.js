@@ -16,9 +16,12 @@ $(function(){
   imgDog.appendTo('body');
   imgPanda.appendTo('body');
 
+  $('img').on('click', function(){
+    console.log(this);
+    $(this).toggleClass( 'border');
+  });
+
  $(' body').mousemove(function(event){
-  console.log("X Coordinate: " + event.pageX);
-  console.log("Y Coordinate: " + event.pageY);
   $('h1').text("X: " + event.pageX + " Y: " + event.pageY);
   $('img.cat').css('margin-left', event.pageX/2 + 'px');
   $('img.cat').css('margin-top', event.pageY/4 + 'px');
