@@ -16,18 +16,20 @@ $(function(){
   imgDog.appendTo('body');
   imgPanda.appendTo('body');
 
-  $('img').on('click', function(){
-    console.log(this);
+ $('body').on('mousemove', function(event){
+  $('h1').text("X: " + event.pageX + " Y: " + event.pageY);
+  $('img.cat').css({'margin-left':event.pageX/2, 'margin-top': event.pageY/4 });
+  $('img.dog').css({'margin-left':-event.pageX/2, 'margin-top': -event.pageY/4 });
+  $('img.panda').css({'margin-left':-event.pageX/4, 'margin-top': event.pageY/4 });
+ });
+
+  $('img').on('click', function(event){
+    // makes so after click images still move unless body clicked
+    event.stopPropagation();
     $(this).toggleClass( 'border');
   });
 
- $(' body').mousemove(function(event){
-  $('h1').text("X: " + event.pageX + " Y: " + event.pageY);
-  $('img.cat').css('margin-left', event.pageX/2 + 'px');
-  $('img.cat').css('margin-top', event.pageY/4 + 'px');
-  $('img.dog').css('margin-left', -event.pageX/2 + 'px');
-  $('img.dog').css('margin-top', -event.pageY/4 + 'px');
-  $('img.panda').css('margin-left', -event.pageX/2 + 'px');
-  $('img.panda').css('margin-top', event.pageY/2 + 'px');
- });
+ $('body').on('click', function(){
+  $(this).off('mousemove');
+ })
 });
