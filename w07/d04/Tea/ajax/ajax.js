@@ -1,15 +1,17 @@
 
-function getMovie(movie, callback){
-  // set window. to make it accessible within console
-  window.httpRequest = new XMLHttpRequest();
+/**************************XHR**********************/
+function getMovie(movie, actionFunction){
 
-  // listens to Load event before doing this
-  httpRequest.addEventListener("load", function(){
-      callback(JSON.parse(httpRequest.responseText));
-  });
+  /*jQuery.ajax({
+    url: "http://www.omdbapi.com/?t=" + movie,
+    type: "GET",
+    dataType: "json",
+    success: function(data){ actionFunction(data); }
+  });*/
 
-  httpRequest.open("GET", "http://www.omdbapi.com/?t=" + movie);
-  httpRequest.send();
+  jQuery.getJSON( "http://www.omdbapi.com/?t=" + movie, function(data){ actionFunction(data); });
+
+  //jQuery.get( "http://www.omdbapi.com/?t=" + movie, function(data){ actionFunction(JSON.parse(data)); });
 }
 
 function displayMovie(movie){
@@ -21,6 +23,7 @@ function displayMovie(movie){
 function alertYear(movie) {
   alert(movie.Title + " was made in " + movie.Year);
 }
+/******************************************************/
 
 jQuery.prototype.cljq = function(){
   console.log(this);
@@ -40,16 +43,16 @@ window.onload = function(){
                   "height":"1.2em",
                   "display":"block",
                   "background-color":"lightblue"
-                    })
+                     })
               );
-  form.append( $("<label>").text("Action!") );
+  form.append( $("<label>").text("Action!").css("margin-top","10px") );
   form.append( $("<select>")
-                .attr("name","action")
+                .attr("name","typeOfAction")
                 .css({
                   "width":"10em",
                   "height":"2em",
                   "display":"block"
-                    })
+                     })
               );
   $("select").append( $("<option>").attr("value", "none").html("Pick One:") );
   $("select").append( $("<option>").attr("value","displayMovie").html("Show me!") );
@@ -63,12 +66,29 @@ window.onload = function(){
                   "margin-top":"10px"})
               );
 
-  function formSubmitFunction(e) {
+  function validate(e) {
     e.preventDefault();
-    console.log("SUBMITTED");
-    console.log($(this.movieTitle).val());
-    console.log($(this.action).val());
+
+    if ($(this.movieTitle).val() === ""){
+      alert("You need to enter a movie title!");
+    } else if ($(this.typeOfAction).val() === "none") {
+      alert("You need to choose an action!");
+    } else {
+      console.log("SUCCESSFULLY SUBMITTED");
+      if ($(this.typeOfAction).val() === "alertYear") {
+        getMovie( $(this.movieTitle).val(), alertYear );
+      } else {
+        getMovie( $(this.movieTitle).val(), displayMovie );
+      }
+    }
   }
 
-  form.submit( formSubmitFunction );
+  $("form").submit( validate );
 }
+
+
+
+
+
+
+
