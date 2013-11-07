@@ -1,1 +1,7 @@
-<%= @todos.all %>
+<h1>Todo.ly</h1>
+
+<ol>
+<% @todos.each do |todo| %>
+  <li><%= todo.task %></li>
+<% end %> 
+</ol>
