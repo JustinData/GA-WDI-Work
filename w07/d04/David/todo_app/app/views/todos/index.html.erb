@@ -1,5 +1,8 @@
 <ol>
   <% @todos.each do |todo| %>
-    <li><%= todo.task %></li>
+    <li class="<%= todo.completed ? "completed" : "" %>">
+      <%= todo.task %>
+      <%= check_box_tag(:completed, 'yes', todo.completed ) %>
+    </li>
   <% end %>
 </ol>
