@@ -60,4 +60,5 @@ button {
 .money {
   background: url('http://mindmillion.com/images/money/animated-dollar-gold.gif') no-repeat center center;
   background-size: cover;
+  border-color: transparent;
 }
