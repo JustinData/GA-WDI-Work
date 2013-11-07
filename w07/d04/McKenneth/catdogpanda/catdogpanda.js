@@ -8,6 +8,6 @@ function addAnimals(){
   $("<img>").attr("src", "http://www.pbh2.com/wordpress/wp-content/uploads/2013/04/cutest-panda-gifs-babies.gif").addClass("panda").appendTo($("body")); 
 
   $("body").mousemove(function(event){
-    console.log(event.pageX, event.pageY);
+    $("h1#coords").html("X: " + event.pageX +" | Y: " + event.pageY);
   });
 }
