@@ -6,7 +6,7 @@ $(function(){
 
   var imgDog = $('<img>');
   imgDog.addClass('dog');
-  imgDog.attr('src', 'http://placedog.com/g/400/300');
+  imgDog.attr('src', 'http://www.austinpetsalive.org/wp-content/uploads/2010/09/winnicent.jpg');
 
   var imgPanda = $('<img>');
   imgPanda.addClass('panda');
@@ -19,6 +19,12 @@ $(function(){
  $(' body').mousemove(function(event){
   console.log("X Coordinate: " + event.pageX);
   console.log("Y Coordinate: " + event.pageY);
-  $('h1').text("X: " + event.pageX + " Y: " + event.pageY)
+  $('h1').text("X: " + event.pageX + " Y: " + event.pageY);
+  $('img.cat').css('margin-left', event.pageX/2 + 'px');
+  $('img.cat').css('margin-top', event.pageY/4 + 'px');
+  $('img.dog').css('margin-left', -event.pageX/2 + 'px');
+  $('img.dog').css('margin-top', -event.pageY/4 + 'px');
+  $('img.panda').css('margin-left', -event.pageX/2 + 'px');
+  $('img.panda').css('margin-top', event.pageY/2 + 'px');
  });
 });
