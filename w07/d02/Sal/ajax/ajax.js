@@ -2,14 +2,14 @@ window.onload = function() {
   console.log("Loaded")
 }
 
-function getMovie(movie, callback) {
+function getMovie(movie) {
   window.httpRequest = new XMLHttpRequest();
 
   console.log("Before request.")
   console.log(httpRequest.responseText)
 
   httpRequest.addEventListener("load", function(){
-    callback(JSON.parse(httpRequest.responseText));
+    console.log(httpRequest.responseText));
   });
 
   httpRequest.open("GET", "http://www.omdbapi.com/?t=" + movie);

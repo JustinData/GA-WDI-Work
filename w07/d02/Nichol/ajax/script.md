@@ -1,0 +1,11 @@
+mkdir app
+cd app
+mkdir public
+mkdir server
+mkdir views
+touch server.rb
+cd public
+touch app.js
+cd ../views
+touch index.erb
+touch layout.erb
