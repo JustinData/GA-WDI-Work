@@ -12,6 +12,10 @@ Link Hover Color = #20222a
   margin: 70px auto;
   width:980px;
   display: block;
+<<<<<<< HEAD
+=======
+
+>>>>>>> w2d4
 }
 
 .logo {
@@ -23,6 +27,15 @@ Link Hover Color = #20222a
   padding: 0px 15px 0px 15px;
 }
 
+<<<<<<< HEAD
+=======
+  .big-image { 
+    ;
+  }
+
+.press-section
+
+>>>>>>> w2d4
 a:hover {
   color: #20222a;
 }
