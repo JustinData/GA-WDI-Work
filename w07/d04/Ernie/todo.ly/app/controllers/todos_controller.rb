@@ -5,9 +5,18 @@ class TodosController < ApplicationController
   end
 
   def update
-    @todos = Todo.find(params[:id])
-    @todos.save
-    render json: @todo
+    @todo = Todo.find(id: params[:id])
+    if @todo.update(todo_params)
+       render json: @todo
+    else
+   render status: 400, nothing: true
+   end
   end
+
+ private
+
+ def todo_params
+   params.require(:todo).permit(:task, :completed)
+ end
 
 end
