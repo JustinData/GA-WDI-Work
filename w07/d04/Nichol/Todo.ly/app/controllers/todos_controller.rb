@@ -25,7 +25,7 @@ class TodosController < ApplicationController
   # POST /todos.json
   def create
     @todo = Todo.new(todo_params)
-
+    binding.pry
     respond_to do |format|
       if @todo.save
         format.html { redirect_to @todo, notice: 'Todo was successfully created.' }
@@ -40,6 +40,13 @@ class TodosController < ApplicationController
   # PATCH/PUT /todos/1
   # PATCH/PUT /todos/1.json
   def update
+
+    binding.pry
+    
+    @todo = Todo.find_by(id: params[:id])
+
+    binding.pry
+    
     respond_to do |format|
       if @todo.update(todo_params)
         format.html { redirect_to @todo, notice: 'Todo was successfully updated.' }
