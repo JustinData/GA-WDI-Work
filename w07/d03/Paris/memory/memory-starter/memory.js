@@ -1,6 +1,6 @@
 $(function() {
   console.log("loaded")
-  appendCards();
+
 });
 
 var letters = ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E'];
@@ -12,6 +12,7 @@ function appendCards() {
   var cardId = $(card).attr('id', counter + 1);
   counter++;
   };
+ 
 }
 
 
