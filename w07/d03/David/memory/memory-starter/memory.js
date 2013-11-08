@@ -14,16 +14,16 @@ var letters = ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E' ];
 var randomizedLetters = _.shuffle(letters);
 
 //Id of the last card you clicked on.
-var lastCardId = ''
+var lastCardId = '';
 
 
 function startGame() { 
   // make global to use in click function
   for (var i = 0; i < letters.length; i++) {
-    var div = $('<div>');
-    div.attr('id', i);
-    div.addClass("column");
-    div.appendTo($("div#game"));
+    $('<div>').attr('id', i).addClass("column").appendTo($("div#game"));
+    // div.attr('id', i);
+    // div.addClass("column");
+    // div.appendTo($("div#game"));
   }
   cardClick();
 }
@@ -35,9 +35,11 @@ function cardClick() {
     $(element).on('click', function(){
     var divId = $(this).attr('id');
     $(this).text(randomizedLetters[divId]);
+    console.log("I'm click event: " + divId);
     console.log("last card id: " + lastCardId);
     console.log("current click id: " + divId);
     if ($('div#' + divId).attr('class').indexOf("found") === -1) {
+      // at the beginning of game, or after a match -- you're not going to get a match because either you just matched or just started the game
       if ( lastCardId === '' ){
         lastCardId = divId;
       }
