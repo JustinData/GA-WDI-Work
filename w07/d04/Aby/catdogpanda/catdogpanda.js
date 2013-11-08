@@ -18,7 +18,7 @@ $(function(){
 	});
 
 	$('img').on('click', function(){
-		$(this).toggleClass("red-border");
+		$(this).toggleClass("border");
 
 	});
 
