@@ -14,8 +14,6 @@ $(function() {
   $("button").click(function(){
     startGame();
   });
-
-
 });
 
 var letters = ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E' ];
@@ -76,14 +74,9 @@ function cardClick(jObjDiv) {
   var index = jObjDiv.attr("id");
   jObjDiv.text(shuffledLetters[index]);
   
-
   // change the last card clicked on once finished
   lastCardId = index;
   checkWinner();
-}
-
-function found() {
-
 }
 
 function checkWinner() {
