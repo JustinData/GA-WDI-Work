@@ -7,7 +7,6 @@ form.addEventListener('submit', function(e) {
   getUser(form.elements["handle"].value, addUser);
   form.reset();
 });
-
 }
 
 function getUser(handle, callback){
