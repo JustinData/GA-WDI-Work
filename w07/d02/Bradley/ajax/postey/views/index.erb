@@ -13,3 +13,10 @@
   <button>Save</button>
 
 </form>
+
+<h4>Posts</h4>
+<ul>
+  <% @posts.each do |post| %>
+    <li>Title : <%= post[:title] %> Content : <%= post[:content] %></li>
+  <% end %>
+</ul>
