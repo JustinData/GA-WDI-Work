@@ -7,8 +7,15 @@ $(function(){
 function completeIt(){
 $("input#completed").on("click", function(){
   $(this).parent().toggleClass("completed");
+
+  var toDoId = $(this).parent().data("todo-id");
+  var completed = $(this).is(':checked');
+  
   $.ajax({
-    url: "/todos/" + $(this).parent().data("todo-id")
+    url: "/todos/" + toDoId,
+    type: "POST",
+    data: {todos : {completed: completed}, _method:'put' },
+    datatype: "json"
   });
 });
 }
