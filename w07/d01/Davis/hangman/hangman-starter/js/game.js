@@ -103,10 +103,10 @@ Game.prototype.makeGuess = function(letter) {
 
       this.renderGuessesLeft();
     } else {
-      alert("Sorry, no guesses left you fucker");
+      alert("Sorry, no guesses.");
     }
   } else {
-    alert("Letters not phrases you retarded bitch");
+    alert("Letters not phrases please.");
   }
 
 
@@ -126,6 +126,7 @@ window.onload = function() {
 
   var inputBox = document.getElementById("letter_field");
   inputBox.addEventListener('keypress', function keyUpEvent(e) {
+    e.preventDefault();
     // keystroke is captured by chr
     var chr = String.fromCharCode(e.keyCode);
     game.makeGuess(chr);
