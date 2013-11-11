@@ -9,3 +9,4 @@ end
 post '/' do
   binding.pry
 end
+binding.pry
