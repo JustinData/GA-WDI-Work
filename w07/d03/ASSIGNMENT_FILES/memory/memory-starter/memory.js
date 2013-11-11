@@ -22,3 +22,18 @@ function startGame() {
 function cardClick() {
 
 }
+
+//Add hoverclass to cards.
+function hovering() {
+
+}
+
+//Start the timer
+function startTime() {
+
+}
+
+//Increment the timer and display the new time
+function updateTime() {
+
+}
