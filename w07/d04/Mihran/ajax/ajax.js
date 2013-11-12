@@ -6,7 +6,7 @@ function getMovie(movie, actionFunction){
 
 function displayMovie(movie){
   var img = document.createElement("img");
-  img.src = movie.Poster;
+  img.src = movie.Poster; 
   document.body.appendChild(img);
 }
 
