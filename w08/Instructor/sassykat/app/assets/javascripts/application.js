@@ -135,8 +135,8 @@ window.onload = function() {
   $(".hideable").css("position","relative");
   $("<div>H</div>").css({
     position: "absolute",
-    top: "2px",
-    left: "2px",
+    top: "-1px",
+    left: "-1px",
     height: "30px",
     width: "30px",
     background: "gainsboro",
@@ -144,6 +144,7 @@ window.onload = function() {
     cursor: "pointer",
     opacity: "1.0",
     borderRadius: "5px",
+    borderTopLeftRadius: "10px",
     fontSize: "1.2em",
     lineHeight: "1.6em"
   }).click(function(e) {
