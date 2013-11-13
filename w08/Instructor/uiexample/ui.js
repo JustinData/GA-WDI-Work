@@ -1,21 +1,43 @@
 
 window.onload = function() {
 
+  $(".hideable").hide();
+
   /***** CANVAS API ****/
   var canvas = document.getElementById("circle");
   var ctx = canvas.getContext("2d");
 
-  $(canvas).css({width: "300", height: "150"});
+  $(canvas).css({width: "300", height: "150"}); // squish it to make the pixels work!
 
-  startAngle = 0;
-  endAngle = (Math.PI/180) * 360;
+  function drawArc(startDegrees, endDegrees) {
+    startAngle = (Math.PI/180) * startDegrees;
+    endAngle =   (Math.PI/180) * endDegrees;
 
-  ctx.beginPath();
-  ctx.lineWidth = 10;
-  ctx.strokeStyle = "blue";
-  ctx.arc( canvas.width/2, canvas.height/2, 35, startAngle, endAngle, false );
-  ctx.stroke();
-  ctx.closePath();
+    ctx.beginPath();
+    ctx.lineWidth = 10;
+    ctx.strokeStyle = "lightblue";
+    ctx.arc( canvas.width/2, canvas.height/2, 35, startAngle, endAngle, false );
+    ctx.stroke();
+    ctx.closePath();
+  }
+
+  function drawNumber(number){
+
+    ctx.beginPath();
+    ctx.clearRect(canvas.width/2 - 20, canvas.height/2 - 20, 40, 40);
+    ctx.fillStyle = "blue";
+    ctx.font = "bold 16px Arial";
+    ctx.fillText(number, canvas.width/2 - 13, canvas.height/2 + 5);
+    ctx.closePath();
+  }
+
+  (function animateDrawCircle(i){
+    setTimeout(function() { // each invocation of this function pauses for 30 ms and then calls itself again
+      drawArc(i, i + 1); // draw the next degree of the circle
+      drawNumber( i );
+      if (++i < 360) animateDrawCircle(i);
+    }, 30);
+  })(0); // this is declaring and then immediately invoking (or calling) the function with a param of '0'
 
   /***** PROGRESS BAR ***/
   var bar = $("#progressbar"),
@@ -114,7 +136,7 @@ window.onload = function() {
     $(".hideable").slideDown();
   });
 
-  $("h1").hover(function(e) {
+  $("h1").on('mouseover', function(e) {
     var line = $(".animate-line");
 
     line.animate({width: "140"}, 150);
