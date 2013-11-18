@@ -6,11 +6,15 @@ require 'spec_helper'
 require_relative '../lib/school'
 
 describe School do
-  describe '#some_method' do
-    it "has behavior"
-  end
+  describe '::new' do
+    it 'creates a new school' do
+      school = School.new("Something")
+      expect(school).to_not eq nil
+    end
 
-  describe '#some_other_method' do
-    it "has other behavior"
+    it 'has a name' do
+      school = School.new("Springfield Elementary")
+      expect(school.name).to eq("Springfield Elementary")
+    end
   end
 end
