@@ -23,7 +23,7 @@ Hangman.prototype.makeGuess = function (letter){
   
   if (successfulGuess == false){
     this.guessesLeft -= 1;
-    this.lettersGuessed << leter;
+    this.lettersGuessed = this.letterGuessed + letter;
   }
 }
 
@@ -37,7 +37,7 @@ Hangman.prototype.assignWord = function(){
 
 Hangman.prototype.initializeGuessWord = function(){
   for (var i = 0; i<this.currentWord.length; i++){
-    this.guessWord += " ";
+    this.guessWord = guessWord + " ";
   }
 }
 
