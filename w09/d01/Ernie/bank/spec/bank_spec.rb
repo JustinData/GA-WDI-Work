@@ -13,4 +13,12 @@ describe Bank do
       expect(bank.name).to eq("Chase")
     end
   end
+
+  describe "#new_account"do
+    it 'allows user to create account'do
+      expect(bank.new_account).to eq nil
+    end
+  end
+    
+
 end
