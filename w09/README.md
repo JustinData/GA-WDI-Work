@@ -14,4 +14,5 @@ We are going to learn the Backbone.js framework
 ###Resources this week
 * [Rspec Docs](https://relishapp.com/rspec/)
 * [Better Specs](http://betterspecs.org/)
+* [Rspec Cheat Sheet](http://www.anchor.com.au/wp-content/uploads/rspec_cheatsheet_attributed.pdf)
 * [Rubular](http://rubular.com/)
