@@ -9,79 +9,103 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
+ *=
  */
+
+/* VARIABLES */
+$primarycolor: indianred;
+$complementcolor: complement( $primarycolor );
+$animatewidth: 50;
+
+/* MIXINS */
+@mixin round {
+  border-radius: 10px;
+}
+
+@mixin center( $max ){
+  max-width: $max;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 body {
   text-align: center;
 }
 
-#first-example {
-  background: blanchedalmond;
-  margin-top: 20px;
+.basic-div {
+  margin: 10px;
   padding: 10px;
+  @include center( 500px );
+  @include round;
+}
+
+#second-example, #fourth-example {
+  background-color: $complementcolor;
+}
+
+.hideable {
+  @extend .basic-div;
+  background: $primarycolor;
+  border: 1px solid white;
 }
 
 h1 {
+  color: $primarycolor;
   cursor: pointer;
   margin: 0 auto;
 }
 
 .animate-line{
-  width: 100px;
+  @include center(null);
+  width: 2px * $animatewidth;
   height: 4px;
   border-radius: 4px;
   background: black;
   position: relative;
-  margin: 0 auto;
 }
 
 .ui-slider {
   font-size: 8px;
-  width: 300px;
-  margin: 20px auto 0;
+  @include center(300px);
+  margin-bottom: 10px;
 }
 
 #cats {
   height: 320px;
-  width: 320px;
-  border-radius: 10px;
-  margin: 10px auto;
-  border: 3px solid gold;
-  background: lavenderblush;
-}
+  @include round;
+  @include center( 320px );
+  border: 3px solid $complementcolor;
+  background: lighten( $primarycolor, 30 );
 
-#cats img {
-  border-radius: 10px;
-  margin: auto auto;
-  display: block;
+  img {
+    border-radius: 10px;
+    @include center(null);
+  }
 }
 
 .ui-sortable {
   font-size: 12px;
   list-style-type: none;
   padding-left: 0;
-  width: 200px;
-  margin: 0 auto;
+  @include center( 200px );
   margin-top: 20px;
-}
 
-.ui-sortable li {
-  border-radius: 2px;
-  height: 1.5em;
-  margin: 4px auto;
-  padding-left: 1em;
-  text-align: left;
-}
-
-.hideable {
-  border: 1px solid white;
+  li {
+    color: $primarycolor;
+    border-radius: 5px;
+    height: 1.5em;
+    margin: 4px auto;
+    padding-left: 1em;
+    padding-top: 0.2em;
+    text-align: left;
+    font: 1em/1.5em;
+  }
 }
 
 .ui-progressbar {
   font-size: 8px;
-  width: 50%;
-  margin: 0 auto;
+  @include center( 50% );
   margin-top: 20px;
   position: relative;
 }
@@ -97,7 +121,7 @@ h1 {
 }
 
 canvas {
-  border: 1px solid gainsboro;
+  border: 3px solid $primarycolor;
   margin-top: 20px;
-  border-radius: 10px;
+  @include round;
 }
