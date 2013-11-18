@@ -49,6 +49,16 @@ describe Elevator do
          expect(elevator.direction).to eq :down
      end
     end
+
+    describe '#ignore_floor' do
+      before do
+        elevator.current_floor=1
+        elevator.request_queue.push(8,3)
+      end
+      it 'it ignores request in opposite direction' do
+        expect(elevator.ignore_floor).to be_true
+      end
+    end
   end
 
   # describe '#change_floors' do
