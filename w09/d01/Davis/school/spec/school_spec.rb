@@ -8,14 +8,16 @@ require_relative '../lib/school'
 describe School do
   # :: for class method
   describe '::new' do
+
+    # let block defines 'variable' for use within testing
+    let(:school) { School.new("Springfield Elementary") }
+
     it 'creates a new school' do
       # code example inside it block
-      school = School.new("Springfield Elementary")
       expect(school).to_not eq nil
     end
 
     it 'has a name' do
-      school = School.new("Springfield Elementary")
       expect(school.name).to eq("Springfield Elementary")
     end
   end
