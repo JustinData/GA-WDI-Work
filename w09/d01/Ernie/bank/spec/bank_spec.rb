@@ -32,7 +32,7 @@ describe Bank do
 
   describe '#withdrawal' do
     it 'allows withdrawal of funds' do
-      expect(bank.withdrawal).to be < ('new_account')
+      expect(bank.withdrawal).to be 
     end
   end
 end

@@ -3,6 +3,7 @@ class Bank
     @name = name
     @deposit = 200
     @balance = 0
+    @users = []
   end
 
   def name
