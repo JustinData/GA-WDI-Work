@@ -47,7 +47,7 @@ describe School do
       school.enroll_student("Lisa Simpson", 4.0)
 
       expect(school.average_gpa).to eq(3.0)
-    endh
+    end
   end
 end
 
