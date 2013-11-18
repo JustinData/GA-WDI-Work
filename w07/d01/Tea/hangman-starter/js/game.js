@@ -3,7 +3,7 @@
 
 function Words(){
   wordList = ['ruby', 'rails', 'javascript', 'array', 'hash', 'underscore', 'sinatra', 'model', 'controller', 'view', 'devise', 'authentication', 'capybara', 'jasmine', 'cache', 'sublime', 'terminal', 'system', 'twitter', 'facebook', 'function', 'google', 'amazon', 'development', 'data', 'design', 'inheritance', 'prototype', 'gist', 'github', 'agile', 'fizzbuzz', 'route', 'gem', 'deployment', 'database']
-
+  this.secretWord = _.sample(wordList)
 }
 
 function Player(){
@@ -26,6 +26,8 @@ window.onload = function(){
   // Set Up Game
   var player = new Player;
   var words = new Words;
+  // Get a word from the Word List and Make it Secret
+  var secretWord = words.secretWord);
   displayGuessesLeft();
 
   // DOM Interaction Functions
