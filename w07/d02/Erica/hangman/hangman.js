@@ -59,3 +59,4 @@ Game.prototype.giveUp = function(){
   });
 }
 
+

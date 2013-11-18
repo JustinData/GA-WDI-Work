@@ -14,10 +14,20 @@ function submitForm(formElement) {
 function postData(formElement) {
   var httpRequest = new XMLHttpRequest();
 
-  //httpRequest.addEventListener("load", callback);
+  httpRequest.addEventListener("load", function(){
+    var posts = JSON.parse(this.responseText);
 
+    var ul = document.querySelector("ul");
+    ul.innerHTML = "";
+
+    for (var i = 0; i < posts.length; i++){
+      var li = document.createElement("li");
+      li.innerHTML = "Title: " + posts[i].title + " Content: " + posts[i].content
+      ul.appendChild(li);
+    }
+  });
+  
   httpRequest.open("POST", "/");
-
   var serializedData = new FormData(formElement);
   httpRequest.send(serializedData);
 }
