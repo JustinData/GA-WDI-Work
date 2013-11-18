@@ -12,17 +12,42 @@
  *= require_tree .
  */
 
+ /* VARIABLES */
+ $primarycolor: indianred;
+ $complementcolor: complement( $primarycolor );
+
+@mixin round {
+  border-radius: 10px;
+}
+
+@mixin center( $max ){
+  max-width: $max;
+  display: block;
+
+
+}
+
+
 body {
   text-align: center;
 }
 
+.basic-div{
+  margin: 10px;
+  padding: 10px;
+  @include center( 500px );
+  @include round;
+}
+
 #first-example {
-  background: blanchedalmond;
+  background: $primarycolor;
   margin-top: 20px;
   padding: 10px;
+  @include center( 500px );
 }
 
 h1 {
+  color: $primarycolor;
   cursor: pointer;
   margin: 0 auto;
 }
@@ -45,17 +70,18 @@ h1 {
 #cats {
   height: 320px;
   width: 320px;
-  border-radius: 10px;
+  @include round;
   margin: 10px auto;
   border: 3px solid gold;
   background: lavenderblush;
+   img {
+       border-radius: 10px;
+      margin: auto auto;
+       display: block;
+    }
 }
 
-#cats img {
-  border-radius: 10px;
-  margin: auto auto;
-  display: block;
-}
+
 
 .ui-sortable {
   font-size: 12px;
