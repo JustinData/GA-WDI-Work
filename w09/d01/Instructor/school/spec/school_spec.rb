@@ -30,32 +30,41 @@ describe School do
   end
 
   describe '#find_student' do
-    it 'finds the student' do
-      school.enroll_student("Bart Simpson", 2.5)
-      bart = school.find_student("Bart Simpson")
-      expect(bart).to eq({name: "Bart Simpson", gpa: 2.5})
+    context "Bart is enrolled" do
+      before do
+        school.enroll_student("Bart Simpson", 2.5)
+      end
+
+      it 'finds the student' do
+        bart = school.find_student("Bart Simpson")
+        expect(bart).to eq({name: "Bart Simpson", gpa: 2.5})
+      end
+
+      it "doesn't find non existing students" do
+        expect(school.find_student("Shmee Johnson")).to eq(nil)
+      end
     end
 
-    it "doesn't find non existing students" do
-      expect(school.find_student("Shmee Johnson")).to eq(nil)
+    context "no students enrolled" do
+      it "doesn't find anyone" do
+        expect(school.find_student("Baloney Sandwich")).to eq(nil)
+      end
     end
   end
 
   describe '#average_gpa' do
-    it 'gives an average' do
-      school.enroll_student("Bart Simpson", 2.0)
-      school.enroll_student("Lisa Simpson", 4.0)
+    context "multiple enrolled students" do
+      before do
+        school.enroll_student("Bart Simpson", 2.0)
+        school.enroll_student("Lisa Simpson", 4.0)
+      end
 
-      expect(school.average_gpa).to eq(3.0)
+      it 'gives an average' do
+        expect(school.average_gpa).to eq(3.0)
+      end
     end
   end
 end
-
-
-
-
-
-
 
 
 
