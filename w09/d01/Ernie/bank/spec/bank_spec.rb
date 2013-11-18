@@ -14,13 +14,25 @@ describe Bank do
     end
   end
 
-  describe "#new_account"do
-    it 'allows user to create account'do
+  describe "#new_account" do
+    it 'allows user to create account' do
       expect(bank.new_account).to be_true
     end
 
-    it 'has an opening deposit of $200'do
+    it 'has an opening deposit of $200' do
       expect(bank.new_account).to eq(200)      
+    end
+  end
+
+  describe '#balance' do
+    it 'allows user to see there balance' do
+      expect(bank.balance).to be_true
+    end
+  end
+
+  describe '#withdrawal' do
+    it 'allows withdrawal of funds' do
+      expect(bank.withdrawal).to be < ('new_account')
     end
   end
 end
