@@ -16,9 +16,11 @@ describe Bank do
 
   describe "#new_account"do
     it 'allows user to create account'do
-      expect(bank.new_account).to eq nil
+      expect(bank.new_account).to be_true
+    end
+
+    it 'has an opening deposit of $200'do
+      expect(bank.new_account).to eq(200)      
     end
   end
-    
-
 end
