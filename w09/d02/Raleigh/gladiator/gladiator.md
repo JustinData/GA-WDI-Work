@@ -10,12 +10,9 @@ Work in pairs
 * You can pick any two gladiators in the arena fight to the death.
 * Winning conditions:
   * If Maximus is in the fight, he should win.
-  * Trident beats short sword
+  * dragons beats short sword
   * Short sword beats club
-  * Club beats trident
+  * club beats dragons
 * You can check to see if the crowd is entertained
 * The crowd is only entertained if Maximus was in the last fight
 * When a fight is over, the user should be prompted to put their thumbs up or down. If they vote down, remove the losing gladiator from the arena (ie the die)
-
-
-g
