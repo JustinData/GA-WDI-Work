@@ -15,11 +15,5 @@ Work in pairs
   * Club beats trident
 * You can check to see if the crowd is entertained
 * The crowd is only entertained if Maximus was in the last fight
-<<<<<<< HEAD
 * When a fight is over, the user should be prompted to put their thumbs up or down. If they vote down, remove the losing gladiator from the arena (ie the die)
-
-
-g
-=======
 * When a fight is over, the user should be prompted to put their thumbs up or down. If they vote down, remove the losing gladiator from the arena (ie they die)
->>>>>>> 8565c6ec0094a7eba7e52b1ea416f57a16733a24
