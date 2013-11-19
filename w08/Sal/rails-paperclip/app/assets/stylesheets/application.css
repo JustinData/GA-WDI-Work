@@ -11,7 +11,3 @@
  *= require_self
  *= require_tree .
  */
-
- li.completed {
-  text-decoration: line-through;
- }
