@@ -29,4 +29,25 @@ describe Appointment do
       expect(appointment).to have(1).errors_on(:finish)
    end
 
+   describe 'start/finish' do
+      context 'start time is earlier than finish time' do
+         it 'is valid' do
+            expect(appointment).to have(0).errors_on(:start)
+         end
+      end
+
+      context 'start time is later than finish time' do
+         it 'is not valid' do
+            appointment.start = 1.year.from_now
+            expect(appointment).to have(1).errors_on(:start)
+         end
+      end
+   end
+
+   # describe 'same start/finish time for same room' do
+   #    it 'a room cannot be booked again with same start/finish time' do
+   #       expect()
+   #    end
+   # end
+
 end
