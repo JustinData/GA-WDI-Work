@@ -3,7 +3,7 @@ development:
   encoding: unicode
   database: roomly_development
   pool: 5
-  username: jeff
+  username: Julie
   password:
 
 test:
@@ -11,5 +11,5 @@ test:
   encoding: unicode
   database: roomly_test
   pool: 5
-  username: jeff
+  username: Julie
   password:
