@@ -23,16 +23,6 @@ def divide(arg1, arg2)
 end
 
 
-def shell
-  begin
-    binding.pry
-  rescue NameError
-    puts "no name error"
-  rescue 
-    puts "general rescue"
-  end
-end
-
 shell
 
 
