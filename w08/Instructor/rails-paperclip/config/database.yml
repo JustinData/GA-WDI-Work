@@ -3,5 +3,5 @@ development:
   encoding: unicode
   database: rails-paperclip_development
   pool: 5
-  username: wdi
+  username: DtotheFP
   password:
