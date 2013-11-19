@@ -28,6 +28,23 @@ describe Appointment do
     appointment.finish = nil
     expect(appointment).to have(1).errors_on(:finish)
   end
+
+  describe "start/finish" do
+    context "start before finish" do
+      it "is valid" do
+        expect(appointment).to have(0).errors_on(:start)
+      end
+    end
+
+    context "start after finish" do
+      it "is not valid" do
+        appointment.start = 1.year.from_now
+        expect(appointment).to have(1).errors_on(:start)
+      end
+    end
+  end
+
+  pending "same start/end time for same room"
 end
 
 
