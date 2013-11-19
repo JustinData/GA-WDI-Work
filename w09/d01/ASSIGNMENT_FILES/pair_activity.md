@@ -4,7 +4,11 @@ On one computer. Trade back and forth.
 
 Elevators, Floors, and (probably) a Dispatcher
 - 10 floors
+<<<<<<< HEAD
 - A floor can call an elevator to go up or down
+=======
+- A floor can call an elevator  to go up or down
+>>>>>>> w09d01
 - The top floor can only call for down
 - The bottom floor can only call for up
 - An elevator is either heading up or down
