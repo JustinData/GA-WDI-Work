@@ -73,7 +73,7 @@ class Arena
     when 'd'
       loser = @winner == fighter1 ? fighter2 : fighter1
       @gladiators.delete(loser)
-      "Not so so merciful"
+      "Not so merciful"
     else
       "Invalid vote"
     end
