@@ -18,4 +18,3 @@ Work in pairs
 * When a fight is over, the user should be prompted to put their thumbs up or down. If they vote down, remove the losing gladiator from the arena (ie the die)
 
 
-g
