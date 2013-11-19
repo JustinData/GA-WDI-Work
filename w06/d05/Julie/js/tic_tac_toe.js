@@ -1,4 +1,4 @@
-//here is my board and the broken down ways a play can be made
+//here is my board and the broken down ways a win can be made
 
 board = [[0,0],[0,1],[0,2],[1,0],[1,1],[1,2],[2,0],[2,1],[2,2]];
 
@@ -18,7 +18,7 @@ turnCount = 0
 
 //this checks a rows, columns, or diagonals array if there are 3 consective subarrays that contain a player "tag"
 function checkRowforWin(row){
-
+//if the indexOf("X") is -1, then it is not contained in the sub-array
   if (row[0].indexOf("X") > -1 == true && row[1].indexOf("X") > -1 == true && row[2].indexOf("X") > -1 == true){
     alert("Player 1 has won");
     isGameWon = true;

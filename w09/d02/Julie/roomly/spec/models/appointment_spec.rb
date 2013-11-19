@@ -1,3 +1,10 @@
+#Appointments can't overlap for the same room
+#a User is charged for a room. (Hourly rate of room * number of hours)
+#this will require an extra model/table -> account It should have a balance
+#a user cannot rent a room without enough money in their account to pay for it. 
+
+
+
 require 'spec_helper'
 
 describe Appointment do
