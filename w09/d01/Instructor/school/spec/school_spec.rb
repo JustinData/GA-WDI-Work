@@ -2,8 +2,7 @@
 # Each student has a GPA
 # The school has an average GPA
 
-require 'spec_helper'
-require_relative '../lib/school'
+describe
 
 describe School do
   let(:school) { School.new("Springfield Elementary") }
