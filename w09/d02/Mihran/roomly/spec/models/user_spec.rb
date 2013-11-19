@@ -6,7 +6,7 @@ describe User do
   describe "#name" do
     context "no name" do
       it "isn't valid" do
-        expect(user).not_to be_valid
+        expect(user).to have(1).errors_on(:name)
       end
     end
 
