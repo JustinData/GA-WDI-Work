@@ -1,14 +1,20 @@
 require 'pry'
 
 def print_file( file_name )
-  file_path = file_name + ".txt"
-  f = File.new(file_path, "r")
+  begin
+    file_path = file_name + ".txt"
+    f = File.new(file_path, "r")
 
-  while line = f.readline
-    puts line
+    while line = f.readline
+      puts line
+    end
+
+    f.close
+  rescue
+    puts "--fin--"
+  ensure
+    f.close
   end
-
-  f.close
 end
 
 
