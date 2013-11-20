@@ -24,6 +24,15 @@ WDIToolKit.prototype.map = function(arr, action) {
   return newArray;
 }
 
+WDIToolKit.prototype.exists = function(arr, action) {
+  var selects_result = this.select(arr, action);
+
+  if (selects_result.length > 0) {
+
+  }
+  return false;
+}
+
 var WTK = new WDIToolKit;
 
 
