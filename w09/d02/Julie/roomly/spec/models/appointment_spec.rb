@@ -56,14 +56,53 @@ describe Appointment do
         before do
           appointment.save!
         end
+
+        let(:another_appointment) {Appointment.new(user_id: 2, room_id: 2, start: Time.now, finish: 3.hours.from_now)}
+
+        it "is not valid" do
+          expect(another_appointment).to have(1).errors_on(:room_id)
+        end # end it
+      end # end context
+    end # end make appts
+  end # end start/finish
+
+  describe "paying for a room" do
+    context "user can afford the room" do
+      before do
+        user = User.new(name: "Mark Sanford", email: "schm00@blaa.gov")
+        user.id = 1
+        user.save!
+        account = Account.new(balance: 50000, user_id: 1)
+        account.save!
+        room = Room.new(name: "Rainforest Suite", hourly_rate: 40)
+        room.id = 2
+        room.save!
       end
 
-      let(:another_appointment) {Appointment.new(user_id: 2, room_id: 2, start: Time.now, finish: 3.hours.from_now)}
+      it "is valid" do
+        expect(appointment).to have(0)errors_on(:user_id)
+      end
+
+    context "user cannot afford the room" do
+      before do
+        user = User.new(name: "Mark Sanford", email: "schm00@blaa.gov")
+        user.id = 1
+        user.save!
+        account = Account.new(balance: 5, user_id: 1)
+        account.save!
+        room = Room.new(name: "Rainforest Suite", hourly_rate: 400)
+        room.id = 2
+        room.save!
+      end
 
       it "is not valid" do
-        expect(another_appointment).to have(1).errors_on(:room_id)
+        expect(appointment).to have(1)errors_on(:user_id)
       end
     end
+
+    end
+
+
 
   end
 

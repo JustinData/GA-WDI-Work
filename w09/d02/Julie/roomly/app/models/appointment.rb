@@ -12,14 +12,15 @@ class Appointment < ActiveRecord::Base
   end
 
 
-def check_for_overlap
+  def check_for_overlap
 
-Appointment.where(room_id: "#{self.room_id}").each do |appointment| 
-    if ((appointment.finish > self.start && appointment.start < self.start) || (appointment.start < self.finish && appointment.finish > self.end)) 
-      errors.add(:room_id, "There is another room in use")
+    #binding.pry
+    Appointment.where(room_id: self.room_id).each do |appointment|
+      if ((appointment.finish > self.start && appointment.start < self.start) || (appointment.start < self.finish && appointment.finish > self.end)) 
+        errors.add(:room_id, "There is another room in use")
+      end
     end
-  end
 
- end
+  end
 
 end
