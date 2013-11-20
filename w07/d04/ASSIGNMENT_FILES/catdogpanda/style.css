@@ -35,9 +35,10 @@ img{
 }
 
 .dog{
-  left: 600px;
+  left: 1000px;
 }
 
 .panda{
-  left: 1000px;
+  left: 600px;
+  top: 500px;
 }
