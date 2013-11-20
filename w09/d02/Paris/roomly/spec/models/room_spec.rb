@@ -20,12 +20,7 @@ describe Room do
 
   it "is invalid without an hourly_rate" do
     room.hourly_rate = nil
-    expect(room).to have(1).errors_on("hourly_rate")
-  end
-
-  it "is invalid without a room charge" do
-    room.hourly_rate !== user.
-    expect(room).to have(1).errors_on("hourly_rate")
+    expect(room).to have(1).errors_on("user_id")
   end
 
 end

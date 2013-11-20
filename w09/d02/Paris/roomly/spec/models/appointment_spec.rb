@@ -37,14 +37,14 @@ describe Appointment do
   # check that the start time is before the finish time
     context "start before finish" do
       it "is valid" do
-        expect(appointment).to have(0).errors_on(:start)
+        expect(appointment).to have(0).errors_on("start")
       end
     end
 
     context "start after finish" do
       it "is not valid" do
         appointment.start = 1.year.from_now
-        expect(appointment).to have(1).errors_on(:start)
+        expect(appointment).to have(1).errors_on("start")
       end
     end
     
@@ -53,18 +53,36 @@ describe Appointment do
   describe "different rooms" do
     context "start in different rooms for the same appointment times" do
       it "is valid" do
-        expect(appointment).to have(0) errors_on(:start)
+        expect(appointment).to have(0).errors_on("start")
       end
     end
 
     context "start in the same room for the same appointment time" do
       it "is not valid" do
-      Appointment.new(user_id: 1, room_id: 2, start: Time.now, finish: 3.hours.from_now)
-      Appointment.new(user_id: 2, room_id: 2, start: Time.now, finish: 3.hours.from_now)
-        expect(appointment).to have(1) errors_on(:start)
+        Appointment.new(user_id: 1, room_id: 2, start: Time.now, finish: 3.hours.from_now)
+        Appointment.new(user_id: 2, room_id: 2, start: Time.now, finish: 3.hours.from_now)
+        expect(appointment).to have(1).errors_on("start")
       end
     end
 
+  end
+
+  describe "deduct room charge" do
+    context "user has sufficient funds for a room" do
+      it "is valid" do
+        # the user's balance should be deducted hourly_rate * hours. 
+        expect(appointment).to have(0).errors_on("user_id")
+      end
+    end
+
+    context "user doesn't have sufficient funds for a room" do
+      it "is not valid" do
+        Account.new(user_id: 1, balance: 0)
+        Appointment.new(user_id: 1, room_id: 2, start: Time.now, finish: 3.hours.from_now)
+        Room.new(name: "room 1", hourly_rate: 50)
+        expect(appointment).to have(1).errors_on("user_id")
+      end
+    end
   end
 
 

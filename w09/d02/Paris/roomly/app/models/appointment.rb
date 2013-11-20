@@ -19,4 +19,11 @@ class Appointment < ActiveRecord::Base
     end
   end
 
+  def check_for_funds
+    return unless finish.present? && start.present?
+    if account.balance < room.hourly_rate * (start - finish)
+      errors.add(:user_id, "Get some money....HUMAN?!?!?!")
+    end
+  end
+
 end
