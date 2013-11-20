@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 
 /**************************XHR**********************/
 function getMovie(movie, actionFunction){
@@ -30,6 +32,7 @@ jQuery.prototype.cljq = function(){
   return this;
 }
 
+>>>>>>> 631a35e9bcd313d3aed18095ba4c041c1d2b6570
 window.onload = function(){
   $("<h1>").text("Find a Film!").appendTo( $("body") );
 
@@ -43,16 +46,28 @@ window.onload = function(){
                   "height":"1.2em",
                   "display":"block",
                   "background-color":"lightblue"
+<<<<<<< HEAD
+                    })
+              );
+  form.append( $("<label>").text("Action!") );
+  form.append( $("<select>")
+                .attr("name","action")
+=======
                      })
               );
   form.append( $("<label>").text("Action!").css("margin-top","10px") );
   form.append( $("<select>")
                 .attr("name","typeOfAction")
+>>>>>>> 631a35e9bcd313d3aed18095ba4c041c1d2b6570
                 .css({
                   "width":"10em",
                   "height":"2em",
                   "display":"block"
+<<<<<<< HEAD
+                    })
+=======
                      })
+>>>>>>> 631a35e9bcd313d3aed18095ba4c041c1d2b6570
               );
   $("select").append( $("<option>").attr("value", "none").html("Pick One:") );
   $("select").append( $("<option>").attr("value","displayMovie").html("Show me!") );
@@ -66,6 +81,16 @@ window.onload = function(){
                   "margin-top":"10px"})
               );
 
+<<<<<<< HEAD
+  function formSubmitFunction(e) {
+    e.preventDefault();
+    console.log("SUBMITTED");
+    console.log($(this.movieTitle).val());
+    console.log($(this.action).val());
+  }
+
+  form.submit( formSubmitFunction );
+=======
   function validate(e) {
     e.preventDefault();
 
@@ -84,11 +109,6 @@ window.onload = function(){
   }
 
   $("form").submit( validate );
+>>>>>>> 631a35e9bcd313d3aed18095ba4c041c1d2b6570
 }
-
-
-
-
-
-
 
