@@ -49,6 +49,22 @@ describe Appointment do
         expect(appointment).to have(1).errors_on(:start)
       end
     end
+
+
+    describe "make appointments" do
+      context "appointment exists" do
+        before do
+          appointment.save!
+        end
+      end
+
+      let(:another_appointment) {Appointment.new(user_id: 2, room_id: 2, start: Time.now, finish: 3.hours.from_now)}
+
+      it "is not valid" do
+        expect(another_appointment).to have(1).errors_on(:room_id)
+      end
+    end
+
   end
 
 
