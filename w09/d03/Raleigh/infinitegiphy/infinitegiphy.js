@@ -26,4 +26,11 @@ $(function(){
       count++;
    })
 
+   $(window).scroll(function () {
+   if ($(window).scrollTop() >= $(document).height() - $(window).height() - 50) {
+      $('<img>').attr('src', gifs[count]).appendTo('body');
+      count++;
+   }
+});
+
 });
