@@ -50,4 +50,11 @@ describe Appointment do
       end
     end
   end
+
+  describe "room availability" do
+    it "is empty" do
+      expect(appointment).to have(0).errors_on(:room_id)
+  end
+end
+
 end
