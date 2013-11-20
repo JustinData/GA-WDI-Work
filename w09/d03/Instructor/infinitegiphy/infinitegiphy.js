@@ -33,5 +33,13 @@ $(function(){
     appendGif();
   });
 
+  $("body").on("click", "img", function() {
+      $(this).toggleClass("big");
+  });
 
+  $(window).scroll(function () {
+    if($(window).scrollTop() + $(window).height() >= $(document).height()) {
+      appendGif();
+    }
+  });
 });
