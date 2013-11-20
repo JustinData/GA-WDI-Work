@@ -42,9 +42,17 @@ describe Appointment do
         expect(appointment).to have(1).errors_on(:start)
       end
     end
-  end
 
-  pending "same start/end time for same room"
+    context "same start/end time for same room" do
+      before do
+        appointment2 = Appointment.new(user_id: 1, room_id: 2, start: Time.now, finish: 3.hours.from_now)
+        appointment2.save!
+      end
+      it "is not valid" do
+        expect(appointment).to have(1).errors_on(:room_id)
+      end    
+    end
+  end
 end
 
 
