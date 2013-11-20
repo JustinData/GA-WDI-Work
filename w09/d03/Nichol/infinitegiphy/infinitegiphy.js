@@ -14,14 +14,18 @@ function storeGiphyResults(serverResponse){
 }
 
 function addGiphToPage(){
-  console.log("look at that beautiful giph added to the page!");
-
+  console.log("you're adding this to the page!");
   var myimg = $('<img src=' + giphyResults[count] + '>');
-
   $('body').append(myimg);
-
   count++;
-  console.log(count);
+
+}
+
+function windowScrollAdd(){
+  if ($(window).scrollTop() <= $(document).height() - $(window).height() && 
+      $(window).scrollTop() >= $(document).height() - $(window).height() - 10) {
+        addGiphToPage();
+      }
 }
 
 window.onload = function(){
@@ -48,6 +52,8 @@ window.onload = function(){
   //set up the listener for the attach a gif button
   var button = $('#add')
   button.click(addGiphToPage);
+
+  $( window ).scroll(windowScrollAdd);
 
 
 }
