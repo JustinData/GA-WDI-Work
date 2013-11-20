@@ -4,17 +4,16 @@ describe User do
   let(:user) { User.new }
 
   describe "#name" do
-    context "no name" do
+    context "i didn't give it no name" do
+      before do
+        user.name = nil
+      end
       it "isn't valid" do
         expect(user).to have(1).errors_on(:name)
       end
     end
 
     context "has name" do
-      before do
-        user.name = "Jeff"
-      end
-
       it "is valid" do
         expect(user).to have(0).errors_on(:name)
       end
@@ -54,6 +53,14 @@ describe User do
         it "is valid" do
           expect(user).to have(0).errors_on(:email)
         end
+      end
+    end
+  end
+
+  describe '#rent' do
+    context "no money in account" do
+      it 'does not let you rent if you do not have enough money' do
+        expect(user.rent).to have(1).errors_on(:balance)
       end
     end
   end
