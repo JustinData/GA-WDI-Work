@@ -1,8 +1,12 @@
+# Appointments can't overlap for the same room.
+
 require 'spec_helper'
 
 describe Appointment do
   let(:appointment) do
     Appointment.new(user_id: 1, room_id: 2, start: Time.now, finish: 3.hours.from_now)
+    Appointment.new(user_id: 2, room_id: 2, start: Time.now, finish: 3.hours.from_now)
+    Appointment.new(user_id: 3, room_id: 3, start: Time.now, finish: 3.hours.from_now)
   end
 
  it "is valid if it haz all the attributes" do
@@ -44,6 +48,23 @@ describe Appointment do
       end
     end
     
+  end
+
+  describe "different rooms" do
+    context "start in different rooms for the same appointment times" do
+      it "is valid" do
+        expect(appointment).to have(0) errors_on(:start)
+      end
+    end
+
+    context "start in the same room for the same appointment time" do
+      it "is not valid" do
+      Appointment.new(user_id: 1, room_id: 2, start: Time.now, finish: 3.hours.from_now)
+      Appointment.new(user_id: 2, room_id: 2, start: Time.now, finish: 3.hours.from_now)
+        expect(appointment).to have(1) errors_on(:start)
+      end
+    end
+
   end
 
 
