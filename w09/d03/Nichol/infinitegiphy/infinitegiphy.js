@@ -28,6 +28,11 @@ function windowScrollAdd(){
       }
 }
 
+function embiggen(){
+  // console.log("you just embiggened that image!");
+  $(this).toggleClass("big");
+}
+
 window.onload = function(){
 
   console.log("giphy");
@@ -53,7 +58,11 @@ window.onload = function(){
   var button = $('#add')
   button.click(addGiphToPage);
 
+  //set up to detect window scroll and add gifs
   $( window ).scroll(windowScrollAdd);
+
+  //delegated listener
+  $('body').on('click', 'img', embiggen);
 
 
 }
