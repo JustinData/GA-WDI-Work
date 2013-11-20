@@ -1,18 +1,11 @@
 require 'spec_helper'
 
-#write 2 features, 
-#1. appointments 
-#cant e at the same tine for the same room and 
-#2. a user is charged for a oom. 
-#(Hourly rate of room * number of hours)
-   #- this wil require an exrra model/table -> acct. It should hav a balance .
-   #a user connot rent a room without enough money in their balance to pay for it.
 describe Appointment do
   let(:appointment) do
-    Appointment.new(user_id:1, room_id: 2, start: Time.now, finish: 3.hours.from_now)
+    Appointment.new(user_id: 1, room_id: 2, start: Time.now, finish: 3.hours.from_now)
   end
 
-  it "is valid if it has all the attributes" do
+  it "is valid if it haz all the attributes" do
     expect(appointment).to be_valid
   end
 
@@ -21,29 +14,74 @@ describe Appointment do
     expect(appointment).to have(1).errors_on(:user_id)
   end
 
-  it "is invalid without room_id" do
+  it "is invalid without a room_id" do
     appointment.room_id = nil
     expect(appointment).to have(1).errors_on(:room_id)
   end
 
-  it "is invalid without start time:" do
+  it "is invalid without a start time" do
     appointment.start = nil
     expect(appointment).to have(1).errors_on(:start)
   end
 
-  it "is invalid without finish: time" do
+  it "is invalid without a finish time" do
     appointment.finish = nil
     expect(appointment).to have(1).errors_on(:finish)
   end
 
-  describe "start/finish" do #this is the same as #start_before_finish
-    
+  describe "start/finish" do
     context "start before finish" do
       it "is valid" do
+        expect(appointment).to have(0).errors_on(:start)
+      end
+    end
+
+    context "start after finish" do
+      it "is not valid" do
         appointment.start = 1.year.from_now
         expect(appointment).to have(1).errors_on(:start)
       end
     end
   end
-  pending "same start/end time for same room"
+  describe "conflict" do
+    context "the room is already booked" do
+      before do
+        existing_appt = Appointment.new(user_id: 2, room_id: 2, start: Time.now, finish: 3.hours.from_now)
+        existing_appt.save!
+      end
+        #Appointment.new(user_id: 1, room_id: 2, start: Time.now, finish: 3.hours.from_now)      
+      it "is invalid " do
+          expect(appointment).to have(1).errors_on(:start)
+      end
+    end
+
+    it "is valid" do
+      expect(appointment).to have(0).errors_on(:start)
+    end
+  end
 end
+  
+ 
+  # describe "same start/end time for same room" do
+  #   context "cant make 2 appts for one room" do
+  #     it "is not valid" do
+  #       expect(appointment.start.time).to have (1).errors_on(:room_id)
+  #     end
+  #   end
+  # end
+
+
+
+# describe '#call_floor' do
+#     it "allows users to call a floor above it if moving up" do
+#       elevator.call_floor(6)
+#       expect(elevator.called_floors).to include(6)
+#     end
+
+#     it "disallows users to call a floor below (if moving up)" do
+#       elevator.call_floor(2)
+#       expect(elevator.called_floors).to eq([])
+#     end
+
+
+
