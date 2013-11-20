@@ -1,5 +1,12 @@
 require 'spec_helper'
 
 describe Room do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:room) {Room.new}
+
+  describe(:new) do
+    it "exists" do
+      expect(room).to_not eq(nil)
+    end
+
+  end  
 end
