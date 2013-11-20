@@ -3,13 +3,15 @@ development:
   encoding: unicode
   database: roomly_development
   pool: 5
-  username: jeff
+  username: ann
   password:
+  host: localhost 
 
 test:
   adapter: postgresql
   encoding: unicode
   database: roomly_test
   pool: 5
-  username: jeff
+  username: ann
   password:
+  host: localhost 
