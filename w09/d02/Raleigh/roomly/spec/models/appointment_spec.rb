@@ -44,10 +44,16 @@ describe Appointment do
       end
    end
 
-   # describe 'same start/finish time for same room' do
-   #    it 'a room cannot be booked again with same start/finish time' do
-   #       expect()
-   #    end
-   # end
+   describe 'same start/finish time for same room' do
+      before do
+         Appointment.new(user_id: 2, room_id: 2, start: 1.hour.from_now, finish: 5.hours.from_now)
+      end
+      
+      context 'cannot overlap' do
+         it 'is not valid' do
+            expect(appointment).to have(1).errors_on(:room_id)
+         end
+      end
+   end
 
 end
