@@ -44,5 +44,17 @@ describe Appointment do
     end
   end
 
-  # pending "same start/end time for same room"
+  describe "appointments cannot overlap" do
+    context "times do not overlap" do
+      it "is valid" do
+        expect(appointment).to have(0).errors_on(:start)
+      end
+    end
+
+    context "times do overlap" do
+      it "is not valid"
+        expect(appointment).to have(1).errors_on(:start)
+      end
+    end
+  end
 end
