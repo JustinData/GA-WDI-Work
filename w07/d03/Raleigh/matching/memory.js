@@ -20,17 +20,13 @@ function startGame() {
    var cards = _.shuffle(letters);
 
    for(i=0; i < cards.length; i++){
-      var div = $("<div>").addClass("column").appendTo($("#game"));
-
-      div.on('click', function(){
-         console.log($(this));
-         $(this).html(cards[i]);
-         console.log(cards[i]);
-      });
+      var div = $("<div>").attr({"class": "column", "id": i}).appendTo($("#game"));
+      // console.log(div);
    }
 }
 
 //Code that runs when you click on a card
 function cardClick() {
-
+   var divs = $("div.column");
+   console.log(divs);
 }
