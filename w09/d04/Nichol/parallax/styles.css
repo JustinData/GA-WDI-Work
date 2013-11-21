@@ -4,8 +4,8 @@ html, body {
 }
 
 .bg {
-  position: absolute;
-  background: url('http://digntaswpp.com/wp-content/uploads/2013/09/Beach-Background-Wallpaper-HD1.jpg') repeat;
+  position: fixed;
+  background: url('http://static.giantbomb.com/uploads/original/8/82962/1822235-taino_beach__bahamas___1600x1200___id_40273_227274.jpeg') repeat;
   width: 100%;
   height: 300%;
   top: 0;
@@ -23,7 +23,7 @@ img {
 .break {
   background-color: goldenrod;
   width: 100%;
-  height: 400px;
+  height: 100px;
   display: block;
   text-align: center;
   z-index: 2;
