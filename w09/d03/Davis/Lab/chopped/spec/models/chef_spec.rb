@@ -14,9 +14,13 @@ describe Chef do
   end
 
   describe '#make_dish' do
+    before do
+      chef.save!
+    end
+
     it 'makes a dish' do
       chef.make_dish("Halva")
-      
+      expect(Dish.find_by(name: "Halva").name).to eq("Halva")
     end
   end
 end
