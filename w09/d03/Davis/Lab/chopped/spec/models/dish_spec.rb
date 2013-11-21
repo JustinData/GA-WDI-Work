@@ -7,5 +7,7 @@ describe Dish do
     it 'has a name' do
       expect(dish.name).to eq("Halva")
     end
+
+    
   end
 end

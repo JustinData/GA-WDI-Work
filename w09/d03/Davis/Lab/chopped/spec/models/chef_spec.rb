@@ -16,6 +16,7 @@ describe Chef do
   describe '#make_dish' do
     it 'makes a dish' do
       chef.make_dish("Halva")
+      
     end
   end
 end
