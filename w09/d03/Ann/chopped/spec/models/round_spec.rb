@@ -39,17 +39,17 @@ describe Round do
     entree = Round.create(category: "entree")
     dessert = Round.create(category: "dessert")
 
-    it "has four chefs in the appetizer round"
+    # it "has four chefs in the appetizer round"
       
-    end 
+    # end 
 
-    it "has three chefs in the entree round"
+    # it "has three chefs in the entree round"
 
-    end 
+    # end 
 
-    it "has two chefs in the dessert round"
+    # it "has two chefs in the dessert round"
 
-    end 
+    # end 
   end 
 
 
