@@ -3,57 +3,29 @@ require 'spec_helper'
 describe User do
   let(:user) { User.new }
 
-  describe "#name" do
-    context "no name" do
-      it "isn't valid" do
-        expect(user).to have(1).errors_on(:name)
-      end
-    end
-
-    context "has name" do
-      before do
-        user.name = "Jeff"
-      end
-
+  describe '#email' do
+    context "with an email" do
       it "is valid" do
-        expect(user).to have(0).errors_on(:name)
+        user.email = "jeff@ga.co"
+        expect(user).to be_valid
       end
     end
-  end
 
-  describe "#email" do
-    context "no email" do
-      it "is not valid" do
+    context "with no email" do
+      it "isn't valid" do
         expect(user).to have(1).errors_on(:email)
       end
     end
 
-    context "has email" do
+    context "with a taken email" do
       before do
-        user.email = "jeff@ga.co"
+        User.create(email: "shmee@hello.com")
       end
 
-      it "is valid" do
-        expect(user).to have(0).errors_on(:email)
-      end
+      it "isn't valid" do
+        user.email = "shmee@hello.com"
 
-      context "email exists" do
-        before do
-          user.name = "Jeff"
-          user.save!
-        end
-
-        let(:another_user) { User.new(name: "Some Person", email: "jeff@ga.co") }
-
-        it "is not valid" do
-          expect(another_user).to have(1).errors_on(:email)
-        end
-      end
-
-      context "email doesn't exist" do
-        it "is valid" do
-          expect(user).to have(0).errors_on(:email)
-        end
+        expect(user).to have(1).errors_on(:email)
       end
     end
   end
