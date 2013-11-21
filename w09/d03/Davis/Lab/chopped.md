@@ -10,3 +10,4 @@ Chopped
 - The chef with the lowest scoring dish is chopped, and cannot participate in the next round
     - In the event of a tie, the chopped chef is picked randomly
 - The last chef standing is the winner and wins $10,000
+
