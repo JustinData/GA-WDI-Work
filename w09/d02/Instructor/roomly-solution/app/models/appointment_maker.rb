@@ -11,3 +11,4 @@ class AppointmentMaker
     end
   end
 end
+

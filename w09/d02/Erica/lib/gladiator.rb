@@ -18,6 +18,7 @@ class Arena
 
   def find_gladiator(name)
     if @gladiators.include? name
+      "#{name} found."
   end
 
 end
