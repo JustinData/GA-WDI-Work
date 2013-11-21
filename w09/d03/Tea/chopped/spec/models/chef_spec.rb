@@ -11,4 +11,20 @@ describe Chef do
   it 'expect chef to make a dish with proper arguments' do
     expect{chef.cook("cake")}.to raise_error ArgumentError
   end
+
+  describe '::new' do
+    context 'Four chefs are already in the game' do
+      before do
+        chef = Chef.create(name: "Norman", episode_id: 2)
+        chef2 = Chef.create(name: "Anita", episode_id: 2)
+        chef3 = Chef.create(name: "Lee Cheng", episode_id: 2)
+        chef4 = Chef.create(name: "Howard", episode_id: 2)
+      end
+      it 'does not allow more chefs to join' do
+        chef5 = Chef.create(name: "Abernathy", episode_id: 2)
+        chef5.save
+        expect(chef5).to_not be_persisted
+      end
+    end
+  end
 end
