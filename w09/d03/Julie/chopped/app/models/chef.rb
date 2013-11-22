@@ -1,9 +1,13 @@
 class Chef < ActiveRecord::Base
-  validates :name, presence: true
+  validates :name, :episode_id, presence: true
   has_many :dishes
 
-  def make_dish(name) 
-     Dish.create(name: name, chef: self)
+  def make_dish(name, round_id) 
+    if Dish.where(chef_id: self.id, round_id: round_id).empty?
+     Dish.create(name: name, chef_id: self.id, round_id: round_id)
+    else
+      false
+   end
   end
 end
 
