@@ -13,7 +13,7 @@ class Chef < ActiveRecord::Base
   private 
 
   def rollback_if_maxed()
-    if (Chef.all).count >= 3
+    if (Chef.all).count >= 5
       raise ActiveRecord::Rollback, "Too many chefs in the kitchen!"
     end
   end
