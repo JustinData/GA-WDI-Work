@@ -10,7 +10,14 @@ describe Episode do
   end
 
   it "is invalid if it has more than 3 rounds" do
+    4.times do
+      round = Round.new
+      episode.rounds << round
+    end
     expect(episode).to have(1).errors_on(:round)
+  end
+
+  it "is valid if it has 3 rounds or less" do
   end
 
 end

@@ -1,4 +1,4 @@
 class Round < ActiveRecord::Base
- has_many :rounds
+ belongs_to :episode
  validates :name, :episode_id, presence: true
 end
