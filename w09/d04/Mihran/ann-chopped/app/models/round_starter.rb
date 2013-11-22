@@ -1,14 +1,23 @@
 class RoundStarter 
 
-  #encapsulate logic for creating a new round 
+  def initialize(episode)
+    @episode = episode
+  end
 
-  starter = RoundStarter.new(episode)
-  round = starter.next_round
+  def episode
+    @episode  
+  end
 
-  expect(round.chefs.length).to eq(2)
-  expect(episode.rounds.length).to eq(3)
+  def next_round
+    round_category = case episode.rounds.count
+      when 0
+        "Appetizer"
+      when 1
+        "Entree"
+      when 2
+        "Dessert"
+    end
+    Round.create(category: round_category, episode: episode)
+  end
 
 end 
-
-# episode has 2 rounds
-

@@ -3,7 +3,7 @@ class Round < ActiveRecord::Base
   has_and_belongs_to_many :chefs 
   belongs_to :episode 
 
-  validate :elimination 
+  # validate :elimination 
 
 private 
 
