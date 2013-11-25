@@ -1,22 +1,16 @@
 require 'spec_helper'
 
 describe Chef do
-  let!(:chef) { Chef.new(name: "Tony") }
+  let(:chef) { Chef.new(name: "Bob") }
 
   describe '::new' do
     it 'has a name' do
-      expect(chef.name).to eq("Tony")
+      expect(chef.name).to eq("Bob")
     end
 
-    it 'starts with no dishes' do
-      expect(chef.dishes.count).to eq(0)
-    end
-  end
-
-  describe '#make_dish' do
-    it 'makes a dish' do
-      chef.make_dish("Halva")
-      
+    it 'isnt valid without name' do
+      chef.name = nil
+      expect(chef).to have(1).errors_on(:name)
     end
   end
 end

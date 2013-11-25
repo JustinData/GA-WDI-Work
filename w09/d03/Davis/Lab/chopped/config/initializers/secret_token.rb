@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Chopped::Application.config.secret_key_base = 'f1e4b88977ef70cb07a3608b0c0301da861e22b9b80ca4d7790c26e96c208365c926bc41678d429e637dda80c5018c246085fbc992996115f25df06af1201bbd'
+Chopped::Application.config.secret_key_base = '679a55b4948b124e9d75bb9d70b55f1edf5e2812a7a966d1046a3c253d771e59805930ded5e68e3b363afaa98e771b3c791f739f41f0818478f2bd0d296058db'

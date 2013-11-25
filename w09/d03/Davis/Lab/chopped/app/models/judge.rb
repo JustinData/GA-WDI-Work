@@ -1,3 +1,3 @@
-class Chef < ActiveRecord::Base
+class Judge < ActiveRecord::Base
   validates :name, presence: true
 end

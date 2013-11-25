@@ -11,3 +11,4 @@ Chopped
     - In the event of a tie, the chopped chef is picked randomly
 - The last chef standing is the winner and wins $10,000
 
+episodes does elimination NOT judges
