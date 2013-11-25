@@ -39,11 +39,10 @@ Simple Version:
 
 Complex Version:
 
-1. Volunteers are called for
-  * if there are no volunteers, pick from the populace at "random", ie based on their tesserae
-    * if there are any drafted tributes, there is one last chance for volunteers to take their place
+1. Pick from the populace at "random", ie based on their tesserae
+    * Volunteers may step forward to replace the random choices
 2. Tributes are named, given their escort, and sent to the Capitol
-5. Tesserae are distributed for next year's Reaping
+3. Tesserae are distributed for next year's Reaping
 
 #### Addendum on death and destruction
 
