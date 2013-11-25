@@ -4,4 +4,8 @@ class Stuff
   def initialize
     @property = 10
   end
+
+  def talk
+    "ello"
+  end
 end
