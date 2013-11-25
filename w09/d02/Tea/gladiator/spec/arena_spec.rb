@@ -57,7 +57,7 @@ describe Arena do
       arena.add_gladiator(Gladiator.new("Brad", "Trident"))
       arena.add_gladiator(Gladiator.new("Maximus", "Short sword"))
       arena.pick_two("Brad", "Maximus")
-      expect(@fighters.first).to eq("Brad")
+      expect(arena.fighters.first).to eq("Brad")
     end
   end
 end
