@@ -11,13 +11,12 @@ def write_test(desc_string, it_string, &block)
 end
 
 describe Stuff do
-  it 'has a stuff' do 
-    $stuff = self
+  before do 
+    $t = self
   end
 
   write_test("description", "it thang") do
-    
-    $stuff.expect(nil).to $stuff.eq(nil)
+    $t.expect(nil).to $t.eq(nil)
   end
 end
 
