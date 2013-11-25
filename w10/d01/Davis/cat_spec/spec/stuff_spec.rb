@@ -12,11 +12,15 @@ end
 
 describe Stuff do
   before do 
+    # setup usuable scope as global
     $t = self
   end
 
+  let(:stuff) { Stuff.new }
+
   write_test("description", "it thang") do
-    $t.expect(nil).to $t.eq(nil)
+    stuff = $t.stuff
+    $t.expect(stuff.property).to_not $t.be_nil
   end
 end
 
