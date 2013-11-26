@@ -12,27 +12,23 @@ Clock.prototype.rotateSeconds = function() {
 Clock.prototype.rotateMinutes = function() {
   var min = $("#minute-hand");
 
-  if ( this.seconds === 60 || (this.seconds / 60) === 1 ) {
-    var minutes = this.seconds / 60;
-    min.css("transform", "rotate(" + parseInt(minutes * 6) + "deg)");
-  }
+  var minutes = this.seconds / 60;
+  min.css("transform", "rotate(" + parseInt(minutes * 6) + "deg)");
 }
 
 Clock.prototype.rotateHours = function() {
   var hour = $("#hour-hand");
 
-  if ( this.seconds === 3600 || (this.seconds / 60) === 1 ) {
-    var hours = this.seconds / 3600;
-    hour.css("transform", "rotate(" + parseInt(hours * 6) + "deg)");
-  }
+  var hours = this.seconds / 3600;
+  hour.css("transform", "rotate(" + parseInt(hours * 6) + "deg)");
 }
 
 $(function(){
   var clock = new Clock;
 
-  setInterval(function() {
-    clock.rotateSeconds();
-    clock.rotateMinutes();
-    clock.rotateHours();
-  }, 1000);
+  setInterval(function() { clock.rotateSeconds(); }, 1000);
+
+  setInterval(function() { clock.rotateMinutes(); }, 60000)
+
+  setInterval(function() { clock.rotateHours(); }, 3600000)
 })
