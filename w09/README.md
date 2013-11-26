@@ -6,10 +6,10 @@ We worked in groups to build projects. We used Pivotal Tracker to keep track of 
 ###What are we doing this week?
 |Monday         | Tuesday         |Wednesday        |Thursday         |  Friday
 |:-----           |:-----           |:-----           |:-------- |:-------- |
-|Rspec with Ruby|Exception Handling & Rspec with Rails|Regex & Rspec with Rails| Code Retreat | SURPRISE
+|Rspec with Ruby|Exception Handling & Rspec with Rails|Regex & Rspec with Rails| BDD Workflow | Code Retreat
 
 ###What are we doing next week?
-We are going to learn the Backbone.js framework
+We are going to build a complex app from end to end in a BDD way
 
 ###Resources this week
 * [Rspec Docs](https://relishapp.com/rspec/)
