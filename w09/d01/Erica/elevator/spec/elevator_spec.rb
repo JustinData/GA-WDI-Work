@@ -14,7 +14,7 @@ describe Elevator do
     end
   end
 
-  describe '#direction' do
+  describe 'direction' do
     it 'keeps track of direction' do
       expect(elevator.direction).to_not eq nil
     end
@@ -86,7 +86,7 @@ describe Elevator do
     end
   end
 
-  describe '#current_floor' do
+  describe 'current_floor' do
     it 'shows its current floor' do
       expect(elevator.current_floor).to_not eq nil
     end
@@ -96,7 +96,7 @@ describe Elevator do
     end
   end
 
-  describe '#destination' do
+  describe 'destination' do
     it 'shows the floor you want to visit' do
       expect(elevator.destination).to eq(elevator.current_floor)
     end
