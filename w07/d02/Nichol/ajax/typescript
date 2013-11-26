@@ -1,12 +1,5 @@
-Script started on Wed Nov  6 09:13:12 2013
-[?1034hbash-3.2$ ls
-ajax.html	postey		script.md
-ajax.js		script		typescript
-bash-3.2$ ./script
-bash-3.2$ ls
-ajax.html	app		script		typescript
-ajax.js		postey		script.md
-bash-3.2$ exit
+Script started on Mon Nov 11 08:34:48 2013
+[?1034hbash-3.2$ exit
 exit
 
-Script done on Wed Nov  6 09:13:24 2013
+Script done on Mon Nov 11 08:34:51 2013
