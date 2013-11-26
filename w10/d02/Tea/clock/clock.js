@@ -1,11 +1,12 @@
 $(function(){
-  setTimeout(rotate,1000);
+  setTimeout(rotateHands,1000);
 })
 var degrees = 6;
- 
-function rotate() {
+
+function rotateHands() {
   $('#second-hand').css('-webkit-transform', 'rotate(' + degrees + 'deg)');
-  setTimeout(rotate,1000);
+  $('#minute-hand').css('-webkit-transform', 'rotate(' + degrees/60 + 'deg)');
+  $('#hour-hand').css('-webkit-transform', 'rotate(' + degrees/360 + 'deg)');
+  setTimeout(rotateHands,1000);
   degrees = degrees + 6;
 }
-
