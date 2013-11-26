@@ -1,4 +1,10 @@
   # Welcome to the Capitol's Annual Hunger Games!
+  
+  my github repo:
+  https://github.com/PistachioPony/gameOnFire
+  
+  my pivotal tracker user stories: 
+  https://www.pivotaltracker.com/s/projects/964748
 
 The nation of Panem is divided into 14 "districts". Except for the district known as "The Capitol," each district* is called by its number: Districts 1 through 13. District 13 is, as far as Panem is concerned, destroyed and empty.
 
