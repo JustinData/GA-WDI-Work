@@ -59,14 +59,14 @@ def print_file( file_name )
           unless match.nil?
             if match[3].nil?
               if district != "cap" && match[4].to_i <= 18 && match[4].to_i >= 12
-                tesserae = match[4].to_i - 12
+                tesserae = match[4].to_i - 11
                 output << "Citizen.create(name: '" + match[2] + " " + match[1] + "', age: " + match[4] + ", gender: '" + match[5] + "' , tesserae: " + tesserae.to_s + ", district_id: " + district + ".id)\n"
               else
                 output << "Citizen.create(name: '" + match[2] + " " + match[1] + "', age: " + match[4] + ", gender: '" + match[5] + "' , district_id: " + district + ".id)\n"
               end
             else
               if district != "cap" && match[4].to_i <= 18 && match[4].to_i >= 12
-                tesserae = match[3][2].to_i + match[4].to_i - 12
+                tesserae = match[3][2].to_i + match[4].to_i - 11
 
                 output << "Citizen.create(name: '" + match[2] + " " + match[1] + "', age: " + match[4] + ", gender: '" + match[5] + "' , tesserae: " + tesserae.to_s + ", district_id: " + district + ".id)\n"
               end
