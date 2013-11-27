@@ -20,7 +20,8 @@ sams = text.scan(sam)
 sams_count = sams.count
 
 sam_i_am = /(sam-i-am)/i
-# text.gsub(sam_i_am, "Sammy Jam")
+text.gsub(sam_i_am, "Sammy Jam")
+f.close
 
 places = []
 begin_with = /(in a\s\w+)|(with a\s\w+)|(on a\s\w+)/i
