@@ -14,10 +14,14 @@ describe Tribute do
   let!(:katniss) { FactoryGirl.create(:tribute, gender: "f") }
   let!(:cato) { FactoryGirl.create(:tribute, gender: "m") }
 
-  describe "#>" do
+  describe "#<=>" do
     shared_examples "katniss_is_greater_than_cato" do
       it "is greater than" do
         expect(katniss).to be > cato
+      end
+
+      it "is less than" do
+        expect(cato).to be < katniss
       end
     end
 
@@ -61,8 +65,20 @@ describe Tribute do
           context "one male one female" do
             it_should_behave_like "katniss_is_greater_than_cato"
           end
+
+          context "same gender" do
+            before { cato.update(gender: "f") }
+
+            it "randomly generates a winner" do
+              expect([-1, 1]).to include(katniss <=> cato)
+            end
+          end
         end
       end
+    end
+
+    it "doesn't override the == method" do
+      expect(katniss).to be == Tribute.find_by(id: katniss.id)
     end
   end
 
