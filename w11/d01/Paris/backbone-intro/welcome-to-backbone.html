@@ -27,6 +27,8 @@
   // the below is prototypal inheritance using .extend syntax. View is the base class name.
     WelcomeView = Backbone.View.extend({
       // el: $("<div>"),
+
+      // the below defines the div inside the container div
       className: "welcome",
       id: "the-welcome-view",
 
@@ -35,7 +37,17 @@
         // The above will create an empty div to which Welcome is appended.
         // this and self work the same in backbone.
         this.$el.append( $("<h1>Welcome!</h1>") );
-      }
+        // this.listenTo(item, "eventName", callback);
+      },
+      events: {
+        // eventName: the function 
+        "click h1": "render"
+      },
+      render: function(){
+        // alert("hover");
+        this.$el.after( $("<p>").text("click"));
+      },
+      remove: function(){}
     });
 
     window.onload = function(){
