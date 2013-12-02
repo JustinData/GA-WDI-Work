@@ -36,7 +36,7 @@ Deck.prototype.shuffle = function() {
   this.cards = _.shuffle(this.cards);
 }
 Deck.prototype.draw = function(hand) {
-  hand.addCard(this.cards.pop());
+  hand.addCard(this.cards.shift());
 }
 
 function Hand() {
