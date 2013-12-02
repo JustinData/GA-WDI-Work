@@ -24,40 +24,19 @@ Card.prototype.read = function() {
 
 function Deck(){
   this.cards = [];
-}
-
-Deck.prototype.initialize = function() {
 
   suitNames = ["Diamond", "Spade", "Clubs", "Hearts"];
-  faceNames = ["Ace", "Jack", "Queen", "King"];
-
-  for(j=0; j<=3; j++){
-    for(i=2; i<=10; i++){
+  faceNames = ["Ace", "Jack", "Queen", "King", 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  
+  _.each(faceNames, function(face){
+    _.each(suitNames, function(suit){
       tempcard = new Card();
-      tempcard.rank = i;
-      tempcard.suit = suitNames[j];
+      tempcard.rank = face;
+      tempcard.suit = suit;
       this.cards.push(tempcard);
-    }
-  }
+    }, this);
+  }, this);
 
-  for(i=0;i<=3;i++){
-    for (j=0;j<=3;j++){
-      tempcard = new Card();
-      tempcard.rank = faceNames[j];
-      tempcard.suit = suitNames[i];
-      this.cards.push(tempcard);
-    }
-  }
-
-  // _.each(faceNames, function(face){
-  //   _.each(suitNames, function(suit){
-  //     tempcard = new Card();
-  //     tempcard.rank = face;
-  //     tempcard.suit = suit;
-  //     this.cards.push(tempcard);
-  //   });
-  // });
-    
 }
 
 Deck.prototype.shuffle = function(){
@@ -86,6 +65,14 @@ Hand.prototype.read = function(){
   });
 }
 
+Hand.prototype.draw = function(deck){
+  this.cards.push(deck.pull());
+}
+
+Deck.prototype.pull = function(){
+  return this.cards.pop();
+}
+
 // Hand.prototype.read = function(){
 //     _.each(this.cards, this.read);
 // }
@@ -95,12 +82,10 @@ window.onload = function(){
   
   myDeck = new Deck();
   myHand = new Hand();
-  myDeck.initialize();
+  
   myDeck.shuffle();
   myDeck.draw(myHand);
   myHand.read();
-
-
 
 }
 
