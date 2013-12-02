@@ -10,10 +10,7 @@ def each(collection)
   return collection
 end
 
-# each(a) {|el| puts "This element" is #{el}!"}
-
-
-
+each(a) {|el| puts "This element" is #{el}!"}
 
 def map(collection)
   length = collection.length
@@ -26,4 +23,37 @@ def map(collection)
   return new_array
 end
 
-map(a) {|el| 3 }
+print ( map(a) {|el| el+3 } )
+
+def select(collection)
+  length = collection.length
+  index = 0
+  new_array = []
+  while index < length
+    if yield(collection[index]) == true
+      new_array.push(collection[index])
+    end
+    index += 1
+  end
+  return new_array
+end
+
+select(a) {|el| el.even?}
+
+
+def reduce(collection, start=0)
+  length = collection.length
+  index = 0
+  output = start
+  while index < length
+    output = yield(collection[index], output)
+    index += 1
+  end
+  return output
+end
+
+sum = reduce(a){|e, o| o+e}
+
+def join(collection, delimiter)
+  reduce(collection, ""){|e, o| o.to_s + delimiter + e.to_s}
+end
