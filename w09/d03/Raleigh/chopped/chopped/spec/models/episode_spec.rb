@@ -12,38 +12,21 @@ describe Episode do
     expect(ep).to have(1).errors_on(:title)
   end
 
-  describe "#create_rounds" do
+  describe "it has many relationships" do
     before {ep.save}
 
-    it "is valid with 3 rounds" do
-      expect(ep.rounds.count).to eq(3)
+    it "it can have many rounds" do
+      expect(ep.rounds.first).to be_an_instance_of(Round)
     end
 
-    context "already has 3 rounds" do
-      it "raises an error" do
-        expect {ep.check_rounds}.to raise_error("You already have three rounds.")
-      end
+    it "it can have many judges" do
+      expect(ep.judges.first).to be_an_instance_of(Judge)
     end
+  end
 
-    context "has less than 3 rounds" do
-      before do
-        ep.rounds.pop
-        # binding.pry
-      end
-
-      it "raises an error" do
-        expect {ep.check_rounds}.to raise_error("Stop that. You must have three rounds.")
-      end
-    end
-
-    context "has greater than 3 rounds" do
-      before do
-        ep.rounds << Round.create(episode: ep)
-      end
-
-      it "is invalid" do
-        expect {ep.check_rounds}.to raise_error("You cannot have more than three rounds.")
-      end
+  describe "#produce_episode" do
+    it "hires a producer" do
+      expect(ep.produce_episode).to be_an_instance_of(Producer)
     end
   end
 
