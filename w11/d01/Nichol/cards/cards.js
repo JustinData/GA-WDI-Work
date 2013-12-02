@@ -19,7 +19,7 @@ function Card() {
 }
 
 Card.prototype.read = function() {
-
+  console.log(this.suit + " " + this.rank);
 }
 
 function Deck(){
@@ -28,38 +28,46 @@ function Deck(){
 
 Deck.prototype.initialize = function() {
 
-  for(i=1; i<=10; i++){
-    tempcard = new Card();
-    tempcard.rank = i;
-    tempcard.suit = "Diamond";
-    this.cards.push(tempcard);
+  suitNames = ["Diamond", "Spade", "Clubs", "Hearts"];
+  faceNames = ["Ace", "Jack", "Queen", "King"];
+
+  for(j=0; j<=3; j++){
+    for(i=2; i<=10; i++){
+      tempcard = new Card();
+      tempcard.rank = i;
+      tempcard.suit = suitNames[j];
+      this.cards.push(tempcard);
+    }
   }
 
-    tempcard = new Card();
-    tempcard.rank = "A";
-    tempcard.suit = "Diamond";
-    this.cards.push(tempcard);
+  for(i=0;i<=3;i++){
+    for (j=0;j<=3;j++){
+      tempcard = new Card();
+      tempcard.rank = faceNames[j];
+      tempcard.suit = suitNames[i];
+      this.cards.push(tempcard);
+    }
+  }
 
-    tempcard = new Card();
-    tempcard.rank = "K";
-    tempcard.suit = "Diamond";
-    this.cards.push(tempcard);
-
-    tempcard = new Card();
-    tempcard.rank = "Q";
-    tempcard.suit = "Diamond";
-    this.cards.push(tempcard);
-
-    tempcard = new Card();
-    tempcard.rank = "J";
-    tempcard.suit = "Diamond";
-    this.cards.push(tempcard);
-
+  // _.each(faceNames, function(face){
+  //   _.each(suitNames, function(suit){
+  //     tempcard = new Card();
+  //     tempcard.rank = face;
+  //     tempcard.suit = suit;
+  //     this.cards.push(tempcard);
+  //   });
+  // });
+    
 }
 
 Deck.prototype.shuffle = function(){
   this.cards = _.shuffle(this.cards);
+}
 
+Deck.prototype.read = function(){
+  _.each(this.cards, function(card){
+    card.read();
+  });
 }
 
 Deck.prototype.draw = function(hand){
@@ -73,10 +81,14 @@ function Hand(){
 }
 
 Hand.prototype.read = function(){
-  _.each(this.cards, function(x){
-    console.log(x);
+  _.each(this.cards, function(card){
+    card.read();
   });
 }
+
+// Hand.prototype.read = function(){
+//     _.each(this.cards, this.read);
+// }
 
 window.onload = function(){
   console.log("hello and lets play poker");
@@ -86,6 +98,9 @@ window.onload = function(){
   myDeck.initialize();
   myDeck.shuffle();
   myDeck.draw(myHand);
+  myHand.read();
+
+
 
 }
 
