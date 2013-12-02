@@ -16,16 +16,20 @@ function Deck() {
   // make card objects out of suits and values
   for(var s = 0; s < suits.length; s++){
     for(var i = 0; i < values.length; i++){
-      this.cards[this.cards.length] = new Card(suits[s], values[i]);
+      this.cards.push(new Card(suits[s], values[i]));
     }
   }
+}
+
+function Hand() {
+  this.cards = [];
 }
 
 var deck = new Deck();
 var hand = new Hand();
 
 Deck.prototype.shuffle = function() {
-   this.cards = _.shuffle(this.cards);
+  this.cards = _.shuffle(this.cards);
 }
 
 Deck.prototype.draw = function(hand) {
@@ -33,15 +37,13 @@ Deck.prototype.draw = function(hand) {
   this.cards.splice(0, 1);
 }
 
-function Hand() {
-  this.cards = [];
-}
-
 Hand.prototype.announce = function() {
+  var publicHand = []
   var i = this.cards.length;
   for(var i = 0 ; i < 5 ; i++) {
-    console.log(this.cards[i]);
+    publicHand.push(this.cards[i]);
   }
+  console.log(publicHand);
 }
 
 function Poker(){
