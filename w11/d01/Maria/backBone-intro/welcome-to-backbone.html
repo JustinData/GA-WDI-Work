@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Welcome to Backbone</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+
+  <script src="javascript/jquery-2.0.0.js"></script>
+  <script src="javascript/underscore.js"></script>
+  <script src="javascript/backbone.js"></script>
+  <style>
+body{
+  text-align: center;
+}
+  </style>
+</head>
+
+<body>
+  <div id="container">
+  </div>
+
+  <script type="text/javascript">
+    WelcomeView = Backbone.View.extend({
+      el: $("<h1>"), //this is goingto be a new h1 not attached to dom
+      
+      initialize: function(){
+        this.$el.appendTo( $("#container") );//here you are appending it to dom
+        this.el.innerHTML = "Welcome CLass!";
+        //this.$el.appendTo( $("container:") );//this puts the welcome itn its own div.
+        //this.$el.append( $("<h1>Welcome!</h1>") );
+      }
+    });
+
+    window.onload = function(){
+      var intro = new WelcomeView({ el: $("#container") });
+      var secondary = new WelcomeView({ el: $("<h2>") });
+    };
+  </script>
+</body>
+
+</html>
