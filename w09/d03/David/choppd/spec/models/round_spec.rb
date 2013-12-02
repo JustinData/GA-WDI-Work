@@ -40,9 +40,7 @@ describe Round do
         end
       end
       it "is not valid" do
-        #binding.pry
         expect(round).to have(1).errors_on(:episode_id)
-
       end
     end
   end
