@@ -8,22 +8,29 @@
   <script src="javascript/jquery-2.0.0.js"></script>
   <script src="javascript/underscore.js"></script>
   <script src="javascript/backbone.js"></script>
+
+  <style>
+    body {
+      text-align: center;
+    }
+  </style>
 </head>
 
 <body>
-  <div id="container">
-  </div>
+  <div id="container"></div>
 
   <script type="text/javascript">
     WelcomeView = Backbone.View.extend({
+      className: "welcome",
       initialize: function(){
-        this.$el.append( $("<h1>Welcome!</h1>") );
+        this.$el.appendTo( $("#container") );
       }
     });
 
-    window.onload = function(){
-      var intro = new WelcomeView({ el: $("#container") });
-    };
+    $(function(){
+      var intro = new WelcomeView({ el: $("<h1>Welcome!</h1>") });
+      intro.el.innerHTML = "NOT welcome";
+    });
   </script>
 </body>
 
