@@ -52,8 +52,11 @@ new FormView();
 var WeatherView = Backbone.View.extend({
   tagName: "div",
 
+  template: _.template($("script[type='text.html']").html()),
+
   initialize: function(options){
-    console.log(options.city);
+    var compiledTemplate = this.template({state: options.state, city: options.city});
+    this.$el.html(compiledTemplate);
   }
 });
 
