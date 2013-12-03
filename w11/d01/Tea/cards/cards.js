@@ -1,4 +1,4 @@
-window.onload = function(){}
+
 
 function Card(suit, value) {
   this.suit = suit;
