@@ -76,16 +76,13 @@
       },
 
       updateQuestion: function(e) {
-        if
-        else
-          
+        this.render(e.currentTarget.value);
       },
 
       render: function(number){
-        this.$el.html( this.template(Model[number]) );
+        this.$el.html( this.template(model[number]) )};
+      }
     });
-
-
 
 
 // END EVENTS ########################
