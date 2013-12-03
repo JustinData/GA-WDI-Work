@@ -1,47 +1,49 @@
-require 'pry'
+<!DOCTYPE html>
+<html>
 
-a = *100..110
-  def each(collection)
-    length = collection.length    
-    index = 0
-      while index < length
-        yield collection[index]
-        index += 1
-      end  
-  return collection
-end  
+<head>
+  <title>Welcome to Backbone</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <style>
+    body {
+      text-align: center;
+    }
+  </style>
 
-each(a) {|el| puts "This element is #{el}!"}
+  <script src="javascript/jquery-2.0.0.js"></script>
+  <script src="javascript/underscore.js"></script>
+  <script src="javascript/backbone.js"></script>
+</head>
 
-  def map (input_collection)
-    length = input_collection.length
-    index = 0
-    output_collection = []
-      while index < length
-        output_collection << yield (input_collection[index])
-        index += 1
-      end
-    return output_collection     
-  end
+<body>
+  <div id="container">
+  </div>
 
-  def select(input_collection)
-    length = input_collectionlength
-    index = 0
-    output_collection = []
-    while index < length
-      if yield(input_collection[index])
-       output_collection << input_collection[index]
-       end
-    end 
-  end
+  <script type="text/javascript">
+    WelcomeView = Backbone.View.extend({
+      className: "welcome",
+      id: "the-welcome-view",
+      initialize: function(){
+        this.$el.appendTo( $("#container") );
+        this.$el.append( $("<h1>Welcome!</h1>") );
+      },
+      events: {
+        "click h1": "render",
+        "click p": "tellEmHowYouFeel"
+      },
+      render: function(){
+       
+        this.$el.append( $("<p>").text("click") );
+      },
+      tellEmHowYouFeel: function(){
+        alert("I feel great!");
+      }
+    });
 
-  def reduce(arr, initial)
-    result = initial
-    i = 0
-    while i < arr.length
-      result = yield(result, arr[i])
-      i += 1
-    end
-    return result
-  end
-  
+    window.onload = function(){
+      var intro = new WelcomeView();
+    };
+  </script>
+</body>
+
+</html>

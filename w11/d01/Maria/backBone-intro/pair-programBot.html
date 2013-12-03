@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Welcome to Backbone</title>
+  <title>Welcome to Pair Programmig Bot</title>
   <link rel="stylesheet" href="css/normalize.css" />
   <style>
     body {
@@ -29,7 +29,7 @@
 
   <script type="text/javascript">
     var fakeModelJSON = {
-      message: "Welcome!",
+      message: "Welcome Pair Programming Bot",
       secondary: "It works I hope!",
       showParagraph: true};
 
@@ -59,8 +59,27 @@
       }
     });
 
+    var QuestionView = Backbone.View.extend({
+      id: "question",
+      template: _.template( $("#question-template").html() ),
+      initialize: function(){
+        this.$el.appendTo("#container");
+        this.render(1);
+      },
+      events: {
+        "click .button": "updateQuestion"
+      },
+      updateQuestion: function(e){
+        console.log(e);
+      },
+      rendr: function(number){
+        this.$el.html( this.template( model[number] ) );
+      }
+    });
+
     window.onload = function(){
       intro = new WelcomeView();
+      question = new QuestionView();
     };
   </script>
 </body>
