@@ -19,13 +19,21 @@
   <div id="container">
   </div>
 
+  <script type="text/template" id="welcome_message">
+    <h1><%= message %></h1>
+    <h2><%= secondary %></h2>
+    <% if (showParagraph == true) { %>
+    <p>You showed me</p>
+    <% } %>
+  </script>
+
   <script type="text/javascript">
     WelcomeView = Backbone.View.extend({
       className: "welcome",
       id: "the-welcome-view",
       initialize: function(){
         this.$el.append( $("#container") );
-        this.$el.append( $("<h1>Welcome!</h1>") );
+        this.$el.append( $("welcome-message") );
       },
       events: {
         "click h1": "render",
@@ -45,6 +53,7 @@
     });
 
     window.onload = function(){
+      // removing var will make intro a global variable
       var intro = new WelcomeView({ el: $("#container") });
     };
   </script>
