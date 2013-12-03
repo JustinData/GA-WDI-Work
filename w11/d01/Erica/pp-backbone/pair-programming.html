@@ -27,8 +27,6 @@
 <body>
   <div id="container">
     <h1>Welcome to the Pair Programming Bot!</h1>
-  </div>
-
   <script type="text/template" id="question-template">
     <h2><%= question %></h2>
     <div id="buttons">
@@ -55,6 +53,27 @@
       7: {question: "Select a new feature to implement.", type: "Continue"}
       };
 
+    var QuestionView = Backbone.View.extend({
+      id: "question",
+      template: _.template( $("#question-template").html() ),
+      initialize: function(){
+        this.$el.appendTo("#container");
+        this.render(1);
+      },
+      events: {
+        "click .button": "updateQuestion"
+      },
+      updateQuestion:  function(e){
+        this.render(e.currentTarget.value);
+      },
+      render: function(number){
+        this.$el.html( this.template( model[number]) ); // run own templating function
+      }
+    });
+      
+    window.onload = function() {
+      question = new QuestionView();
+    };
   </script>
 </body>
 
