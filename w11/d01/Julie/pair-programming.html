@@ -43,6 +43,7 @@
     </div>
   </script>
 
+
   <script type="text/javascript">
     var model =
       {
@@ -55,6 +56,32 @@
       7: {question: "Select a new feature to implement.", type: "Continue"}
       };
 
+
+    myView = Backbone.View.extend({
+      className: "welcome",
+      template: _.template( $("#question-template").html() ),
+      initialize: function(){
+        this.$el.appendTo( $("#container") );
+        this.render(1);
+      },
+
+      events: {
+        "click .button": "updateQuestion"
+      },
+
+      updateQuestion: function(e){
+        this.render(e.currentTarget.value);
+      },
+
+      render: function(number){
+        this.$el.html( this.template(model[number]) );
+      },
+
+    });
+
+    window.onload = function(){
+      intro = new myView();
+    };
   </script>
 </body>
 

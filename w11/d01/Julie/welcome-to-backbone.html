@@ -14,27 +14,52 @@
   <div id="container">
   </div>
 
-  <script type="text/javascript">
-    WelcomeView = Backbone.View.extend({
-      initialize: function(){
-   
-        this.$el.appendTo( $("#container") );
-        this.el.append($("<h1>Welcome Julie!</h1>"));
+  <script type="text/template" id="welcome-message">
+    <h1><%= message %></h1>
+    <h2><%= secondary %></h2>
+    <% if (showParagraph == true) { %>
+    <p>You showed me!</p>
+    <% } %>
+  </script>
 
-      }
+  <script type="text/javascript">
+    var fakeModelJSON = {
+      message: "Welcome!",
+      secondary: "It works I hope!",
+      showParagraph: true};
+
+    WelcomeView = Backbone.View.extend({
+      className: "welcome",
+      id: "the-welcome-view",
+      initialize: function(){
+        this.$el.appendTo( $("#container") );
+        this.render();
+      },
+      template: _.template( $("#welcome-message").html() ),
       events: {
-        "click h1": render
+        "click h1": "render",
+        "click p": "tellEmHowYouFeel"
+      },
+      render: function(){
+        //this.$el.append( $("<p>").text("click") );
+        if( fakeModelJSON.showParagraph == true ) {
+          fakeModelJSON.showParagraph = false;
+        } else {
+          fakeModelJSON.showParagraph = true;
+        }
+        this.$el.html( this.template(fakeModelJSON) );
+      },
+      tellEmHowYouFeel: function(){
+        alert("I feel great!");
       }
-      render: function() {
-        this.$el.after($("<p>").text("click"));
-      }
-      remove: function() {}
     });
 
     window.onload = function(){
-      var intro = new WelcomeView();
+      intro = new WelcomeView();
     };
   </script>
+
+
 </body>
 
 </html>
