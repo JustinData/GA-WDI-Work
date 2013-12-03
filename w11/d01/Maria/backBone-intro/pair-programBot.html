@@ -2,10 +2,19 @@
 <html>
 
 <head>
-  <title>Welcome to Pair Programmig Bot</title>
+  <title>Pair Programming</title>
   <link rel="stylesheet" href="css/normalize.css" />
   <style>
+    @font-face {
+      font-family: 'Open Sans';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Open Sans'), local('OpenSans'), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/cJZKeOuBrn4kERxqtaUH3bO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
+    }
+
     body {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 14px;
       text-align: center;
     }
   </style>
@@ -17,47 +26,34 @@
 
 <body>
   <div id="container">
+    <h1>Welcome to the Pair Programming Bot!</h1>
   </div>
 
-  <script type="text/template" id="welcome-message">
-    <h1><%= message %></h1>
-    <h2><%= secondary %></h2>
-    <% if (showParagraph == true) { %>
-    <p>You showed me!</p>
-    <% } %>
+  <script type="text/template" id="question-template">
+    <h2><%= question %></h2>
+    <div id="buttons">
+      <% if (type == "YesNo") { %>
+      <button class="button Yes" value="<%= yes %>">Yes</button>
+      <button class="button No"  value="<%= no %>">No</button>
+      <% } else if (type == "Done") { %>
+      <button class="button Done" value="2">Done</button>
+      <% } else { %>
+      <button class="button Continue" value="1">Continue</button>
+      <% } %>
+    </div>
   </script>
 
   <script type="text/javascript">
-    var fakeModelJSON = {
-      message: "Welcome Pair Programming Bot",
-      secondary: "It works I hope!",
-      showParagraph: true};
-
-    WelcomeView = Backbone.View.extend({
-      className: "welcome",
-      id: "the-welcome-view",
-      initialize: function(){
-        this.$el.appendTo( $("#container") );
-        this.render();
-      },
-      template: _.template( $("#welcome-message").html() ),
-      events: {
-        "click h1": "render",
-        "click p": "tellEmHowYouFeel"
-      },
-      render: function(){
-        //this.$el.append( $("<p>").text("click") );
-        if( fakeModelJSON.showParagraph == true ) {
-          fakeModelJSON.showParagraph = false;
-        } else {
-          fakeModelJSON.showParagraph = true;
-        }
-        this.$el.html( this.template(fakeModelJSON) );
-      },
-      tellEmHowYouFeel: function(){
-        alert("I feel great!");
-      }
-    });
+    var model =
+      {
+      1: {question: "Do you have a test for that?", type: "YesNo", yes: 2, no: 3},
+      2: {question: "Does the test pass?", type: "YesNo", yes: 4, no: 5},
+      3: {question: "Write a test.", type: "Done"},
+      4: {question: "Need to refactor?", type: "YesNo", yes: 6, no: 7},
+      5: {question: "Write just enough code to pass the test.", type: "Done"},
+      6: {question: "Refactor the test and code.", type: "Done"},
+      7: {question: "Select a new feature to implement.", type: "Continue"}
+      };
 
     var QuestionView = Backbone.View.extend({
       id: "question",
@@ -70,17 +66,17 @@
         "click .button": "updateQuestion"
       },
       updateQuestion: function(e){
-        console.log(e);
+        this.render(e.currentTarget.value);
       },
-      rendr: function(number){
+      render: function(number){
         this.$el.html( this.template( model[number] ) );
       }
     });
 
     window.onload = function(){
-      intro = new WelcomeView();
       question = new QuestionView();
     };
+
   </script>
 </body>
 
