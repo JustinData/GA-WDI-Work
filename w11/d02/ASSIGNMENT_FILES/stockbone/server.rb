@@ -8,11 +8,8 @@ get '/' do
   send_file File.join(settings.public_folder, 'index.html')
 end
 
-get '/weather' do
+get '/price' do
+  content_type :json
   encoded = URI.encode(params[:q])
-  JSON(HTTParty.get("http://api.openweathermap.org/data/2.5/weather?q=#{encoded}"))
-end
-
-get "/names/:name" do
-  params[:name]
+  HTTParty.get("http://dev.markitondemand.com/Api/Quote/json?symbol=#{encoded}").to_json
 end
