@@ -10,7 +10,7 @@ class Appointment < ActiveRecord::Base
   end
 
   def duration
-    ( (finish - start) / 1.hour ).round
+    ( (finish - start) / 3600 ).round
   end
 
   private
