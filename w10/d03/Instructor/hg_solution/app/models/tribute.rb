@@ -9,7 +9,7 @@ class Tribute < Citizen
 
   # allows us to 'compare' one tribute with another
   # ie. who wins in a fight? katniss > cato
-  # http://www.ruby-doc.org/core-2.0.0/Comparable.html
+  #   
   include Comparable
 
   def <=>(other)
@@ -18,6 +18,13 @@ class Tribute < Citizen
       sponsors.count <=> other.sponsors.count,
       district.number <=> other.district.number,
       gender == other.gender ? 0 : (gender == "f" ? 1 : -1)
+      # if gender == other.gender
+      #   return 0
+      # elsif gender == "f"
+      #   return 1
+      # else
+      #   return -1
+      # end
     ].find(&:nonzero?)
 
     comparator || [-1, 1].sample

@@ -1,5 +1,9 @@
 require 'httparty'
 
+<<<<<<< HEAD
+response = HTTParty.get('http://www.h4w5.co/')
+puts response.body
+=======
 path = 'http://www.h4w5.co'
 
 begin # exception handling block
@@ -22,3 +26,4 @@ rescue SocketError => e # rescue from a specific exception
   end
 
 end # exception handling block
+>>>>>>> 9485014daa152191952f8af299caab012501e846
