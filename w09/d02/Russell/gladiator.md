@@ -16,5 +16,6 @@ Work in pairs
 * You can check to see if the crowd is entertained
 * The crowd is only entertained if Maximus was in the last fight
 * When a fight is over, the user should be prompted to put their thumbs up or down. If they vote down, remove the losing gladiator from the arena (ie the die)
-* When a fight is over, the user should be prompted to put their thumbs up or down. If they vote down, remove the losing gladiator from the arena (ie they die)
-* When a fight is over, the user should be prompted to put their thumbs up or down. If they vote down, remove the losing gladiator from the arena (ie they die)
+
+
+g
