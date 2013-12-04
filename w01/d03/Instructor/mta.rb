@@ -1,3 +1,7 @@
+require 'pry'
+
+
+
 # A method that returns a string with all of the train lines listed, separated by a comma
 def display_trains(system)
   return system.keys.join(', ')
