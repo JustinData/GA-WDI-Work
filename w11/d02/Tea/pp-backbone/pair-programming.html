@@ -4,21 +4,7 @@
 <head>
   <title>Pair Programming</title>
   <link rel="stylesheet" href="css/normalize.css" />
-  <style>
-    @font-face {
-      font-family: 'Open Sans';
-      font-style: normal;
-      font-weight: 400;
-      src: local('Open Sans'), local('OpenSans'), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/cJZKeOuBrn4kERxqtaUH3bO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
-    }
-
-    body {
-      font-family: 'Open Sans', sans-serif;
-      font-size: 14px;
-      text-align: center;
-    }
-  </style>
-
+  <link rel="stylesheet" href="css/style.css"/>
   <script src="javascript/jquery-2.0.0.js"></script>
   <script src="javascript/underscore.js"></script>
   <script src="javascript/backbone.js"></script>
@@ -54,7 +40,26 @@
       6: {question: "Refactor the test and code.", type: "Done"},
       7: {question: "Select a new feature to implement.", type: "Continue"}
       };
-
+    var QuestionView = Backbone.View.extend({
+      id: "question",
+      initialize: function(){
+        this.$el.appendTo( $("#container") );
+        this.render(1);
+      },
+      template: _.template($('#question-template').html() ),
+      events: {
+        "click .button": "updateQuestion"
+      },
+      render: function(number){
+        this.$el.html(this.template(model[number]));
+      },
+      updateQuestion : function(e){
+        this.render(e.target.value);
+      },
+    })
+    window.onload = function(){
+      question = new QuestionView();
+    };
   </script>
 </body>
 
