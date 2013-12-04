@@ -5,7 +5,9 @@ var Activity = Backbone.Model.extend({
 });
 
 var BucketList = Backbone.Collection.extend({
-	model: Activity
+	model: Activity,
+
+	url: "activities"
 });
 
 var list = new BucketList();
@@ -33,9 +35,7 @@ var FormView = Backbone.View.extend({
 		e.preventDefault();
 		var title = this.$el.find("input[name='activity']").val();
 		var activity = new Activity({title: title});
-		var newActivity = this.collection.add(activity);
-		console.log(newActivity)
-		new ActivityView({model: newActivity})
+		var newActivity = this.collection.create(activity);
 		this.el.reset();
 	}
 });
@@ -43,13 +43,43 @@ var FormView = Backbone.View.extend({
 var ActivityView = Backbone.View.extend({
 	tagName: "li",
 
+	template: _.template($("script[type='text/html']").html()),
+
+	events: {
+		"click :checkbox" : "toggleDone"
+	},
+
+	toggleDone: function(){
+		this.model.set("done", !this.model.get("done"));
+		this.render();
+	},
+
 	initialize: function(){
-		$("ul").append( this.el );
+		// this.title = this.model.get("title");
+		this.listenTo(this.model, "change", this.render);
 		this.render();
 	},
 
 	render: function(){
-		this.$el.text(this.model.get("title"));
+		console.log(this.model.toJSON());
+		var compiledTemplate = this.template(this.model.toJSON());
+		console.log(compiledTemplate)
+		this.$el.html(compiledTemplate);
 	}
 });
-var form = new FormView({collection: list})
+
+var ListView = Backbone.View.extend({
+	el: "ul",
+
+	initialize: function(){
+		this.listenTo(this.collection, "add", this.addOne);
+	},
+
+	addOne: function(activity){
+		var view = new ActivityView({model: activity});
+		this.$el.append(view.el);
+	}
+
+});
+var form = new FormView({collection: list});
+var theList = new ListView({collection: list});
