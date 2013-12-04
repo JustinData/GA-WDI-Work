@@ -22,12 +22,24 @@ var ActivityView = Backbone.View.extend({
   tagName: "li",
 
   initialize: function() {
-    $("ul").append(this.el);
     this.render();
   },
 
   render: function() {
     this.$el.text(this.model.get("title"));
+  }
+});
+
+var ListView = Backbone.View.extend({
+  el: "ul",
+
+  initialize: function() {
+    this.listenTo(this.collection, "add", this.addOne);
+  },
+
+  addOne: function(activity) {
+    var view = new ActivityView({model: activity});
+    this.$el.append(view.el);
   }
 });
 
@@ -41,14 +53,13 @@ var FormView = Backbone.View.extend({
   newActivity: function(e) {
     e.preventDefault();
     var title = this.$el.find("input[name='activity']").val();
-    var newActivity = this.collection.add({title: title});
-    new ActivityView({model: newActivity});
+    this.collection.add({title: title});
     this.el.reset();
   }
 
 });
 
 var form = new FormView({collection: list});
-
+var theList = new ListView({collection: list});
 
 
