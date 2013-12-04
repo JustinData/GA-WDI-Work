@@ -55,46 +55,7 @@
       7: {question: "Select a new feature to implement.", type: "Continue"}
       };
 
-    
-
-    var QuestionView = Backbone.View.extend({
-      className: "question",
-      
-      questionNumber: 1,
-
-      id: "the-question-view",
-      
-      initialize: function(){
-        this.$el.appendTo( $("#container") );
-        this.render();
-      },
-
-      template: _.template( $("#question-template").html() ),
-
-      events: {
-        "click .button": "updateQuestion"
-      },
-
-      render: function(){
-        this.$el.html( this.template(model[this.questionNumber]) );
-      },
-
-      updateQuestion: function(e){
-        this.questionNumber = (e.target.value);
-        this.render();
-      }
-
-    });
-
-
-    window.onload = function(){
-      console.log("backbone");
-      question = new QuestionView();
-    }
-
   </script>
-
-
 </body>
 
 </html>
