@@ -4,7 +4,7 @@ var Activity = Backbone.Model.extend({
   },
 
   toggleDone: function() {
-    this.set("done", !this.get("done"));
+    this.save({done: !this.get("done")});
   }
 });
 
@@ -30,20 +30,25 @@ var ActivityView = Backbone.View.extend({
   template: _.template($("script[type='text/html']").html()),
 
   events: {
-    "click :checkbox": "toggleDoneRainbows"
+    "click :checkbox": "toggleDoneRainbows",
+    "click span.remove": "deleteActivity"
   },
 
   toggleDoneRainbows: function() {
     this.model.toggleDone();
   },
 
+  deleteActivity: function() {
+    this.model.destroy();
+  },
+
   initialize: function() {
     this.listenTo(this.model, "change", this.render);
+    this.listenTo(this.model, "destroy", this.remove);
     this.render();
   },
 
   render: function() {
-    //this.$el.text(this.model.get("title"));
     var compiledTemp = this.template(this.model.toJSON());
     this.$el.html(compiledTemp);
   }
@@ -54,11 +59,16 @@ var ListView = Backbone.View.extend({
 
   initialize: function() {
     this.listenTo(this.collection, "add", this.addOne);
+    this.listenTo(this.collection, "reset", this.addAll);
   },
 
   addOne: function(activity) {
     var view = new ActivityView({model: activity});
     this.$el.append(view.el);
+  },
+
+  addAll: function() {
+    this.collection.each(this.addOne, this);
   }
 });
 
@@ -80,3 +90,5 @@ var FormView = Backbone.View.extend({
 
 var form = new FormView({collection: list});
 var theList = new ListView({collection: list});
+
+list.fetch({reset: true});
