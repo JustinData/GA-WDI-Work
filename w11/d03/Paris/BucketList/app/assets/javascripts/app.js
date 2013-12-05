@@ -1,14 +1,20 @@
-// alert("Hello");
-
 var Activity = Backbone.Model.extend({
   defaults: {
     done: false
+  },
+
+  toggleDone: function() {
+    this.set("done", !this.get("done"));
   }
 });
 
+var BucketList = Backbone.Collection.extend({
+  model: Activity,
 
-var Bucketlist = Backbone.Collection.extend({ model: Activity });
-var list = new Bucketlist();
+  url: "activities"
+});
+
+var list = new BucketList();
 
 var skyDiving = new Activity({title: "Sky Diving"});
 
@@ -18,20 +24,61 @@ list.on("add", function() {
   console.log(this.pluck("title"));
 });
 
-var FormView = Backbone.View.extend ({
-  el: "form",
+var ActivityView = Backbone.View.extend({
+  tagName: "li",
+
+  template: _.template($("script[type='text/html']").html()),
+
   events: {
-    "submit": "wasSubmitted"
+    "click :checkbox": "toggleDoneRainbows"
   },
 
-  wasSubmitted: function(e) {
+  toggleDoneRainbows: function() {
+    this.model.toggleDone();
+  },
+
+  initialize: function() {
+    this.listenTo(this.model, "change", this.render);
+    this.render();
+  },
+
+  render: function() {
+    //this.$el.text(this.model.get("title"));
+    var compiledTemp = this.template(this.model.toJSON());
+    this.$el.html(compiledTemp);
+  }
+});
+
+var ListView = Backbone.View.extend({
+  el: "ul",
+
+  initialize: function() {
+    this.listenTo(this.collection, "add", this.addOne);
+  },
+
+  addOne: function(activity) {
+    var view = new ActivityView({model: activity});
+    this.$el.append(view.el);
+  }
+});
+
+var FormView = Backbone.View.extend({
+  el: "form",
+
+  events: {
+    "submit": "newActivity"
+  },
+
+  newActivity: function(e) {
     e.preventDefault();
-    var newActivity = this.$el.find("input[name='activity']").val();
-    // var newThing = new Activity({title: newActivity});
-    this.collection.add({title: newActivity});
+    var title = this.$el.find("input[name='activity']").val();
+    this.collection.create({title: title});
     this.el.reset();
   }
 
-})
+});
 
-var formView = new FormView({collection: list});
+var form = new FormView({collection: list});
+var theList = new ListView({collection: list});
+
+
