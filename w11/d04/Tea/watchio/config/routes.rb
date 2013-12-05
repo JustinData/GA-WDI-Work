@@ -1,4 +1,4 @@
 Watchio::Application.routes.draw do
-  rotot 'movies#index'
+  root 'watchlist#index'
   resources :movies
 end

@@ -1,4 +1,4 @@
-class Movie < ApplicationController
+class MoviesController < ApplicationController
   def index
     @movies = Movie.all
     # renders our movies in json so backbone has it in json, not ruby
