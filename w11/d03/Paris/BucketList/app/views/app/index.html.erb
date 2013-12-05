@@ -17,11 +17,9 @@
   </div>
 </div>
 
+<!-- this tempalte is INSIDE the li -->
 <script type="text/html">
   <span class="<%%= done ? 'done' : ''%>"><%%= title %></span> 
   <input type="checkbox" <%%= done ? "checked" : '' %>/>
+  <span class="remove">&times;</span>
 </script>
-
-
-
-
