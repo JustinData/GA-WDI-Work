@@ -6,14 +6,22 @@
     <form>
       <label for="activity">
         Activity:
-        <input type="text" name="activity" placeholder="Skydiving">
+        <input type="text" name="activity" placeholder="Read some books in the quiet of your own home.">
       </label>
 
       <button>List it!</button>
     </form>
 
     <ul>
-      <li>Go skiing.</li>
     </ul>
   </div>
 </div>
+
+<script type="text/html">
+  <span class="<%%= done ? 'done' : ''%>"><%%= title %></span> 
+  <input type="checkbox" <%%= done ? "checked" : '' %>/>
+</script>
+
+
+
+
