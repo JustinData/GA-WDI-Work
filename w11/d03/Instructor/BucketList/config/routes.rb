@@ -1,4 +1,4 @@
 BucketList::Application.routes.draw do
   root 'app#index'
-  resources :activities
+  resources :activities, except: [:new, :edit]
 end
