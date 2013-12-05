@@ -6,7 +6,8 @@ class Chef < ActiveRecord::Base
   after_create :rollback_if_maxed
 
   def cook(name, round_id)
-    food = Dish.new(name: name, chef_id: self.id, round_id: round_id)
+    if (Dish.where(chef_id: self.id, round)).count >= 5
+      food = Dish.new(name: name, chef_id: self.id, round_id: round_id)
     food.save
   end
 

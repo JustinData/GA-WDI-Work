@@ -14,6 +14,7 @@ describe '::new' do
   end
 
   it 'can go up or down' do
+    expect(elevator)
   end
 end
 
