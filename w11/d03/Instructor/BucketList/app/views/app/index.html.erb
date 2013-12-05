@@ -13,7 +13,15 @@
     </form>
 
     <ul>
-      <li>Go skiing.</li>
     </ul>
   </div>
 </div>
+
+<script type="text/html">
+  <span class="<%%= done ? 'done' : ''%>"><%%= title %></span> 
+  <input type="checkbox" <%%= done ? "checked" : '' %>/>
+</script>
+
+
+
+
