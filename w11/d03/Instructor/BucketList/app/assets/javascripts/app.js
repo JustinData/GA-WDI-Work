@@ -1,11 +1,17 @@
 var Activity = Backbone.Model.extend({
   defaults: {
     done: false
+  },
+
+  toggleDone: function() {
+    this.set("done", !this.get("done"));
   }
 });
 
 var BucketList = Backbone.Collection.extend({
-  model: Activity
+  model: Activity,
+
+  url: "activities"
 });
 
 var list = new BucketList();
@@ -21,12 +27,25 @@ list.on("add", function() {
 var ActivityView = Backbone.View.extend({
   tagName: "li",
 
+  template: _.template($("script[type='text/html']").html()),
+
+  events: {
+    "click :checkbox": "toggleDoneRainbows"
+  },
+
+  toggleDoneRainbows: function() {
+    this.model.toggleDone();
+  },
+
   initialize: function() {
+    this.listenTo(this.model, "change", this.render);
     this.render();
   },
 
   render: function() {
-    this.$el.text(this.model.get("title"));
+    //this.$el.text(this.model.get("title"));
+    var compiledTemp = this.template(this.model.toJSON());
+    this.$el.html(compiledTemp);
   }
 });
 
@@ -53,7 +72,7 @@ var FormView = Backbone.View.extend({
   newActivity: function(e) {
     e.preventDefault();
     var title = this.$el.find("input[name='activity']").val();
-    this.collection.add({title: title});
+    this.collection.create({title: title});
     this.el.reset();
   }
 
