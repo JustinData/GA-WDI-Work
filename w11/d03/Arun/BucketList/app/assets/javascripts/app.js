@@ -1,6 +1,9 @@
 var Activity = Backbone.Model.extend({
 	defaults: {
 		done: false
+	},
+	toggleDone: function(){
+	this.save({"done": !this.get("done")});
 	}
 });
 
@@ -14,9 +17,9 @@ var list = new BucketList();
 
 
 
-var skyDiving = new Activity({title: "Sky Diving"});
+// var skyDiving = new Activity({title: "Sky Diving"});
 
-list.add(skyDiving);
+// list.add(skyDiving);
 
 // This will just display on the console anytime something is added
 list.on("add", function(){
@@ -46,17 +49,24 @@ var ActivityView = Backbone.View.extend({
 	template: _.template($("script[type='text/html']").html()),
 
 	events: {
-		"click :checkbox" : "toggleDone"
+		"click :checkbox" : "toggleDone",
+		"click .remove" : "deleteActivity"
+	},
+
+	deleteActivity: function(){
+		this.model.destroy();
 	},
 
 	toggleDone: function(){
-		this.model.set("done", !this.model.get("done"));
-		this.render();
+		this.model.toggleDone();
+		// this.model.set("done", !this.model.get("done"));
+		// this.render();
 	},
 
 	initialize: function(){
 		// this.title = this.model.get("title");
 		this.listenTo(this.model, "change", this.render);
+		this.listenTo(this.model, "destroy", this.remove);
 		this.render();
 	},
 
@@ -73,13 +83,20 @@ var ListView = Backbone.View.extend({
 
 	initialize: function(){
 		this.listenTo(this.collection, "add", this.addOne);
+		this.listenTo(this.collection, "reset", this.addAll);
 	},
 
 	addOne: function(activity){
 		var view = new ActivityView({model: activity});
 		this.$el.append(view.el);
+	},
+
+	addAll: function(){
+		this.collection.each(this.addOne, this)
 	}
 
 });
 var form = new FormView({collection: list});
 var theList = new ListView({collection: list});
+
+list.fetch({reset: true});
