@@ -125,6 +125,7 @@ DEPENDENCIES
   httparty (~> 0.12.0)
   jbuilder (~> 1.2)
   jquery-rails
+  json
   pg
   pry-rails
   rails (= 4.0.0)
