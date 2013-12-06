@@ -97,28 +97,34 @@ $(function(){
     receiveID: function(response) {
       console.log(response.Search);
       var movies = response.Search;
-      var i = 0;
+      // var i = 0;
       var myMatches = [];
       _.each(movies, function(film){
-        i++;
-        console.log(film);
-        //[object Object]AND THEN
-        console.log(this);
-        //Object {url: "http://www.omdbapi.com/?s=lion", type: "GET", isLocal: false, global: true, processData: true…}
         $.getJSON("http://www.omdbapi.com/?i=" + film.imdbID, function(somedata){
-          var testMovie = new Movie({title: somedata.Title, poster: somedata.Poster, plot: somedata.Plot});
-          return testMovie;
-          }, this);
+          movie = new Movie({title: somedata.Title, poster: somedata.Poster, plot: somedata.Plot});
+          // console.log(this);
+          new SearchView(movie);
+        }, this);
       }, this)
-      console.log(myMatches);
+      console.log();
+      // console.log(myMatches);
       // var arrayData = _.map(arrayIDs, fetchMovieData());
       // console.log(arrayData);
-    },
+    }
 
-    receiveMovie: function() {
+    // receiveMovie: function() {
 
+    // }
+  })
+
+  var SearchView = Backbone.View.extend({
+    template: _.template($("script[type='text/html']").html()),
+    initialize: function(movie) {
+      // this.movie = movie;
+      console.log(movie);
     }
   })
+
   movieRouter = new MovieRouter();
   formView = new FormView();
 })
