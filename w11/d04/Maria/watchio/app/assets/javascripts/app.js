@@ -29,6 +29,7 @@ var SearchFormView = Backbone.View.extend({
   
   searchOMDBForMovie: function(e) {
     e.preventDefault();
+    router.navigate("search/", {trigger: true});
     var title = this.$el.find("input[name='movie']").val();
     this.fetchMovie(title);
     
@@ -63,16 +64,21 @@ var SearchFormView = Backbone.View.extend({
 });
 
 var SearchListView = Backbone.View.extend({
-  el: "ul",
+  tagName: "ul",
 
   initialize: function(){
     this.listenTo(this.collection, "add", this.addOne);
+    router.on('route:search', this.loadPage);
   },
 
   addOne: function(movie){
     console.log(movie);
     var view = new MovieSearchView({model: movie});
     this.$el.append(view.el);
+  },
+
+  loadPage: function(){
+    console.log("you've loaded the List View Page!");
   }
 });
 
@@ -93,11 +99,15 @@ var MovieSearchView = Backbone.View.extend({
   },
 
   addItemToWatchList: function(){
-    console.log("lets add this movie to our watchlist, cool?");
-    console.log(this.model.get("title") + this.model.get("imdbID"));
+    // console.log("lets add this movie to our watchlist, cool?");
+    // console.log(this.model.get("title") + this.model.get("imdbID"));
+    
     watchList.add(this.model);
+    //watchList.set({title: this.model.get("title"), poster: this.model.get("poster")});
+    mySearchListView.remove();
     router.navigate("watchlist/", {trigger: true});
-  }
+  },
+
 
 });
 
@@ -118,51 +128,57 @@ var MovieList = Backbone.Collection.extend({
 var watchList = new MovieList();
 
 // create a new view to control the form
-var FormView = Backbone.View.extend({
-  el: "form",
+// var FormView = Backbone.View.extend({
+//   el: "form",
 
-  events: {
-    "submit": "searchOMDBForMovie"
-  },
+//   events: {
+//     "submit": "searchOMDBForMovie"
+//   },
 
-  fetchMovie: function(title) {
-    $.ajax({
-      method: "GET",
-      url: "http://www.omdbapi.com/?t=" + title,
-      dataType: "json",
-      success: this.receiveMovie,
-      context: this
-    });
-  },
+//   fetchMovie: function(title) {
+//     $.ajax({
+//       method: "GET",
+//       url: "http://www.omdbapi.com/?t=" + title,
+//       dataType: "json",
+//       success: this.receiveMovie,
+//       context: this
+//     });
+//   },
   
-  searchOMDBForMovie: function(e) {//e is the event of the submit
-    e.preventDefault();// so that the page does not get submitted to our server so we can control what happens next.
-    var title = this.$el.find("input[name='movie']").val();//on the form find the input w/name movie.
-    this.fetchMovie(title);
+//   searchOMDBForMovie: function(e) {//e is the event of the submit
+//     e.preventDefault();// so that the page does not get submitted to our server so we can control what happens next.
+//     var title = this.$el.find("input[name='movie']").val();//on the form find the input w/name movie.
+//     this.fetchMovie(title);
     
-  },
+//   },
 
-  receiveMovie: function(response){//receive the movie and builda model for that movie begin to do so.
-    this.collection.create({title: response.Title, plot: response.Plot, poster: response.Poster});
-    //this.col = (JSON.parse(stock))["Data"]["LastPrice"];
-    this.el.reset();
-  }
-  //receive searchlist
-  //for each JSON obj create model in collection
+//   receiveMovie: function(response){//receive the movie and builda model for that movie begin to do so.
+//     this.collection.create({title: response.Title, plot: response.Plot, poster: response.Poster});
+//     //this.col = (JSON.parse(stock))["Data"]["LastPrice"];
+//     this.el.reset();
+//   }
+//   //receive searchlist
+//   //for each JSON obj create model in collection
 
 
-});
+// });
 
 var WatchListView = Backbone.View.extend({
   el: "ul",
   initialize: function(){
     this.listenTo(this.collection, "add", this.addOne);
+
+    this.render();
   },
 
   addOne: function(movie){
     console.log(movie);
     var view = new MovieView({model: movie});
     this.$el.append(view.el);
+  },
+
+  render: function() {
+    this.$el.html(this.collection.pluck("title"));
   }
 });
 
@@ -185,11 +201,16 @@ var AppRouter = Backbone.Router.extend({
     'search/' : 'search'
   },
 
-  watchlist: function() {
+  watchlist: function(model) {
     console.log("You are in watchlist ROUTE!!");
+    watchview = new WatchListView({collection: watchList});
+    $("body").append(watchview);
 },
   search: function(){
     console.log("hello");
+    var view = new SearchListView({collection: mySearchList});
+    $("body").append(view.el);
+
   }
 
 });
@@ -200,6 +221,7 @@ window.onload = function(){
 
   mySearchForm = new SearchFormView({collection: mySearchList});
   mySearchListView = new SearchListView({collection: mySearchList});
+
   
   Backbone.history.start();
 
