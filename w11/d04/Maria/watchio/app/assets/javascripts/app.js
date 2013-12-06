@@ -1,3 +1,87 @@
+var Search = Backbone.Model.extend({
+
+});
+
+var SearchList = Backbone.Collection.extend({
+  model: Search
+
+});
+
+mySearchList = new SearchList();
+
+
+var SearchFormView = Backbone.View.extend({
+  el: "form",
+
+  events: {
+    "submit": "searchOMDBForMovie"
+  },
+
+  fetchMovie: function(title) {
+    $.ajax({
+      method: "GET",
+      url: "http://www.omdbapi.com/?s=" + title,
+      dataType: "json",
+      success: this.receiveSearchResults,
+      context: this
+    });
+  },
+  
+  searchOMDBForMovie: function(e) {
+    e.preventDefault();
+    var title = this.$el.find("input[name='movie']").val();
+    this.fetchMovie(title);
+    
+  },
+
+  receiveSearchResults: function(response){
+    console.log(response)
+    for(var i=0; i<response.Search.length; i++){
+      console.log(response.Search[i]);
+      this.collection.add({title: response.Search[i].Title, year: response.Search[i].Year, imdbID: response.Search[i].imdbID});
+    }
+    this.el.reset();
+  }
+
+});
+
+var SearchListView = Backbone.View.extend({
+  el: "ul",
+
+  initialize: function(){
+    this.listenTo(this.collection, "add", this.addOne);
+  },
+
+  addOne: function(movie){
+    console.log(movie);
+    var view = new MovieSearchView({model: movie});
+    this.$el.append(view.el);
+  }
+});
+
+var MovieSearchView = Backbone.View.extend({
+  tagName: "li",
+
+  events: {
+    "click :button": "addItemToWatchList" 
+  },
+
+  initialize: function(){
+    this.render();
+  },
+
+  render: function(){
+    this.$el.html(this.model.get("title") + " : " + this.model.get("year") + " : " + this.model.get("imdbID") + "<button>ADD</button>");
+  },
+
+  addItemToWatchList: function(){
+    console.log("lets add this movie to our watchlist, cool?");
+    console.log(this.model.get("title") + this.model.get("imdbID"));
+  }
+
+});
+
+
 // movie model 
 var Movie = Backbone.Model.extend({
 
