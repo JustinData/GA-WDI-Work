@@ -25,6 +25,9 @@ $(function(){
   var Movie = Backbone.Model.extend({
     defaults: {
       seen: false
+    },
+    toggleSeen: function(){
+      this.save({"seen": !this.get("false")});
     }
   });
 
@@ -68,7 +71,7 @@ $(function(){
     initialize: function(opts) {
       this.title = opts.title;
       this.$el.appendTo($("body"));
-      console.log("this is" + opts);
+
       // this.render();
       this.fetchMovieIDs();
     },
@@ -102,10 +105,10 @@ $(function(){
         $.getJSON("http://www.omdbapi.com/?i=" + film.imdbID, function(somedata){
           movie = new Movie({title: somedata.Title, poster: somedata.Poster, plot: somedata.Plot});
           // console.log(this);
-          new SearchView(movie.attributes);
+          new SearchView(movie);
         }, this);
       }, this)
-      console.log();
+      console.log(movie);
       // console.log(myMatches);
       // var arrayData = _.map(arrayIDs, fetchMovieData());
       // console.log(arrayData);
@@ -120,6 +123,8 @@ $(function(){
     tagName: "div",
     template: _.template($("script[type='text/html']").html()),
     initialize: function(movie) {
+      // console.log(movie);
+      var movie = movie.attributes;
       this.$el.appendTo($("body"));
       this.title = movie.title;
       this.poster = movie.poster;
@@ -131,6 +136,15 @@ $(function(){
     render: function(){
       var compiledTemplate = this.template();
       this.$el.html(compiledTemplate);
+    },
+
+    events: {
+      "click :checkbox": "checkSeen"
+    },
+
+    checkSeen: function(){
+      // this.model.toggleSeen();
+      console.log(this);
     }
   })
 
