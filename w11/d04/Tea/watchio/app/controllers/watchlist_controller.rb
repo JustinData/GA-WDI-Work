@@ -5,6 +5,6 @@ class WatchlistController < ApplicationController
 
   def search
     encoded = URI.encode(params[:title])
-    @response = JSON(HTTParty.get("http://www.omdbapi.com/?t=#{encoded}"))
+    @response = JSON(HTTParty.get("http://www.omdbapi.com/?s={encoded}"))
   end
 end

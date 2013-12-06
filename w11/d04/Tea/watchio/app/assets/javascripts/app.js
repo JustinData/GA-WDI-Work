@@ -63,21 +63,30 @@ var FormView = Backbone.View.extend({
 });
 
 var MovieView = Backbone.View.extend({
-  // template: _.template($("<h3><%%= this.title %></h3>")),
+  template: _.template($("<h3><%%= this.title %></h3>")),
   initialize: function(opts) {
     this.title = opts.title;
     this.$el.appendTo($("body"));
     console.log("this is" + opts);
     this.fetchMovie();
   },
+
   fetchMovie: function(){
     $.ajax({
       method: "GET",
-      url: "/search?title=" + this.title,
+      url: "http://www.omdbapi.com/?t=" + this.title,
       dataType: "json",
-      success: console.log((this).to_json),
+      success: this.receiveMovie,
       context: this
     })
+  },
+
+  receiveMovie: function(response) {
+    var movie = response;
+    this.title = movie.Title;
+    this.poster = movie.Poster;
+    this.plot = movie.Plot;
+    console.log(movie);
   }
 })
 
