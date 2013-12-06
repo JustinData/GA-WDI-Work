@@ -64,12 +64,12 @@ $(function(){
   });
 
   var MovieView = Backbone.View.extend({
-    template: _.template($("script[type='text/html']").html()),
+    // template: _.template($("script[type='text/html']").html()),
     initialize: function(opts) {
       this.title = opts.title;
       this.$el.appendTo($("body"));
       console.log("this is" + opts);
-      this.render();
+      // this.render();
       this.fetchMovieIDs();
     },
 
@@ -95,7 +95,6 @@ $(function(){
     },
 
     receiveID: function(response) {
-      console.log(response.Search);
       var movies = response.Search;
       // var i = 0;
       var myMatches = [];
@@ -103,7 +102,7 @@ $(function(){
         $.getJSON("http://www.omdbapi.com/?i=" + film.imdbID, function(somedata){
           movie = new Movie({title: somedata.Title, poster: somedata.Poster, plot: somedata.Plot});
           // console.log(this);
-          new SearchView(movie);
+          new SearchView(movie.attributes);
         }, this);
       }, this)
       console.log();
@@ -118,10 +117,20 @@ $(function(){
   })
 
   var SearchView = Backbone.View.extend({
+    tagName: "div",
     template: _.template($("script[type='text/html']").html()),
     initialize: function(movie) {
+      this.$el.appendTo($("body"));
+      this.title = movie.title;
+      this.poster = movie.poster;
+      this.plot = movie.plot;
       // this.movie = movie;
-      console.log(movie);
+      console.log(this.title);
+      this.render();
+    },
+    render: function(){
+      var compiledTemplate = this.template();
+      this.$el.html(compiledTemplate);
     }
   })
 
