@@ -4,7 +4,7 @@
 ### Watchio
 
 1. Get to MVP (original 
-2. Consider Jeff's code](../Instructor/Watchio)
+2. [Consider Jeff's code](https://github.com/ga-students/WDI_NYC_Array_Work/tree/master/w11/d05/Instructor/Watchio)
 
 Bonus:
 
@@ -13,5 +13,5 @@ Bonus:
 
 ### Final Project
 
-1. Begin to outline a proposal considering [the prompt](../../w12/ASSIGNMENT_FILES/final_project_prompt.md).
+1. Begin to outline a proposal considering [the prompt](https://github.com/ga-students/WDI_NYC_Array_Work/blob/master/w12/ASSIGNMENT_FILES/final_project_prompt.md).
 
