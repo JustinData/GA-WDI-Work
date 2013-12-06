@@ -3,7 +3,7 @@
 
 ### Watchio
 
-1. Get to MVP (original 
+1. Get to MVP (original user stories)
 2. [Consider Jeff's code](https://github.com/ga-students/WDI_NYC_Array_Work/tree/master/w11/d05/Instructor/Watchio)
 
 Bonus:
