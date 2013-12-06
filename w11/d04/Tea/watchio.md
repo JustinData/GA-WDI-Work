@@ -14,3 +14,4 @@ To tie together everything we've been learning about Backbone and integrating it
 * As a user I want to give a movie on my watch list a rating from 1 - 5
 * As a user I should only be able to rate movies I've already seen
 * As a user I want to be able to delete movies from my watch list
+

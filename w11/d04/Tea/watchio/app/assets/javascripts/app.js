@@ -10,7 +10,7 @@ var MovieRouter = Backbone.Router.extend({
     "search/:title" : "createMovieView"
   },
   createMovieView: function(title) {
-    // new MovieView({title: title});
+    new MovieView({title: title});
     console.log(title);
   }
 });
@@ -62,24 +62,24 @@ var FormView = Backbone.View.extend({
   }
 });
 
-// var MovieView = Backbone.View.extend({
-//   template: _.template($("script[type='text/html']").html()),
-//   initialize: function(opts) {
-//     this.title = opts.title;
-//     this.$el.appendTo($("body"));
-//     alert(opts)
-//     // this.fetchMovie();
-//   },
-//   fetchMovie: function(){
-//     $.ajax({
-//       method: "GET",
-//       url: "/search?title=" + this.title,
-//       dataType: "json",
-//       success: console.log(this),
-//       context: this
-//     })
-//   }
-// })
+var MovieView = Backbone.View.extend({
+  // template: _.template($("<h3><%%= this.title %></h3>")),
+  initialize: function(opts) {
+    this.title = opts.title;
+    this.$el.appendTo($("body"));
+    console.log("this is" + opts);
+    this.fetchMovie();
+  },
+  fetchMovie: function(){
+    $.ajax({
+      method: "GET",
+      url: "/search?title=" + this.title,
+      dataType: "json",
+      success: console.log((this).to_json),
+      context: this
+    })
+  }
+})
 
 
 $(function(){

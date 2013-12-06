@@ -1,4 +1,4 @@
-class CreateActivities < ActiveRecord::Migration
+class CreateActivities < ActiveRecord::Migration "s"
   def change
     create_table :activities do |t|
       t.string :title
