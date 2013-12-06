@@ -8,6 +8,12 @@ To tie together everything we've been learning about Backbone and integrating it
 ### Implement the following user stories
 * As a user, I never want to have to refresh the page for ANYTHING. Build me a single page app please!
 * As a user I want to be able to search for a movie and see search results. For each movie, I'd like to see the Movie Title, Poster, and Plot.
+	
+	* iterate over to get each imdb id.
+		* using imdb id, we make request to omdb api to get poster
+		* instantiate template with the info	
+	
+		
 * As a user I want to be able to add a movie I've searched for to my watch list
 * As a user I want to my watch list to persist
 * As a user I want to mark a movie on my watch list as "seen"
