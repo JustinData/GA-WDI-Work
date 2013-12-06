@@ -84,10 +84,10 @@ $(function(){
       // })
     },
 
-    fetchMovieData: function(){
-       $.getJSON("http://www.omdbapi.com/?i=" + this, function(){console.log(response)});
+    // fetchMovieData: function(){
+    //    $.getJSON("http://www.omdbapi.com/?i=" + this, function(){console.log(response)});
 
-    },
+    // },
 
     render: function(){
       var compiledTemplate = this.template();
@@ -95,16 +95,28 @@ $(function(){
     },
 
     receiveID: function(response) {
-      // console.log(response.Search);
+      console.log(response.Search);
       var movies = response.Search;
-      var arrayIDs = _.map(movies, function(film){
-        return film.imdbID;
-        // we can't pass fetchMovieData here because it would be within a _.map function and the THIS is different.
-        // we can't do this.fetchMovieData because that's like saying movies.fetchMovieData
-      })
-      console.log(arrayIDs);
-      var arrayData = _.map(arrayIDs, fetchMovieData());
-      console.log(arrayData);
+      var i = 0;
+      var myMatches = [];
+      _.each(movies, function(film){
+        i++;
+        console.log(film);
+        //[object Object]AND THEN
+        console.log(this);
+        //Object {url: "http://www.omdbapi.com/?s=lion", type: "GET", isLocal: false, global: true, processData: true…}
+        $.getJSON("http://www.omdbapi.com/?i=" + film.imdbID, function(somedata){
+          var testMovie = new Movie({title: somedata.Title, poster: somedata.Poster, plot: somedata.Plot});
+          return testMovie;
+          }, this);
+      }, this)
+      console.log(myMatches);
+      // var arrayData = _.map(arrayIDs, fetchMovieData());
+      // console.log(arrayData);
+    },
+
+    receiveMovie: function() {
+
     }
   })
   movieRouter = new MovieRouter();
