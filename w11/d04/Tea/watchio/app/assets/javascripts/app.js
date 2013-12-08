@@ -12,9 +12,10 @@ $(function(){
     },
     createMovieView: function(title) {
       new MovieView({title: title});
-      console.log(title);
+      console.log(title + "whee");
     }
   });
+
   //                      _      _
   //                     | |    | |
   //  _ __ ___   ___   __| | ___| |___
@@ -71,20 +72,11 @@ $(function(){
     initialize: function(opts) {
       this.title = opts.title;
       this.$el.appendTo($("body"));
-
-      // this.render();
       this.fetchMovieIDs();
     },
 
     fetchMovieIDs: function(){
       $.getJSON("http://www.omdbapi.com/?s=" + this.title, this.receiveID);
-      // $.ajax({
-      //   method: "GET",
-      //   url: "http://www.omdbapi.com/?s=" + this.title,
-      //   dataType: "json",
-      //   success: this.receiveID,
-      //   context: this
-      // })
     },
 
     // fetchMovieData: function(){
@@ -104,11 +96,12 @@ $(function(){
       _.each(movies, function(film){
         $.getJSON("http://www.omdbapi.com/?i=" + film.imdbID, function(somedata){
           movie = new Movie({title: somedata.Title, poster: somedata.Poster, plot: somedata.Plot});
-          // console.log(this);
+          movie = movie.attributes;
+          console.log(movie);
           new SearchView(movie);
         }, this);
       }, this)
-      console.log(movie);
+      // console.log(movie);
       // console.log(myMatches);
       // var arrayData = _.map(arrayIDs, fetchMovieData());
       // console.log(arrayData);
@@ -124,13 +117,13 @@ $(function(){
     template: _.template($("script[type='text/html']").html()),
     initialize: function(movie) {
       // console.log(movie);
-      var movie = movie.attributes;
+      var movie = movie;
+      this.movieObject = movie;
       this.$el.appendTo($("body"));
       this.title = movie.title;
       this.poster = movie.poster;
       this.plot = movie.plot;
       // this.movie = movie;
-      console.log(this.title);
       this.render();
     },
     render: function(){
@@ -139,12 +132,22 @@ $(function(){
     },
 
     events: {
-      "click :checkbox": "checkSeen"
+      "click button.add": "addToWatchlist",
+      "click :checkbox" : "checkSeen"
     },
 
+    check: function() {
+      console.log("Happy puppy");
+    },
+
+    addToWatchlist: function(){
+      watchlist.add(this.movieObject);
+      console.log(watchlist);
+    },
     checkSeen: function(){
       // this.model.toggleSeen();
       console.log(this);
+      console.log(this.movieObject);
     }
   })
 
