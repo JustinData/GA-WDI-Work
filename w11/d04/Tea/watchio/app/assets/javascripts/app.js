@@ -96,7 +96,6 @@ $(function(){
       _.each(movies, function(film){
         $.getJSON("http://www.omdbapi.com/?i=" + film.imdbID, function(somedata){
           movie = new Movie({title: somedata.Title, poster: somedata.Poster, plot: somedata.Plot});
-          movie = movie.attributes;
           console.log(movie);
           new SearchView(movie);
         }, this);
@@ -116,13 +115,12 @@ $(function(){
     tagName: "div",
     template: _.template($("script[type='text/html']").html()),
     initialize: function(movie) {
-      // console.log(movie);
-      var movie = movie;
+      console.log(movie);
       this.movieObject = movie;
       this.$el.appendTo($("body"));
-      this.title = movie.title;
-      this.poster = movie.poster;
-      this.plot = movie.plot;
+      this.title = movie.get("title");
+      this.poster = movie.get("poster");
+      this.plot = movie.get("plot");
       // this.movie = movie;
       this.render();
     },
@@ -142,7 +140,7 @@ $(function(){
 
     addToWatchlist: function(){
       watchlist.add(this.movieObject);
-      console.log(watchlist);
+      console.log(watchlist.models);
     },
     checkSeen: function(){
       // this.model.toggleSeen();
