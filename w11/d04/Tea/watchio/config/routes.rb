@@ -1,4 +1,4 @@
 Watchio::Application.routes.draw do
   root 'watchlist#index'
-  resources :movies
+  resources :movies, except: [:new, :edit]
 end

@@ -8,10 +8,10 @@ $(function(){
 
   var MovieRouter = Backbone.Router.extend({
     routes: {
-      "search/:title" : "createMovieView"
+      "search/:title" : "createMovieSearchView"
     },
-    createMovieView: function(title) {
-      new MovieView({title: title});
+    createMovieSearchView: function(title) {
+      new MovieSearchView({title: title});
       console.log(title + "whee");
     }
   });
@@ -42,7 +42,8 @@ $(function(){
   //  \___\___/|_|_|\___|\___|\__|_|\___/|_| |_|___/
 
   var Watchlist = Backbone.Collection.extend({
-    model: Movie
+    model: Movie,
+    url: 'movies'
   });
 
   var watchlist = new Watchlist();
@@ -67,7 +68,7 @@ $(function(){
     }
   });
 
-  var MovieView = Backbone.View.extend({
+  var MovieSearchView = Backbone.View.extend({
     // template: _.template($("script[type='text/html']").html()),
     initialize: function(opts) {
       this.title = opts.title;
@@ -97,7 +98,7 @@ $(function(){
         $.getJSON("http://www.omdbapi.com/?i=" + film.imdbID, function(somedata){
           movie = new Movie({title: somedata.Title, poster: somedata.Poster, plot: somedata.Plot});
           console.log(movie);
-          new SearchView(movie);
+          new IndividualMovieView(movie);
         }, this);
       }, this)
       // console.log(movie);
@@ -111,7 +112,7 @@ $(function(){
     // }
   })
 
-  var SearchView = Backbone.View.extend({
+  var IndividualMovieView = Backbone.View.extend({
     tagName: "div",
     template: _.template($("script[type='text/html']").html()),
     initialize: function(movie) {
@@ -131,7 +132,7 @@ $(function(){
 
     events: {
       "click button.add": "addToWatchlist",
-      "click :checkbox" : "checkSeen"
+      "click button.seen" : "checkSeen"
     },
 
     check: function() {
@@ -144,10 +145,16 @@ $(function(){
     },
     checkSeen: function(){
       // this.model.toggleSeen();
-      console.log(this);
-      console.log(this.movieObject);
+      this.movieObject.toggleSeen();
     }
   })
+  var WatchlistView = Backbone.View.extend({
+
+  })
+//   ___  _____     ___    __    ____    ___  ____  ____     ___  _____ /\
+//  / __)(  _  )   / __)  /__\  (  _ \  / __)( ___)(_  _)   / __)(  _  ))(
+// ( (_-. )(_)(   ( (_-. /(__)\  )(_) )( (_-. )__)   )(    ( (_-. )(_)( \/
+//  \___/(_____)   \___/(__)(__)(____/  \___/(____) (__)    \___/(_____)()
 
   movieRouter = new MovieRouter();
   formView = new FormView();
