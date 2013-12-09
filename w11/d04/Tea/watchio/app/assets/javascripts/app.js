@@ -142,6 +142,7 @@ $(function(){
     addToWatchlist: function(){
       watchlist.add(this.movieObject);
       console.log(watchlist.models);
+      var watchlistView = new WatchlistView(this.movieObject);
     },
     checkSeen: function(){
       // this.model.toggleSeen();
@@ -149,7 +150,22 @@ $(function(){
     }
   })
   var WatchlistView = Backbone.View.extend({
-
+    tagName: "div",
+    template: _.template("<h1>my watchlist</h1>"),
+    initialize: function(movie) {
+      console.log(movie);
+      this.movieObject = movie;
+      this.$el.appendTo($("body"));
+      this.title = movie.get("title");
+      this.poster = movie.get("poster");
+      this.plot = movie.get("plot");
+      // this.movie = movie;
+      this.render();
+    },
+    render: function(){
+      var compiledTemplate = this.template();
+      this.$el.html(compiledTemplate);
+    }
   })
 //   ___  _____     ___    __    ____    ___  ____  ____     ___  _____ /\
 //  / __)(  _  )   / __)  /__\  (  _ \  / __)( ___)(_  _)   / __)(  _  ))(
