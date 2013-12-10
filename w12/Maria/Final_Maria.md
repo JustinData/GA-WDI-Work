@@ -5,7 +5,7 @@
 
 The project will work with a postgres database in Rails and Backbone.js in a BDD/TDD development manner using Rspec and Jasmin.
 
-WWWAH? is a web app that you use to play a "Cards Against Humanity" style game with your friends. Here is how it works:
+**WWWAH?** is a web app that you use to play a "Cards Against Humanity" style game with your friends. Here is how it works:
 
 1. You sign into app.
 2. You wait until there are enough people signed in to play a game(a game is 1 round).
@@ -24,13 +24,13 @@ WWWAH? is a web app that you use to play a "Cards Against Humanity" style game w
 * Would like to employ jazzy card flip animation if possible.
 * **[Wireframes](https://wireframe.cc/pro/p/795a536ba)
 
-**Data Model**
+* **Data Model**
   *Game has many Players
   *Players have 1 Game, 1 Black_Card, have many White_Cards
   *Black_Cards have many Players
   *White_cards have many Players (need to decide ifI use STI or break out the many to many relationship into another table.)
 
-**Schmeeema**
+* **Schmeeema**
   *Game - round, winner
   *Player - name, email
   *Black_Card - text, blank_space_one, blank_space_two
