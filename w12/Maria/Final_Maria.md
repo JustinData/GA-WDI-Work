@@ -16,13 +16,13 @@ WWWAH? is a web app that you use to play a "Cards Against Humanity" style game w
 7. Game lets you know which card combo had the most votes and won.
 
 
-[User Stories](https://www.pivotaltracker.com/s/projects/972462)
+* **[User Stories](https://www.pivotaltracker.com/s/projects/972462)
 
 * The look will be similar to the actual card game B/W Helvetica font 
 * Must be mobile ready.
 * Will use AJAX to refresh and send pages to players instantly.
 * Would like to employ jazzy card flip animation if possible.
-[Wireframes](https://wireframe.cc/pro/p/795a536ba)
+* **[Wireframes](https://wireframe.cc/pro/p/795a536ba)
 
 **Data Model**
   *Game has many Players
