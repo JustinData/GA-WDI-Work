@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "a food lover can add ingredients to their list" do
+describe "a food lover can add ingredients to their list", js:true do
   it "adds muffins" do
     visit "/"
     within "form.new-ingredient" do
