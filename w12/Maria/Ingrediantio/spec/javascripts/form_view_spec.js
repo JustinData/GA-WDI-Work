@@ -4,12 +4,21 @@ describe("FormView", function() {
 
   beforeEach(function() {
     appendLoadFixtures("form.html");
-    form = $("form.new-ingresient");
+    form = $("form.new-ingredient");
 
-    view = new FormView();
+    collection = jasmine.createSpyObj("ingredients", ["create"]);
+
+    view = new FormView({collection: collection});
   });
-  
+
   it("is tied to the form", function() {
     expect(view.el).toBe(form[0]);
+  });
+
+  it("adds new ingredients when submitted", function() {
+    form.find("input[name='title']").val("Muffins");
+    form.submit();
+
+    expect(collection.create).toHaveBeenCalledWith({title: "Muffins"});
   });
 });
