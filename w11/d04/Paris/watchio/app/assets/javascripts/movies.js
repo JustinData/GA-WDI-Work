@@ -1,7 +1,7 @@
 //#MovieRouter
 var MovieRouter = Backbone.Router.extend({
   routes: {
-    "results/:title" : "searchMovie" 
+    "search/:title" : "searchMovie" 
   },
 
   searchMovie: function(title){
@@ -33,7 +33,7 @@ var FormView = Backbone.View.extend({
     // user's movie search input title
     var title = this.$el.find("input[name='title']").val();
   
-    Backbone.history.navigate("results/" + title, {trigger: true});
+    Backbone.history.navigate("search/" + title, {trigger: true});
   }
 });
 
@@ -43,14 +43,15 @@ var MovieView = Backbone.View.extend({
 
   template: _.template($("script[type='text/html']").html()),
 
-  initialize: function(){
+  initialize: function(opts){
+    this.title = opts.title;
     this.$el.appendTo($(".search-results"));
     this.render();
     // this.getMovie();
   },
 
   render: function(){
-    this.$el.html( this.template() );
+    this.$el.html( this.template({title: this.title}) );
   }
 });
 
@@ -65,35 +66,52 @@ var SearchResultsView = Backbone.View.extend({
   },
 
   getMovies: function(){
-    var route = "/movies/results?q=" + this.title;
+    console.log("get Movies");
+    // console.log(this.receiveMovies + " exists");
+    var route = "/movies/search?q=" + this.title;
 
     $.ajax({
+      error: this.errorMsg,
       method: "GET",
       url: route,
       dataType: "json",
       success: this.receiveMovies,
       context: this
-    })
+    });
+
+    
+  },
+
+  errorMsg: function(jqXHR, status) {
+    console.log("error AJAX");
+    console.log(jqXHR);
+    console.log("status: " + status);
   },
 
   receiveMovies: function(movieJSON){
-    console.log("AJAX");
-    console.log(movieJSON);
-  }
+    // console.log("AJAX");
+    this.addMovies(movieJSON);
+  },
 
+  addMovies: function(movieJSON) {
+    // console.log(movieJSON.Search);
+    var searchItems = movieJSON.Search;
+    for(var i=0; i<searchItems.length; i++) {
+      var title = searchItems[i].Title;
+      // var posterURL = searchItems[i].
+      // var plot = searchItems[i].
+      // instantiate MovieViews for each search result
+      var movie = new MovieView({title: title});
+      // append each to ul
+      this.$el.append(movie.el);
+    }
+  }
 })
 
 // ################################# START #INSTANTIATED!!!!! ################################
 
 console.log("loaded!");
+
 new MovieRouter();
 new FormView();  
 Backbone.history.start();
-
-
-
-
-
-
-
-
