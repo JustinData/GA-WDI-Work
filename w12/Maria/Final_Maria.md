@@ -48,7 +48,7 @@ The project will work with a postgres database in Rails and Backbone.js in a BDD
       *has many Players 
       *belongs to a Round
 
-##Schmeeema**
+##Schmeeema
       *Game - round, winner
       *Player - name, email
       *Black_Card - text, blank_space_one, blank_space_two
