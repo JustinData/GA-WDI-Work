@@ -25,16 +25,34 @@ The project will work with a postgres database in Rails and Backbone.js in a BDD
 * **[Wireframes](https://wireframe.cc/pro/p/795a536ba)
 
 * **Data Model**
-  *Game has many Players
-  *Players have 1 Game, 1 Black_Card, have many White_Cards
-  *Black_Cards have many Players
-  *White_cards have many Players (need to decide ifI use STI or break out the many to many relationship into another table.)
+    *Game 
+      *has many Rounds
+      *has many Players
+
+    *Round
+      *belongs to a Game
+      *belongs to Players
+      *has many Black_Cards
+      *has many White_cards
+
+    *Player 
+      *belongs to a Round
+      *has 1 Black_Card
+      *has many White_Cards
+
+    *Black_Card 
+      *has many Players
+      *belongs to a Round
+    
+    *White_Card 
+      *has many Players 
+      *belongs to a Round
 
 * **Schmeeema**
-  *Game - round, winner
-  *Player - name, email
-  *Black_Card - text, blank_space_one, blank_space_two
-  *White_Card - text
+      *Game - round, winner
+      *Player - name, email
+      *Black_Card - text, blank_space_one, blank_space_two
+      *White_Card - text
 
 
   -------------------------------------------------------------------------------------
