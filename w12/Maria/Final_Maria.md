@@ -24,7 +24,7 @@ The project will work with a postgres database in Rails and Backbone.js in a BDD
 * Would like to employ jazzy card flip animation if possible.
 * **[Wireframes](https://wireframe.cc/pro/p/795a536ba)
 
-* **Data Model**
+##Data Model
     *Game 
       *has many Rounds
       *has many Players
@@ -43,12 +43,12 @@ The project will work with a postgres database in Rails and Backbone.js in a BDD
     *Black_Card 
       *has many Players
       *belongs to a Round
-    
+  
     *White_Card 
       *has many Players 
       *belongs to a Round
 
-* **Schmeeema**
+##Schmeeema**
       *Game - round, winner
       *Player - name, email
       *Black_Card - text, blank_space_one, blank_space_two
