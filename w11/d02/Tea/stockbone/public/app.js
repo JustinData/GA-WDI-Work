@@ -42,6 +42,7 @@ var StockView = Backbone.View.extend({
   fetchStock: function(){
     $.ajax({
       method: "GET",
+      // path in our site relative to our current one
       url: "/price?q=" + this.stockSymbol,
       dataType: "json",
       success: this.receiveStock,
