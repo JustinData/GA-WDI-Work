@@ -25,11 +25,11 @@ class Hand
   end
 
   def full_house?
-    values.uniq.length == 2 && values.sort[1] != values.sort[3]
+    values.uniq.length == 2 && values[1] != values[3]
   end
 
   def four_of_a_kind?
-    values.uniq.length == 2 && values.sort[1] == values.sort[3]
+    values.uniq.length == 2 && values[1] == values[3]
   end
 
   def best_hand
