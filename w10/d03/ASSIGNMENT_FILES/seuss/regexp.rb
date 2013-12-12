@@ -15,15 +15,4 @@ f = File.new "seuss.txt", "r"
 text = f.read
 f.close
 
-one = text.scan(/sam[^-]/i).length
-
-two = text.gsub(/sam-i-am/i, "Sammy Jam")
-
-three = text.scan(/in a \w+/).
-
-four = text.gsub(/not/, "")
-save_as("better.txt", bettergreeneggs)
-
 binding.pry
-
-

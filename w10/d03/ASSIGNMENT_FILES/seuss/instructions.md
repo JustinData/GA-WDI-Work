@@ -8,7 +8,7 @@ Using the built in method (`save_as filename, contents`) and string (`txt`) prov
 
 3. List all the places and animals whom Sam refuses to eat with (the bigot).
 
-4. Create a new file where the narrator constantly agrees to eat (ie, remove the nots.)
+4. Create a new file where the narrator constantly agrees to eat (ie, remove the nots).
 
 5. Create a new file where "Sam" is "PJ," and is referred to as "PJ-I-Say", and the narrator is being forced to eat "curds and whey."
 
