@@ -57,7 +57,7 @@ describe Arena do
       context "Search for a specific gladiator in the arena" do
         before do
           arena.add_gladiator("Mihranix", "ipod")
-          expect(arena.find_gladiator("Mihranix")).to eq("He exists!")
+          expect(arena.find_gladiator("Mihranix")).to eq("#{name} found.")
         end
       end
       # context "Trying to add a gladiator with too many weapons" do
