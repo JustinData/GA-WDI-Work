@@ -15,3 +15,4 @@ Using the built in method (`save_as filename, contents`) and string (`txt`) prov
 6. List all of the sentences that are repeated twice in a row. This way you can prove to the narrator that he has a problem and should see a doctor before his dimensia gets worse.
 
 ---
+
