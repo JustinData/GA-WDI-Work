@@ -1,4 +1,4 @@
-|Name | Personal Email|
+|Name | Email|
 | ------------- |:-------------:| 
 |Group Listserv | wdi-array-nyc-sept13@ga-groups.com
 |Ann Millspaugh |  ann.millspaugh@gmail.com
