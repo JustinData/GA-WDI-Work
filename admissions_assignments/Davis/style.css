@@ -1,0 +1,110 @@
+body {
+	text-align: center;
+	background: url("shooting stars_small.jpg") no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+	
+	header {
+		border: 2px solid black;
+		color: black;
+	}
+	ul {
+		pading: 10px;
+	}
+	li {
+		display: inline;
+		padding: 0px 20px 0px 20px;
+	}
+	ul li a {
+		font-size: 1.5em;
+		text-decoration: none;
+		color: black;
+		border: 3px solid #734C5E;
+		border-style: outset;
+		padding: 5px 10px 5px 10px;
+	}
+	ul a:hover {
+		background: #B78BF4;
+	}
+	ul a:active {
+		border-style: inset;
+	}
+	
+	#me {
+		width: 34%;
+		margin-top: 10px;
+		-moz-box-shadow: 1px 1px 3px 2px #734C5E;
+		-webkit-box-shadow: 1px 1px 5px 3px #734C5E;
+		box-shadow: 1px 1px 3px 3px #734C5E;
+	}
+	
+	#quick {
+		text-decoration: underline;
+	}
+	#main ul {
+		text-align: left;
+		width: 20%;
+		margin-left: 39%;
+	}
+	#main ul li {
+		display: block;
+		list-style-type: circle;
+		display: list-item;
+	}
+	
+	.social {
+		-moz-box-shadow: 1px 1px 3px 2px #734C5E;
+		-webkit-box-shadow: 1px 1px 5px 3px #734C5E;
+		box-shadow: 1px 1px 3px 3px #734C5E;
+	}
+	#twitter {
+		float: left;
+		max-height: 300px;
+		width: 34%;
+	}
+	#instagram {
+		float: right;
+		min-height: 252px;
+		width: 65%;
+	}
+	
+	#left {
+		float: left;
+		width: 49.9%;
+		clear: both;
+		border-right: 1px solid black;
+		margin-right: 0px;
+	}
+	#right {
+		float: right;
+		width: 49.9%;
+		margin-left: 0px;
+	}
+		table {
+			width: 50%;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		td {
+			border-radius: 2px solid black;
+		}
+	
+	h2 {
+		text-decoration: underline;
+	}
+	
+	footer {
+		text-align: center;
+		border: 2px solid black;
+		clear: both;
+	}
+	span {
+		color: white;
+	}
+	#ga {
+		height: .75em;
+		width: .75em;
+	}

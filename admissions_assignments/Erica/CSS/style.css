@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<style>
+body {
+	background: #fff url("background.png");
+	background-position: center;
+	font-family: Garamond;
+	color: #000;
+}
+	
+}
+h1 {
+	font-size: 18px;
+	text-align: center;
+}
+
+ul {
+
+	padding: 10px;
+}
+
+li {
+
+
+}
+
+a {
+	color: #FFCC00;
+	display: inline;
+}
+
+span {
+	color: #FFCC00;
+	font-style: oblique;
+
+}
+
+img {
+	border-color: #FFCC00;
+	border-radius: 60px
+	}
+
+}
+
+</style>

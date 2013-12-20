@@ -1,0 +1,97 @@
+@font-face {
+    font-family: 'source_sans_proextralight';
+    src: url('../fonts/sourcesanspro-extralight-webfont.eot');
+    src: url('../fonts/sourcesanspro-extralight-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/sourcesanspro-extralight-webfont.woff') format('woff'),
+         url('../fonts/sourcesanspro-extralight-webfont.ttf') format('truetype'),
+         url('../fonts/sourcesanspro-extralight-webfont.svg#source_sans_proextralight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/*GLOBAL STYLES*/
+body {
+	background: url("../images/background.png");
+}
+
+ul {
+	text-align: center; 
+	list-style: none; 
+	padding-left: 0px; 
+}
+
+li {
+	display: inline;
+	padding-right: 20px; 
+}
+
+p {
+	line-height: 1.5; 
+}
+
+a {
+	text-decoration: none; 
+	color: #00F; 
+}
+
+
+#container {
+	width: 960px;
+	margin: 0px auto;
+}
+
+
+/*HEADER*/
+header {
+	background: #2E3F4A;
+}
+
+header ul  {
+	margin-top: 5px;
+}
+
+header li {
+	font-family: 'source_sans_proextralight', Verdana, sans-serif; 
+	font-size: 20px; 
+	color: #FFF;
+}
+
+header a {
+	color: #FFF;
+}
+
+header a:hover {
+	color: red;
+}
+
+h1 {
+	margin-top: 0px; 
+	margin-bottom: 0px;
+	color: #FFF;
+	font-family: 'source_sans_proextralight', Verdana, sans-serif; 
+	text-align: center; 
+	font-size: 90px; 
+}
+
+/*MAIN CONTENT*/
+#content { 
+	border-bottom: solid #333740 1px;
+	border-top: solid #333740 1px;
+}
+
+#content img {
+	float: right;
+	margin-left: 15px; 
+}
+
+h2 {
+	margin-bottom: 0px; 
+	margin-top: 5px;
+	font-size: 40px; 
+	font-family: 'source_sans_proextralight', Verdana, sans-serif; 
+}
+
+
+
+

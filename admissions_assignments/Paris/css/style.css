@@ -1,0 +1,159 @@
+header {
+	background: url("http://i1292.photobucket.com/albums/b561/parisliahyun/parisliahyun_cover_zps7b90206c.jpg"); 
+	background-size: cover;
+  border-bottom: 2px dotted #CDC1C5;
+	background-repeat: no-repeat;
+	height: 600px;
+	padding: 0px;
+	margin-top: -3em;
+} 
+
+ul {
+	margin-top: 10px;
+	text-align: center;
+	font-size: 150px; 
+}
+
+li {
+  display: inline;
+	padding: 0px 0px 0px 0px;
+	color: #CDC1C5;
+}
+
+a:link {color: #CDC1C5;} /* unvisited link */
+a:visited {color: #CDC1C5;} /* visited link */
+a:hover {color: #b29600;}  /* mouse over link */ 
+a:active {color: #b29600;}  /* selected link */
+a:link {text-decoration:none;}
+a:visited {text-decoration:none;}
+a:hover {text-decoration:none;}
+a:active {text-decoration:none;}
+
+body {
+	margin: 0px; 
+  padding: 0px;
+  font-family: helvetica;
+	}
+
+h2 a:link {color: gray;}
+h2 a:link	{text-decoration: none;}
+h2 a:hover {color: #FF4040;}
+
+h1 {
+	padding-top: 15px;
+	margin-right: 35px;
+	text-align: right;
+  font-size: 60px;
+	}
+
+h2 {
+	margin-right: 35px;
+	float: right;
+	font-size: 24px;
+	color: gray;
+	}
+
+h3 {
+	margin-right: 35px;
+	float: right;
+	font-size: 24px;
+	color: gray;
+	}
+
+img {
+	margin-right: 35px;
+	float: right;
+  border: 2px dotted #CDC1C5;
+  border-radius: 10px;
+	width:175px;
+	height: 175px;
+	}
+
+@media (max-width: 720px) {	
+/* for tablet */
+
+header {
+margin-top: -2em;
+background-size: 720px 349px;
+margin-left: -10em;
+border-bottom: none;
+height: 350px;
+	}
+
+h1 {
+  font-size: 36px;
+	}
+
+h2 {
+  font-size: 15px;
+	}
+
+ul {
+	margin-top: 30px;
+	font-size: 50px;
+	}		
+
+li {
+  padding: 5px;
+	}	
+
+}	
+
+@media (max-width: 320px) {
+/* for mobile */
+
+header {
+background: none;
+border-bottom: none;
+margin: 10px 0px 0px 0px;
+padding: 0px;
+height: 300px;
+	}
+
+h1 {
+  font-size: 40px;
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+  float: none;
+	}
+
+h2.blocktext {
+  font-size: 15px;
+  text-align: center;
+  margin-top: 10px;
+  padding: 0px;
+  float: none;
+	}	
+
+h3 {
+  font-size: 15px;
+  text-align: center;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0px;
+  float: none;
+	}		
+
+ul {
+	margin: 0px;
+	padding: 0px;
+	font-size: 30px;
+	}	
+
+li {
+  padding: 5px;
+	}		
+
+img.displayed {
+	float: none;
+	display: block;
+  margin-left: auto;
+  margin-right: auto;
+	padding: 0px;
+	}	
+
+}
+
+

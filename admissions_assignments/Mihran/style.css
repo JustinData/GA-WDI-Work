@@ -1,0 +1,40 @@
+		 body {
+      text-align: right;
+      background: url("Mihranbackground.jpg");
+      background-size: cover;
+      background-position: tile;
+      color: black;
+      font-family: helvetica;
+
+    }
+
+    h1 {
+    	font-size: 35px;
+    	color: black;
+    	} 
+
+    	p {
+    font-size: 20px
+    font-family: helvetica;
+    text-align: justify;
+	}
+
+    ul {
+      padding: 10px;
+    }
+
+    li {
+      display: inline;
+      padding: 10px  10px 10px 10px;
+    }
+
+	.myFloatBar{
+   bottom:0;
+   left:0;
+   width:100%;
+   max-height:150px;
+   position:fixed;
+   background-color:rgba(0,0,0,0.6);
+   color:white;
+   font-size:20px;
+}

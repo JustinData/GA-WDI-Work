@@ -1,0 +1,48 @@
+h1 {
+  color: #2F4F4F;
+}
+
+li {
+  display: inline;
+  padding: 0px 10px 0px 10px;
+}
+
+body {
+  text-align: center;
+  color: black;
+}
+
+html {
+
+  background: url('../img/ernie.jpg') no-repeat center center fixed;  
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+}
+
+#background{
+  transform: rotate(180deg);
+}
+
+.twitter-timeline {
+  overflow: auto;
+  float: left;
+  width: 200px;
+  height: 700px;
+}
+
+p {
+  text-align: right;
+  
+}
+
+#text {
+    color: white;
+    width: 200px;
+    height: 100px;
+    float: left;
+    margin-top: 40px;
+
+}

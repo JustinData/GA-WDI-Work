@@ -1,0 +1,91 @@
+html, body, p {
+	margin: 0;
+	padding: 0;
+}
+.total {
+	width: 100%;
+	margin: 0 auto;
+	border-top: 4px solid #36B265;
+}
+@font-face {
+	font-family: 'Inconsolata', sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'Nunito' sans-serif;
+}
+header {
+	height: 320px;
+	background: #B22B24;
+	text-align: center;
+	vertical-align: middle;
+	padding: 3% 3% 3% 3%;
+}
+a:link {
+ color: #67FFA0;
+}
+a:visited {
+ color: #67FFA0;
+}
+a:hover {
+ color: #67FFA0;
+ font-weight: 700;
+}
+body {
+	background: #67FFA0;
+}
+li {
+	display: inline;
+}
+h1 {
+  height: 100%;
+	padding: 30px 0px 0px 0px;
+  background: url(avi.jpg);
+	background-size: 20%;
+	background-repeat: repeat-x;
+	background-position: middle;
+	font-family: 'Inconsolata', sans-serif;
+	font-size: 56px;
+	font-weight: 400;
+	text-align: center;
+	text-shadow: 3px 4px black;
+	vertical-align: top;
+	color: white;
+}
+#special {
+	color: #67FFA0;
+	text-shadow: 3px 4px #FF6E67;
+	display: inline;
+}
+#acting {
+	background: #36B265;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 300;
+	text-align: center;
+	color: white;
+	padding: 5%;
+	margin: 0% 20%;
+}
+#music {
+	background: #2EE07A;
+	font-family: 'Nunito', sans-serif;
+	text-align: center;
+	color: white;
+	padding: 5%;
+	margin: 0% 20%;
+}
+#programming {
+	background: #FF6E67;
+	font-family: 'Inconsolata', serif;
+	font-weight: 400;
+	text-align: center;
+	color: #B22B24;
+	padding: 5%;
+	margin: 0% 20%;
+}
+.footer {
+	background: #B22B24;
+	font-family: 'Inconsolata';
+	font-weight: 400;
+	color: white;
+	text-align: right;
+	padding: 7% 7% 7%;
+}
