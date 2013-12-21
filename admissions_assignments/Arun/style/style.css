@@ -1,0 +1,45 @@
+ul{
+background: black;
+padding: 10px;
+text-align: center;
+}
+li{
+display: inline;
+padding: 10px;
+color: white;
+text-align: center;
+}
+body{
+margin: 0 auto;
+max-width: 700px;
+}
+a{
+color: white;
+}
+header{
+text-align: center;
+}
+img.me{
+border-radius: 10px;
+border: solid black;
+}
+.anitha{
+border: 5px solid black;
+border-radius: 10px;
+height: auto;
+}
+.anitha h1{
+font-size: 40px;
+}
+.anitha img{
+width: 150px;
+height: 50px;
+float: left;
+height: auto;
+}
+.hobby{
+border: 5px solid black;
+border-radius: 10px;
+height: auto;
+}
+.hobby 

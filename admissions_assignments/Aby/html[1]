@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+	<link href="assets/normalize.css" rel="stylesheet">
+	<style>
+	header {
+		text-align: center;
+		background: url(
+			'http://cdn.desktopwallpapers4.me/media/thumbs_400x250/1/4979.jpg');
+		background-size: cover;
+		color: white;
+		font-family: georgia;
+	}
+	a {
+		color: white;
+	}
+	p {
+		font-size: 20px;
+	}
+	h1 {
+		font-size: 35px;
+	}
+	h2 {
+		font-size: 35px;
+	}
+	img {
+		margin: 40px 0px 0px 0px;
+		border: 7px solid white;
+		border-radius: 20px
+	}
+	</style>
+</head>
+<body>
+	<header>
+	<img src="http://m.c.llnw.licdn.com/mpr/mpr/shrink_200_200/p/4/000/15e/31c/3f0e65d.jpg">
+	<h1> About Me </h1>
+	<p> <b> Aby had his first experience with business development while in grad school, where during summers in El Salvador he helped launch Volunteer International Program (VIP). Since then, VIP has sent over 5,000 volunteers to Central America, where they have worked to change local communities for the better. Currently, Aby serves as the Director of Business Development at Sweetable Eatables, a food retail company. There, he continues to hone his business acumen: thinking creatively, tackling complex problems, and doing whatever it takes to reach sales goals. Aby holds degrees in Public Health and International Development from the University of South Florida. </b>
+	</p>
+	<h2> Contact Info </h2>
+	<p> <b> 305 W. 150th Street, NYC, NY 10039 </b> </p>
+	<p> <a href="mailto:aby.bandoh@gmail.com" </a> <b> Email: aby.bandoh@gmail.com</b> </p>
+	<p> <a href="https://twitter.com/abzillla" </a> <b>Twitter: @abzillla </b> </p>
+	<p> <a href="http://www.linkedin.com/profile/view?id=89650835&trk=nav_responsive_tab_profile" </a> <b> Linkedin Profile </b> </p>
+	</body>

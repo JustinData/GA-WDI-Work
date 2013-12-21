@@ -1,0 +1,155 @@
+/* HTML Selectors*/
+html {
+	background: #ffffff;
+}
+body {
+	background-image: url("../img/GAbg.png");
+	background-repeat: no-repeat;
+	background-color: #ffffff;
+	margin: 0 auto;
+	width: 960px;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 100%;
+}
+h1, h2 {
+	font-family: 'Patrick Hand SC', Helvetica, Arial, sans-serif;
+	font-size: 32px;
+	color: #ff0066;
+}
+h3 {
+	font-family: 'Patrick Hand SC', Helvetica, Arial, sans-serif;
+	font-size: 20px;
+}
+p, li {
+	font-size: 16.5px; 
+}
+div {
+	width: 950px;
+	height: 800px;
+	margin: 0 auto;
+	padding: 5px;
+}
+li span {
+	float: right;
+	margin-right: 75px;
+}
+p span {
+	color: #ff0066;
+}
+footer {
+	position: relative;
+	top: -25px;
+}
+
+/* Navigation */
+nav {
+	position: fixed;
+	z-index: 1000;
+	top: 10px;
+	right: 0;
+	font-size: 14px; 
+}
+nav ul {
+	list-style: none;
+	text-align: right;
+}
+nav ul li {
+	height: 40px;
+}
+nav ul li a {
+	background: #ff0066;
+	padding: 10px 15px;
+	margin: 2px 0 2px 2px;
+	text-decoration: none;
+	-moz-border-radius: 20px 0 0 20px;
+	-webkit-border-radius: 20px 0 0 20px;
+	border-radius: 20px 0 0 20px;
+}
+li a:link {
+	color: #ffffff;
+}
+li a:visited {
+	color: #ffffff;
+}
+li a:hover {
+	color: #000000;
+	padding: 10px 20px;
+}
+li a:active {
+	color: #000000;
+}
+
+/* Links */
+a:link {
+	color: #ff0066;
+	text-decoration: none;
+}
+a:visited {
+	color: #ff0066;
+}
+a:hover {
+	color: #00ffbf;
+}
+a:active {
+	color: #00ffbf;
+}
+
+/* Images */
+img.frame {
+	margin: 10px;
+	border: 20px solid #000000;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+}
+img#girl {
+	position: relative;
+	top: -250px;
+	left: 230px;
+}
+
+/* Div Classes */
+div.left {
+	padding: 20px;
+	margin: 20px;
+	float: left;
+	clear: left;
+}
+div.right {
+	padding: 20px;
+	margin: 20px;
+	float: right;
+	clear: right;	
+}
+div.mint {
+	background: #00ffbf;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+}
+div.blue {
+	background: #509DFF;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+}
+div.small {
+	width: 310px;
+	height: 225px;
+}
+div.med {
+	width: 380px;
+	height: 295px;
+}
+div.large {
+	width: 350px;
+	height: 450px;
+}
+.movedwn {
+	position: relative;
+	top: 300px;
+}
+.nudgedwn {
+	position: relative;
+	top: 35px;
+}

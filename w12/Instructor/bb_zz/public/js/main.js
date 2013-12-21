@@ -81,8 +81,10 @@ var ExhibitView = Backbone.View.extend({
     console.log("Rendering ExhibitView from JSON object: ");
     console.log(this.model.toJSON());
 
+    this.$el.attr( "data-cid", this.model.cid ); // add data attribute
     this.$el.html( this.template(this.model.toJSON()) );
   }
+
 });
 
 
@@ -105,6 +107,10 @@ var ExhibitListView = Backbone.View.extend({
     this.addAll();
   },
 
+  events: {
+    "click li": "animalTouch"
+  },
+
   addAll: function() {
     console.log("ExhibitListView#addAll...");
 
@@ -116,6 +122,32 @@ var ExhibitListView = Backbone.View.extend({
 
     var view = new ExhibitView({model: exhibit});
     this.$el.append(view.el);
+  },
+
+  animalTouch: function(e) {
+    var el =    e.currentTarget,
+        $el =   $(el),
+        cid =   $el.data("cid"),
+        model = this.collection.get(cid);
+
+    $el.effect( "shake" );
+
+    // wrap the alert in an anonymous function to send as a callback, and then bind the
+    // context to "this" so that inside that function "this" means what we want it to mean...
+    var callAlert = function(){alert("Don't touch the " + model.get("animal") + "!")};
+    //callAlert = callAlert.bind(this);
+    setTimeout(callAlert, 500);
+
+    var currentDescription = model.get("description");
+
+    // touching makes the animal annoyed; if it already annoyed it makes it angry!
+    if (currentDescription === "Angry") {
+      // stays mad...
+    } else if (currentDescription === "Annoyed") {
+      model.set("description", "Angry");
+    } else {
+      model.set("description", "Annoyed");
+    }
   }
 });
 
@@ -148,7 +180,8 @@ var ExhibitFormView = Backbone.View.extend({
     this.el.reset();
 
     var route = "animal/" + encodeURI(animal) + "/number/" + encodeURI(number);
-    Backbone.history.navigate(route, {trigger: true});
+    Router.forceNavigate(route, animal, number);
+    //Backbone.history.navigate(route, {trigger: true});
   }
 });
 
@@ -159,42 +192,8 @@ var ExhibitFormView = Backbone.View.extend({
 // **********         ESCAPE MVC          **********
 // *************************************************
 
-// **********     ESCAPE (FORM) VIEW      **********
-// This is the view controller that describes the
-// interaction with the form for the escape list.
-//
-var EscapeFormView = Backbone.View.extend({
 
-  initialize: function() {
-    console.log("Initialized EscapeFormView...");
-
-    this.$el.addClass( "view escape form-view" );
-    this.$el.find("button").text( _.sample(this.foolishMistakes) );
-  },
-
-  events: {
-    "submit": "addEscape"
-  },
-
-  foolishMistakes: ["Doze Off...","Cigarette Break...",
-                    "Sext a Coworker...","Shop Online...",
-                    "Spill Coffee...","Read Want Ads..."],
-
-  addEscape: function(e) {
-    console.log("EscapeFormView#addEscape...");
-
-    alert("You fool! There's been an escape!");
-    this.$el.find("button").text( _.sample(this.foolishMistakes) );
-
-    e.preventDefault();
-    Backbone.history.navigate("escape!", {trigger: true});
-  }
-});
-
-
-
-
-// **********    ESCAPECOLLECTION      **********
+// **********    ESCAPE COLLECTION     **********
 // This is the collection of escapes, ie the list
 // of exhibit models representing freed animals!
 //
@@ -222,21 +221,64 @@ var EscapeListView = Backbone.View.extend({
     console.log("Initialized EscapeListView...");
 
     this.listenTo(this.collection, "add",  this.addOne);
-    this.listenTo(this.collection, "reset", this.render);
+
+    this.render(true);
   },
-  render: function(){
+  render: function(isEmpty){
     console.log("Rendering EscapeListView...");
-    this.$el.html("<h3>Roaming the streets of Ohio are now:</h3>");
+
+    if (isEmpty) {
+      this.$el.html("");
+    } else {
+      this.$el.html("<h3>Roaming the streets of Ohio are now:</h3>");
+    }
   },
 
   addOne: function(exhibit) {
     console.log("EscapeListView#addOne...");
 
+    if (this.collection.length > 0) {
+      this.render(false);
+    }
     var view = new ExhibitView({model: exhibit});
     this.$el.append(view.el);
   }
 });
 
+
+
+
+// **********     ESCAPE (FORM) VIEW      **********
+// This is the view controller that describes the
+// interaction with the form for the escape list.
+//
+var EscapeFormView = Backbone.View.extend({
+
+  initialize: function(router) {
+    console.log("Initialized EscapeFormView...");
+
+    this.router = router;
+    this.$el.addClass( "view escape form-view" );
+    this.$el.find("button").text( _.sample(this.foolishMistakes) );
+  },
+
+  events: {
+    "submit": "addEscape"
+  },
+
+  foolishMistakes: ["Doze Off...","Cigarette Break...",
+                    "Sext a Coworker...","Shop Online...",
+                    "Spill Coffee...","Read Want Ads..."],
+
+  addEscape: function(e) {
+    console.log("EscapeFormView#addEscape...");
+
+    this.$el.find("button").text( _.sample(this.foolishMistakes) );
+
+    e.preventDefault();
+    Router.forceNavigate("escape!"); //formerly Backbone.history.navigate("escape!", {trigger: true});
+  }
+});
 
 
 
@@ -268,7 +310,7 @@ var ZooView = Backbone.View.extend({
 var ZooRouter = Backbone.Router.extend({
   routes: {
     "": "index",
-    "animal/:animal/number/:number?*": "addExhibit",
+    "animal/:animal/number/:number": "addExhibit",
     "escape!": "addEscape"
   },
 
@@ -300,7 +342,7 @@ var ZooRouter = Backbone.Router.extend({
 
   addExhibit: function(animal,number) {
     console.log("---> Navigated to addExhibit!");
-
+    this.lastAction = this.addExhibit;
     if (this.animalExists(animal, number)){
       // increment the number of animals in the exhibit
       var exhibit = this.exhibitList.findWhere({animal: animal});
@@ -316,8 +358,8 @@ var ZooRouter = Backbone.Router.extend({
 
   addEscape: function() {
     console.log("---> Navigated to addEscape!");
-
-    this.escapeList.reset();
+    this.lastAction = this.addEscape;
+    var escapees = false;
 
     // make a copy of the collection to iterate over, so that if we
     // destroy elements it doesn't screw up our current index
@@ -325,10 +367,13 @@ var ZooRouter = Backbone.Router.extend({
       var number = parseInt( exhibit.get("number") );
       var escapedNumber = Math.floor(Math.random() * (number+1));
       var animal = exhibit.get("animal");
+
       console.log("Of "+number+" x "+animal+", "+escapedNumber+" escaped!");
 
       if (escapedNumber > 0) {
-       this.escapeList.add( new ExhibitModel(escapedNumber, animal, "escaped") );
+        escapees = true; // set the escapees flag for the alert...
+        this.escapeList.add( new ExhibitModel(escapedNumber, animal, "escaped") );
+
         if (escapedNumber == number) { // all of them escaped!
           exhibit.destroy();
         } else {                       // some of them escaped
@@ -336,6 +381,10 @@ var ZooRouter = Backbone.Router.extend({
         }
       }
     });
+
+    if (escapees) {
+      alert("You fool! There's been an escape!");
+    }
   },
 
   animalExists: function(animal, number) {
@@ -351,6 +400,18 @@ var ZooRouter = Backbone.Router.extend({
     this[viewName] && this[viewName].remove();
     this[viewName] = view; // replace referenced view
     this.main.$el.append(view.el); // append it to DOM
+  },
+
+  forceNavigate: function () {
+    var route = arguments[0];
+    if (arguments.length > 1) {
+      var params = _.rest(arguments);
+    }
+    if (Backbone.history.fragment === route) {
+      this.lastAction.apply(this, params);
+    } else {
+      Backbone.history.navigate(route, {trigger: true});
+    }
   }
 
 });
@@ -363,7 +424,7 @@ var ZooRouter = Backbone.Router.extend({
 // *************************************************
 
 $(function() {
-  console.log("Application loaded!");
+  console.log("Application v2 loaded!");
 
   //initialize collections
   exhibitList = new ExhibitList();
@@ -373,7 +434,7 @@ $(function() {
   window.location.hash = "";
 
   // begin routing
-  new ZooRouter(exhibitList, escapeList);
+  Router = new ZooRouter(exhibitList, escapeList);
 
   // exhibitList.add(new ExhibitModel(3, "Lions"));
   // exhibitList.add(new ExhibitModel(3, "Tigers"));
