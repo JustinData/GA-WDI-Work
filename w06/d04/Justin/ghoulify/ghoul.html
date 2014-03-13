@@ -1,13 +1,25 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<link href='http://fonts.googleapis.com/css?family=Creepster' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="ghoul.css">
+  <link href='http://fonts.googleapis.com/css?family=Creepster' rel='stylesheet' type='text/css'>
   <meta charset="UTF-8">
   <title>Ghouli.fy</title>
 </head>
 <body>
-	<h1>Ghoulify!</h1>
+  <div class="topbar">  <h1>Ghoulify</h1></div>
+  <div class="wrapper">
+  	<form class="add-ghoul">
+  		<input type="text" name="ghoulName"><br>
+  		<button>button</button>
+  	</form>
+    <div class="container">
+      <h3>Ghouls in containment:</h3>
+      <ul class="containment-unit">
+      </ul>
+    </div>
+  </div>
+  <script type="text/javascript" src="wtk.js"></script>
   <script type = "text/javascript" src="ghoul.js"></script>
 </body>
 </html>

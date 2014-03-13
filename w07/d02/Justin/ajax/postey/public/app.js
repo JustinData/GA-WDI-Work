@@ -1,23 +1,35 @@
 window.onload = function() {
-	console.log("JS Loaded");
-	submitForm(document.querySelector("form"));
-};
+  console.log("JS Loaded");
+  submitForm(document.querySelector("form"));
+}
 
 function submitForm(formElement) {
-	formElement.addEventListener("submit", function(event) {
-		event.preventDefault();
-		console.log("FORM SUBMITTED!");
-		postData(this);
-	});
+  formElement.addEventListener("submit", function(event) {
+    event.preventDefault();
+    console.log("FORM SUBMITTED!");
+    postData(this);
+    this.reset();
+  });
 }
 
 function postData(formElement) {
-	var httpRequest = new XMLHttpRequest();
+  var httpRequest = new XMLHttpRequest();
 
-	//httpRequest.addEventListener("load", callback);
+  httpRequest.addEventListener("load", function() {
+	var posts = JSON.parse(window.response);
+	
+	var ul = document.getElementByTagName("ul");
+	ul.innerHTML = "";
 
-	httpRequest.open("POST", "/");
+	for (var i = 0; i < posts.length; i ++) {
+		var li = document.createElement("li");
+		li.innerHTML("Title: " + posts[i].title + ", content: " + posts[i].content);
+		ul.appendChild(li);
+	}
+  });
 
-	var serializeData = new FormData(formElement);
-	httpRequest.send(serializeData);
+  httpRequest.open("POST", "/");
+
+  var serializedData = new FormData(formElement);
+  httpRequest.send(serializedData);
 }

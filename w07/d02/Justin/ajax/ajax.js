@@ -1,33 +1,30 @@
-window.onload = function() {
-	console.log("Loaded!");
-	// displayMovie("Up");
-	// getMovie("Up");
-}
-
-function getMovie(movie, callback) {
-	window.httpRequest = new XMLHttpRequest();
-
-	httpRequest.addEventListener("load", function() {
-		callback(JSON.parse(httpRequest.responseText));
-	});
-
-	httpRequest.open("GET", "http://www.omdbapi.com/?t=" + movie);
-	httpRequest.send();
+window.onload = function(){
 
 }
 
-function displayMovie(movie) {
-	//get movie data
-	//render movie poster to screen
+function getMovie(movie, callback){
+  // set window. to make it accessible within console
+  window.httpRequest = new XMLHttpRequest();
 
-	// var movie = JSON.parse(item);
-	var img = document.createElement("img");
-	img.src = movie.Poster;
-	document.body.appendChild(img);
+  // listens to Load event before doing this
+  httpRequest.addEventListener("load", function(){
+      callback(JSON.parse(httpRequest.responseText));
+  });
 
+  httpRequest.open("GET", "http://www.omdbapi.com/?t=" + movie);
+  httpRequest.send();
+}
+
+function displayMovie(movie){
+  var img = document.createElement("img");
+  img.src = movie.Poster;
+  document.body.appendChild(img);
 }
 
 function alertYear(movie) {
-	// var movie = JSON.parse(item);
-	alert(movie.Title + " was made in " + movie.Year);
+  alert(movie.Title + " was made in " + movie.Year);
 }
+
+
+
+

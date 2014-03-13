@@ -4,7 +4,7 @@ require 'benchmark'
 ### Setup!
 ###############
 
-arr = (1..500).to_a.shuffle
+arr = (1..10000).to_a.shuffle
 
 class Array
 
@@ -24,7 +24,22 @@ class Array
   end
 
   def quick_sort
-    #Paste your code here!
+    if self.length <= 1
+      return self
+    end
+
+    pivot = self.slice!(rand(self.length))
+    less_array = []
+    greater_array = []
+
+    self.each do |i|
+      if i <= pivot
+        less_array << i
+      else
+        greater_array << i
+      end
+    end
+    less_array.quick_sort + [pivot] + greater_array.quick_sort
   end
 
 end
@@ -53,11 +68,11 @@ Benchmark.bmbm(10) do |bm|
   end
 
 # Uncomment the code below when you are ready!
-  # bm.report("Quick") do
-  #   iterations.times do
-  #     arr.dup.quick_sort
-  #   end
-  # end
+  bm.report("Quick") do
+    iterations.times do
+      arr.dup.quick_sort
+    end
+  end
 
   bm.report("Ruby") do
     iterations.times do
